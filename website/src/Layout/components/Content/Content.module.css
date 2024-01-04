@@ -1,4 +1,8 @@
 .content_container {
-    width: 100%;
-    height: calc(100vh - 40px);
+  width: calc(100% - 15%);
+  left: 15%;
+  position: absolute;
+  height: calc(100vh - 41px);
+  overflow: auto;
+  padding: 20px;
 }

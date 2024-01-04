@@ -1,7 +1,7 @@
 module.exports = {
   testRegex: '((\\.|/*.)(test))\\.js?$',
   moduleFileExtensions: ['js', 'jsx'],
-  modulePathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/sandbox/'],
+  modulePathIgnorePatterns: ['<rootDir>/dist/', '<rootDir>/website/'],
   moduleNameMapper: {
     '^.+.(styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
     '^.+\\.css$': 'identity-obj-proxy',

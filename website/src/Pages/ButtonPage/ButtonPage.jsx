@@ -1,29 +1,33 @@
 import React from "react";
-import {RucButton } from "react-ui-essentials";
+import { RueButton } from "react-ui-essentials";
 
 const ButtonPage = () => {
-  return <div>
-     <RucButton variant='info' size='sm' disabled={true}>         Jai Sree Ram
-       </RucButton>
-       <RucButton variant='primary' size='sm'>
-         Jai Sree Ram
-       </RucButton>{' '}
-       <RucButton variant='success' size='sm'>
-         Jai Sree Ram
-       </RucButton>{' '}
-       <RucButton variant='warning' size='sm'>
-         Jai Sree Ram
-       </RucButton>{' '}
-       <RucButton variant='secondary' size='sm'>
-         Jai Sree Ram
-       </RucButton>
-       <RucButton variant='danger' size='sm'>
-         Jai Sree Ram
-       </RucButton>
-       <RucButton variant='light' size='sm'>
-         Jai Sree Ram
-       </RucButton>
-  </div>;
+  return (
+    <div>
+      <RueButton variant="info" size="sm" disabled={true}>
+        {" "}
+        Jai Sree Ram
+      </RueButton>
+      <RueButton variant="primary" size="sm">
+        Jai Sree Ram
+      </RueButton>{" "}
+      <RueButton variant="success" size="sm">
+        Jai Sree Ram
+      </RueButton>{" "}
+      <RueButton variant="warning" size="sm">
+        Jai Sree Ram
+      </RueButton>{" "}
+      <RueButton variant="secondary" size="sm">
+        Jai Sree Ram
+      </RueButton>
+      <RueButton variant="danger" size="sm">
+        Jai Sree Ram
+      </RueButton>
+      <RueButton variant="light" size="sm">
+        Jai Sree Ram
+      </RueButton>
+    </div>
+  );
 };
 
 export default ButtonPage;

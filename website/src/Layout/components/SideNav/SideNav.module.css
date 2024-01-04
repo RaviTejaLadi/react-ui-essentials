@@ -1,5 +1,27 @@
 .sidenav_container {
-    width: 15%;
-    height: 100vh;
-    position: fixed;
+  width: 15%;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+}
+
+.sidenav_body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+  overflow: auto;
+  margin-bottom: 50px;
+}
+
+.sidenav_body_link {
+  border: 1px solid rgb(126, 13, 13);
+  width: 100%;
+  height: 32px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.sidenav_body_link_span {
+  text-align: center;
 }

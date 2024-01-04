@@ -1,4 +1,4 @@
-.ruc_btn {
+.rue_btn {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -13,90 +13,90 @@
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.ruc_btn_primary {
+.rue_btn_primary {
   color: #fff;
   background-color: rgb(16, 36, 71);
 }
 
-.ruc_btn_primary:hover {
+.rue_btn_primary:hover {
   color: #fff;
   background-color: rgb(46, 58, 77);
   border-color: #0062cc;
 }
 
-.ruc_btn_secondary {
+.rue_btn_secondary {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
 }
 
-.ruc_btn_secondary:hover {
+.rue_btn_secondary:hover {
   color: #fff;
   background-color: #5a6268;
   border-color: #545b62;
 }
 
-.ruc_btn_success {
+.rue_btn_success {
   color: #fff;
   background-color: #28a745;
   border-color: #28a745;
 }
 
-.ruc_btn_success:hover {
+.rue_btn_success:hover {
   color: #fff;
   background-color: #218838;
   border-color: #1e7e34;
 }
 
-.ruc_btn_info {
+.rue_btn_info {
   color: #fff;
   background-color: #17a2b8;
   border-color: #17a2b8;
 }
 
-.ruc_btn_info:hover {
+.rue_btn_info:hover {
   color: #fff;
   background-color: #138496;
   border-color: #117a8b;
 }
 
-.ruc_btn_warning {
+.rue_btn_warning {
   color: #212529;
   background-color: #ffc107;
   border-color: #ffc107;
 }
 
-.ruc_btn_warning:hover {
+.rue_btn_warning:hover {
   color: #212529;
   background-color: #e0a800;
   border-color: #d39e00;
 }
 
-.ruc_btn_danger {
+.rue_btn_danger {
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
 }
 
-.ruc_btn_danger:hover {
+.rue_btn_danger:hover {
   color: #fff;
   background-color: #c82333;
   border-color: #bd2130;
 }
 
-.ruc_btn_light {
+.rue_btn_light {
   color: #979da3;
   background-color: #f8f9fa;
   border-color: #f8f9fa;
 }
 
-.ruc_btn_light:hover {
+.rue_btn_light:hover {
   color: #979da3;
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
 
-.ruc_btn_sm {
+.rue_btn_sm {
   font-size: 0.875rem;
   line-height: 1.5;
   padding: 0.25rem 0.5rem;
@@ -104,7 +104,7 @@
   border-radius: 0.2rem;
 }
 
-.ruc_btn_lg {
+.rue_btn_lg {
   font-size: 1.25rem;
   line-height: 1.5;
   padding: 0.5rem 1rem;
@@ -112,7 +112,7 @@
   border-radius: 0.3rem;
 }
 
-.ruc_btn_md {
+.rue_btn_md {
   font-size: 1rem;
   line-height: 1.5;
   padding: 0.375rem 0.75rem;
@@ -120,7 +120,7 @@
   border-radius: 0.25rem;
 }
 
-.ruc_btn_xl {
+.rue_btn_xl {
   font-size: 1.5rem;
   line-height: 1.5;
   padding: 0.75rem 1.5rem;
@@ -128,7 +128,7 @@
   border-radius: 0.35rem;
 }
 
-.ruc_btn_custom {
+.rue_btn_custom {
   font-size: 1.5rem;
   line-height: 1.5;
   padding: 0.75rem 19.9rem;
@@ -136,8 +136,8 @@
   border-radius: 0.35rem;
 }
 
-.ruc_btn:disabled,
-.ruc_btn.disabled {
+.rue_btn:disabled,
+.rue_btn.disabled {
   opacity: 0.65;
   pointer-events: none;
 }

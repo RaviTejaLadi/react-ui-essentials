@@ -1,16 +1,14 @@
-import React from 'react'
- import { RucBadge} from 'react-ui-essentials'
-
+import React from "react";
+import { RueBadge } from "react-ui-essentials";
 
 const BadgePage = () => {
   return (
     <div>
-           <RucBadge variant='primary' size='sm'>
-       Jai Sree Ram
-       </RucBadge>
-
+      <RueBadge variant="primary" size="sm">
+        Jai Sree Ram
+      </RueBadge>
     </div>
-  )
-}
+  );
+};
 
-export default BadgePage
+export default BadgePage;

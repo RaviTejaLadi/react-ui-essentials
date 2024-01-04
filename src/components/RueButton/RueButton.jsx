@@ -1,0 +1,26 @@
+import PropTypes from "prop-types";
+import React from "react";
+import styles from "./RueButton.module.css";
+
+const RueButton = ({ variant, size, onClick, disabled, children, type }) => {
+  const buttonClasses = `${styles.ruc_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
+    size ? `${styles[`rue_btn_${size}`]}` : ""
+  }`;
+
+  return (
+    <button className={buttonClasses} onClick={onClick} disabled={disabled} type={type}>
+      {children}
+    </button>
+  );
+};
+
+RueButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  size: PropTypes.string,
+  type: PropTypes.string,
+  variant: PropTypes.string,
+};
+
+export default RueButton;

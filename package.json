@@ -17,12 +17,12 @@
     "prepare": "run-s build",
     "test": "jest --config ./jest.config.js --no-cache",
     "coverage": "jest --coverage || exit 0",
-    "test:build": "run-s build",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd website && pnpm install && pnpm run build",
-    "deploy": "gh-pages -d website/build"
+    "deploy": "gh-pages -d website/build",
+    "lint": "eslint src/**/*.{js,jsx} && eslint \"website/src/**/*.{js,jsx,}\"",
+    "lint:fix": "eslint --fix src/**/*.{js,jsx,} && eslint --fix  \"website/src/**/*.{js,jsx,}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx}\" && prettier --write \"website/src/**/*.{js,jsx}\" --config .prettierrc.js",
+    "clean": "rm -rf node_modules && rm -rf dist && cd website && rm -rf node_modules && rm -rf dist"
   },
   "peerDependencies": {
     "react": "^16.0.0"
@@ -46,12 +46,39 @@
     "prettier": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^3.4.1",
+    "jest": "^24.9.0",
+    "jest-dom": "^4.0.0",
+    "jest-transform-stub": "^2.0.0",
+    "jsdom": "^16.4.0"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "prop-types": "^15.8.1"
-  }
+    "prop-types": "^15.8.1",
+    "react-router-dom": "^6.21.1"
+  },
+  "keywords": [
+    "React UI Components",
+    "Component Library",
+    "UI Essentials",
+    "React UI Kit",
+    "User Interface (UI) Toolkit",
+    "Modern React Components",
+    "Reusable React Elements",
+    "Responsive UI Components",
+    "Customizable React Components",
+    "Styled Components for React",
+    "React Design System",
+    "Accessible UI Components",
+    "Seamless React Integration",
+    "UI Building Blocks for React",
+    "React Component Library Best Practices",
+    "UI Development for React",
+    "Cross-browser React Components",
+    "React UI Essentials",
+    "Themeable React Components",
+    "UI Elements for React Apps"
+  ]
 }

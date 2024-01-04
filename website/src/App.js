@@ -9,8 +9,8 @@ const App = () => {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route exact={true} path='/button' element={<ButtonPage />} />
-          <Route exact={true} path='/badge' element={<BadgePage />} />
+          <Route exact={true} path="/button" element={<ButtonPage />} />
+          <Route exact={true} path="/badge" element={<BadgePage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
