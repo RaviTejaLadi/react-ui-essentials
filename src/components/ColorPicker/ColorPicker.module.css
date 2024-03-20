@@ -1,0 +1,31 @@
+.rue_color_container {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-bottom: 10px;
+}
+
+.rue_color_container:hover {
+    border: 1px solid #118ab2;
+}
+
+.rue_colorpicker_Title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rue_colorpicker {
+    margin-top: 5px;
+    border-radius: 5px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 40px;
+    padding: 0;
+    width: 80px;
+}

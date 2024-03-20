@@ -1,0 +1,18 @@
+export const initialstates = {
+  flexDirection: "row",
+  justifyContent: "flex-start",
+  alignItems: "stretch",
+  alignContent: "flex-start",
+  flexWrap: "nowrap",
+  gap: "0px",
+  rowGap: "0px",
+  columnGap: "0px",
+  alignSelf: "auto",
+  order: "0px",
+  flexGrow: "0px",
+  flexShrink: "0px",
+  flexBasis: "0px",
+  flex: "none",
+  divs: Array.from({ length: 3 }, (_, i) => i),
+  code: "",
+};

@@ -1,0 +1,185 @@
+.rue_banner_links>a,
+.rue_banner_links>a:hover {
+    text-decoration: none;
+    border: 1px solid transparent
+}
+
+.rue_banner_container {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    background-color: #ecf2ff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden
+}
+
+.rue_banner_title_container {
+    display: flex;
+    flex-direction: column;
+    width: 90%
+}
+
+.rue_banner_links,
+.rue_banner_title {
+    height: 50%
+}
+
+.rue_banner_title>h4 {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 1.3125rem;
+    line-height: 1.6rem
+}
+
+.rue_banner_links {
+    margin-top: 10px;
+    margin-left: 15px;
+    display: flex;
+    border: 1px solid transparent;
+    gap: .5rem
+}
+
+.rue_banner_links>a,
+.rue_banner_links>p {
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.334rem
+}
+
+.rue_banner_links>a {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #2a3547
+}
+
+.rue_banner_links>a:hover {
+    cursor: pointer
+}
+
+.rue_banner_logo {
+    width: 10%
+}
+
+.rue_banner_logo>img {
+    width: 90px;
+    height: 90px
+}
+
+.rue_banner_primary {
+    color: #fff !important;
+    background-color: #007bff
+}
+
+.rue_banner_primary:hover {
+    color: #fff !important;
+    background-color: #007bffdf;
+    border-color: #0062cc
+}
+
+.rue_banner_secondary {
+    color: #fff !important;
+    background-color: #6c757d;
+    border-color: #6c757d
+}
+
+.rue_banner_secondary:hover {
+    color: #fff !important;
+    background-color: #5a6268;
+    border-color: #545b62
+}
+
+.rue_banner_success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745
+}
+
+.rue_banner_success:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34
+}
+
+.rue_banner_info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8
+}
+
+.rue_banner_info:hover {
+    color: #fff;
+    background-color: #138496;
+    border-color: #117a8b
+}
+
+.rue_banner_warning {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107
+}
+
+.rue_banner_warning:hover {
+    color: #212529;
+    background-color: #e0a800;
+    border-color: #d39e00
+}
+
+.rue_banner_danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545
+}
+
+.rue_banner_danger:hover {
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130
+}
+
+.rue_banner_light {
+    color: #979da3;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa
+}
+
+.rue_banner_lg,
+.rue_banner_sm {
+    border: transparent;
+    line-height: 1.5 !important;
+    width: 100%
+}
+
+.rue_banner_light:hover {
+    color: #979da3;
+    background-color: #e2e6ea;
+    border-color: #dae0e5
+}
+
+.rue_banner_sm {
+    font-size: .875rem !important;
+    padding: .25rem .5rem !important;
+    border-radius: .2rem !important;
+    height: 5rem !important
+}
+
+.rue_banner_lg {
+    font-size: 1.25rem !important;
+    padding: .5rem 1rem !important;
+    border-radius: .3rem !important;
+    height: 9rem !important
+}
+
+.rue_banner_md {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    padding: .375rem .75rem !important;
+    border: transparent;
+    border-radius: .25rem !important;
+    width: 100%;
+    height: 7rem !important
+}

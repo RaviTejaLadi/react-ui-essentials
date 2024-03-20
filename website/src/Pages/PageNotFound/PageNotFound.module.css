@@ -1,0 +1,26 @@
+.rue_page_not_found_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #b0e0f35a;
+}
+
+.rue_page_not_found_title {
+    font-size: 4em;
+    color: #333;
+}
+
+.rue_page_not_found_message {
+    font-size: 2em;
+    color: #666;
+}
+
+.rue_sorry_face {
+    width: 4em;
+    height: 4em;
+}
+.rue_btn{
+    margin-top: 20px;
+}

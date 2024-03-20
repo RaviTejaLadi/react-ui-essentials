@@ -1,12 +1,12 @@
 import React from "react";
-import { RueBadge } from "react-ui-essentials";
+import { Badge } from "react-ui-essentials";
 
 const BadgePage = () => {
   return (
     <div>
-      <RueBadge variant="primary" size="sm">
+      <Badge variant="primary" size="sm">
         Jai Sree Ram
-      </RueBadge>
+      </Badge>
     </div>
   );
 };

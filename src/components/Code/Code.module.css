@@ -1,0 +1,15 @@
+.rue_code {
+    padding: 2px 4px;
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    direction: ltr;
+    border: 1px solid;
+    background-color: #F3F6F9;
+    border-color: #DAE2ED;
+    line-height: 1.5;
+    letter-spacing: 0;
+    font-family: Menlo, Consolas, "Droid Sans Mono", monospace;
+    font-weight: 400;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}

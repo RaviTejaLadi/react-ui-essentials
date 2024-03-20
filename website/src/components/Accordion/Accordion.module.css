@@ -1,0 +1,110 @@
+/* .text-primary {
+  color: #5a8dee !important;
+
+} */
+
+/* .card {
+  box-shadow: 0px 5px 10px rgba(90, 116, 148, 0.3);
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: #475f7b;
+  overflow: hidden;
+} */
+
+.rue_accordion_toggle {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  transition: 0.3s;
+  padding: 10px;
+}
+
+.rue_accordion_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rue_accordion_toggle img {
+  width: 25px;
+  height: 25px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #7a9ee0;
+  padding: 2px;
+  margin-right: 20px;
+}
+
+.rue_accordion_toggle.rue_active {
+  background-color: #8696b5;
+}
+
+.rue_accordion_toggle.rue_active .rue_accordion_icon {
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+.rue_accordion_card {
+  border: 1px solid transparent;
+  /* border-radius: 5px; */
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.rue_accordion_card:last-child {
+  margin-bottom: 10px;
+}
+
+.rue_accordion_title {
+  font-weight: 600;
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 0;
+  color: #28313c;
+  transition: 0.3s;
+}
+
+.rue_accordion_toggle.rue_active .rue_accordion_title {
+  color: #fff;
+}
+
+.rue_accordion_icon {
+  position: relative;
+  top: 2px;
+  color: #475f7b;
+  transition: 0.35s;
+  font-size: 12px;
+}
+
+.rue_accordion_body {
+  flex: 1 1 auto;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  min-height: 50px;
+}
+
+.rue_accordion_body p {
+  padding: 10px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #1c1e1f;
+}
+
+.rue_down {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+.rue_down.rue_show {
+  height: auto;
+}

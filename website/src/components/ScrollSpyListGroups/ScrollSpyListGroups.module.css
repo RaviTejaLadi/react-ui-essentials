@@ -1,0 +1,213 @@
+/* .Scroll-Spy-list-group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.Scroll-Spy-list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.Scroll-Spy-list-group-item>a {
+    text-decoration: none !important;
+}
+
+.Scroll-Spy-list-group-item:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.Scroll-Spy-list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.Scroll-Spy-list-group-item:hover,
+.Scroll-Spy-list-group-item:focus {
+    z-index: 1;
+    text-decoration: none;
+}
+
+.Scroll-Spy-list-group-item.primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.Scroll-Spy-list-group-item.secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+
+.Scroll-Spy-list-group-item.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.Scroll-Spy-list-group-item.danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.Scroll-Spy-list-group-item.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.Scroll-Spy-list-group-item.info {
+    color: #0c5460 !important;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+.Scroll-Spy-list-group-item.light {
+    color: #818182;
+    background-color: #fefefe;
+    border-color: #fdfdfe;
+}
+
+.Scroll-Spy-list-group-item.dark {
+    color: #1b1e21;
+    background-color: #c6c8ca;
+    border-color: #bdc6cb;
+}
+
+.Scroll-Spy-list-group-sm .Scroll-Spy-list-group-item {
+    font-weight: 400;
+    font-size: .8rem;
+    padding: 0.5rem 1rem;
+}
+
+.Scroll-Spy-list-group-sm .Scroll-Spy-list-group-item:hover {
+    text-decoration: underline;
+}
+
+.Scroll-Spy-list-group-lg .Scroll-Spy-list-group-item {
+    font-weight: 300;
+    padding: 1rem 1.5rem;
+} */
+
+
+.rue_list_group {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: .5rem;
+    border-radius: .25rem
+}
+
+.rue_list_group_item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125)
+}
+
+.rue_list_group_item:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem
+}
+
+.rue_list_group_item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: .25rem;
+    border-bottom-left-radius: .25rem
+}
+
+.rue_list_group_item:focus,
+.rue_list_group_item:hover {
+    z-index: 1;
+    text-decoration: underline
+}
+
+.rue_list_group_item_primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff
+}
+
+.rue_list_group_item_secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db
+}
+
+.rue_list_group_item_success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb
+}
+
+.rue_list_group_item_danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb
+}
+
+.rue_list_group_item_warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba
+}
+
+.rue_list_group_item_info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb
+}
+
+.rue_list_group_item_light {
+    color: #818182;
+    background-color: #fefefe;
+    border-color: #fdfdfe
+}
+
+.rue_list_group_item_dark {
+    color: #1b1e21;
+    background-color: #c6c8ca;
+    border-color: #bdc6cb
+}
+
+.rue_list_group_sm .rue_list_group_item {
+    font-size: .875rem;
+    line-height: 1.5;
+    padding: .25rem .5rem
+}
+
+.rue_list_group_md .rue_list_group_item {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: .375rem .75rem
+}
+
+.rue_list_group_lg .rue_list_group_item {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    padding: .5rem 1rem
+}
+
+.rue_list_group_xl .rue_list_group_item {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    padding: .75rem 1.5rem
+}
+
+.rue_list_group_xxl .rue_list_group_item {
+    font-size: 1.75rem;
+    line-height: 1.5;
+    padding: .75rem 1.5rem
+}

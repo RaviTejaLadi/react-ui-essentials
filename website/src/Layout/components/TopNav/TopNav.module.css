@@ -4,4 +4,58 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 2px;
   position: fixed;
   z-index: 1000;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topnav_left_cont {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.topnav_icon {
+  border: 2px solid transparent;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 30px;
+  padding: 2px 5px;
+  color: rgb(33, 43, 54);
+  border-radius: 5px;
+}
+
+.topnav_links_cont {
+  border: 1px solid transparent;
+}
+
+.topnav_link {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(33, 43, 54);
+  margin: 0 10px;
+}
+
+.topnav_right_cont {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.topnav_version {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.topnav_btns_cont {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 0 20px;
+  padding: 2px 5px;
+}
+
+.topnav_btns_cont>button {
+  margin: 0 8px;
 }

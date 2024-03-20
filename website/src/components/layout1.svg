@@ -1,0 +1,8 @@
+<svg width="200" height="300" xmlns="http://www.w3.org/2000/svg">
+  <path style="fill:#00008b" d="M10 10h180v60H10z"/>
+  <text x="100" y="50" font-size="20" text-anchor="middle" fill="#fff">Header1</text>
+  <path style="fill:#00008b" d="M10 80h180v140H10z"/>
+  <text x="100" y="150" font-size="20" text-anchor="middle" fill="#fff">Content</text>
+  <path style="fill:#00008b" d="M10 230h180v60H10z"/>
+  <text x="100" y="270" font-size="20" text-anchor="middle" fill="#fff">Footer</text>
+</svg>

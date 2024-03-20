@@ -1,8 +1,7 @@
-.content_container {
-  width: calc(100% - 15%);
-  left: 15%;
+.content_container{
+  width: calc(100% - 16%);
+  left: 16%;
   position: absolute;
   height: calc(100vh - 41px);
   overflow: auto;
-  padding: 20px;
 }

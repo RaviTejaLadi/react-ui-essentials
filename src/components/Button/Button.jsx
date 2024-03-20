@@ -1,0 +1,61 @@
+import PropTypes from "prop-types";
+import React from "react";
+import styles from "./Button.module.css";
+
+const Button = ({
+  variant,
+  size,
+  onClick,
+  disabled,
+  children,
+  type,
+  className,
+  startIcon,
+  endIcon,
+  raised,
+  rounded,
+}) => {
+  const buttonStyle = {
+    boxShadow: raised
+      ? "0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)"
+      : "",
+    borderRadius: rounded && "2rem",
+  };
+  const buttonClasses = `${styles.ruc_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
+    size ? `${styles[`rue_btn_${size}`]}` : ""
+  } ${className}`;
+
+  return (
+    <button className={buttonClasses} style={buttonStyle} onClick={onClick} disabled={disabled} type={type}>
+      {startIcon && <span>{startIcon}</span>}
+      {children}
+      {endIcon && <span>{endIcon}</span>}
+    </button>
+  );
+};
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  size: PropTypes.string,
+  type: PropTypes.string,
+  variant: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  raised: PropTypes.bool,
+  rounded: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  disabled: false,
+  onClick: () => {},
+  size: "sm",
+  type: "button",
+  variant: "primary",
+  className: "",
+  raised: false,
+  boxShadow: "",
+};
+
+export default Button;

@@ -1,0 +1,10 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg">
+  <path style="fill:#00f" d="M0 0h125v500H0z"/>
+  <text x="62.5" y="250" font-size="20" text-anchor="middle" fill="#fff" transform="rotate(-90 62.5 250)">Sider</text>
+  <path style="fill:#00008b" d="M125 0h375v100H125z"/>
+  <text x="312.5" y="60" font-size="20" text-anchor="middle" fill="#fff">Header4</text>
+  <path style="fill:#add8e6" d="M125 100h375v300H125z"/>
+  <text x="312.5" y="250" font-size="20" text-anchor="middle" fill="#fff">Content</text>
+  <path style="fill:#00008b" d="M125 400h375v100H125z"/>
+  <text x="312.5" y="460" font-size="20" text-anchor="middle" fill="#fff">Footer</text>
+</svg>

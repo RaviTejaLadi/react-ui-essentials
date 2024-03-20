@@ -1,4 +1,4 @@
-# react-ui-components
+# react-ui-essentials
 
 > Made with create-react-library
 
@@ -7,16 +7,16 @@
 ## Install
 
 ```bash
-npm install --save react-ui-components
+npm install --save react-ui-essentials
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import MyComponent from 'react-ui-components'
-import 'react-ui-components/dist/index.css'
+import MyComponent from 'react-ui-essentials';
+import 'react-ui-essentials/dist/index.css';
 
 class Example extends Component {
   render() {
@@ -26,5 +26,3 @@ class Example extends Component {
 ```
 
 ## License
-
-MIT © [Ravi Teja Ladi](https://github.com/Ravi Teja Ladi)

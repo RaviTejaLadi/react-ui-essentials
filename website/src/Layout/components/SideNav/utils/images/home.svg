@@ -1,0 +1,14 @@
+<svg width="800" height="800" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" id="a" x1="12" x2="12" y1="-.83" y2="10.006">
+      <stop offset="0" stop-color="#ff4867"/>
+      <stop offset="1" stop-color="#e50031"/>
+    </linearGradient>
+  </defs>
+  <path d="M21 7.55V21a2.006 2.006 0 0 1-2 2H5a2.006 2.006 0 0 1-2-2V7.55L12 1Z" style="fill:#f19b5f"/>
+  <path d="M21 7.55V16a2.006 2.006 0 0 1-2 2H5a2.006 2.006 0 0 1-2-2V7.55L12 1Z" style="fill:#ffce69"/>
+  <path d="M15 14v9H9v-9a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1Z" style="fill:#b24040"/>
+  <path d="M15 14v4H9v-4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1Z" style="fill:#ce5959"/>
+  <path d="M23 10a1 1 0 0 1-.587-.191L12 2.236 1.588 9.809A1 1 0 0 1 .412 8.191l11-8a1 1 0 0 1 1.176 0l11 8A1 1 0 0 1 23 10Z" style="fill:url(#a)"/>
+  <path d="M12.588.191a1 1 0 0 0-1.176 0l-11 8a1 1 0 0 0 1.176 1.618l.412-.3V21a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V9.509l.412.3a1 1 0 1 0 1.176-1.618ZM10 22v-8h4v8Zm10-1a1 1 0 0 1-1 1h-3v-8a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v8H5a1 1 0 0 1-1-1V8.054l8-5.818 8 5.818Z" style="fill:#6c2e7c" data-name="Layer 4"/>
+</svg>

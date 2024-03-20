@@ -1,0 +1,48 @@
+.rue_linkbar_container {
+    display: flex;
+    padding: 2px;
+    margin: 10px;
+}
+
+.rue_linkBar {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.rue_linkBar::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+.rue_linkBar>a {
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.rue_linkBar>a:hover {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.rue_linkBar>a:active {
+    color: red;
+}
+
+.rue_linkBar>a:visited {
+    color: green;
+}
+
+.rue_link {
+    height: 85%;
+    padding: 4px 4px;
+    margin: 3px 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 2px;
+}
