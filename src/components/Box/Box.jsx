@@ -18,7 +18,7 @@ const Box = ({ width, height, elevation, rounded, children, outlined, className,
     };
   }, [elevation]);
 
-  let boxShadow = boxShadowValues[elevation] || "none";
+  const boxShadow = boxShadowValues[elevation] || "none";
 
   const boxStyles = {
     width: width,

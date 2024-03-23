@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import getStyle from "./style";
 import { getConfiguration } from "../../utils/config";
 import { GutterWidthContext } from "../Row";
-import GridResolver  from "../../context/GridResolver";
+import GridResolver from "../../context/GridResolver";
 import { Div } from "../../primitives";
 
 // const Col = React.forwardRef(
@@ -102,14 +102,17 @@ const Col = React.forwardRef(
               gridColumns: getConfiguration().gridColumns,
               moreStyle: style,
             });
-            return <Component ref={ref} style={computedStyle} {...otherProps}>{children}</Component>;
+            return (
+              <Component ref={ref} style={computedStyle} {...otherProps}>
+                {children}
+              </Component>
+            );
           }}
         </GutterWidthContext.Consumer>
       )}
     </GridResolver>
   )
 );
-
 
 Col.propTypes = {
   children: PropTypes.node,

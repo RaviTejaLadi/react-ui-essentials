@@ -2,7 +2,7 @@ import React, { createElement } from "react";
 import PropTypes from "prop-types";
 import getStyle from "./style";
 import { getConfiguration } from "../../utils/config";
-import GridResolver  from "../../context/GridResolver";
+import GridResolver from "../../context/GridResolver";
 import { Div } from "../../primitives";
 
 // const Container = React.forwardRef(
@@ -36,24 +36,8 @@ import { Div } from "../../primitives";
 //   )
 // );
 const Container = React.forwardRef(
-  (
-    {
-      children,
-      fluid,
-      xs,
-      sm,
-      md,
-      lg,
-      xl,
-      xxl,
-      xxxl,
-      style,
-      component: Component = Div,
-      ...otherProps
-    },
-    ref
-  ) => (
-    <GridResolver >
+  ({ children, fluid, xs, sm, md, lg, xl, xxl, xxxl, style, component: Component = Div, ...otherProps }, ref) => (
+    <GridResolver>
       {(screenClass) => (
         <Component
           ref={ref}

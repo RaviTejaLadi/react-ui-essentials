@@ -20,7 +20,7 @@ export const DarkModeProvider = ({ children }) => {
     }
     return () => {};
   }, [mode]);
-  
+
   useEffect(() => {
     if (mode === "dark") return setClassOnDocument(true);
     if (mode === "light") return setClassOnDocument(false);

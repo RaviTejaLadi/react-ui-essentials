@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { memo } from "react";
-import Box from "../../../website/src/components/Box/Box";
+import Box from "../Box/Box";
 
 const PreviewCode = ({ children, width }) => {
   return (

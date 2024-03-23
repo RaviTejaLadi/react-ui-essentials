@@ -47,7 +47,7 @@ const EmojiListRenderer = ({
     gear: "⚙️",
   };
 
-  let emoji = emojiList[emojiType] || customEmoji;
+  const emoji = emojiList[emojiType] || customEmoji;
 
   return (
     <Box elevation={elevation} width={width} height={height} rounded={rounded} outlined={outlined}>

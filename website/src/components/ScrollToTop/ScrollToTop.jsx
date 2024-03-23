@@ -1,6 +1,6 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import styles from "./ScrollToTop.module.css"
+import styles from "./ScrollToTop.module.css";
 
 const scrollToTop = (smooth = false) => {
   if (smooth) {
@@ -65,7 +65,7 @@ ScrollToTop.propTypes = {
   svgPath: PropTypes.string,
   top: PropTypes.number,
   viewBox: PropTypes.string,
-  width: PropTypes.string
-}
+  width: PropTypes.string,
+};
 
 export default ScrollToTop;

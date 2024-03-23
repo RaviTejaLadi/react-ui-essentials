@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import ParentContext from "../../context/ParentContext";
 import styles from "./Home.module.css";
-import { BasicCard,LinkButton } from "react-ui-essentials";
+import { BasicCard, LinkButton } from "react-ui-essentials";
 import { cardData, footerLinks } from "../../data/homeData";
 import { Link } from "react-router-dom";
 

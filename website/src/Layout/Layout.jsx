@@ -10,7 +10,7 @@ const Layout = (props) => {
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
-  
+
   const { state } = useContext(ParentContext);
   const { pageType } = state;
 

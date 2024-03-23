@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, forwardRef } from "react";
 import PropTypes from "prop-types";
 import buildGridSvg from "./SvgBuilder";
 
-const GridLines = React.forwardRef((props, ref) => {
-
+const GridLines = forwardRef((props, ref) => {
   const {
     component = "div",
     className,
@@ -62,12 +61,7 @@ const GridLines = React.forwardRef((props, ref) => {
     scale,
   ]);
   return (
-    <ComponentProp
-      className={className}
-      ref={ref}
-      style={{ backgroundImage: bg }}
-      {...rest}
-    >
+    <ComponentProp className={className} ref={ref} style={{ backgroundImage: bg }} {...rest}>
       {children}
     </ComponentProp>
   );
@@ -91,4 +85,5 @@ GridLines.propTypes = {
   dashArray2: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
 export default GridLines;

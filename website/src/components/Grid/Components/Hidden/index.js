@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import * as style from "./style";
-import GridResolver  from "../../context/GridResolver";
+import GridResolver from "../../context/GridResolver";
 
 const Hidden = ({ children, xs, sm, md, lg, xl, xxl, xxxl }) => (
-  <GridResolver >
+  <GridResolver>
     {(screenClass) =>
       style.hidden({
         screenClass,
@@ -19,7 +19,7 @@ const Hidden = ({ children, xs, sm, md, lg, xl, xxl, xxxl }) => (
         ? null
         : children
     }
-  </GridResolver >
+  </GridResolver>
 );
 
 Hidden.propTypes = {

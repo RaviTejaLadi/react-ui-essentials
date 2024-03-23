@@ -1,5 +1,4 @@
 const initialState = {
-    pageType:""
-
+  pageType: "",
 };
 export default initialState;

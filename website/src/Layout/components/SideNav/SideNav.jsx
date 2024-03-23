@@ -70,7 +70,9 @@ const SideNav = () => {
                 {subMenu.map(({ id, label, path }) => (
                   <span key={id}>
                     <Link to={path}>
-                      <span role="img" className={styles.highlight}>🔖</span>
+                      <span role="img" className={styles.highlight}>
+                        🔖
+                      </span>
                       <span className={styles.sidebar_p}>{label}</span>
                     </Link>
                   </span>

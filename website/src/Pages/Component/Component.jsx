@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import ParentContext from "../../context/ParentContext";
 import { Content } from "../../Layout/components";
-import styles from "./Component.module.css"
+import styles from "./Component.module.css";
 
 const Component = () => {
   const { dispatch } = useContext(ParentContext);

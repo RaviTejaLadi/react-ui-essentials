@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Table, Divider,View } from "react-ui-essentials";
+import { Box, Typography, Table, Divider, View } from "react-ui-essentials";
 
 let data = {
   title: "Typography",

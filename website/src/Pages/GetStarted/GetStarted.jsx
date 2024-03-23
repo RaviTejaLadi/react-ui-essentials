@@ -150,9 +150,9 @@ const GetStarted = () => {
   ];
   return (
     <div style={{ padding: "18px" }}>
-        {acc.map((list, { id }) => {
-            return <Accordion key={id} content={list}  />;
-          })}
+      {acc.map((list, { id }) => {
+        return <Accordion key={id} content={list} />;
+      })}
       <BorderRadiusGenerator />
       {/* <GlassmorphismGenerator/> */}
       <FlexboxController />

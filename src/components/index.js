@@ -68,5 +68,5 @@ export {
   TreeView,
   View,
   PreviewCode,
-  TextArea
+  TextArea,
 };

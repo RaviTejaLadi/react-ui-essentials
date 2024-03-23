@@ -54,25 +54,12 @@
 
 //   return { ...styles, ...moreStyle };
 // };
-export default ({
-  fluid,
-  xs,
-  sm,
-  md,
-  lg,
-  xl,
-  xxl,
-  xxxl,
-  screenClass,
-  containerWidths,
-  gutterWidth,
-  moreStyle,
-}) => {
+export default ({ fluid, xs, sm, md, lg, xl, xxl, xxxl, screenClass, containerWidths, gutterWidth, moreStyle }) => {
   const styles = {
-    boxSizing: 'border-box',
-    position: 'relative',
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    boxSizing: "border-box",
+    position: "relative",
+    marginLeft: "auto",
+    marginRight: "auto",
     paddingLeft: gutterWidth / 2,
     paddingRight: gutterWidth / 2,
   };
@@ -82,7 +69,7 @@ export default ({
   }
 
   const breakpoints = { xs, sm, md, lg, xl, xxl, xxxl };
-  const breakpointIndex = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl', 'xxxl'].indexOf(screenClass);
+  const breakpointIndex = ["xs", "sm", "md", "lg", "xl", "xxl", "xxxl"].indexOf(screenClass);
   const maxWidth = containerWidths[breakpointIndex];
 
   if (maxWidth && breakpoints[screenClass] === undefined) {

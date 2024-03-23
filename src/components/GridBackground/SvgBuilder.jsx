@@ -57,12 +57,12 @@ function buildGridSvg(
     }
   }
   const pat = buildPage(w, h, page, `${cell1}${cell2}`);
-  const svgW = page ? page.width : w,
-    svgH = page ? page.height : h;
-  let svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${svgW}' height='${svgH}'>${pat}</svg>`;
-  let svg64 = Base64.encode(svg);
-  //window.btoa(svg);
-  let s = `url('data:image/svg+xml;base64,${svg64}')`;
+  const svgW = page ? page.width : w;
+  const svgH = page ? page.height : h;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${svgW}' height='${svgH}'>${pat}</svg>`;
+  const svg64 = Base64.encode(svg);
+  // window.btoa(svg);
+  const s = `url('data:image/svg+xml;base64,${svg64}')`;
   return s;
 }
 export default buildGridSvg;

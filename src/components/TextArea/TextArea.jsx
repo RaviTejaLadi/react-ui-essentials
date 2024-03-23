@@ -59,7 +59,7 @@ const TextArea = ({ width, height, value }) => {
       const lines = textarea.value.split("\n");
       const numLines = lines.map((line) => calculateNumLines(line));
 
-      let lineNumbers = [];
+      const lineNumbers = [];
       let i = 1;
       while (numLines.length > 0) {
         const numLinesOfSentence = numLines.shift();
@@ -110,7 +110,7 @@ const TextArea = ({ width, height, value }) => {
 
   return (
     <div style={containerStyles} className={styles.rue_container}>
-      <div ref={lineNumbersRef} className={styles.rue_line_numbers}></div>
+      <div ref={lineNumbersRef} className={styles.rue_line_numbers} />
       <textarea
         style={{ width: width }}
         ref={textareaRef}

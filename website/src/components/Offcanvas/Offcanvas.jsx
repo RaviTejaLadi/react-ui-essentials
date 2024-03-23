@@ -20,7 +20,7 @@
 
 // const OffCanvas = ({ isOpen, children, toggleCanvas, width, placement }) => {
 //   // const offCanvasClass = `${styles.rue_offcanvas} ${styles.rue_canvas_content} ${isOpen ? styles.open : ""}`;
-  
+
 //   const offCanvasClass = `${styles.rue_offcanvas} ${styles.rue_canvas_content} ${placement ? styles[placement] : ""} ${
 //     isOpen ? styles.open : ""
 //   }`;
@@ -65,9 +65,7 @@ OffCanvasBody.propTypes = {
 };
 
 const OffCanvas = ({ isOpen, children, toggleCanvas, width, placement }) => {
-  const offCanvasClass = `${styles.rue_offcanvas} ${
-    isOpen ? styles.open : ""
-  } ${styles[placement] || styles.right}`;
+  const offCanvasClass = `${styles.rue_offcanvas} ${isOpen ? styles.open : ""} ${styles[placement] || styles.right}`;
 
   return (
     <div className={offCanvasClass}>
@@ -88,4 +86,3 @@ OffCanvas.propTypes = {
 OffCanvas.Header = OffCanvasHeader;
 OffCanvas.Body = OffCanvasBody;
 export default OffCanvas;
-

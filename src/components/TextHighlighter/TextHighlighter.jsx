@@ -35,7 +35,7 @@ const TextHighlighter = ({ children, highlightText, colorsList = [] }) => {
       return;
     }
 
-    let colors = [...colorsList, ...defaultColors];
+    const colors = [...colorsList, ...defaultColors];
 
     const uniqueHighlightText = highlightText.filter((value, index, self) => {
       return self.indexOf(value) === index;

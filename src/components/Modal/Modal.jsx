@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import styles from "./Modal.module.css";
 import { ModalHeader, ModalBody, ModalFooter } from "./index";
 
-const Modal = React.memo(({ isOpen, variant, size, placement, children, className }) => {
+const Modal = ({ isOpen, variant, size, placement, children, className }) => {
   const getModalClass = () => {
     const variantClass = variant ? styles[`rue_modal_${variant}`] : "";
     const sizeClass = size ? styles[`rue_modal_${size}`] : "";
@@ -23,7 +23,7 @@ const Modal = React.memo(({ isOpen, variant, size, placement, children, classNam
       </div>
     </div>
   );
-});
+};
 
 Modal.propTypes = {
   className: PropTypes.any,
@@ -38,4 +38,4 @@ Modal.Header = ModalHeader;
 Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
 
-export default Modal;
+export default memo(Modal);

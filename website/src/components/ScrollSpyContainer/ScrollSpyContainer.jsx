@@ -162,8 +162,8 @@ const ScrollSpyContainer = ({ height, width, variant }) => {
           width: "calc(100% - 20%)",
           borderLeft: "1px solid #ccc",
           margin: "10px",
-          position:"fixed",
-          left:"70%"
+          position: "fixed",
+          left: "70%",
         }}
       >
         <ScrollSpyListGroups size="sm" width="30%" items={Branches} variant="success" />

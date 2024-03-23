@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useReducer, useCallback } from "react";
-import { Button,PreviewCode ,Dropdown,Box} from "react-ui-essentials";
+import { Button, PreviewCode, Dropdown, Box } from "react-ui-essentials";
 import styles from "./FlexboxPlayGround.module.css";
 import { initialstates, reducer } from "./Reducer";
 

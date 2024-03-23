@@ -36,7 +36,7 @@ const Typography = ({
     fontWeight: strong ? "bold " : "",
     backgroundColor: marked ? "yellow " : "",
     fontSize: smaller ? "0.8em " : "",
-    width:"fit-content"
+    width: "fit-content",
   };
 
   return <Component style={style}>{children}</Component>;

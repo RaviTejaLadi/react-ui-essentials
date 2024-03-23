@@ -1,6 +1,6 @@
 const SIZES = {
-  '4A0': [4767.87, 6740.79],
-  '2A0': [3370.39, 4767.87],
+  "4A0": [4767.87, 6740.79],
+  "2A0": [3370.39, 4767.87],
   A0: [2383.94, 3370.39],
   A1: [1683.78, 2383.94],
   A2: [1190.55, 1683.78],
@@ -50,10 +50,10 @@ const SIZES = {
   LETTER: [612.0, 792.0],
   TABLOID: [792.0, 1224.0],
 };
-export function getPageSize(formatName = '', orientation = 'portrait') {
+export function getPageSize(formatName = "", orientation = "portrait") {
   const f = formatName.toUpperCase();
   if (!SIZES[f]) return null;
   const portraitSize = SIZES[f];
-  if (orientation.toLowerCase() === 'portrait') return portraitSize;
+  if (orientation.toLowerCase() === "portrait") return portraitSize;
   else return [portraitSize[1], portraitSize[0]];
 }

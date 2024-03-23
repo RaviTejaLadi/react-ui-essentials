@@ -20,7 +20,7 @@ import spinner from "./spinner.svg";
 import table from "./table.svg";
 import textHighlight from "./texthighlight.svg";
 import hooks from "./hook.svg";
-import breadcrum from "./breadcrumbs.svg"
+import breadcrum from "./breadcrumbs.svg";
 
 export {
   home,
@@ -45,5 +45,5 @@ export {
   table,
   textHighlight,
   hooks,
-  breadcrum
+  breadcrum,
 };
