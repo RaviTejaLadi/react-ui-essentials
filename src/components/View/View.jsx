@@ -75,7 +75,7 @@ const View = ({ width, height, code, elements }) => {
         </div>
       </div>
       <div className={styles.rue_view_code}>
-        <TextArea width="100%" height="auto" value={code?.trim("")} />
+        {code}
       </div>
     </div>
   );
@@ -84,7 +84,7 @@ const View = ({ width, height, code, elements }) => {
 View.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
-  code: PropTypes.string.isRequired,
+  code: PropTypes.node.isRequired,
   elements: PropTypes.node.isRequired,
 };
 
