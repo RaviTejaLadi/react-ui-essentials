@@ -1,0 +1,37 @@
+.rue_searchbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 220px;
+    height: 35px;
+    padding: 5px 2px;
+    margin: 10px;
+}
+
+.rue_searchbar:hover {
+    width: 320px;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+}
+
+.rue_searchbar_search_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    z-index: 10;
+}
+
+.rue_searchbar_input {
+    border: 1px solid transparent;
+    height: 35px;
+    width: 285px;
+    padding-left: 8px;
+    background-color: inherit;
+    outline: none;
+    color: #080808;
+}

@@ -1,0 +1,72 @@
+.rue_close_btn {
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border-radius: .375rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+.rue_close_btn_dark {
+    fill: #fff !important;
+    background-color: #6c757d;
+    border-color: #6c757d
+}
+
+.rue_close_btn_dark:hover {
+    fill: #fff !important;
+    background-color: #5a6268;
+    border-color: #545b62
+}
+
+.rue_close_btn_light {
+    fill: #979da3 !important;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa
+}
+
+
+.rue_close_btn_light:hover {
+    fill: #979da3 !important;
+    background-color: #e2e6ea;
+    border-color: #dae0e5
+}
+
+.rue_close_btn_md,
+.rue_close_btn_sm {
+    padding: .1rem;
+    border: transparent
+}
+
+.rue_close_btn_sm {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: .2rem
+}
+
+.rue_close_btn_md {
+    width: 2rem;
+    height: 2rem;
+    border-radius: .25rem
+}
+
+.rue_close_btn_lg {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .2rem;
+    border: transparent;
+    border-radius: .3rem
+}
+
+.rue_close_btn.disabled,
+.rue_close_btn:disabled {
+    opacity: .65;
+    pointer-events: none
+}

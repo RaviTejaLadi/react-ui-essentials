@@ -1,0 +1,38 @@
+.rue_svg_preview_container {
+    height: 65px;
+    width: 12rem;
+    margin: 10px 0 0 10px;
+    border: 2px solid #ccc;
+    border-radius: .5rem;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.rue_svg_preview_container:hover {
+    border: 2px solid #1a73e8;
+}
+
+.rue_svg {
+    padding: 10px;
+}
+
+.rue_label {
+    font-size: .89rem;
+    line-height: 1rem;
+}
+
+.rue_label h6 {
+    font-weight: 600;
+    color: rgb(31 41 55 / 1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+}

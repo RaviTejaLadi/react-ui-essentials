@@ -17,14 +17,9 @@ const ComponentOverView = () => {
   ];
   return (
     <Box elevation={0} margin="30px">
-      <Typography variant="h1">Components</Typography>
-      <Typography variant="p">
-        React UI Essentials provides prebuilt components to help you build your projects faster. Here is an overview of
-        the component categories:
-      </Typography>
+
       <Divider horizontal={true} />
       <Box elevation={0} style={{ display: "flex", flexDirection: "column" }}>
-        <Typography variant="h2">Disclosure</Typography>
         <Box elevation={0} style={{ display: "flex" }}>
           {disclosureData.map((item) => {
             return (
@@ -39,7 +34,6 @@ const ComponentOverView = () => {
                   <img src={item.icon} alt="icon" width="100%" height="80%" />
                 </Box>
                 <Box elevation={0} rounded width="100%" height="15%" style={{ padding: "5px" }}>
-                  <Typography variant="h3">{item.label}</Typography>
                 </Box>
               </Box>
             );

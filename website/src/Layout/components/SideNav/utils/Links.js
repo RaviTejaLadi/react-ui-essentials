@@ -22,7 +22,7 @@ import {
   table,
   textHighlight,
   hooks,
-} from "./images/index";
+} from "../../../images/index";
 
 const Links = [
   {

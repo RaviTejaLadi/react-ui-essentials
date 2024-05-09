@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import React, { useContext, useState } from "react";
-import { SideNav, TopNav, Content } from "./components";
+import { TopNav, Content } from "./components";
+import { SideBar,Divider } from "react-ui-essentials";
 import styles from "./Layout.module.css";
 import ParentContext from "../context/ParentContext";
+import {routes} from "./utils/Links" 
 
 const Layout = (props) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -28,7 +30,9 @@ const Layout = (props) => {
       </div>
       <div className={styles.layout_body}>
         <div className={styles.layout_body_side_nav}>
-          <SideNav />
+          <SideBar >
+            <SideBar.Body routes={routes} />
+          </SideBar>
         </div>
         <div className={styles.layout_body_content}>
           <Content>{props.children}</Content>

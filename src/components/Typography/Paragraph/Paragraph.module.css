@@ -1,0 +1,40 @@
+.rue_para.default {
+    color: rgb(0, 0, 0);
+}
+
+.rue_para.primary {
+    color: #007bff;
+}
+
+.rue_para.secondary {
+    color: #6c757d;
+}
+
+.rue_para.success {
+    color: #28a745;
+}
+
+.rue_para.info {
+    color: #17a2b8;
+}
+
+.rue_para.warning {
+    color: #ffc107;
+}
+
+.rue_para.danger {
+    color: #dc3545;
+}
+
+.rue_copyFeedback {
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+}
+
+.rue_copyIcon svg {
+    margin-bottom: -5px;
+}
+
+.rue_copyIcon svg:hover {
+    cursor: pointer;
+}

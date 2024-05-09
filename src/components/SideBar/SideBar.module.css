@@ -1,0 +1,287 @@
+:root {
+  --rue-btn-text-color: #ffffff;
+  --rue-btn-primary-bg: #007bff;
+  --rue-btn-primary-hover-bg: #0056b3;
+  --rue-btn-secondary-bg: #6c757d;
+  --rue-btn-secondary-hover-bg: #545b62;
+  --rue-btn-success-bg: #28a745;
+  --rue-btn-success-hover-bg: #218838;
+  --rue-btn-info-bg: #17a2b8;
+  --rue-btn-info-hover-bg: #138496;
+  --rue-btn-warning-bg: #ffc107;
+  --rue-btn-warning-hover-bg: #e0a800;
+  --rue-btn-danger-bg: #dc3545;
+  --rue-btn-danger-hover-bg: #c82333;
+  --rue-btn-help-bg: #6f42c1;
+  --rue-btn-help-hover-bg: #5d3bb4;
+  --rue-btn-light-bg: #f8f9fa;
+  --rue-btn-light-hover-bg: #e2e6ea;
+  --rue-btn-dark-bg: #343a40;
+  --rue-btn-dark-hover-bg: #23272b
+}
+
+.rue_sidebar a,
+.rue_sidebar a:hover {
+  margin-left: 8px;
+  margin-top: 8px;
+  padding: 3px;
+  width: 90%
+}
+
+.rue_sidebar a.rue_active,
+.rue_submenu a.rue_active,
+.rue_submenu a:hover {
+  display: flex;
+  text-align: center;
+  height: 32px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, .1);
+  backdrop-filter: blur(5px)
+}
+
+.rue_sidebar {
+  border-right: 1px solid #ece9e9;
+  transition: width .2s ease-in;
+  height: 100vh;
+  width: 16%;
+  min-width: 16%;
+  position: fixed;
+  padding-bottom: 60px
+}
+
+.rue_sidebar:hover {
+  overflow-y: scroll
+}
+
+.rue_sidebar a,
+.rue_sidebar_toggel {
+  border: 1px solid transparent
+}
+
+.rue_sidebar_toggel {
+  margin: 0 0 .3rem .4rem;
+  cursor: pointer
+}
+
+.rue_sidebar a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: #171616;
+  border-radius: 4px;
+  height: 32px
+}
+
+.rue_sidebar a:hover {
+  color: #121212;
+  border-radius: 4px;
+  background-color: #eee;
+  border: 1px solid transparent;
+  height: 32px
+}
+
+.rue_sidebar a.rue_active {
+  color: #fff;
+  border-radius: 4px;
+  justify-content: flex-start;
+  width: 90%;
+  background-color: #007bff;
+  border: 0 solid rgba(246, 250, 247, .3)
+}
+
+.rue_sidebar a.rue_active:hover {
+  background-color: #0056b3
+}
+
+.rue_sidebar a.rue_active_primary {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-primary-bg)
+}
+
+.rue_sidebar a.rue_active_primary:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-primary-hover-bg)
+}
+
+.rue_sidebar a.rue_active_secondary {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-secondary-bg)
+}
+
+.rue_sidebar a.rue_active_secondary:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-secondary-hover-bg)
+}
+
+.rue_sidebar a.rue_active_success {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-success-bg)
+}
+
+.rue_sidebar a.rue_active_success:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-success-hover-bg)
+}
+
+.rue_sidebar a.rue_active_info {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-info-bg)
+}
+
+.rue_sidebar a.rue_active_info:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-info-hover-bg)
+}
+
+.rue_sidebar a.rue_active_warning {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-warning-bg)
+}
+
+.rue_sidebar a.rue_active_warning:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-warning-hover-bg)
+}
+
+.rue_sidebar a.rue_active_danger {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-danger-bg)
+}
+
+.rue_sidebar a.rue_active_danger:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-danger-hover-bg)
+}
+
+.rue_sidebar a.rue_active_help {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-help-bg)
+}
+
+.rue_sidebar a.rue_active_help:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-help-hover-bg)
+}
+
+.rue_sidebar a.rue_active_light {
+  color: #979da3;
+  background-color: var(--rue-btn-light-bg)
+}
+
+.rue_sidebar a.rue_active_light:hover {
+  color: #979da3;
+  background-color: var(--rue-btn-light-hover-bg)
+}
+
+.rue_sidebar a.rue_active_dark {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-dark-bg)
+}
+
+.rue_sidebar a.rue_active_dark:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-dark-hover-bg)
+}
+
+.rue_submenu,
+.rue_submenu_arrow svg {
+  color: #171616
+}
+
+.rue_sidebar a.rue_active .rue_highlight {
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  width: 4px;
+  height: 25px;
+  background-color: #fbfcfc
+}
+
+.rue_sidebar_content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start
+}
+
+.rue_sidebar_icon img {
+  width: 18px;
+  height: 18px;
+  margin-left: 10px;
+  margin-bottom: -5px
+}
+
+.rue_sidebar_p {
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-top: 5px
+}
+
+.rue_submenu_arrow {
+  margin-left: 30px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width: auto;
+  height: 99%
+}
+
+.rue_submenu,
+.rue_submenu a,
+.rue_submenu a.rue_active,
+.rue_submenu a:hover {
+  height: auto;
+  padding: 4px 4px 4px 0;
+  margin: 5px 5px 6px 8px
+}
+
+.rue_submenu_arrow>svg {
+  color: #ccc
+}
+
+.rue_submenu {
+  border: 1px solid transparent;
+  width: 90%;
+  border-radius: 4px;
+  background: rgba(176, 176, 176, .096)
+}
+
+.rue_submenu a {
+  border: 1px solid transparent;
+  width: 95%;
+  color: #171616;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start
+}
+
+.rue_submenu a.rue_active {
+  color: red
+}
+
+.rue_submenu a.rue_active,
+.rue_submenu a:hover {
+  color: #007bffa5;
+  border-radius: 4px;
+  justify-content: flex-start;
+  width: 95%;
+  background: rgba(176, 176, 176, .096);
+  border: 1px solid transparent
+}
+
+.rue_submenu a.rue_active .rue_highlight {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  width: 4px;
+  height: 22px;
+  margin: 5px 5px 6px 8px;
+  background-color: #055a9f
+}
+
+.rue_sidebar_footer,
+.rue_sidebar_header {
+  padding: 5px
+}

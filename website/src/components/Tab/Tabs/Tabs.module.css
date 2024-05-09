@@ -1,0 +1,46 @@
+.tab_container {
+    width: fit-content;
+}
+
+.tab_nav {
+    width: auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.tab_buttons {
+    flex: 1;
+    overflow-x: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: flex;
+    gap: 5px;
+}
+
+.tab_buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.tab_buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.tab_button {
+    margin: 0px 2px;
+}
+
+/* .tab_button.active {
+    border-bottom: 2px solid rgba(27, 27, 27, 0.251);
+} */
+
+.tab_content {
+    margin-top: 5px;
+    padding: 10px 20px;
+    overflow-x: auto;
+    max-width: 100%;
+}

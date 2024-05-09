@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Links } from "./utils/Links";
 import { FaAngleDown, FaAngleRight } from "react-icons/fa6";
 import styles from "./SideNav.module.css";
+import { Link } from "react-ui-essentials";
 
 const SideNav = () => {
   let FindActivePathName = Links.map(({ path }) => {

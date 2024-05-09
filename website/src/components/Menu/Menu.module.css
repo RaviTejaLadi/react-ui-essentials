@@ -1,0 +1,91 @@
+.rue_menu_wraper {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 3px;
+    width: fit-content;
+    height: fit-content;
+    min-width: 145px
+}
+
+.rue_menu_item {
+    border: transparent;
+    padding: 8px;
+    border-radius: 3px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    text-align: center
+}
+
+.rue_menu_item_primary:hover {
+    color: #fff;
+    background-color: #102447;
+    border-color: #0062cc
+}
+
+.rue_menu_item_secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d
+}
+
+.rue_menu_item_success:hover {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745
+}
+
+.rue_menu_item_info:hover {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8
+}
+
+.rue_menu_item_warning:hover {
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107
+}
+
+.rue_menu_item_danger:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545
+}
+
+.rue_menu_item_light:hover {
+    color: #979da3;
+    background-color: #f1f3f5;
+    border-color: #f8f9fa
+}
+
+.rue_menu_end_icon,
+.rue_menu_start_icon {
+    margin-bottom: -5px
+}
+
+.rue_menu_start_icon {
+    margin-right: 10px
+}
+
+.rue_menu_divider {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.rue_menu_label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

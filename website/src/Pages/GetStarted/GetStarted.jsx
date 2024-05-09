@@ -22,15 +22,14 @@ import {
   TreeView,
   Box,
   View,
+  Accordion
 } from "react-ui-essentials";
-import OffCanvas from "../../components/Offcanvas/Offcanvas";
 import ScrollSpyContainer from "../../components/ScrollSpyContainer/ScrollSpyContainer";
 import { Container, Row, Col, Hidden, Visible } from "../../components/Grid";
 import FlexboxController from "../../components/FlexboxController/FlexboxPlayGround";
 import GlassmorphismGenerator from "../../components/GlassmorphismGenerator/GlassmorphismGenerator";
 import BorderRadiusGenerator from "../../components/BorderRadiusGenerator/BorderRadiusGenerator";
 import Slider from "../../components/Slider/Slider";
-import Accordion from "../../components/Accordion/Accordion";
 
 const GetStarted = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -135,7 +134,7 @@ const GetStarted = () => {
     {
       id: 1,
       header: "How do I sign up for CourseSimplified?",
-      text: "Signing up is easy! Just click the 'Sign Up' button on the homepage and follow the instructions.",
+      text: `Signing up is easy! Just click the 'Sign Up' button on the homepage and follow the instructions.`,
     },
     {
       id: 2,
@@ -150,8 +149,9 @@ const GetStarted = () => {
   ];
   return (
     <div style={{ padding: "18px" }}>
+      
       {acc.map((list, { id }) => {
-        return <Accordion key={id} content={list} />;
+        return <Accordion width="50%" variant="help" outlined  key={id} content={list} />;
       })}
       <BorderRadiusGenerator />
       {/* <GlassmorphismGenerator/> */}
@@ -216,30 +216,6 @@ const GetStarted = () => {
       />
       {/* <View width="60%" /> */}
       {/* <TextArea width="100%" height="300px" value={codeSnippet.trim("")} /> */}
-      <Button variant="light" size="sm" onClick={toggleCanvas}>
-        X
-      </Button>
-      <OffCanvas isOpen={isOpen} placement="right" setIsOpen={setIsOpen} toggleCanvas={toggleCanvas}>
-        <OffCanvas.Header>
-          <span>Setting</span>
-          <Button variant="primary" size="sm" onClick={() => setIsOpen(!isOpen)}>
-            x
-          </Button>
-        </OffCanvas.Header>
-        <OffCanvas.Body>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. At nam praesentium sapiente dicta iure
-          reprehenderit! Aut quia eum id quod tempore exercitationem aliquid velit sapiente inventore, praesentium sint
-          voluptate illo! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui architecto laudantium tempora
-          suscipit, doloremque ratione harum deleniti molestiae, numquam ea enim maxime error cumque illum quibusdam cum
-          odit repudiandae iusto! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora pariatur mollitia
-          cum voluptas, aspernatur quisquam unde, cupiditate veritatis aliquam dignissimos, praesentium beatae sit!
-          Quidem error minus quaerat iusto explicabo atque. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Esse est excepturi animi consequuntur! Vero voluptatum consequuntur alias repellat reprehenderit officia
-          assumenda nemo inventore. Debitis accusamus totam quae quam omnis sequi? Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Asperiores deserunt nemo, sequi, quis vitae obcaecati at iure suscipit
-          voluptatem labore deleniti vero laudantium illum explicabo eveniet? Aut aspernatur doloribus earum!
-        </OffCanvas.Body>
-      </OffCanvas>
       <Button onClick={handleisModalOpen} variant="light" size="sm">
         modal show
       </Button>
@@ -278,33 +254,7 @@ const GetStarted = () => {
         nemo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laudantium deleniti fugit ipsum cumque
         iusto quam nisi nostrum rem deserunt incidunt animi quisquam iste ullam quae, atque ipsam. Eveniet, consequatur?
       </Fieldset>
-      <Typography variant="h1" underline dashed>
-        Heading 1 with underline and dashed
-      </Typography>
-      <Typography variant="p" italic strong>
-        Paragraph text with italic and strong
-      </Typography>
-      <Typography variant="h2" overline>
-        Heading 2 with overline
-      </Typography>
-      <Typography variant="h3" dashed>
-        Heading 3 with dashed
-      </Typography>
-      <Typography variant="h4" italic strong strikethrough>
-        Heading 4 with italic, strong, and strikethrough
-      </Typography>
-      <Typography variant="p" marked>
-        Marked text
-      </Typography>
-      <Typography variant="p" smaller>
-        Smaller text
-      </Typography>
-      <Typography variant="p" deleted>
-        Deleted text
-      </Typography>
-      <Typography variant="p" inserted>
-        Inserted text
-      </Typography>
+ 
       <ContentScrollable width="100%" height="200px" variant="dark">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae accusamus autem aperiam amet at, consequuntur
         similique! Sit corrupti dolores aperiam quo adipisci similique, eligendi, alias vero laudantium est voluptatem

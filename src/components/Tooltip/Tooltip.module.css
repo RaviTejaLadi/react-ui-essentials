@@ -1,0 +1,37 @@
+.rue_tooltip_container {
+    position: relative;
+    display: inline-block;
+}
+
+.rue_tooltip {
+    position: absolute;
+    z-index: 1000;
+    padding: 2px 4px;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 2px;
+}
+
+.rue_tooltip.top {
+    bottom: 100%;
+    transform: translateX(-50%);
+}
+
+.rue_tooltip.bottom {
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.rue_tooltip.right {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+}
+
+.rue_tooltip.left {
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+}

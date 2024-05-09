@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Box, Button, Typography } from "react-ui-essentials";
+import { Box, Button, Heading, Paragraph } from "react-ui-essentials";
 import { useNavigate } from "react-router-dom";
 
 class ErrorBoundary extends Component {
@@ -38,10 +38,10 @@ class ErrorBoundary extends Component {
           }}
           rounded
         >
-          <Typography variant="h2" underline>
+          <Heading type="h2" underline>
             Something went wrong:
-          </Typography>
-          <Typography variant="p">{this.state.error && this.state.error.toString()}</Typography>
+          </Heading>
+          <Paragraph type="p">{this.state.error && this.state.error.toString()}</Paragraph>
           <Box
             elevation={0}
             width="100%"

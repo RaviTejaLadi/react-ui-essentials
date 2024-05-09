@@ -14,14 +14,16 @@ const Button = ({
   endIcon,
   raised,
   rounded,
+  style,
 }) => {
   const buttonStyle = {
     boxShadow: raised
       ? "0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)"
       : "",
     borderRadius: rounded && "2rem",
+    ...style,
   };
-  const buttonClasses = `${styles.ruc_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
+  const buttonClasses = `${styles.rue_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
     size ? `${styles[`rue_btn_${size}`]}` : ""
   } ${className}`;
 
@@ -35,16 +37,19 @@ const Button = ({
 };
 
 Button.propTypes = {
+  boxShadow: PropTypes.string,
   children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  size: PropTypes.string,
-  type: PropTypes.string,
-  variant: PropTypes.string,
   className: PropTypes.string,
-  style: PropTypes.object,
+  disabled: PropTypes.bool,
+  endIcon: PropTypes.node,
+  onClick: PropTypes.func,
   raised: PropTypes.bool,
   rounded: PropTypes.bool,
+  size: PropTypes.string,
+  startIcon: PropTypes.node,
+  style: PropTypes.object,
+  type: PropTypes.string,
+  variant: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -56,6 +61,7 @@ Button.defaultProps = {
   className: "",
   raised: false,
   boxShadow: "",
+  style: {},
 };
 
 export default Button;

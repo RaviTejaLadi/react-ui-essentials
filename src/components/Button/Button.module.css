@@ -1,5 +1,31 @@
+:root {
+  --rue-btn-text-color: #ffffff;
+  --rue-btn-primary-bg: #007bff;
+  --rue-btn-primary-hover-bg: #0056b3;
+  --rue-btn-secondary-bg: #6c757d;
+  --rue-btn-secondary-hover-bg: #545b62;
+  --rue-btn-success-bg: #28a745;
+  --rue-btn-success-hover-bg: #218838;
+  --rue-btn-info-bg: #17a2b8;
+  --rue-btn-info-hover-bg: #138496;
+  --rue-btn-warning-bg: #ffc107;
+  --rue-btn-warning-hover-bg: #e0a800;
+  --rue-btn-danger-bg: #dc3545;
+  --rue-btn-danger-hover-bg: #c82333;
+  --rue-btn-help-bg: #6f42c1;
+  --rue-btn-help-hover-bg: #5d3bb4;
+  --rue-btn-light-bg: #f8f9fa;
+  --rue-btn-light-hover-bg: #e2e6ea;
+  --rue-btn-dark-bg: #343a40;
+  --rue-btn-dark-hover-bg: #23272b;
+}
+
 .rue_btn {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  position: relative;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -14,86 +40,93 @@
 }
 
 .rue_btn_primary {
-  color: #fff;
-  background-color: #007bff;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-primary-bg);
 }
 
 .rue_btn_primary:hover {
-  color: #fff;
-  background-color: #007bffdf;
-  border-color: #0062cc;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-primary-hover-bg);
 }
 
 .rue_btn_secondary {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-secondary-bg);
 }
 
 .rue_btn_secondary:hover {
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-secondary-hover-bg);
 }
 
 .rue_btn_success {
-  color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-success-bg);
 }
 
 .rue_btn_success:hover {
-  color: #fff;
-  background-color: #218838;
-  border-color: #1e7e34;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-success-hover-bg);
 }
 
 .rue_btn_info {
-  color: #fff;
-  background-color: #17a2b8;
-  border-color: #17a2b8;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-info-bg);
 }
 
 .rue_btn_info:hover {
-  color: #fff;
-  background-color: #138496;
-  border-color: #117a8b;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-info-hover-bg);
 }
 
 .rue_btn_warning {
-  color: #212529;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-warning-bg);
 }
 
 .rue_btn_warning:hover {
-  color: #212529;
-  background-color: #e0a800;
-  border-color: #d39e00;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-warning-hover-bg);
 }
 
 .rue_btn_danger {
-  color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-danger-bg);
 }
 
 .rue_btn_danger:hover {
-  color: #fff;
-  background-color: #c82333;
-  border-color: #bd2130;
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-danger-hover-bg);
+}
+
+.rue_btn_help {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-help-bg);
+}
+
+.rue_btn_help:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-help-hover-bg);
 }
 
 .rue_btn_light {
   color: #979da3;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: var(--rue-btn-light-bg);
 }
 
 .rue_btn_light:hover {
   color: #979da3;
-  background-color: #e2e6ea;
-  border-color: #dae0e5;
+  background-color: var(--rue-btn-light-hover-bg);
+}
+
+.rue_btn_dark {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-dark-bg);
+}
+
+.rue_btn_dark:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-dark-hover-bg);
 }
 
 .rue_btn_sm {
@@ -149,4 +182,3 @@
   opacity: 0.65;
   pointer-events: none;
 }
-

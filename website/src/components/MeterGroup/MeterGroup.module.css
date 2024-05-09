@@ -1,0 +1,43 @@
+.rue_meter_group_container {
+    display: flex;
+    flex-direction: column
+}
+
+.rue_meter_group_title {
+    margin-left: 5px;
+    margin-bottom: 15px
+}
+
+.rue_meter_group_bar {
+    display: flex;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.rue_meter_group_barSegment {
+    width: 100%;
+    background-color: inherit
+}
+
+.rue_row {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 12px
+}
+
+.rue_itemContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 12px
+}
+
+.rue_colorDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: inherit;
+    margin-right: 8px
+}
