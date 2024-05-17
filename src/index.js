@@ -17,6 +17,7 @@ export {
   useToggle,
   useUpdateEffect,
   useWindowSize,
+  UseFilteredContent,
 } from "./hooks";
 
 export { default as Accordion } from "./components/Accordion/Accordion";
@@ -61,7 +62,21 @@ export { default as TextHighlighter } from "./components/TextHighlighter/TextHig
 export { default as Tooltip } from "./components/Tooltip/Tooltip";
 export { default as TreeView } from "./components/TreeView/TreeView";
 export { default as View } from "./components/View/View";
+export { default as EditableTable } from "./components/EditableTable/EditableTable";
+export { default as Ripple } from "./components/Ripple/Ripple";
+export { default as MiniCard } from "./components/MiniCard/MiniCard";
+export { default as Pagination } from "./components/Pagination/Pagination";
+export { default as SearchBar } from "./components/SearchBar/SearchBar";
+export { default as Content } from "./components/Content/Content";
+export { default as Popover } from "./components/Popover/Popover";
+export { ToastContainer, showToast } from "./components/Toast/ToastContainer";
+export { default as Form } from "./components/Form/Form";
+export { Audio, video } from "./components/Media";
+export { Tab, Tabs } from "./components/Tabs/Tabs";
+export { default as TabList } from "./components/TabList/TabList";
+
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
+export { useStateManager, Provider, useStateValue } from "./stateManagment/stateManagment";
 
 const roundExports = Object.entries(svgsrounded).reduce((acc, [key, Svg]) => {
   acc[Svg.displayName] = Svg;

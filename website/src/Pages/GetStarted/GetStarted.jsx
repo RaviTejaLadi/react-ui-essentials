@@ -9,7 +9,6 @@ import {
   GridBackground,
   GridLines,
   Button,
-  Typography,
   Avatar,
   ContentScrollable,
   Divider,
@@ -22,7 +21,8 @@ import {
   TreeView,
   Box,
   View,
-  Accordion
+  Accordion,
+  Heading,
 } from "react-ui-essentials";
 import ScrollSpyContainer from "../../components/ScrollSpyContainer/ScrollSpyContainer";
 import { Container, Row, Col, Hidden, Visible } from "../../components/Grid";
@@ -105,7 +105,7 @@ const GetStarted = () => {
   };
 
   let links = [
-    { name: "Link 1", url: "" },
+    { name: "Link 1", url: "/", icon: "📑" },
     { name: "Link 2", url: "" },
     { name: "Link 3", url: "" },
     { name: "Link 4", url: "" },
@@ -149,14 +149,44 @@ const GetStarted = () => {
   ];
   return (
     <div style={{ padding: "18px" }}>
-      
+      <Heading type="h6" variant="secondary" copy>
+        Heading tag
+      </Heading>
+      <Heading type="h6" variant="info" marked>
+        Heading tag
+      </Heading>
+      <Container fluid>
+        <Row align="start" style={{ height: "75px" }} debug>
+          <Col debug>1 of 3</Col>
+          <Col debug>2 of 3</Col>
+          <Col debug>3 of 3</Col>
+        </Row>
+        <br />
+        <Row align="center" style={{ height: "75px" }} debug>
+          <Col debug>1 of 3</Col>
+          <Col debug>2 of 3</Col>
+          <Col debug>3 of 3</Col>
+        </Row>
+        <br />
+        <Row align="end" style={{ height: "75px" }} debug>
+          <Col debug>1 of 3</Col>
+          <Col debug>2 of 3</Col>
+          <Col debug>3 of 3</Col>
+        </Row>
+        <br />
+        <Row align="stretch" style={{ height: "75px" }} debug>
+          <Col debug>1 of 3</Col>
+          <Col debug>2 of 3</Col>
+          <Col debug>3 of 3</Col>
+        </Row>
+      </Container>
       {acc.map((list, { id }) => {
-        return <Accordion width="50%" variant="help" outlined  key={id} content={list} />;
+        return <Accordion width="50%" variant="help" outlined key={id} content={list} />;
       })}
       <BorderRadiusGenerator />
       {/* <GlassmorphismGenerator/> */}
       <FlexboxController />
-      <LinkBar links={links} />
+      <LinkBar links={links} showControls padding="4px" height="39px" elevation={0} outlined />
       <TreeView data={folder} showCheckBox={false} />
       {/* <EmojiListRenderer
         list={[
@@ -254,7 +284,7 @@ const GetStarted = () => {
         nemo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laudantium deleniti fugit ipsum cumque
         iusto quam nisi nostrum rem deserunt incidunt animi quisquam iste ullam quae, atque ipsam. Eveniet, consequatur?
       </Fieldset>
- 
+
       <ContentScrollable width="100%" height="200px" variant="dark">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae accusamus autem aperiam amet at, consequuntur
         similique! Sit corrupti dolores aperiam quo adipisci similique, eligendi, alias vero laudantium est voluptatem

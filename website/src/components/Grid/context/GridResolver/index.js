@@ -1,30 +1,3 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import GridProvider, { GridContext, NO_PROVIDER_FLAG } from '../GridProvider';
-
-// const ScreenClassResolver  = ({ children }) => (
-//   <GridContext.Consumer>
-//     {(screenClassCheck) => {
-//       if (screenClassCheck === NO_PROVIDER_FLAG) {
-//         return (
-//           <GridProvider>
-//             <GridContext.Consumer>
-//               {(screenClassResolved) => children(screenClassResolved)}
-//             </GridContext.Consumer>
-//           </GridProvider>
-//         );
-//       }
-//       return children(screenClassCheck);
-//     }}
-//   </GridContext.Consumer>
-// );
-
-// ScreenClassResolver .propTypes = {
-//   children: PropTypes.func.isRequired,
-// };
-
-// export default ScreenClassResolver ;
-
 import React from "react";
 import PropTypes from "prop-types";
 import GridProvider, { GridContext, NO_PROVIDER_FLAG } from "../GridProvider";

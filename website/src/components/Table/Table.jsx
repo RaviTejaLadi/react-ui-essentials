@@ -2,29 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import "./Table.css";
 
-// const Table = ({ rowData, columnData }) => {
-//   return (
-//     <div className="table-container">
-//       <div className="header-row">
-//         {columnData.map((column, index) => (
-//           <div key={index} className="column">
-//             {column.label}
-//           </div>
-//         ))}
-//       </div>
-//       {rowData.map((row, index) => (
-//         <div key={index} className="data-row">
-//           {columnData.map((column, columnIndex) => (
-//             <div key={columnIndex} className="column">
-//               {row[column.dataKey]}
-//             </div>
-//           ))}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
 const Table = ({ children }) => {
   return <div className="rue_table_container">{children}</div>;
 };

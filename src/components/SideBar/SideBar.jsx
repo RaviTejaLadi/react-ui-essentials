@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
 import React, { Fragment, forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./SideBar.module.css";
-import DownArrow from "./DownArrow";
-import RightArrow from "./RightArrow";
 import Link from "../Link/Link";
 import Tooltip from "../Tooltip/Tooltip";
+import { ArrowDropDown, ArrowRight } from "../../Icons/Round";
 
 const SideBar = ({ children, backgroundColor, color, width }) => {
   return (
@@ -130,9 +129,9 @@ const SideBarBody = forwardRef(({ routes, tooltip, variant }, ref) => {
               {subMenu && (
                 <span className={styles.rue_submenu_arrow}>
                   {isDropdownActive ? (
-                    <DownArrow size="12px" fill="#ffffff" />
+                    <ArrowDropDown width="30px" height="30px" fill="#151515" />
                   ) : (
-                    <RightArrow size="12px" fill="#ffffff" />
+                    <ArrowRight width="30px" height="30px" fill="#151515" />
                   )}
                 </span>
               )}
@@ -143,7 +142,7 @@ const SideBarBody = forwardRef(({ routes, tooltip, variant }, ref) => {
                   <span key={id}>
                     <Link to={path}>
                       <span role="img" className={styles.rue_highlight}>
-                        👉🏻
+                        🔹
                       </span>
                       <span className={styles.rue_sidebar_p}>{label}</span>
                     </Link>

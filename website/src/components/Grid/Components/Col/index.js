@@ -1,66 +1,10 @@
-import React, { createElement } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import getStyle from "./style";
 import { getConfiguration } from "../../utils/config";
 import { GutterWidthContext } from "../Row";
 import GridResolver from "../../context/GridResolver";
 import { Div } from "../../primitives";
-
-// const Col = React.forwardRef(
-//   (
-//     {
-//       children,
-//       xs,
-//       sm,
-//       md,
-//       lg,
-//       xl,
-//       xxl,
-//       xxxl,
-//       offset,
-//       pull,
-//       push,
-//       order,
-//       debug,
-//       style,
-//       component,
-//       width,
-//       ...otherProps
-//     },
-//     ref
-//   ) => (
-//     <GridResolver >
-//       {(screenClass) => (
-//         <GutterWidthContext.Consumer>
-//           {(gutterWidth) => {
-//             const theStyle = getStyle({
-//               forceWidth: width,
-//               width: {
-//                 xs,
-//                 sm,
-//                 md,
-//                 lg,
-//                 xl,
-//                 xxl,
-//                 xxxl,
-//               },
-//               offset,
-//               pull,
-//               push,
-//               order,
-//               debug,
-//               screenClass,
-//               gutterWidth,
-//               gridColumns: getConfiguration().gridColumns,
-//               moreStyle: style,
-//             });
-//             return createElement(component, { ref, style: theStyle, ...otherProps, children });
-//           }}
-//         </GutterWidthContext.Consumer>
-//       )}
-//     </GridResolver>
-//   )
-// );
 
 const Col = React.forwardRef(
   (

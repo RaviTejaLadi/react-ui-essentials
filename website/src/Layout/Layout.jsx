@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
 import React, { useContext, useState } from "react";
 import { TopNav, Content } from "./components";
-import { SideBar,Divider } from "react-ui-essentials";
+import { SideBar } from "react-ui-essentials";
+// import SideBar from "../components/SideBar/SideBar"
 import styles from "./Layout.module.css";
 import ParentContext from "../context/ParentContext";
 import {routes} from "./utils/Links" 

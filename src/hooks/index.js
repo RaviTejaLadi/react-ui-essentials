@@ -14,6 +14,7 @@ import useTimeout from "./useTimeout";
 import useToggle from "./useToggle";
 import useUpdateEffect from "./useUpdateEffect";
 import useWindowSize from "./useWindowSize";
+import UseFilteredContent from "./UseFilteredContent";
 
 export {
   useArray,
@@ -32,4 +33,5 @@ export {
   useToggle,
   useUpdateEffect,
   useWindowSize,
+  UseFilteredContent
 };

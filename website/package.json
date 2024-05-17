@@ -9,7 +9,7 @@
     "build": "node ../node_modules/react-scripts/bin/react-scripts.js --openssl-legacy-provider build",
     "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
     "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject",
-    "convert": "node src/SvgToJsx --i src/svg/two-tone --o src/Icons/TwoTone"
+    "convert": "node src/SvgToJsx --i src/svg/round --o src/Icons/Round"
   },
   "dependencies": {
     "js-base64": "^3.7.5",

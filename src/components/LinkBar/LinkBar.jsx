@@ -4,10 +4,9 @@ import styles from "./LinkBar.module.css";
 import Link from "../Link/Link";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
-import LeftArrow from "./LeftArrow";
-import RightArrow from "./RightArrow";
+import { ArrowLeft, ArrowRight } from "../../Icons/Round";
 
-const LinkBar = ({ links }) => {
+const LinkBar = ({ links, showControls, controlsSize, controlsVariant, width, height, ...rest }) => {
   const linkBarRef = useRef(null);
   const scroll = (direction) => {
     if (direction === "left") {
@@ -16,28 +15,55 @@ const LinkBar = ({ links }) => {
       linkBarRef.current.scrollLeft += 200;
     }
   };
+
   return (
-    <Box width="100%" height="35px" elevation={1} rounded margin="4px" className={styles.rue_linkbar_container}>
-      <Button size="sm" variant="dark" onClick={() => scroll("left")}>
-        <LeftArrow width="10px" height="10px" />
-      </Button>
+    <Box
+      width={width}
+      height={height}
+      elevation={1}
+      rounded
+      margin="4px"
+      className={styles.rue_linkbar_container}
+      {...rest}
+    >
+      {showControls && (
+        <Button size={controlsSize} variant={controlsVariant} onClick={() => scroll("left")}>
+          <ArrowLeft width="20px" height="20px" />
+        </Button>
+      )}
       <Box boxRef={linkBarRef} className={styles.rue_linkBar}>
         {links.map((link, index) => (
-          <Link key={index} to={link.url} className={styles.rue_link}>
-            {link.name}
+          <Link key={`${index}-${link.name}`} to={link.url} className={styles.rue_link}>
+            {link.icon} {link.name}
           </Link>
         ))}
       </Box>
-      <Button size="sm" variant="dark" onClick={() => scroll("right")}>
-        <RightArrow width="10px" height="10px" />
-      </Button>
+      {showControls && (
+        <Button size={controlsSize} variant={controlsVariant} onClick={() => scroll("right")}>
+          <ArrowRight width="20px" height="20px" />
+        </Button>
+      )}
     </Box>
   );
 };
 
 LinkBar.propTypes = {
+  controlsVariant: PropTypes.string,
+  controlsSize: PropTypes.string,
   links: PropTypes.shape({
     map: PropTypes.func,
   }),
+  showControls: PropTypes.bool,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };
+
+LinkBar.defaultProps = {
+  controlsSize: "sm",
+  controlsVariant: "light",
+  showControls: false,
+  width: "100%",
+  height: "35px",
+};
+
 export default memo(LinkBar);

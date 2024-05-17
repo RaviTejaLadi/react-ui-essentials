@@ -1,0 +1,175 @@
+.rue_toast.danger,
+.rue_toast.danger:hover,
+.rue_toast.help,
+.rue_toast.help:hover,
+.rue_toast.info,
+.rue_toast.info:hover,
+.rue_toast.primary,
+.rue_toast.primary:hover,
+.rue_toast.secondary,
+.rue_toast.secondary:hover,
+.rue_toast.success,
+.rue_toast.success:hover,
+.rue_toast.warning,
+.rue_toast.warning:hover {
+    color: var(--rue-btn-text-color)
+}
+
+:root {
+    --rue-btn-text-color: #ffffff;
+    --rue-btn-primary-bg: #007bff;
+    --rue-btn-primary-hover-bg: #0056b3;
+    --rue-btn-secondary-bg: #6c757d;
+    --rue-btn-secondary-hover-bg: #545b62;
+    --rue-btn-success-bg: #28a745;
+    --rue-btn-success-hover-bg: #218838;
+    --rue-btn-info-bg: #17a2b8;
+    --rue-btn-info-hover-bg: #138496;
+    --rue-btn-warning-bg: #ffc107;
+    --rue-btn-warning-hover-bg: #e0a800;
+    --rue-btn-danger-bg: #dc3545;
+    --rue-btn-danger-hover-bg: #c82333;
+    --rue-btn-help-bg: #6f42c1;
+    --rue-btn-help-hover-bg: #5d3bb4;
+    --rue-btn-light-bg: #f8f9fa;
+    --rue-btn-light-hover-bg: #e2e6ea;
+    --rue-btn-dark-bg: #343a40;
+    --rue-btn-dark-hover-bg: #23272b
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-25px);
+        opacity: 0
+    }
+
+    40% {
+        transform: translateY(5px);
+        opacity: 1
+    }
+
+    60% {
+        transform: translateY(-3px)
+    }
+
+    80% {
+        transform: translateY(2px)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}
+
+.rue_toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    margin-top: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 320px;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, .24) 0 0 2px;
+    opacity: 0;
+    transition: opacity 1s ease-out 0.5s
+}
+
+.rue_toast.show {
+    opacity: 1
+}
+
+.rue_toast.hide {
+    opacity: 0;
+    transition: opacity .5s ease-out 0.5s
+}
+
+.rue_toast_content {
+    font-size: 16px;
+    padding: 5px
+}
+
+.rue_toast_close {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px
+}
+
+.rue_toast.primary {
+    background-color: var(--rue-btn-primary-bg)
+}
+
+.rue_toast.primary:hover {
+    background-color: var(--rue-btn-primary-hover-bg)
+}
+
+.rue_toast.secondary {
+    background-color: var(--rue-btn-secondary-bg)
+}
+
+.rue_toast.secondary:hover {
+    background-color: var(--rue-btn-secondary-hover-bg)
+}
+
+.rue_toast.success {
+    background-color: var(--rue-btn-success-bg)
+}
+
+.rue_toast.success:hover {
+    background-color: var(--rue-btn-success-hover-bg)
+}
+
+.rue_toast.info {
+    background-color: var(--rue-btn-info-bg)
+}
+
+.rue_toast.info:hover {
+    background-color: var(--rue-btn-info-hover-bg)
+}
+
+.rue_toast.warning {
+    background-color: var(--rue-btn-warning-bg)
+}
+
+.rue_toast.warning:hover {
+    background-color: var(--rue-btn-warning-hover-bg)
+}
+
+.rue_toast.danger {
+    background-color: var(--rue-btn-danger-bg)
+}
+
+.rue_toast.danger:hover {
+    background-color: var(--rue-btn-danger-hover-bg)
+}
+
+.rue_toast.help {
+    background-color: var(--rue-btn-help-bg)
+}
+
+.rue_toast.help:hover {
+    background-color: var(--rue-btn-help-hover-bg)
+}
+
+.rue_toast.light {
+    color: #212529;
+    background-color: var(--rue-btn-light-bg)
+}
+
+.rue_toast.light:hover {
+    color: #212529d0;
+    background-color: var(--rue-btn-light-hover-bg)
+}
+
+.rue_toast.dark {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-dark-bg)
+}
+
+.rue_toast.dark:hover {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-dark-hover-bg)
+}

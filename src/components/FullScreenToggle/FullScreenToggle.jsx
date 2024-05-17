@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import { Button } from "react-ui-essentials";
-import { TbArrowsMaximize, TbArrowsMinimize } from "react-icons/tb";
-// import { TbMaximize, TbMinimize } from "react-icons/tb";
+import Button from "../Button/Button";
+import { ZoomInMap, ZoomOutMap } from "../../Icons/Round";
 import styles from "./FullScreenToggle.module.css";
 
 const FullScreenToggle = ({ variant, size, text }) => {
@@ -48,7 +47,13 @@ const FullScreenToggle = ({ variant, size, text }) => {
   return (
     <Button variant={variant} size={size} onClick={toggleFullScreen}>
       <span className={styles.rue_fullScreen_container}>
-        <span className={styles.rue_fullScreen_icon}>{isFullScreen ? <TbArrowsMinimize /> : <TbArrowsMaximize />}</span>
+        <span className={styles.rue_fullScreen_icon}>
+          {isFullScreen ? (
+            <ZoomInMap width="20px" height="20px" />
+          ) : (
+            <ZoomOutMap width="20px" height="20px" />
+          )}
+        </span>
         <span>{text}</span>
       </span>
     </Button>

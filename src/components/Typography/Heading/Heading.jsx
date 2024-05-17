@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styles from "./Heading.module.css";
-import Copy from "../icon/Copy";
+import { ContentCopy } from "../../../Icons/Round";
 
 const Heading = ({
   variant,
@@ -80,7 +80,7 @@ const Heading = ({
       <span>{children}</span>
       {copy && (
         <span className={styles.rue_copyIcon} onClick={handleCopy}>
-          <Copy width="18px" height="18px" />
+          <ContentCopy width="20px" height="20px" />
           {copied && <span className={styles.rue_copyFeedback}>Copied!</span>}
         </span>
       )}

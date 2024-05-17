@@ -6,31 +6,6 @@ import { Div } from "../../primitives";
 
 export const GutterWidthContext = React.createContext(false);
 
-// const Row = React.forwardRef(
-//   (
-//     { children, style, align, justify, wrap, debug, nogutter, gutterWidth, component, direction, ...otherProps },
-//     ref
-//   ) => {
-//     let theGutterWidth = getConfiguration().gutterWidth;
-//     if (nogutter) theGutterWidth = 0;
-//     if (typeof gutterWidth === "number") theGutterWidth = gutterWidth;
-//     const theStyle = getStyle({
-//       gutterWidth: theGutterWidth,
-//       align,
-//       justify,
-//       debug,
-//       moreStyle: style,
-//       direction,
-//       wrap,
-//     });
-//     return React.createElement(
-//       component,
-//       { ref, style: theStyle, ...otherProps },
-//       <GutterWidthContext.Provider value={theGutterWidth}>{children}</GutterWidthContext.Provider>
-//     );
-//   }
-// );
-
 const Row = React.forwardRef(
   (
     {

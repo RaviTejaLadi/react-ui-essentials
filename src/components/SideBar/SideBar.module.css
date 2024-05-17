@@ -192,7 +192,7 @@
 
 .rue_sidebar a.rue_active .rue_highlight {
   position: absolute;
-  border: 1px solid transparent;
+  border: 1px solid #e5e7ebb3;
   border-radius: 3px;
   width: 4px;
   height: 25px;
@@ -237,15 +237,10 @@
   margin: 5px 5px 6px 8px
 }
 
-.rue_submenu_arrow>svg {
-  color: #ccc
-}
-
 .rue_submenu {
-  border: 1px solid transparent;
+  border: 1px solid #e5e7ebb3;
   width: 90%;
   border-radius: 4px;
-  background: rgba(176, 176, 176, .096)
 }
 
 .rue_submenu a {
@@ -264,21 +259,20 @@
 
 .rue_submenu a.rue_active,
 .rue_submenu a:hover {
-  color: #007bffa5;
+  color: #121212;
   border-radius: 4px;
   justify-content: flex-start;
   width: 95%;
-  background: rgba(176, 176, 176, .096);
-  border: 1px solid transparent
+  border: 1px solid #e5e7ebb3
 }
 
 .rue_submenu a.rue_active .rue_highlight {
-  border: 1px solid transparent;
+  border: 1px solid #e5e7ebb3;
   border-radius: 3px;
   width: 4px;
   height: 22px;
   margin: 5px 5px 6px 8px;
-  background-color: #055a9f
+  color: #121212
 }
 
 .rue_sidebar_footer,

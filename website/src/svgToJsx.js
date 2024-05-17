@@ -10,7 +10,6 @@ import * as commander from "commander";
 commander.program.option("--i, --input <input>", "Input");
 commander.program.option("--o, --output <ouput>", "Ouput");
 commander.program.parse();
-let type="TwoTone"
 const options = commander.program.opts();
 
 const PATH_FOLDER_SVGS = options.input;
@@ -161,9 +160,9 @@ const generateIcons = async () => {
     const element = listSvgObj[idx];
 
     writeFile(
-      path.resolve(__dirname, `${PATH_FOLDER_ICONS}/${element.name+type}.jsx`),
+      path.resolve(__dirname, `${PATH_FOLDER_ICONS}/${element.name}.jsx`),
       render({
-        svgIdentifier: element.name+type,
+        svgIdentifier: element.name,
         content: converter.convert(element.svg).trim(),
       })
     );
@@ -171,7 +170,7 @@ const generateIcons = async () => {
 
   // generate icon index
   const entryText = listSvgObj
-    .map((element) => `export { default as ${element.name+type} } from './${element.name+type}';`)
+    .map((element) => `export { default as ${element.name} } from './${element.name}';`)
     .join("\n");
 
   writeFile(path.resolve(__dirname, `${PATH_FOLDER_ICONS}/index.jsx`), `${entryText}`.trim());

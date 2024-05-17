@@ -5,36 +5,6 @@ import { getConfiguration } from "../../utils/config";
 import GridResolver from "../../context/GridResolver";
 import { Div } from "../../primitives";
 
-// const Container = React.forwardRef(
-//   ({ children, fluid, xs, sm, md, lg, xl, xxl, xxxl, style, component, ...otherProps }, ref) => (
-//     <GridResolver >
-//       {(screenClass) =>
-//         createElement(
-//           component,
-//           {
-//             ref,
-//             style: getStyle({
-//               fluid,
-//               xs,
-//               sm,
-//               md,
-//               lg,
-//               xl,
-//               xxl,
-//               xxxl,
-//               screenClass,
-//               containerWidths: getConfiguration().containerWidths,
-//               gutterWidth: getConfiguration().gutterWidth,
-//               moreStyle: style,
-//             }),
-//             ...otherProps,
-//           },
-//           children
-//         )
-//       }
-//     </GridResolver >
-//   )
-// );
 const Container = React.forwardRef(
   ({ children, fluid, xs, sm, md, lg, xl, xxl, xxxl, style, component: Component = Div, ...otherProps }, ref) => (
     <GridResolver>
