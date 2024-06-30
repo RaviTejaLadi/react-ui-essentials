@@ -32,5 +32,5 @@ Audio.propTypes = {
   preload: PropTypes.string,
   className: PropTypes.string,
 };
-
+Audio.displayName = "Audio";
 export default memo(Audio);

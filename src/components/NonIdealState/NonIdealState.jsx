@@ -34,5 +34,5 @@ NonIdealState.propTypes = {
   title: PropTypes.string,
   width: PropTypes.string,
 };
-
+NonIdealState.displayName = "NonIdealState";
 export default memo(NonIdealState);

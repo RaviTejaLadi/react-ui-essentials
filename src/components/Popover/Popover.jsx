@@ -135,5 +135,4 @@ Popover.Content = PopoverContent;
 Popover.Header = PopoverHeader;
 Popover.Body = PopoverBody;
 Popover.Footer = PopoverFooter;
-
 export default memo(Popover);

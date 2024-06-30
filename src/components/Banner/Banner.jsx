@@ -38,5 +38,5 @@ Banner.propTypes = {
   subTitle: PropTypes.string,
   variant: PropTypes.string,
 };
-
+Banner.displayName = "Banner";
 export default Banner;

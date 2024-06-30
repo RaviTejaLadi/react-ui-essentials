@@ -17,7 +17,6 @@ const ComponentOverView = () => {
   ];
   return (
     <Box elevation={0} margin="30px">
-
       <Divider horizontal={true} />
       <Box elevation={0} style={{ display: "flex", flexDirection: "column" }}>
         <Box elevation={0} style={{ display: "flex" }}>
@@ -33,8 +32,7 @@ const ComponentOverView = () => {
                 >
                   <img src={item.icon} alt="icon" width="100%" height="80%" />
                 </Box>
-                <Box elevation={0} rounded width="100%" height="15%" style={{ padding: "5px" }}>
-                </Box>
+                <Box elevation={0} rounded width="100%" height="15%" style={{ padding: "5px" }}></Box>
               </Box>
             );
           })}

@@ -27,4 +27,5 @@ Link.propTypes = {
   onClick: PropTypes.func,
 };
 
+Link.displayName = "Link";
 export default memo(Link);

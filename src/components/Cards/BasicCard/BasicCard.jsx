@@ -15,5 +15,5 @@ BasicCard.propTypes = {
   content: PropTypes.string,
   title: PropTypes.string,
 };
-
+BasicCard.displayName = "BasicCard";
 export default memo(BasicCard);

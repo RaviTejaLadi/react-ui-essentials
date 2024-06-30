@@ -23,4 +23,5 @@ LinkButton.propTypes = {
   variant: PropTypes.string,
 };
 
+LinkButton.displayName = "LinkButton";
 export default memo(LinkButton);

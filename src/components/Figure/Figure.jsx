@@ -30,5 +30,5 @@ Figure.propTypes = {
   src: PropTypes.string.isRequired,
   width: PropTypes.string,
 };
-
+Figure.displayName = "Figure";
 export default memo(Figure);

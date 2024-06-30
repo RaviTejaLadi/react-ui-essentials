@@ -18,7 +18,7 @@ const RadioCard = ({
       className={`${styles.card} ${checked ? styles.cardChecked : ""}`}
       style={{ width: width, height: height, margin: margin, padding: padding }}
       {...rest}
-      onClick={() => onRadioChange(id)} 
+      onClick={() => onRadioChange(id)}
     >
       <div className={styles.radioContainer}>
         <input type="radio" checked={checked} onChange={() => onRadioChange(id)} className={styles.radio} />
@@ -32,9 +32,9 @@ RadioCard.propTypes = {
   checked: PropTypes.bool,
   children: PropTypes.node,
   height: PropTypes.string,
-  id: PropTypes.number.isRequired, 
+  id: PropTypes.number.isRequired,
   margin: PropTypes.string,
-  onRadioChange: PropTypes.func.isRequired, 
+  onRadioChange: PropTypes.func.isRequired,
   padding: PropTypes.string,
   width: PropTypes.string,
 };

@@ -129,5 +129,5 @@ TextArea.propTypes = {
   value: PropTypes.any,
   width: PropTypes.string,
 };
-
+TextArea.displayName = "TextArea";
 export default memo(TextArea);

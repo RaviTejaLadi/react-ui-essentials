@@ -18,4 +18,5 @@ MiniCard.propTypes = {
   title: PropTypes.string,
 };
 
+MiniCard.displayName = "MiniCard";
 export default memo(MiniCard);

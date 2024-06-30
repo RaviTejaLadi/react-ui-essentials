@@ -67,9 +67,9 @@ const Paragraph = forwardRef(
         ? "underline "
         : "",
       fontStyle: italic ? "italic " : "",
-      fontWeight: fontWeight ? fontWeight : strong ? "bold " : "",
+      fontWeight: fontWeight || (strong ? "bold " : ""),
       backgroundColor: marked ? "yellow " : "",
-      fontSize: fontSize ? fontSize : smaller ? "0.8em " : "",
+      fontSize: fontSize || (smaller ? "0.8em " : ""),
       width: "fit-content",
       color: color,
     };
@@ -113,5 +113,5 @@ Text.propTypes = {
   fontWeight: PropTypes.string,
   color: PropTypes.string,
 };
-
+Paragraph.displayName = "Paragraph";
 export default memo(Paragraph);

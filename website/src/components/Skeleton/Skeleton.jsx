@@ -15,30 +15,24 @@ function styleOptionsToCssProperties({
   duration,
   enableAnimation = defaultEnableAnimation,
 }) {
-  
   const style = {};
   if (direction === "rtl") style["--animation-direction"] = "reverse";
 
-  if (typeof duration === "number")
-    style["--animation-duration"] = `${duration}s`;
+  if (typeof duration === "number") style["--animation-duration"] = `${duration}s`;
 
   if (!enableAnimation) style["--pseudo-element-display"] = "none";
 
-  if (typeof width === "string" || typeof width === "number")
-    style.width = width;
+  if (typeof width === "string" || typeof width === "number") style.width = width;
 
-  if (typeof height === "string" || typeof height === "number")
-    style.height = height;
+  if (typeof height === "string" || typeof height === "number") style.height = height;
 
-  if (typeof borderRadius === "string" || typeof borderRadius === "number")
-    style.borderRadius = borderRadius;
+  if (typeof borderRadius === "string" || typeof borderRadius === "number") style.borderRadius = borderRadius;
 
   if (circle) style.borderRadius = "50%";
 
   if (typeof baseColor !== "undefined") style["--base-color"] = baseColor;
 
-  if (typeof highlightColor !== "undefined")
-    style["--highlight-color"] = highlightColor;
+  if (typeof highlightColor !== "undefined") style["--highlight-color"] = highlightColor;
 
   return style;
 }
@@ -86,10 +80,7 @@ export function Skeleton({
     if (countCeil > count && i === countCeil - 1) {
       const width = thisStyle.width ?? "100%";
       const fractionalPart = count % 1;
-      const fractionalWidth =
-        typeof width === "number"
-          ? width * fractionalPart
-          : `calc(${width} * ${fractionalPart})`;
+      const fractionalWidth = typeof width === "number" ? width * fractionalPart : `calc(${width} * ${fractionalPart})`;
       thisStyle = { ...thisStyle, width: fractionalWidth };
     }
 
@@ -117,9 +108,7 @@ export function Skeleton({
       aria-live="polite"
       aria-busy={styleOptions.enableAnimation ?? defaultEnableAnimation}
     >
-      {Wrapper
-        ? elements.map((el, i) => <Wrapper key={i}>{el}</Wrapper>)
-        : elements}
+      {Wrapper ? elements.map((el, i) => <Wrapper key={i}>{el}</Wrapper>) : elements}
     </span>
   );
 }

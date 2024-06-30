@@ -24,5 +24,5 @@ PreviewCode.propTypes = {
   }),
   width: PropTypes.string,
 };
-
+PreviewCode.displayName = "PreviewCode";
 export default memo(PreviewCode);

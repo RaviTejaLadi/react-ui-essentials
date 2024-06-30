@@ -76,5 +76,5 @@ EmojiListRenderer.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
 };
-
+EmojiListRenderer.displayName = "EmojiListRenderer";
 export default memo(EmojiListRenderer);

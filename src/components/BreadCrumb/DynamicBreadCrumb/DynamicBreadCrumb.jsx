@@ -62,4 +62,5 @@ DynamicBreadCrumb.propTypes = {
   seperaterWidth: PropTypes.string,
 };
 
+DynamicBreadCrumb.displayName = "DynamicBreadCrumb";
 export default memo(DynamicBreadCrumb);

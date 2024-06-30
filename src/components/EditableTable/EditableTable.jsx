@@ -257,5 +257,5 @@ EditableTable.propTypes = {
   // rowColor: PropTypes.array,
   rows: PropTypes.array,
 };
-
+EditableTable.displayName = "EditableTable";
 export default memo(EditableTable);

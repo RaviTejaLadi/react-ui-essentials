@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { memo, forwardRef } from "react";
 import styles from "./View.module.css";
 import Button from "../Button/Button";
-import TextArea from "../TextArea/TextArea";
 
 const View = forwardRef(({ width = "100%", height = "auto", code, elements, ...rest }, ref) => {
   const containerStyles = {
@@ -85,5 +84,5 @@ View.propTypes = {
   code: PropTypes.node.isRequired,
   elements: PropTypes.node.isRequired,
 };
-
+View.displayName = "View";
 export default memo(View);

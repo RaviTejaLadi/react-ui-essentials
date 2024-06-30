@@ -50,5 +50,5 @@ Video.propTypes = {
   preload: PropTypes.string,
   className: PropTypes.string,
 };
-
+Video.displayName = "Video";
 export default memo(Video);

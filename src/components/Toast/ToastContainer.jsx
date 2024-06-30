@@ -58,4 +58,5 @@ ToastContainer.propTypes = {
   startIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
+ToastContainer.displayName = "ToastContainer";
 export { showToast, ToastContainer };

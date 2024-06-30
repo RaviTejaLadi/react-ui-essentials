@@ -112,5 +112,5 @@ JsonViewer.propTypes = {
   margin: PropTypes.string,
   padding: PropTypes.string,
 };
-
+JsonViewer.displayName = "JsonViewer";
 export default memo(JsonViewer);

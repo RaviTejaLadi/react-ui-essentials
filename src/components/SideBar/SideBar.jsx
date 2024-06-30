@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Fragment, forwardRef, useEffect, useRef, useState } from "react";
+import React, { Fragment, forwardRef, useEffect, useRef, useState, memo } from "react";
 import styles from "./SideBar.module.css";
 import Link from "../Link/Link";
 import Tooltip from "../Tooltip/Tooltip";
@@ -33,12 +33,12 @@ SidebarHeader.propTypes = {
 };
 
 const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }, ref) => {
-  let FindActivePathName = routes?.map(({ path }) => {
+  const FindActivePathName = routes?.map(({ path }) => {
     return path === window.location.pathname;
   });
 
-  let matchedIndex = FindActivePathName?.findIndex((val) => val);
-  let matchedId = matchedIndex !== -1 ? routes?.[matchedIndex]?.id : null;
+  const matchedIndex = FindActivePathName?.findIndex((val) => val);
+  const matchedId = matchedIndex !== -1 ? routes?.[matchedIndex]?.id : null;
   const [activeLink, setActiveLink] = useState(matchedId - 1);
 
   const [activeDropdown, setActiveDropdown] = useState(activeLink);
@@ -106,7 +106,7 @@ const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }
               ref={(element) => (sidebarItemsRefs.current[index] = element)}
               onClick={() => toggleDropdown(index)}
             >
-              <span className={styles.rue_highlight}></span>
+              <span className={styles.rue_highlight} />
               {icons && (
                 <span className={styles.rue_sidebar_icon}>
                   <img src={icons} alt="sidebar_icons" />
@@ -174,4 +174,6 @@ SideBarFooter.propTypes = {
 SideBar.Header = SidebarHeader;
 SideBar.Footer = SideBarFooter;
 SideBar.Body = SideBarBody;
-export default SideBar;
+SideBar.displayName = "SideBar";
+SideBarBody.displayName = "SideBarBody";
+export default memo(SideBar);

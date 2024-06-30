@@ -61,4 +61,5 @@ ListGroups.propTypes = {
   variant: PropTypes.string,
 };
 
+ListGroups.displayName = "ListGroups";
 export default memo(ListGroups);

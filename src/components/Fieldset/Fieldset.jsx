@@ -46,5 +46,5 @@ Fieldset.propTypes = {
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "danger", "info", "light", "dark"]),
   width: PropTypes.string,
 };
-
+Fieldset.displayName = "Fieldset";
 export default memo(Fieldset);

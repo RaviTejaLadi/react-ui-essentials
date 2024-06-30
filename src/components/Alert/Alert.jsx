@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Alert.module.css";
 
-const Alert = forwardRef(({ variant, children, ...ref }, ref) => {
+const Alert = forwardRef(({ variant, children, ...rest }, ref) => {
   const alertClasses = `${styles.rue_alert} ${variant ? `${styles[`rue_alert_${variant}`]}` : ""}`;
   return (
     <div className={alertClasses} ref={ref} {...rest}>
@@ -43,5 +43,5 @@ Footer.propTypes = {
 Alert.Header = Header;
 Alert.Body = Body;
 Alert.Footer = Footer;
-
+Alert.displayName = "Alert";
 export default Alert;
