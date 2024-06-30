@@ -73,4 +73,5 @@ Toast.propTypes = {
   startIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
+Toast.displayName = "Toast";
 export default memo(Toast);

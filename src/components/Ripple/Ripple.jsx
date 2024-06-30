@@ -57,5 +57,5 @@ Ripple.propTypes = {
   duration: PropTypes.number,
   color: PropTypes.string,
 };
-
+Ripple.displayName = "Ripple";
 export default memo(Ripple);

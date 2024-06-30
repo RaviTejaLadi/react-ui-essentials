@@ -57,5 +57,5 @@ Stack.propTypes = {
 };
 
 Stack.Item = Item;
-
+Stack.displayName = "Stack";
 export default memo(Stack);

@@ -23,4 +23,5 @@ Avatar.propTypes = {
   width: PropTypes.string,
 };
 
+Avatar.displayName = "Avatar";
 export default Avatar;

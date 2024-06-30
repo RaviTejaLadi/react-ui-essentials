@@ -62,4 +62,5 @@ FullScreenToggle.propTypes = {
   text: PropTypes.string,
 };
 
+FullScreenToggle.displayName = "FullScreenToggle";
 export default memo(FullScreenToggle);

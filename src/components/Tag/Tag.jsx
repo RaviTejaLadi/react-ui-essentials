@@ -30,5 +30,5 @@ Tag.propTypes = {
     "custom",
   ]),
 };
-
+Tag.displayName = "Tag";
 export default memo(Tag);

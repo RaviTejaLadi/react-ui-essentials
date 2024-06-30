@@ -45,4 +45,5 @@ SearchBar.propTypes = {
   width: PropTypes.string,
 };
 
+SearchBar.displayName = "SearchBar";
 export default memo(SearchBar);

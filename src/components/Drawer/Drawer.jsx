@@ -86,5 +86,5 @@ DrawerBody.propTypes = {
 Drawer.Header = DrawerHeader;
 Drawer.Title = DrawerTitle;
 Drawer.Body = DrawerBody;
-
+Drawer.displayName = "Drawer";
 export default memo(Drawer);

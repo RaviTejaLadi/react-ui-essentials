@@ -33,5 +33,5 @@ export {
   useToggle,
   useUpdateEffect,
   useWindowSize,
-  UseFilteredContent
+  UseFilteredContent,
 };

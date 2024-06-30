@@ -40,4 +40,5 @@ const Spinner = forwardRef(({ width = 100, height = 100, color = "#ccc", ...rest
   );
 });
 
+Spinner.displayName = "Spinner";
 export default memo(Spinner);

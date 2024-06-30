@@ -68,8 +68,8 @@ TreeNode.propTypes = {
   parentChecked: PropTypes.bool,
   showCheckBox: PropTypes.bool,
 };
-
-const TreeView = ({ data, showCheckBox }) => {
+TreeNode.displayName = "TreeNode";
+const TreeView = forwardRef(({ data, showCheckBox, ...rest }, ref) => {
   const [checkedNodes, setCheckedNodes] = useState(JSON.parse(JSON.stringify(data)));
 
   const handleCheckChange = (node, isChecked) => {
@@ -98,7 +98,7 @@ const TreeView = ({ data, showCheckBox }) => {
   const checkedHierarchy = filterCheckedNodes(checkedNodes);
 
   return (
-    <div>
+    <div ref={ref} {...rest}>
       <TreeNode node={data} showCheckBox={showCheckBox} onCheckChange={handleCheckChange} parentChecked={undefined} />
       {showCheckBox && (
         <pre>
@@ -107,11 +107,11 @@ const TreeView = ({ data, showCheckBox }) => {
       )}
     </div>
   );
-};
+});
 
 TreeView.propTypes = {
   data: PropTypes.array.isRequired,
   showCheckBox: PropTypes.bool,
 };
-
+TreeView.displayName = "TreeView";
 export default memo(TreeView);

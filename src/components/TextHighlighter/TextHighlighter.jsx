@@ -84,4 +84,5 @@ TextHighlighter.propTypes = {
   highlightText: PropTypes.array.isRequired,
 };
 
+TextHighlighter.displayName = "TextHighlighter";
 export default memo(TextHighlighter);

@@ -20,12 +20,7 @@ const CheckboxCard = ({
       {...rest}
     >
       <div className={styles.checkboxContainer}>
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={() => onCheckboxChange(id)}
-          className={styles.checkbox}
-        />
+        <input type="checkbox" checked={checked} onChange={() => onCheckboxChange(id)} className={styles.checkbox} />
       </div>
       <div className={styles.content}>{children}</div>
     </div>

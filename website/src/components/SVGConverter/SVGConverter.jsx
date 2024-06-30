@@ -59,10 +59,7 @@ const SVGConverter = () => {
         {convertedSVG && (
           <div>
             <h3>SVG Preview:</h3>
-            <div
-              className={styles.svgPreview}
-              dangerouslySetInnerHTML={{ __html: convertedSVG }}
-            />
+            <div className={styles.svgPreview} dangerouslySetInnerHTML={{ __html: convertedSVG }} />
           </div>
         )}
         {svgComponentCode && (

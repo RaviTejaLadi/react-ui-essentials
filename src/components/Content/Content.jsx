@@ -104,4 +104,5 @@ ContentFooter.propTypes = {
 Content.Header = ContentHeader;
 Content.Body = ContentBody;
 Content.Footer = ContentFooter;
+Content.displayName = "Content";
 export default memo(Content);

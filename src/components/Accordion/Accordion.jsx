@@ -38,7 +38,7 @@ const AccordionHeader = ({ header, isActive, onClick, icon, id, variant, toogleI
           {id}. {header}
         </h6>
       </span>
-      {toogleIcon ? toogleIcon : <DownArrow className={styles.rue_accordion_icon} size="10px" />}
+      {toogleIcon || <DownArrow className={styles.rue_accordion_icon} size="10px" />}
     </div>
   );
 };
@@ -130,5 +130,5 @@ Accordion.propTypes = {
   width: PropTypes.string,
   toogleIcon: PropTypes.node,
 };
-
+Accordion.displayName = "Accordion";
 export default Accordion;
