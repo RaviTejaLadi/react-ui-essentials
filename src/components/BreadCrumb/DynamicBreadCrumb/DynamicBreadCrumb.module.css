@@ -1,0 +1,31 @@
+.rue_dynamic_breadcrum {
+    margin-left: 5px;
+    margin-top: 3px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #102447;
+    border: 1px solid transparent;
+    padding: 10px;
+}
+
+.rue_dynamic_breadcrum_link {
+    font-weight: 600;
+    font-size: 12px;
+    text-decoration: none;
+    color: #102447;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 2px 5px;
+}
+
+.rue_dynamic_breadcrum_link:hover {
+    color: #102447
+}
+
+.rue_dynamic_breadcrum_link_svg {
+    color: #102447;
+    width: 15px;
+    height: 15px;
+    padding: 0 5px;
+    margin-top: 0;
+}

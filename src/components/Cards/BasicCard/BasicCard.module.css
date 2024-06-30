@@ -1,0 +1,23 @@
+.rue_basic_card {
+    width: 30%;
+    margin: 8px;
+    max-width: 30%;
+    min-width: 15%;
+    min-height: 200px;
+    max-height: 400px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 2px;
+}
+
+.rue_basic_card>p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.rue_basic_card>span {
+    font-size: 13px;
+}

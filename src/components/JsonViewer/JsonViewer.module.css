@@ -1,0 +1,62 @@
+.rue_json_preview_container {
+  white-space: pre-wrap;
+  overflow: auto;
+  min-width: 300px;
+  min-height: 300px;
+}
+
+.rue_json_preview_header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px
+}
+
+.rue_json_preview {
+  border: transparent;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  margin: 5px 0px;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  overflow: auto;
+  max-width: 100%;
+  max-height: 100vh;
+}
+
+.rue_json_preview_string {
+  color: #cb5168
+}
+
+.rue_json_preview_number {
+  color: #268dd6
+}
+
+.rue_json_preview_boolean {
+  color: #2ab6d7
+}
+
+.rue_json_preview_key {
+  color: #264b54;
+  font-weight: 700
+}
+
+.rue_json_preview_brace .rue_json_preview_bracket {
+  color: #002b3c
+}
+
+.rue_json_preview_regexp {
+  color: #c00
+}
+
+.rue_json_preview_object {
+  color: #0a0
+}
+
+.rue_json_preview_symbol {
+  color: #f0f
+}
+
+.rue_json_preview_function {
+  color: #00f
+}

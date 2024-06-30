@@ -16,15 +16,20 @@
   margin-top: 40px;
 }
 
+.hiddenSidebar {
+  width: 0%;
+}
+
 .layout_body_side_nav {
   border-right: 1px solid #ccc;
-  width: 15%;
+  width: 16%;
   height: calc(100vh - 40px);
 }
 
 .layout_body_content {
   border: 1px solid transparent;
-  /* width: calc(100% - 15%); */
-  /* left: 15%; */
-  /* height: calc(100vh - 40px); */
+}
+
+.dispalyContent {
+  width: 100%;
 }

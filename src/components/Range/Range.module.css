@@ -1,0 +1,49 @@
+.rue_slidecontainer {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-bottom: 10px;
+}
+
+.rue_slidecontainer:hover {
+    border: 1px solid #118ab2;
+}
+
+.rue_slideTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rue_slider {
+    appearance: none;
+    border-radius: 5px;
+    background: #118ab2;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.rue_slider:hover {
+    opacity: 1;
+}
+
+.rue_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #073b4c;
+    cursor: pointer;
+}
+
+.rue_slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #073b4c;
+    cursor: pointer;
+}

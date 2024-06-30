@@ -1,0 +1,42 @@
+.card {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cardChecked {
+    border-color: rgba(0, 76, 255, 0.842);
+  }
+  
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+  }
+  
+  .checkbox {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  .title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+  }
+  
+  .description {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+  }
+  

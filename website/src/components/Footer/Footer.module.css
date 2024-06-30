@@ -1,0 +1,33 @@
+.rue_footer,
+.rue_footer_content {
+    justify-content: space-between;
+    display: flex;
+}
+
+.rue_footer {
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rue_footer_content {
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.rue_footer_nav {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+.rue_footer_link {
+    margin-right: 1rem;
+    color: #333;
+    text-decoration: none;
+}
+
+.rue_footer_link:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,26 @@
+.rue_table_container {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.rue_table_header_row {
+    border: 1px solid #ccc;
+}
+
+.rue_table_header_row,
+.rue_table_body_row {
+    display: flex;
+    border-radius: 3px;
+    margin-bottom: 3px;
+}
+
+.rue_table_column {
+    flex: 1;
+    padding: 8px;
+}

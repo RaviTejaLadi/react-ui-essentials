@@ -1,0 +1,25 @@
+.rue_transfer_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+    min-width: 800px;
+    max-height: 500px;
+}
+
+.rue_item_list {
+
+    list-style-type: none;
+    padding: 0;
+}
+
+.rue_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.rue_item input[type="checkbox"] {
+    margin-right: 5px;
+}

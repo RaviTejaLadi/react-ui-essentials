@@ -1,0 +1,11 @@
+.higilitedText {
+    margin: 0px 1px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding:0px 8px ;
+    cursor: pointer ;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    height: 31px ;
+  }
