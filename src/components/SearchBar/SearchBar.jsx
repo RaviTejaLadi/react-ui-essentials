@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo, forwardRef } from "react";
 import CloseButton from "../CloseButton/CloseButton";
 import styles from "./SearchBar.module.css";
 import { Search } from "../../Icons/Round";
 
-const SearchBar = ({ setDebouncedSearchTerm, width, height }) => {
+const SearchBar = forwardRef(({ setDebouncedSearchTerm, width, height, ...rest }, ref) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const SearchBar = ({ setDebouncedSearchTerm, width, height }) => {
   };
 
   return (
-    <div className={styles.rue_searchbar} style={{ width: width, height: height }}>
+    <div ref={ref} className={styles.rue_searchbar} style={{ width: width, height: height }} {...rest}>
       <Search width="20px" height="20px" className={styles.rue_searchbar_search_icon} />
       <input
         className={styles.rue_searchbar_input}
@@ -37,7 +37,7 @@ const SearchBar = ({ setDebouncedSearchTerm, width, height }) => {
       {searchTerm && <CloseButton size="sm" variant="light" onClick={handleClearBtn} />}
     </div>
   );
-};
+});
 
 SearchBar.propTypes = {
   height: PropTypes.string,
@@ -45,4 +45,4 @@ SearchBar.propTypes = {
   width: PropTypes.string,
 };
 
-export default SearchBar;
+export default memo(SearchBar);

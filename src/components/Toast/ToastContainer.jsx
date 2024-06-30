@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { forwardRef } from "react";
 import Toast from "./Toast";
 import styles from "./ToastContainer.module.css";
 
@@ -27,13 +27,13 @@ const removeToast = (toastId, setToasts) => {
   setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== toastId));
 };
 
-const ToastContainer = ({ toasts, setToasts, position, showClose, startIcon }) => {
+const ToastContainer = forwardRef(({ toasts, setToasts, position, showClose, startIcon, ...rest }, ref) => {
   const handleClose = (id) => {
     removeToast(id, setToasts);
   };
 
   return (
-    <div className={`${styles.rue_toast_container} ${styles[position]}`}>
+    <div ref={ref} className={`${styles.rue_toast_container} ${styles[position]}`} {...rest}>
       {toasts.map((toast) => (
         <Toast
           key={toast.id}
@@ -48,7 +48,7 @@ const ToastContainer = ({ toasts, setToasts, position, showClose, startIcon }) =
       ))}
     </div>
   );
-};
+});
 
 ToastContainer.propTypes = {
   position: PropTypes.oneOf(["top-right", "top-center", "top-left", "bottom-right", "bottom-center", "bottom-left"]),

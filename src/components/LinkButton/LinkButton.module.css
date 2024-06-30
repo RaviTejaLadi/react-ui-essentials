@@ -13,6 +13,15 @@
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.rue_btn_primary {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-primary-bg);
+}
+
+.rue_btn_primary:hover {
+  color: var(--rue-btn-text-color);
+  background-color: var(--rue-btn-primary-hover-bg);
+}
 .rue_link_primary {
   color: #fff;
   background-color: rgb(16, 36, 71);

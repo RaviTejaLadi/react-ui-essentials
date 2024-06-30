@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import styles from "./ListGropus.module.css";
 
-const ListGroups = ({ width, items, size, variant }) => {
+const ListGroups = forwardRef(({ width, items, size, variant, ...rest }, ref) => {
   const getSizeClassName = () => {
     switch (size) {
       case "sm":
@@ -44,7 +44,7 @@ const ListGroups = ({ width, items, size, variant }) => {
   };
 
   return (
-    <ul style={{ width: width }} className={`${styles.rue_list_group} ${getSizeClassName()}`}>
+    <ul ref={ref} style={{ width: width }} className={`${styles.rue_list_group} ${getSizeClassName()}`} {...rest}>
       {items?.map((item, index) => (
         <li key={index} className={`${styles.rue_list_group_item} ${getVariantClassName()}`}>
           {item}
@@ -52,7 +52,7 @@ const ListGroups = ({ width, items, size, variant }) => {
       ))}
     </ul>
   );
-};
+});
 
 ListGroups.propTypes = {
   width: PropTypes.string,
@@ -61,4 +61,4 @@ ListGroups.propTypes = {
   variant: PropTypes.string,
 };
 
-export default ListGroups;
+export default memo(ListGroups);

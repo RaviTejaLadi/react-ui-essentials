@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./ContentScrollable.module.css";
 
-const ContentScrollable = ({ height, width, children, variant }) => {
+const ContentScrollable = forwardRef(({ height, width, children, variant, ...rest }, ref) => {
   const containerDimensions = {
     height: height,
     width: width,
@@ -11,11 +11,11 @@ const ContentScrollable = ({ height, width, children, variant }) => {
     variant ? `${styles[`rue_content_scroller_${variant}`]}` : ""
   }`;
   return (
-    <div className={contentScrollableClasses} style={containerDimensions}>
+    <div ref={ref} className={contentScrollableClasses} style={containerDimensions} {...rest}>
       {children}
     </div>
   );
-};
+});
 
 ContentScrollable.propTypes = {
   children: PropTypes.node.isRequired,
@@ -24,4 +24,4 @@ ContentScrollable.propTypes = {
   variant: PropTypes.string,
 };
 
-export default ContentScrollable;
+export default memo(ContentScrollable);

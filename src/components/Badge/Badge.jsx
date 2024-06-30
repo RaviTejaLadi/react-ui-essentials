@@ -1,8 +1,8 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Badge.module.css";
 
-const Badge = ({ size, variant, children }) => {
+const Badge = forwardRef(({ size, variant, children, ...rest }, ref) => {
   const getBadgeStyles = () => {
     let sizeClass = "";
     switch (size) {
@@ -61,8 +61,12 @@ const Badge = ({ size, variant, children }) => {
     return `badge ${sizeClass} ${variantClass}`;
   };
 
-  return <span className={getBadgeStyles()}>{children}</span>;
-};
+  return (
+    <span className={getBadgeStyles()} ref={ref} {...rest}>
+      {children}
+    </span>
+  );
+});
 
 Badge.propTypes = {
   size: PropTypes.oneOf(["sm", "md", "lg", "xl", "xxl", "xxxl"]),

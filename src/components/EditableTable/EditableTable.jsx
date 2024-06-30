@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, forwardRef, memo } from "react";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 import styles from "./EditableTable.module.css";
 import { Ellipsis } from "./icons";
 import { ColumnControlsMenu, RowControlsMenu } from "./Components";
 
-const EditableTable = ({ headers, rows }) => {
+const EditableTable = forwardRef(({ headers, rows }, ref) => {
   const [initialRowData, setInitialRowData] = useState([]);
   const [initialTableHeaders, setInitialTableHeaders] = useState([]);
   const [rowData, setRowData] = useState([]);
@@ -99,7 +99,7 @@ const EditableTable = ({ headers, rows }) => {
   };
 
   return (
-    <Box elevation={1} rounded margin="10px">
+    <Box ref={ref} elevation={1} rounded margin="10px">
       {!isEditing && (
         <Box
           elevation={0}
@@ -250,7 +250,7 @@ const EditableTable = ({ headers, rows }) => {
       </Box>
     </Box>
   );
-};
+});
 
 EditableTable.propTypes = {
   headers: PropTypes.array,
@@ -258,4 +258,4 @@ EditableTable.propTypes = {
   rows: PropTypes.array,
 };
 
-export default EditableTable;
+export default memo(EditableTable);

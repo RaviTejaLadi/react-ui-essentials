@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, forwardRef, memo } from "react";
 import styles from "./SplitButton.module.css";
 
 const DownArrow = (props) => (
@@ -10,72 +10,80 @@ const DownArrow = (props) => (
   </svg>
 );
 
-const SplitButton = ({
-  variant,
-  size,
-  onClick,
-  disabled,
-  children,
-  type,
-  className,
-  startIcon,
-  endIcon,
-  raised,
-  rounded,
-  style,
-  dropdownItems,
-  dropdownIcon,
-}) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+const SplitButton = forwardRef(
+  (
+    {
+      disabled = false,
+      onClick = () => {},
+      size = "sm",
+      type = "button",
+      variant = "primary",
+      className = "",
+      raised = false,
+      style = {},
+      children,
+      className,
+      startIcon,
+      endIcon,
+      raised,
+      rounded,
+      dropdownItems,
+      dropdownIcon,
+      ...rest
+    },
+    ref
+  ) => {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const buttonStyle = {
-    boxShadow: raised
-      ? "0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)"
-      : "",
-    borderRadius: rounded && "2rem",
-    ...style,
-  };
-  const buttonClasses = `${styles.rue_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
-    size ? `${styles[`rue_btn_${size}`]}` : ""
-  } ${className}`;
+    const buttonStyle = {
+      boxShadow: raised
+        ? "0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12)"
+        : "",
+      borderRadius: rounded && "2rem",
+      ...style,
+    };
+    const buttonClasses = `${styles.rue_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
+      size ? `${styles[`rue_btn_${size}`]}` : ""
+    } ${className}`;
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+    const toggleDropdown = () => {
+      setIsDropdownOpen(!isDropdownOpen);
+    };
 
-  const handleDropdownClick = (item) => {
-    if (item.onClick) {
-      item.onClick();
-    }
-    setIsDropdownOpen(false);
-  };
+    const handleDropdownClick = (item) => {
+      if (item.onClick) {
+        item.onClick();
+      }
+      setIsDropdownOpen(false);
+    };
 
-  return (
-    <div className={styles.rue_split_btn_container}>
-      <button className={buttonClasses} style={buttonStyle} onClick={onClick} disabled={disabled} type={type}>
-        {startIcon && <span>{startIcon}</span>}
-        {children}
-        {endIcon && <span>{endIcon}</span>}
-      </button>
-      {dropdownItems && (
-        <div className={styles.rue_dropdown}>
-          <button className={`${styles.rue_dropdown_toggle} ${buttonClasses}`} onClick={toggleDropdown}>
-            {dropdownIcon ? dropdownIcon : <DownArrow width="10px" height="10px" fill="#ffffff" />}
-          </button>
-          {isDropdownOpen && (
-            <div className={styles.rue_dropdown_menu}>
-              {dropdownItems.map((item, index) => (
-                <button key={index} className={styles.rue_dropdown_item} onClick={() => handleDropdownClick(item)}>
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-};
+    return (
+      <div ref={ref} className={styles.rue_split_btn_container} {...rest}>
+        <button className={buttonClasses} style={buttonStyle} onClick={onClick} disabled={disabled} type={type}>
+          {startIcon && <span>{startIcon}</span>}
+          {children}
+          {endIcon && <span>{endIcon}</span>}
+        </button>
+        {dropdownItems && (
+          <div className={styles.rue_dropdown}>
+            <button className={`${styles.rue_dropdown_toggle} ${buttonClasses}`} onClick={toggleDropdown}>
+              {dropdownIcon ? dropdownIcon : <DownArrow width="10px" height="10px" fill="#ffffff" />}
+            </button>
+            {isDropdownOpen && (
+              <div className={styles.rue_dropdown_menu}>
+                {dropdownItems.map((item, index) => (
+                  <button key={index} className={styles.rue_dropdown_item} onClick={() => handleDropdownClick(item)}>
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
 SplitButton.propTypes = {
   boxShadow: PropTypes.string,
@@ -93,16 +101,4 @@ SplitButton.propTypes = {
   variant: PropTypes.string,
 };
 
-SplitButton.defaultProps = {
-  disabled: false,
-  onClick: () => {},
-  size: "sm",
-  type: "button",
-  variant: "primary",
-  className: "",
-  raised: false,
-  boxShadow: "",
-  style: {},
-};
-
-export default SplitButton;
+export default memo(SplitButton);

@@ -15,7 +15,6 @@
     "js-base64": "^3.7.5",
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
-    "react-icons": "^5.0.1",
     "react-scripts": "file:../node_modules/react-scripts",
     "react-ui-essentials": "file:..",
     "svgson": "^5.3.1",

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo } from "react";
+import React, { forwardRef, memo } from "react";
 import styles from "./CustomBreadcrumb.module.css";
 import Link from "../../Link/Link";
 
@@ -11,86 +11,99 @@ const RightArrowFilled = ({ size, ...rest }) => (
   </svg>
 );
 
-const CustomBreadcrumb = ({ items, size, seperator, fontSize, fontWeight, variant }) => {
-  const getBreadcrumbSize = () => {
-    switch (size) {
-      case "sm":
-        return styles.rue_breadcrumb_sm;
-      case "md":
-        return styles.rue_breadcrumb_md;
-      case "lg":
-        return styles.rue_breadcrumb_lg;
-      default:
-        return styles.rue_breadcrumb_sm;
-    }
-  };
+const CustomBreadcrumb = forwardRef(
+  (
+    {
+      items,
+      size = "md",
+      fontSize = "",
+      fontWeight = "",
+      seperator = <RightArrowFilled size="10px" fill="#2d3748" />,
+      variant,
+      ...rest
+    },
+    ref
+  ) => {
+    const getBreadcrumbSize = () => {
+      switch (size) {
+        case "sm":
+          return styles.rue_breadcrumb_sm;
+        case "md":
+          return styles.rue_breadcrumb_md;
+        case "lg":
+          return styles.rue_breadcrumb_lg;
+        default:
+          return styles.rue_breadcrumb_sm;
+      }
+    };
 
-  const getBreadcrumbVarient = () => {
-    switch (variant) {
-      case "primary":
-        return styles.rue_breadcrumb_primary;
-      case "secondary":
-        return styles.rue_breadcrumb_secondary;
-      case "success":
-        return styles.rue_breadcrumb_success;
-      case "danger":
-        return styles.rue_breadcrumb_danger;
-      case "warning":
-        return styles.rue_breadcrumb_warning;
-      case "info":
-        return styles.rue_breadcrumb_info;
-      case "help":
-        return styles.rue_breadcrumb_help;
-      case "light":
-        return styles.rue_breadcrumb_light;
-      case "dark":
-        return styles.rue_breadcrumb_dark;
-      default:
-        return styles.rue_breadcrumb_default;
-    }
-  };
+    const getBreadcrumbVarient = () => {
+      switch (variant) {
+        case "primary":
+          return styles.rue_breadcrumb_primary;
+        case "secondary":
+          return styles.rue_breadcrumb_secondary;
+        case "success":
+          return styles.rue_breadcrumb_success;
+        case "danger":
+          return styles.rue_breadcrumb_danger;
+        case "warning":
+          return styles.rue_breadcrumb_warning;
+        case "info":
+          return styles.rue_breadcrumb_info;
+        case "help":
+          return styles.rue_breadcrumb_help;
+        case "light":
+          return styles.rue_breadcrumb_light;
+        case "dark":
+          return styles.rue_breadcrumb_dark;
+        default:
+          return styles.rue_breadcrumb_default;
+      }
+    };
 
-  const TextStyles = {
-    borderRadius: "20px",
-    padding: "1px 8px",
-    fontSize: fontSize,
-    fontWeight: fontWeight,
-  };
+    const TextStyles = {
+      borderRadius: "20px",
+      padding: "1px 8px",
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+    };
 
-  return (
-    <nav aria-label="breadcrumb" className={styles.rue_breadcrumb_container}>
-      <ol className={styles.rue_breadcrumb}>
-        {items?.map((item, index) => (
-          <li key={index} className={`${styles.rue_breadcrumb_item} ${index === items.length - 1 ? "active" : ""}`}>
-            <div className={styles.breadcrumb_link}>
-              {index > 0 && (
-                <span className={styles.rue_breadcrumb_separator}>
-                  {seperator ? seperator : <RightArrowFilled size="10px" fill="#2d3748" />}
-                </span>
-              )}
-              {index === items?.length - 1 ? (
-                <span
-                  className={`${styles.rue_breadcrumb_text} ${getBreadcrumbSize()} ${getBreadcrumbVarient()}`}
-                  style={TextStyles}
-                >
-                  {item.icon} {item.label}
-                </span>
-              ) : (
-                <Link
-                  to={item.link}
-                  className={`${styles.rue_breadcrumb_text} ${getBreadcrumbSize()} ${getBreadcrumbVarient()}`}
-                  style={TextStyles}
-                >
-                  {item.icon} {item.label}
-                </Link>
-              )}
-            </div>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-};
+    return (
+      <nav aria-label="breadcrumb" className={styles.rue_breadcrumb_container} ref={ref} {...rest}>
+        <ol className={styles.rue_breadcrumb}>
+          {items?.map((item, index) => (
+            <li key={index} className={`${styles.rue_breadcrumb_item} ${index === items.length - 1 ? "active" : ""}`}>
+              <div className={styles.breadcrumb_link}>
+                {index > 0 && (
+                  <span className={styles.rue_breadcrumb_separator}>
+                    {seperator ? seperator : <RightArrowFilled size="10px" fill="#2d3748" />}
+                  </span>
+                )}
+                {index === items?.length - 1 ? (
+                  <span
+                    className={`${styles.rue_breadcrumb_text} ${getBreadcrumbSize()} ${getBreadcrumbVarient()}`}
+                    style={TextStyles}
+                  >
+                    {item.icon} {item.label}
+                  </span>
+                ) : (
+                  <Link
+                    to={item.link}
+                    className={`${styles.rue_breadcrumb_text} ${getBreadcrumbSize()} ${getBreadcrumbVarient()}`}
+                    style={TextStyles}
+                  >
+                    {item.icon} {item.label}
+                  </Link>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    );
+  }
+);
 
 CustomBreadcrumb.propTypes = {
   fontSize: PropTypes.string,
@@ -102,13 +115,6 @@ CustomBreadcrumb.propTypes = {
   seperator: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "info", "help", "light", "dark"]),
-};
-
-CustomBreadcrumb.defaultProps = {
-  seperator: <RightArrowFilled size="10px" fill="#2d3748" />,
-  size: "md",
-  fontSize: "",
-  fontWeight: "",
 };
 
 export default memo(CustomBreadcrumb);

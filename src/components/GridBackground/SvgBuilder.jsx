@@ -1,5 +1,6 @@
 import { Base64 } from "js-base64";
 import { getPageSize } from "./PageSizes";
+
 function getWidthAndHeight(pageSize, scale) {
   const k = 1;
   if (pageSize)
@@ -9,6 +10,7 @@ function getWidthAndHeight(pageSize, scale) {
     };
   return null;
 }
+
 function buildLine(size, lineColor, strokeWidth, dashArray, offset = 0, isVertical = false) {
   let cell = isVertical
     ? `<line x1='${offset}' y1='0' x2='${offset}' y2='${size}'`
@@ -16,16 +18,19 @@ function buildLine(size, lineColor, strokeWidth, dashArray, offset = 0, isVertic
   cell += ` style='stroke:${lineColor};stroke-width:${strokeWidth};stroke-dasharray="${dashArray}"' />`;
   return cell;
 }
+
 function buildCell(w, h, lineColor, strokeWidth, dashArray) {
   return (
     buildLine(h, lineColor, strokeWidth, dashArray, 0, true) + buildLine(w, lineColor, strokeWidth, dashArray, 0, false)
   );
 }
+
 function buildPage(w, h, page, pat) {
   if (!page) return pat;
   const p = `<defs> <pattern id="Pattern" x="0" y="0" width="${w}" height="${h}" patternUnits="userSpaceOnUse"> ${pat} </pattern> </defs> <rect fill="url(#Pattern)" stroke="black" width="${page.width}" height="${page.height}"/> `;
   return p;
 }
+
 function buildGridSvg(
   w,
   h,
@@ -65,4 +70,5 @@ function buildGridSvg(
   const s = `url('data:image/svg+xml;base64,${svg64}')`;
   return s;
 }
+
 export default buildGridSvg;

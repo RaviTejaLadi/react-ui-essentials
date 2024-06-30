@@ -1,0 +1,89 @@
+:root {
+    --rue-btn-text-color: #ffffff;
+    --rue-btn-primary-bg: #007bff;
+    --rue-btn-secondary-bg: #6c757d;
+    --rue-btn-success-bg: #28a745;
+    --rue-btn-info-bg: #17a2b8;
+    --rue-btn-warning-bg: #ffc107;
+    --rue-btn-danger-bg: #dc3545;
+    --rue-btn-help-bg: #6f42c1;
+    --rue-btn-light-bg: #f8f9fa;
+    --rue-btn-dark-bg: #343a40;
+}
+
+.rue_navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rue_logo {
+    height: 30px;
+}
+
+.rue_navlinks {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rue_navlinks>a {
+    margin-right: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.rue_controls {
+    display: flex;
+    gap: 3px;
+    cursor: pointer;
+}
+
+/* Navbar Variants */
+.rue_navbar.primary {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-primary-bg);
+}
+
+.rue_navbar.secondary {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-secondary-bg);
+}
+
+.rue_navbar.success {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-success-bg);
+}
+
+.rue_navbar.info {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-info-bg);
+}
+
+.rue_navbar.warning {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-warning-bg);
+}
+
+.rue_navbar.danger {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-danger-bg);
+}
+
+.rue_navbar.help {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-help-bg);
+}
+
+.rue_navbar.light {
+    color: #212529;
+    background-color: var(--rue-btn-light-bg);
+}
+
+.rue_navbar.dark {
+    color: var(--rue-btn-text-color);
+    background-color: var(--rue-btn-dark-bg);
+}

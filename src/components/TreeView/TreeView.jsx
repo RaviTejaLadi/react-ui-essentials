@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, memo, forwardRef } from "react";
 import Button from "../Button/Button";
 
-const TreeNode = ({ node, parentChecked, showCheckBox, onCheckChange }) => {
+const TreeNode = forwardRef(({ node, parentChecked, showCheckBox, onCheckChange, ...rest }, ref) => {
   const [collapsed, setCollapsed] = useState(false);
   const [checked, setChecked] = useState(parentChecked !== undefined ? parentChecked : false);
 
@@ -25,7 +25,7 @@ const TreeNode = ({ node, parentChecked, showCheckBox, onCheckChange }) => {
   };
 
   return (
-    <div style={{ fontSize: "12px" }}>
+    <div ref={ref} style={{ fontSize: "12px" }} {...rest}>
       {showCheckBox && (
         <input
           type="checkbox"
@@ -55,7 +55,7 @@ const TreeNode = ({ node, parentChecked, showCheckBox, onCheckChange }) => {
       )}
     </div>
   );
-};
+});
 
 TreeNode.propTypes = {
   node: PropTypes.shape({

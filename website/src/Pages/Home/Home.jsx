@@ -169,7 +169,7 @@ const Home = () => {
       <TabList tabs={tabs} 
       orientation="horizontal"
        width="fit-content" margin="5px"/>
-      {/* <Content margin="10px" rounded padding="10px">
+      <Content margin="10px" rounded padding="10px">
         <Content.Header>Header</Content.Header>
         <Divider />
         <Content.Body
@@ -185,7 +185,7 @@ const Home = () => {
         ></Content.Body>
         <Divider />
         <Content.Footer>Footer</Content.Footer>
-      </Content> */}
+      </Content>
       {/* <RoundSvgLoader/> */}
       {/* <MeterGroup title="Languages" values={values} max="100" height="8px" />  */}
       {/* <Transfer/> */}

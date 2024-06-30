@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef, memo } from "react";
 import styles from "./Toast.module.css";
 
-const Toast = ({ variant, message, onClose, showClose, autoClose, startIcon }) => {
+const Toast = forwardRef(({ variant, message, onClose, showClose, autoClose, startIcon, ...rest }, ref) => {
   const [showToast, setShowToast] = useState(false);
   const [hideToast, setHideToast] = useState(false);
 
@@ -47,9 +47,11 @@ const Toast = ({ variant, message, onClose, showClose, autoClose, startIcon }) =
 
   return (
     <div
+      ref={ref}
       className={`${styles.rue_toast} ${getToastType()} ${showToast ? styles.show : ""} ${
         hideToast ? styles.hide : ""
       }`}
+      {...rest}
     >
       {startIcon && <div>{startIcon}</div>}
       <div className={styles.rue_toast_content}>{message}</div>
@@ -60,7 +62,7 @@ const Toast = ({ variant, message, onClose, showClose, autoClose, startIcon }) =
       )}
     </div>
   );
-};
+});
 
 Toast.propTypes = {
   message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -71,4 +73,4 @@ Toast.propTypes = {
   startIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
-export default Toast;
+export default memo(Toast);

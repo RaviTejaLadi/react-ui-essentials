@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { memo, forwardRef } from "react";
 import CloseButton from "../CloseButton/CloseButton";
 import styles from "./Drawer.module.css";
 
-const Drawer = ({ position, children, isOpen, onClose, width, height }) => {
+const Drawer = forwardRef(({ position, children, isOpen, onClose, width, height }, ref) => {
   const getPositionClass = () => {
     switch (position) {
       case "top":
@@ -31,7 +31,7 @@ const Drawer = ({ position, children, isOpen, onClose, width, height }) => {
   };
 
   return (
-    <Fragment>
+    <div ref={ref}>
       <div className={`${styles.rue_drawer_overlay} ${isOpen ? styles.rue_open : ""}`} onClick={handleClose} />
       <div
         className={`${styles.rue_drawer} ${getPositionClass()} ${isOpen ? styles.rue_open : ""}`}
@@ -39,9 +39,9 @@ const Drawer = ({ position, children, isOpen, onClose, width, height }) => {
       >
         {children}
       </div>
-    </Fragment>
+    </div>
   );
-};
+});
 
 Drawer.propTypes = {
   children: PropTypes.node,
@@ -87,4 +87,4 @@ Drawer.Header = DrawerHeader;
 Drawer.Title = DrawerTitle;
 Drawer.Body = DrawerBody;
 
-export default Drawer;
+export default memo(Drawer);

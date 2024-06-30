@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, memo } from "react";
 import styles from "./Popover.module.css";
 import PropTypes from "prop-types";
 
-const Popover = ({ content, position, children, size, width, height, ...rest }) => {
+const Popover = ({ position = "top", size = "sm", width = "", height = "", content, children, ...rest }) => {
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef(null);
   const targetRef = useRef(null);
@@ -131,16 +131,9 @@ Popover.propTypes = {
   size: PropTypes.oneOf(["sm", "md", "lg"]),
 };
 
-Popover.defaultProps = {
-  position: "top",
-  size: "sm",
-  width: "",
-  height: "",
-};
-
 Popover.Content = PopoverContent;
 Popover.Header = PopoverHeader;
 Popover.Body = PopoverBody;
 Popover.Footer = PopoverFooter;
 
-export default Popover;
+export default memo(Popover);

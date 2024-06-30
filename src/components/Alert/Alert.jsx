@@ -1,11 +1,15 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Alert.module.css";
 
-const Alert = ({ variant, children }) => {
+const Alert = forwardRef(({ variant, children, ...ref }, ref) => {
   const alertClasses = `${styles.rue_alert} ${variant ? `${styles[`rue_alert_${variant}`]}` : ""}`;
-  return <div className={alertClasses}>{children}</div>;
-};
+  return (
+    <div className={alertClasses} ref={ref} {...rest}>
+      {children}
+    </div>
+  );
+});
 
 const Header = ({ children }) => {
   return <div className={styles.rue_alert_header}>{children}</div>;

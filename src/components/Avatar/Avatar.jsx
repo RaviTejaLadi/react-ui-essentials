@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "./Avatar.module.css";
 
-const Avatar = ({ src, alt, width, height, fluid, curvedBorder, circle }) => {
+const Avatar = forwardRef(({ src, alt, width, height, fluid, curvedBorder, circle, ...rest }, ref) => {
   const imageStyle = {
     width: width,
     height: height,
@@ -10,8 +10,8 @@ const Avatar = ({ src, alt, width, height, fluid, curvedBorder, circle }) => {
     borderRadius: curvedBorder ? "5px" : circle ? "50%" : "0",
   };
 
-  return <img src={src} alt={alt} className={styles.rue_custom_image} style={imageStyle} />;
-};
+  return <img src={src} ref={ref} alt={alt} className={styles.rue_custom_image} style={imageStyle} {...rest} />;
+});
 
 Avatar.propTypes = {
   alt: PropTypes.string,

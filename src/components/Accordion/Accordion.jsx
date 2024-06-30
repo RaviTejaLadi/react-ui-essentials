@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Accordion.module.css";
 import Box from "../Box/Box";
@@ -69,45 +69,51 @@ AccordionBody.propTypes = {
   contentElRef: PropTypes.object,
 };
 
-const Accordion = ({ content, icon, variant, outlined, rounded, elevation, width, toogleIcon }) => {
-  const [active, setActive] = useState(null);
+const Accordion = forwardRef(
+  (
+    { content, icon, variant = "primary", outlined = true, rounded = true, elevation = 0, width = "", toogleIcon },
+    ref
+  ) => {
+    const [active, setActive] = useState(null);
 
-  const handleToggle = React.useCallback(
-    (index) => {
-      if (active === index) {
-        setActive(null);
-      } else {
-        setActive(index);
-      }
-    },
-    [active]
-  );
+    const handleToggle = React.useCallback(
+      (index) => {
+        if (active === index) {
+          setActive(null);
+        } else {
+          setActive(index);
+        }
+      },
+      [active]
+    );
 
-  const contentElRef = React.useRef();
-  const { header, id, text } = content;
+    const contentElRef = React.useRef();
+    const { header, id, text } = content;
 
-  return (
-    <Box
-      elevation={elevation}
-      outlined={outlined}
-      rounded={rounded}
-      margin="10px 10px"
-      className={styles.rue_accordion_card}
-      style={{ width: width }}
-    >
-      <AccordionHeader
-        header={header}
-        isActive={active === id}
-        onClick={() => handleToggle(id)}
-        icon={icon}
-        id={id}
-        variant={variant}
-        toogleIcon={toogleIcon}
-      />
-      <AccordionBody text={text} isActive={active === id} contentElRef={contentElRef} />
-    </Box>
-  );
-};
+    return (
+      <Box
+        elevation={elevation}
+        outlined={outlined}
+        rounded={rounded}
+        margin="10px 10px"
+        className={styles.rue_accordion_card}
+        style={{ width: width }}
+        ref={ref}
+      >
+        <AccordionHeader
+          header={header}
+          isActive={active === id}
+          onClick={() => handleToggle(id)}
+          icon={icon}
+          id={id}
+          variant={variant}
+          toogleIcon={toogleIcon}
+        />
+        <AccordionBody text={text} isActive={active === id} contentElRef={contentElRef} />
+      </Box>
+    );
+  }
+);
 
 Accordion.propTypes = {
   content: PropTypes.shape({
@@ -123,14 +129,6 @@ Accordion.propTypes = {
   variant: PropTypes.string,
   width: PropTypes.string,
   toogleIcon: PropTypes.node,
-};
-
-Accordion.defaultProps = {
-  width: "",
-  outlined: true,
-  elevation: 0,
-  variant: "primary",
-  rounded: true,
 };
 
 export default Accordion;

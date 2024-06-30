@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import styles from "./GridBackground.module.css";
 
-const GridBackground = ({ children, width, height, borderColor }) => {
+const GridBackground = forwardRef(({ children, width, height, borderColor }, ref) => {
   return (
     <div
+      ref={ref}
       className={styles.rue_grid_background}
       style={{
         width: width,
@@ -15,7 +16,7 @@ const GridBackground = ({ children, width, height, borderColor }) => {
       {children}
     </div>
   );
-};
+});
 
 GridBackground.propTypes = {
   children: PropTypes.node.isRequired,
@@ -23,4 +24,4 @@ GridBackground.propTypes = {
   width: PropTypes.string,
 };
 
-export default GridBackground;
+export default memo(GridBackground);

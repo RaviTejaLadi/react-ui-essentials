@@ -1,16 +1,16 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { TbHome } from "react-icons/tb";
 import PropTypes from "prop-types";
 import styles from "./Banner.module.css";
-import { Link } from "react-router-dom";
+import { Link } from "../Link/Link";
 
-const Banner = ({ Title, subTitle, imgage, variant, size }) => {
+const Banner = forwardRef(({ Title, subTitle, imgage, variant, size, ...rest }, ref) => {
   const containerClass = `${styles.rue_banner_container} ${variant ? `${styles[`rue_banner_${variant}`]}` : ""}  ${
     size ? `${styles[`rue_banner_${size}`]}` : ""
   }`;
 
   return (
-    <div className={containerClass}>
+    <div className={containerClass} ref={ref} {...rest}>
       <div className={styles.rue_banner_title_container}>
         <span className={styles.rue_banner_title}>
           <h4>{Title}</h4>
@@ -29,7 +29,7 @@ const Banner = ({ Title, subTitle, imgage, variant, size }) => {
       )}
     </div>
   );
-};
+});
 
 Banner.propTypes = {
   Title: PropTypes.any.isRequired,

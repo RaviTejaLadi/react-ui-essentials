@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import styles from "./Figure.module.css";
 
-const Figure = ({ src, alt, caption, width, height }) => {
+const Figure = forwardRef(({ src, alt, caption, width, height }, ref) => {
   const figureStyle = {
     width: width,
     height: height,
@@ -16,12 +16,12 @@ const Figure = ({ src, alt, caption, width, height }) => {
   };
 
   return (
-    <figure className={styles.rue_figure} style={figureStyle}>
+    <figure ref={ref} className={styles.rue_figure} style={figureStyle}>
       <img src={src} alt={alt} className={styles.rue_figure_image} style={imageStyle} />
       <figcaption className={styles.rue_figure_caption}>{caption}</figcaption>
     </figure>
   );
-};
+});
 
 Figure.propTypes = {
   alt: PropTypes.string,
@@ -31,4 +31,4 @@ Figure.propTypes = {
   width: PropTypes.string,
 };
 
-export default Figure;
+export default memo(Figure);

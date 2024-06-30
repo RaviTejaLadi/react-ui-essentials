@@ -1,0 +1,17 @@
+.rue_footprint_wrapper {
+    border: 1px solid transparent;
+    width: fit-content;
+    height: auto;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.rue_india_svg {
+    margin: 0px 3px;
+}
+
+.rue_india_svg>svg {
+    margin-right: 4px;
+    margin-bottom: -5px;
+}

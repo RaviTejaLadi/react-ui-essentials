@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Fieldset.module.css";
 
-const Fieldset = ({ title, children, height, width, variant }) => {
+const Fieldset = forwardRef(({ title, children, height, width, variant }, ref) => {
   const fieldsetStyle = {
     height: height || "auto",
     width: width || "100%",
@@ -32,12 +32,12 @@ const Fieldset = ({ title, children, height, width, variant }) => {
   };
 
   return (
-    <div className={styles.rue_fieldset} style={fieldsetStyle}>
+    <div ref={ref} className={styles.rue_fieldset} style={fieldsetStyle}>
       <div className={getTitleStyle()}>{title}</div>
       <div className={styles.rue_fieldset_content}>{children}</div>
     </div>
   );
-};
+});
 
 Fieldset.propTypes = {
   children: PropTypes.node.isRequired,
@@ -47,4 +47,4 @@ Fieldset.propTypes = {
   width: PropTypes.string,
 };
 
-export default Fieldset;
+export default memo(Fieldset);

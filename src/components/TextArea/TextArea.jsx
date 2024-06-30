@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-import React, { useRef, useEffect, memo } from "react";
+import React, { useRef, useEffect, memo, forwardRef } from "react";
 import styles from "./TextArea.module.css";
 
-const TextArea = ({ width, height, value }) => {
+const TextArea = forwardRef(({ height = "100%", width = "300px", value, ...rest }, ref) => {
   const containerStyles = {
     width: width,
     height: height,
@@ -109,7 +109,7 @@ const TextArea = ({ width, height, value }) => {
   }, []);
 
   return (
-    <div style={containerStyles} className={styles.rue_container}>
+    <div ref={ref} style={containerStyles} className={styles.rue_container} {...rest}>
       <div ref={lineNumbersRef} className={styles.rue_line_numbers} />
       <textarea
         style={{ width: width }}
@@ -122,17 +122,12 @@ const TextArea = ({ width, height, value }) => {
       />
     </div>
   );
-};
+});
 
 TextArea.propTypes = {
   height: PropTypes.string,
   value: PropTypes.any,
   width: PropTypes.string,
-};
-
-TextArea.defaultProps = {
-  height: "100%",
-  width: "300px",
 };
 
 export default memo(TextArea);

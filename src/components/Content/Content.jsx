@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import styles from "./Content.module.css";
 import Divider from "../Divider/Divider";
 import Box from "../Box/Box";
 import SearchBar from "../SearchBar/SearchBar";
 import Pagination from "../Pagination/Pagination";
 
-const Content = ({ children, className, style, ...rest }) => {
+const Content = forwardRef(({ children, className, style, ...rest }, ref) => {
   return (
-    <Box className={`${styles.rue_content} ${className}`} style={style} {...rest}>
+    <Box ref={ref} className={`${styles.rue_content} ${className}`} style={style} {...rest}>
       {children}
     </Box>
   );
-};
+});
 
 Content.propTypes = {
   children: PropTypes.node,
@@ -39,8 +39,8 @@ const ContentBody = ({
   cards,
   searchStates,
   PaginationStates,
-  hideSearchBar,
-  hidePagination,
+  hidePagination = false,
+  hideSearchBar = false,
   className,
   style,
 }) => {
@@ -87,11 +87,6 @@ ContentBody.propTypes = {
   style: PropTypes.string,
 };
 
-ContentBody.defaultProps = {
-  hidePagination: false,
-  hideSearchBar: false,
-};
-
 const ContentFooter = ({ children, className, style }) => {
   return (
     <div className={`${styles.rue_content_footer} ${className}`} style={style}>
@@ -109,4 +104,4 @@ ContentFooter.propTypes = {
 Content.Header = ContentHeader;
 Content.Body = ContentBody;
 Content.Footer = ContentFooter;
-export default Content;
+export default memo(Content);

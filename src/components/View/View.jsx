@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
-import React, { memo } from "react";
+import React, { memo, forwardRef } from "react";
 import styles from "./View.module.css";
 import Button from "../Button/Button";
 import TextArea from "../TextArea/TextArea";
 
-const View = ({ width, height, code, elements }) => {
+const View = forwardRef(({ width = "100%", height = "auto", code, elements, ...rest }, ref) => {
   const containerStyles = {
     width: width,
     height: height,
   };
 
   return (
-    <div style={containerStyles} className={styles.rue_view_cont}>
+    <div ref={ref} style={containerStyles} className={styles.rue_view_cont} {...rest}>
       <div className={styles.rue_view_header}>
         <div className={styles.rue_view_title}>Result</div>
       </div>
@@ -74,12 +74,10 @@ const View = ({ width, height, code, elements }) => {
           </Button>
         </div>
       </div>
-      <div className={styles.rue_view_code}>
-        {code}
-      </div>
+      <div className={styles.rue_view_code}>{code}</div>
     </div>
   );
-};
+});
 
 View.propTypes = {
   height: PropTypes.string,
@@ -88,8 +86,4 @@ View.propTypes = {
   elements: PropTypes.node.isRequired,
 };
 
-View.defaultProps = {
-  width: "100%",
-  height: "auto",
-};
 export default memo(View);

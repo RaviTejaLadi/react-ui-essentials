@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef, memo } from "react";
 import PropTypes from "prop-types";
 import styles from "./TextHighlighter.module.css";
 
@@ -26,7 +26,7 @@ const defaultColors = [
   "#845EC2",
 ];
 
-const TextHighlighter = ({ children, highlightText, colorsList = [] }) => {
+const TextHighlighter = forwardRef(({ children, highlightText, colorsList = [], ...rest }, ref) => {
   const [highlightedText, setHighlightedText] = useState(null);
 
   useEffect(() => {
@@ -71,8 +71,12 @@ const TextHighlighter = ({ children, highlightText, colorsList = [] }) => {
     setHighlightedText(newHighlightedText);
   }, [children, highlightText, colorsList]);
 
-  return <Fragment>{highlightedText}</Fragment>;
-};
+  return (
+    <span ref={ref} {...rest}>
+      {highlightedText}
+    </span>
+  );
+});
 
 TextHighlighter.propTypes = {
   children: PropTypes.node.isRequired,
@@ -80,4 +84,4 @@ TextHighlighter.propTypes = {
   highlightText: PropTypes.array.isRequired,
 };
 
-export default TextHighlighter;
+export default memo(TextHighlighter);

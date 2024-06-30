@@ -1,14 +1,19 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { forwardRef, memo } from "react";
 import styles from "./Code.module.css";
 
-const Code = ({ children, color, underline, style }) => {
+const Code = forwardRef(({ children, color = "red", underline = false, style = {}, ...rest }, ref) => {
   return (
-    <code style={{ ...style, color: color, textDecoration: underline ? "underline" : "" }} className={styles.rue_code}>
+    <code
+      style={{ color: color, textDecoration: underline ? "underline" : "", ...style }}
+      ref={ref}
+      className={styles.rue_code}
+      {...rest}
+    >
       {children}
     </code>
   );
-};
+});
 
 Code.propTypes = {
   children: PropTypes.node.isRequired,
@@ -16,9 +21,5 @@ Code.propTypes = {
   underline: PropTypes.bool,
   style: PropTypes.object,
 };
-Code.defaultProps = {
-  color: "red",
-  underline: false,
-  style: {},
-};
-export default Code;
+
+export default memo(Code);

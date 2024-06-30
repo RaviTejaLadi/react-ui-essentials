@@ -1,7 +1,7 @@
-import React from "react";
+import React, { forwardRef, memo } from "react";
 import PropTypes from "prop-types";
 
-const Link = ({ to, children, target, rel, className, onClick, ...rest }) => {
+const Link = forwardRef(({ to, children, target, rel, className, onClick, ...rest }, ref) => {
   const handleClick = (event) => {
     event.preventDefault();
     if (onClick) {
@@ -12,11 +12,11 @@ const Link = ({ to, children, target, rel, className, onClick, ...rest }) => {
   };
 
   return (
-    <a href={to} onClick={handleClick} target={target} rel={rel} className={className} {...rest}>
+    <a ref={ref} href={to} onClick={handleClick} target={target} rel={rel} className={className} {...rest}>
       {children}
     </a>
   );
-};
+});
 
 Link.propTypes = {
   children: PropTypes.node.isRequired,
@@ -27,4 +27,4 @@ Link.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default Link;
+export default memo(Link);

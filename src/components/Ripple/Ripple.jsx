@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, forwardRef, memo } from "react";
 import PropTypes from "prop-types";
 import styles from "./Ripple.module.css";
 
@@ -16,7 +16,7 @@ const useDebouncedRippleCleanUp = (rippleCount, duration, cleanUpFunction) => {
   }, [rippleCount, duration, cleanUpFunction]);
 };
 
-const Ripple = ({ duration, color }) => {
+const Ripple = forwardRef(({ duration = 850, color = "#fff", ...rest }, ref) => {
   const [rippleArray, setRippleArray] = useState([]);
 
   useDebouncedRippleCleanUp(rippleArray.length, duration, () => {
@@ -33,7 +33,7 @@ const Ripple = ({ duration, color }) => {
   };
 
   return (
-    <div className={styles.rue_ripple_container} onMouseDown={addRipple}>
+    <div ref={ref} className={styles.rue_ripple_container} onMouseDown={addRipple} {...rest}>
       {rippleArray.length > 0 &&
         rippleArray.map((ripple, index) => (
           <span
@@ -51,16 +51,11 @@ const Ripple = ({ duration, color }) => {
         ))}
     </div>
   );
-};
+});
 
 Ripple.propTypes = {
   duration: PropTypes.number,
   color: PropTypes.string,
 };
 
-Ripple.defaultProps = {
-  duration: 850,
-  color: "#fff",
-};
-
-export default Ripple;
+export default memo(Ripple);

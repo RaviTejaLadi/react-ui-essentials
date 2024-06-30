@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import React, { memo } from "react";
+import React, { memo, forwardRef } from "react";
 import Box from "../Box/Box";
 
-const PreviewCode = ({ children, width }) => {
+const PreviewCode = forwardRef(({ children, width = "auto", ...rest }, ref) => {
   return (
-    <Box elevation={2} width={width} outlined>
+    <Box ref={ref} elevation={2} width={width} outlined {...rest}>
       <pre style={{ whiteSpace: "pre-wrap", fontFamily: "monospace" }}>
         {children.split(/\r?\n/).map((content, i, arr) => (
           <code style={{ color: "red" }} key={i}>
@@ -15,7 +15,7 @@ const PreviewCode = ({ children, width }) => {
       </pre>
     </Box>
   );
-};
+});
 
 PreviewCode.propTypes = {
   children: PropTypes.shape({
@@ -23,10 +23,6 @@ PreviewCode.propTypes = {
     trim: PropTypes.func.isRequired,
   }),
   width: PropTypes.string,
-};
-
-PreviewCode.defaultProps = {
-  width: "auto",
 };
 
 export default memo(PreviewCode);

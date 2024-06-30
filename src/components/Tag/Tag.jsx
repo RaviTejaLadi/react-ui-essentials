@@ -1,14 +1,18 @@
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Tag.module.css";
 
-const Tag = ({ children, variant, size }) => {
+const Tag = forwardRef(({ children, variant = "default", size = "medium", ...rest }, ref) => {
   const classNames = `${styles.rue_tag} ${variant ? `${styles[`rue_tag_${variant}`]}` : ""} ${
     size ? `${styles[`rue_tag_${size}`]}` : ""
   } `;
 
-  return <span className={classNames}>{children}</span>;
-};
+  return (
+    <span ref={ref} className={classNames} {...rest}>
+      {children}
+    </span>
+  );
+});
 
 Tag.propTypes = {
   children: PropTypes.string.isRequired,
@@ -27,9 +31,4 @@ Tag.propTypes = {
   ]),
 };
 
-Tag.defaultProps = {
-  variant: "default",
-  size: "medium",
-};
-
-export default Tag;
+export default memo(Tag);

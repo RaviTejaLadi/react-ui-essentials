@@ -1,21 +1,27 @@
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import PropTypes from "prop-types";
 
-const Audio = ({ children, src, autoPlay, controls, loop, preload, className, ...rest }) => {
-  return (
-    <audio
-      className={className}
-      src={src}
-      autoPlay={autoPlay}
-      controls={controls}
-      loop={loop}
-      preload={preload}
-      {...rest}
-    >
-      {children}
-    </audio>
-  );
-};
+const Audio = forwardRef(
+  (
+    { autoPlay = false, controls = true, loop = false, preload = "auto", className = "", children, src, ...rest },
+    ref
+  ) => {
+    return (
+      <audio
+        ref={ref}
+        className={className}
+        src={src}
+        autoPlay={autoPlay}
+        controls={controls}
+        loop={loop}
+        preload={preload}
+        {...rest}
+      >
+        {children}
+      </audio>
+    );
+  }
+);
 
 Audio.propTypes = {
   children: PropTypes.node.isRequired,
@@ -27,12 +33,4 @@ Audio.propTypes = {
   className: PropTypes.string,
 };
 
-Audio.defaultProps = {
-  autoPlay: false,
-  controls: true,
-  loop: false,
-  preload: "auto",
-  className: "",
-};
-
-export default Audio;
+export default memo(Audio);

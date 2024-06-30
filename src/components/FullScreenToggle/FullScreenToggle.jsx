@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef, memo } from "react";
 import Button from "../Button/Button";
 import { ZoomInMap, ZoomOutMap } from "../../Icons/Round";
 import styles from "./FullScreenToggle.module.css";
 
-const FullScreenToggle = ({ variant, size, text }) => {
+const FullScreenToggle = forwardRef(({ variant, size, text }, ref) => {
   const [isFullScreen, setFullScreen] = useState(false);
 
   const toggleFullScreen = () => {
@@ -45,20 +45,16 @@ const FullScreenToggle = ({ variant, size, text }) => {
     };
   }, []);
   return (
-    <Button variant={variant} size={size} onClick={toggleFullScreen}>
+    <Button ref={ref} variant={variant} size={size} onClick={toggleFullScreen}>
       <span className={styles.rue_fullScreen_container}>
         <span className={styles.rue_fullScreen_icon}>
-          {isFullScreen ? (
-            <ZoomInMap width="20px" height="20px" />
-          ) : (
-            <ZoomOutMap width="20px" height="20px" />
-          )}
+          {isFullScreen ? <ZoomInMap width="20px" height="20px" /> : <ZoomOutMap width="20px" height="20px" />}
         </span>
         <span>{text}</span>
       </span>
     </Button>
   );
-};
+});
 
 FullScreenToggle.propTypes = {
   size: PropTypes.string.isRequired,
@@ -66,4 +62,4 @@ FullScreenToggle.propTypes = {
   text: PropTypes.string,
 };
 
-export default FullScreenToggle;
+export default memo(FullScreenToggle);

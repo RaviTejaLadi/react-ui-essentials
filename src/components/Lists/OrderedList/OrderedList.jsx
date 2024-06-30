@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { memo, forwardRef } from "react";
 
-const OrderedList = ({ children, type, ...rest }) => {
+const OrderedList = forwardRef(({ children, type = 1, ...rest }, ref) => {
   return (
-    <ol type={type} {...rest}>
+    <ol ref={ref} type={type} {...rest}>
       {children}
     </ol>
   );
-};
+});
 
 OrderedList.propTypes = {
   children: PropTypes.node.isRequired,
@@ -22,9 +22,5 @@ ListItem.propTypes = {
   children: PropTypes.any,
 };
 
-OrderedList.defaultProps = {
-  type: "1",
-};
-
 OrderedList.Item = ListItem;
-export default OrderedList;
+export default memo(OrderedList);

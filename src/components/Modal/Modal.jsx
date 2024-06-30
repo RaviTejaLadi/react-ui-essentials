@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import styles from "./Modal.module.css";
 import CloseButton from "../CloseButton/CloseButton";
 
-const Modal = ({ children, openModal, size, position, variant, ...rest }) => {
+const Modal = forwardRef(({ children, openModal, position = "center", size = "sm", variant = "", ...rest }, ref) => {
   const getModalVarient = () => {
     switch (variant) {
       case "success":
@@ -56,6 +56,7 @@ const Modal = ({ children, openModal, size, position, variant, ...rest }) => {
 
   return (
     <div
+      ref={ref}
       className={`${styles.rue_modal_overlay} ${openModal ? styles.rue_modal_open : ""}`}
       role="dialog"
       aria-modal="true"
@@ -65,7 +66,7 @@ const Modal = ({ children, openModal, size, position, variant, ...rest }) => {
       </div>
     </div>
   );
-};
+});
 
 Modal.propTypes = {
   children: PropTypes.node,
@@ -73,12 +74,6 @@ Modal.propTypes = {
   position: PropTypes.oneOf(["top", "right", "bottom", "left", "center"]),
   size: PropTypes.oneOf(["sm", "md", "lg", "xl", "xxl", "fullscreen"]),
   variant: PropTypes.oneOf(["success", "warning", "info", "danger"]),
-};
-
-Modal.defaultProps = {
-  position: "center",
-  size: "sm",
-  variant: "",
 };
 
 const ModalHeader = ({ children, closeButton, onClose, height }) => {
@@ -136,4 +131,4 @@ Modal.Title = ModalTitle;
 Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
 
-export default Modal;
+export default memo(Modal);

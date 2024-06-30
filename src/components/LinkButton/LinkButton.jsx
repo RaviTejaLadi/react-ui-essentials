@@ -1,19 +1,19 @@
-import React from "react";
+import React, { memo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./LinkButton.module.css";
 import { Link } from "react-router-dom";
 
-const LinkButton = ({ variant, size, path, disabled, children }) => {
+const LinkButton = forwardRef(({ variant, size, path, disabled, children, ...rest }, ref) => {
   const LinkbuttonClasses = `${styles.ruc_btn} ${variant ? `${styles[`rue_link_${variant}`]}` : ""}  ${
     size ? `${styles[`rue_link_${size}`]}` : ""
   }`;
 
   return (
-    <Link className={LinkbuttonClasses} to={path} disabled={disabled}>
+    <Link ref={ref} className={LinkbuttonClasses} to={path} disabled={disabled} {...rest}>
       {children}
     </Link>
   );
-};
+});
 
 LinkButton.propTypes = {
   children: PropTypes.node.isRequired,
@@ -23,4 +23,4 @@ LinkButton.propTypes = {
   variant: PropTypes.string,
 };
 
-export default LinkButton;
+export default memo(LinkButton);

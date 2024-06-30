@@ -1,71 +1,74 @@
-import React, { useEffect, useState, forwardRef } from "react";
+import React, { useEffect, useState, forwardRef, memo } from "react";
 import PropTypes from "prop-types";
 import buildGridSvg from "./SvgBuilder";
 
-const GridLines = forwardRef((props, ref) => {
-  const {
-    component = "div",
-    className,
-    scale = 1,
-    cellWidth = 60,
-    cellHeight,
-    lineColor = "#ccc",
-    strokeWidth = 2,
-    dashArray = "0",
-    cellWidth2,
-    cellHeight2,
-    lineColor2 = "#ddd",
-    strokeWidth2 = 1,
-    dashArray2 = "0",
-    format,
-    orientation,
-    children,
-    ...rest
-  } = props;
-
-  const [bg, setBg] = useState("");
-  const h = cellHeight || cellWidth;
-  const h2 = cellHeight2 || cellWidth2;
-  const ComponentProp = component;
-  useEffect(() => {
-    setBg(
-      buildGridSvg(
-        cellWidth,
-        h,
-        lineColor,
-        strokeWidth,
-        dashArray,
-        cellWidth2,
-        h2,
-        lineColor2,
-        strokeWidth2,
-        dashArray2,
-        scale,
-        format,
-        orientation
-      )
+const GridLines = forwardRef(
+  (
+    {
+      component = "div",
+      className,
+      scale = 1,
+      cellWidth = 60,
+      cellHeight,
+      lineColor = "#ccc",
+      strokeWidth = 2,
+      dashArray = "0",
+      cellWidth2,
+      cellHeight2,
+      lineColor2 = "#ddd",
+      strokeWidth2 = 1,
+      dashArray2 = "0",
+      format,
+      orientation,
+      children,
+      ...rest
+    },
+    ref
+  ) => {
+    const [bg, setBg] = useState("");
+    const h = cellHeight || cellWidth;
+    const h2 = cellHeight2 || cellWidth2;
+    const ComponentProp = component;
+    useEffect(() => {
+      setBg(
+        buildGridSvg(
+          cellWidth,
+          h,
+          lineColor,
+          strokeWidth,
+          dashArray,
+          cellWidth2,
+          h2,
+          lineColor2,
+          strokeWidth2,
+          dashArray2,
+          scale,
+          format,
+          orientation
+        )
+      );
+    }, [
+      cellWidth,
+      h,
+      lineColor,
+      strokeWidth,
+      dashArray,
+      cellWidth2,
+      h2,
+      lineColor2,
+      strokeWidth2,
+      dashArray2,
+      format,
+      orientation,
+      scale,
+    ]);
+    return (
+      <ComponentProp className={className} ref={ref} style={{ backgroundImage: bg }} {...rest}>
+        {children}
+      </ComponentProp>
     );
-  }, [
-    cellWidth,
-    h,
-    lineColor,
-    strokeWidth,
-    dashArray,
-    cellWidth2,
-    h2,
-    lineColor2,
-    strokeWidth2,
-    dashArray2,
-    format,
-    orientation,
-    scale,
-  ]);
-  return (
-    <ComponentProp className={className} ref={ref} style={{ backgroundImage: bg }} {...rest}>
-      {children}
-    </ComponentProp>
-  );
-});
+  }
+);
 
 GridLines.propTypes = {
   className: PropTypes.string,
@@ -86,4 +89,4 @@ GridLines.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default GridLines;
+export default memo(GridLines);

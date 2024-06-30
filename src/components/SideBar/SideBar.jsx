@@ -5,25 +5,23 @@ import Link from "../Link/Link";
 import Tooltip from "../Tooltip/Tooltip";
 import { ArrowDropDown, ArrowRight } from "../../Icons/Round";
 
-const SideBar = ({ children, backgroundColor, color, width }) => {
+const SideBar = forwardRef(({ children, backgroundColor = "", color = "", width = "" }, ref) => {
   return (
-    <aside className={styles.rue_sidebar} style={{ backgroundColor: backgroundColor, color: color, width: width }}>
+    <aside
+      ref={ref}
+      className={styles.rue_sidebar}
+      style={{ backgroundColor: backgroundColor, color: color, width: width }}
+    >
       {children}
     </aside>
   );
-};
+});
 
 SideBar.propTypes = {
   backgroundColor: PropTypes.string,
   children: PropTypes.node,
   color: PropTypes.string,
   width: PropTypes.string,
-};
-
-SideBar.defaultProps = {
-  backgroundColor: "",
-  color: "",
-  width: "",
 };
 
 const SidebarHeader = ({ children }) => {
@@ -34,7 +32,7 @@ SidebarHeader.propTypes = {
   children: PropTypes.node,
 };
 
-const SideBarBody = forwardRef(({ routes, tooltip, variant }, ref) => {
+const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }, ref) => {
   let FindActivePathName = routes?.map(({ path }) => {
     return path === window.location.pathname;
   });
@@ -163,11 +161,6 @@ SideBarBody.propTypes = {
   }),
   tooltip: PropTypes.bool,
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "info", "help", "light", "dark"]),
-};
-
-SideBarBody.defaultProps = {
-  tooltip: false,
-  variant: "primary",
 };
 
 const SideBarFooter = ({ children }) => {
