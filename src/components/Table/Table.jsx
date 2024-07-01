@@ -8,7 +8,6 @@ const Table = forwardRef(
     {
       columns,
       rows,
-      basic,
       basic = false,
       code = false,
       CodeColumn = 0,
@@ -62,5 +61,5 @@ Table.propTypes = {
   codeUnderline: PropTypes.bool,
   codeStyle: PropTypes.object,
 };
-
+Table.displayName = "Table";
 export default memo(Table);

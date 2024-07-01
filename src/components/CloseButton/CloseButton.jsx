@@ -31,5 +31,5 @@ CloseButton.propTypes = {
   style: PropTypes.object,
   variant: PropTypes.string,
 };
-
+CloseButton.displayName = "CloseButton";
 export default memo(CloseButton);

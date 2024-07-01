@@ -130,5 +130,5 @@ Modal.Header = ModalHeader;
 Modal.Title = ModalTitle;
 Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
-
+Modal.displayName = "Modal";
 export default memo(Modal);

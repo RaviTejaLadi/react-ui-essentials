@@ -23,5 +23,5 @@ ContentScrollable.propTypes = {
   width: PropTypes.string,
   variant: PropTypes.string,
 };
-
+ContentScrollable.displayName = "ContentScrollable";
 export default memo(ContentScrollable);

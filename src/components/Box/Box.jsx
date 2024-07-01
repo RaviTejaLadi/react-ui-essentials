@@ -73,5 +73,5 @@ Box.propTypes = {
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
 };
-
+Box.displayName = "Box";
 export default memo(Box);

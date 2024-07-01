@@ -22,10 +22,8 @@ const SplitButton = forwardRef(
       raised = false,
       style = {},
       children,
-      className,
       startIcon,
       endIcon,
-      raised,
       rounded,
       dropdownItems,
       dropdownIcon,
@@ -67,7 +65,7 @@ const SplitButton = forwardRef(
         {dropdownItems && (
           <div className={styles.rue_dropdown}>
             <button className={`${styles.rue_dropdown_toggle} ${buttonClasses}`} onClick={toggleDropdown}>
-              {dropdownIcon ? dropdownIcon : <DownArrow width="10px" height="10px" fill="#ffffff" />}
+              {dropdownIcon || <DownArrow width="10px" height="10px" fill="#ffffff" />}
             </button>
             {isDropdownOpen && (
               <div className={styles.rue_dropdown_menu}>
@@ -101,4 +99,5 @@ SplitButton.propTypes = {
   variant: PropTypes.string,
 };
 
+SplitButton.displayName = "SplitButton";
 export default memo(SplitButton);

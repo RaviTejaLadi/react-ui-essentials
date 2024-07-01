@@ -128,3 +128,5 @@ Tab.propTypes = {
   size: PropTypes.string,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
+
+Tabs.displayName = "Tabs";

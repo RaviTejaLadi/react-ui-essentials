@@ -72,4 +72,5 @@ LinkBar.propTypes = {
   height: PropTypes.string,
 };
 
+LinkBar.displayName = "LinkBar";
 export default memo(LinkBar);

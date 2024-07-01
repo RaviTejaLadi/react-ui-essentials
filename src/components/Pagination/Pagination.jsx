@@ -86,5 +86,5 @@ Pagination.propTypes = {
   size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
   totalPages: PropTypes.number,
 };
-
+Pagination.displayName = "Pagination";
 export default memo(Pagination);

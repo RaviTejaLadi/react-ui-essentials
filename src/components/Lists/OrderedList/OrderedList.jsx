@@ -23,4 +23,5 @@ ListItem.propTypes = {
 };
 
 OrderedList.Item = ListItem;
+OrderedList.displayName = "OrderedList";
 export default memo(OrderedList);

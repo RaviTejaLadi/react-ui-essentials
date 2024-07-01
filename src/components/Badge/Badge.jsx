@@ -74,4 +74,5 @@ Badge.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+Badge.displayName = "Badge";
 export default Badge;

@@ -89,4 +89,5 @@ GridLines.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+GridLines.displayName = "GridLines";
 export default memo(GridLines);

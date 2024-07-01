@@ -23,4 +23,5 @@ ListItem.propTypes = {
 };
 
 UnorderedList.Item = ListItem;
+UnorderedList.displayName = "UnorderedList";
 export default memo(UnorderedList);

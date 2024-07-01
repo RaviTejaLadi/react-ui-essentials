@@ -23,5 +23,5 @@ GridBackground.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
 };
-
+GridBackground.displayName = "GridBackground";
 export default memo(GridBackground);

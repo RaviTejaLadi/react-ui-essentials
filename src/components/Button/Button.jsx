@@ -15,7 +15,6 @@ const Button = forwardRef(
       boxShadow = "",
       style = {},
       children,
-      type,
       startIcon,
       endIcon,
       rounded,
@@ -67,5 +66,5 @@ Button.propTypes = {
   type: PropTypes.string,
   variant: PropTypes.string,
 };
-
+Button.displayName = "Button";
 export default memo(Button);

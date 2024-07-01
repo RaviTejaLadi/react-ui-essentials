@@ -77,7 +77,7 @@ const CustomBreadcrumb = forwardRef(
               <div className={styles.breadcrumb_link}>
                 {index > 0 && (
                   <span className={styles.rue_breadcrumb_separator}>
-                    {seperator ? seperator : <RightArrowFilled size="10px" fill="#2d3748" />}
+                    {seperator || <RightArrowFilled size="10px" fill="#2d3748" />}
                   </span>
                 )}
                 {index === items?.length - 1 ? (
@@ -116,5 +116,5 @@ CustomBreadcrumb.propTypes = {
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "info", "help", "light", "dark"]),
 };
-
+CustomBreadcrumb.displayName = "CustomBreadcrumb";
 export default memo(CustomBreadcrumb);

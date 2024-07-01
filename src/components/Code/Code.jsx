@@ -21,5 +21,5 @@ Code.propTypes = {
   underline: PropTypes.bool,
   style: PropTypes.object,
 };
-
+Code.displayName = "Code";
 export default memo(Code);

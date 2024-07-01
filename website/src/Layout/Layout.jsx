@@ -5,7 +5,7 @@ import { SideBar } from "react-ui-essentials";
 // import SideBar from "../components/SideBar/SideBar"
 import styles from "./Layout.module.css";
 import ParentContext from "../context/ParentContext";
-import {routes} from "./utils/Links" 
+import { routes } from "./utils/Links";
 
 const Layout = (props) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -31,7 +31,7 @@ const Layout = (props) => {
       </div>
       <div className={styles.layout_body}>
         <div className={styles.layout_body_side_nav}>
-          <SideBar >
+          <SideBar>
             <SideBar.Body routes={routes} />
           </SideBar>
         </div>

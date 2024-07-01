@@ -36,5 +36,5 @@ Range.propTypes = {
   value: PropTypes.any,
   width: PropTypes.any,
 };
-
+Range.displayName = "Range";
 export default memo(Range);

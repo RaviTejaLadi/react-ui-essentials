@@ -131,5 +131,5 @@ TabList.propTypes = {
   outlined: PropTypes.bool,
   elevation: PropTypes.number,
 };
-
+TabList.displayName = "TabList";
 export default memo(TabList);

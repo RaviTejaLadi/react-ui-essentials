@@ -4,12 +4,7 @@ import styles from "../Menu.module.css";
 
 export const MenuItem = ({ children, variant, ...rest }) => {
   return (
-    <div
-      className={`${styles.rue_menu_item} ${
-        variant ? styles[`rue_menu_item_${variant}`] : ""
-      }`}
-      {...rest}
-    >
+    <div className={`${styles.rue_menu_item} ${variant ? styles[`rue_menu_item_${variant}`] : ""}`} {...rest}>
       {children}
     </div>
   );

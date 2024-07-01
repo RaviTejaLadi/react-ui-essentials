@@ -25,9 +25,7 @@ const Footer = ({
   return (
     <footer className={styles.rue_footer} style={footerStyles} {...rest}>
       <div className={styles.rue_footer_content}>
-        <p>
-          &copy; {Copy_Right_Year()} React UI Essentials. All rights reserved.
-        </p>
+        <p>&copy; {Copy_Right_Year()} React UI Essentials. All rights reserved.</p>
         <nav className={styles.rue_footer_nav}>{children}</nav>
       </div>
     </footer>

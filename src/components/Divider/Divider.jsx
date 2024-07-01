@@ -63,5 +63,5 @@ Divider.propTypes = {
   orientation: PropTypes.string,
   thickness: PropTypes.string,
 };
-
+Divider.displayName = "Divider";
 export default memo(Divider);

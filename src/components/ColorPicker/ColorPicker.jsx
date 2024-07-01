@@ -21,4 +21,5 @@ ColorPicker.propTypes = {
   width: PropTypes.string,
 };
 
+ColorPicker.displayName = "ColorPicker";
 export default memo(ColorPicker);

@@ -20,7 +20,7 @@ import {
   Popover,
   // Tab,
   // Tabs,
-  TabList
+  TabList,
 } from "react-ui-essentials";
 import { cardData, footerLinks } from "../../data/homeData";
 import Splitter from "../../components/Splitter/Splitter";
@@ -166,9 +166,7 @@ const Home = () => {
 
   return (
     <div>
-      <TabList tabs={tabs} 
-      orientation="horizontal"
-       width="fit-content" margin="5px"/>
+      <TabList tabs={tabs} orientation="horizontal" width="fit-content" margin="5px" />
       <Content margin="10px" rounded padding="10px">
         <Content.Header>Header</Content.Header>
         <Divider />

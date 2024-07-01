@@ -126,5 +126,5 @@ Tooltip.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
 };
-
+Tooltip.displayName = "Tooltip";
 export default memo(Tooltip);
