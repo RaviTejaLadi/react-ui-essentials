@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { TbHome } from "react-icons/tb";
 import PropTypes from "prop-types";
 import styles from "./Banner.module.css";
-import { Link } from "../Link/Link";
+import Link from "../Link/Link";
 
 const Banner = forwardRef(({ Title, subTitle, imgage, variant, size, ...rest }, ref) => {
   const containerClass = `${styles.rue_banner_container} ${variant ? `${styles[`rue_banner_${variant}`]}` : ""}  ${
