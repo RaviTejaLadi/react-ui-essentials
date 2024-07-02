@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { Fragment, forwardRef, useEffect, useRef, useState, memo } from "react";
+import React, { Fragment, forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./SideBar.module.css";
 import Link from "../Link/Link";
 import Tooltip from "../Tooltip/Tooltip";
@@ -174,4 +174,4 @@ SideBar.Footer = SideBarFooter;
 SideBar.Body = SideBarBody;
 SideBar.displayName = "SideBar";
 SideBarBody.displayName = "SideBarBody";
-export default memo(SideBar);
+export default SideBar;
