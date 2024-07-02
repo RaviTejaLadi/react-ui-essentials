@@ -88,8 +88,9 @@ const TabList = forwardRef(
               variant="light"
               onClick={() => handleClick(tab)}
               disabled={tab.disabled}
+              startIcon={tab.icon}
             >
-              {tab.icon} {tab.label}
+              {tab.label}
             </Button>
           ))}
           {orientation === "horizontal" && controls && (

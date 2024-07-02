@@ -156,9 +156,7 @@ const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }
 });
 
 SideBarBody.propTypes = {
-  routes: PropTypes.shape({
-    map: PropTypes.func,
-  }),
+  routes: PropTypes.array.isRequired,
   tooltip: PropTypes.bool,
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "info", "help", "light", "dark"]),
 };
