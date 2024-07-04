@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, memo, forwardRef } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import Button from "../Button/Button";
 
 const TreeNode = forwardRef(({ node, parentChecked, showCheckBox, onCheckChange, ...rest }, ref) => {
@@ -114,4 +114,4 @@ TreeView.propTypes = {
   showCheckBox: PropTypes.bool,
 };
 TreeView.displayName = "TreeView";
-export default memo(TreeView);
+export default TreeView;

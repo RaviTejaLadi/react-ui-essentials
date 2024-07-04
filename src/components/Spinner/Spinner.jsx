@@ -1,4 +1,4 @@
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 
 const Spinner = forwardRef(({ width = 100, height = 100, color = "#ccc", ...rest }, ref) => {
   return (
@@ -41,4 +41,4 @@ const Spinner = forwardRef(({ width = 100, height = 100, color = "#ccc", ...rest
 });
 
 Spinner.displayName = "Spinner";
-export default memo(Spinner);
+export default Spinner;

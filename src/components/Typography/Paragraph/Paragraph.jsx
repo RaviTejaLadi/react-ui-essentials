@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, memo, forwardRef } from "react";
+import React, { useState, forwardRef } from "react";
 import styles from "./Paragraph.module.css";
 import { ContentCopy } from "../../../Icons/Round";
 
@@ -114,4 +114,4 @@ Text.propTypes = {
   color: PropTypes.string,
 };
 Paragraph.displayName = "Paragraph";
-export default memo(Paragraph);
+export default Paragraph;

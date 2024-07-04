@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./ColorPicker.module.css";
 import PropTypes from "prop-types";
 
@@ -22,4 +22,4 @@ ColorPicker.propTypes = {
 };
 
 ColorPicker.displayName = "ColorPicker";
-export default memo(ColorPicker);
+export default ColorPicker;

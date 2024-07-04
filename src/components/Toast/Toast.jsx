@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, forwardRef, memo } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import styles from "./Toast.module.css";
 
 const Toast = forwardRef(({ variant, message, onClose, showClose, autoClose, startIcon, ...rest }, ref) => {
@@ -74,4 +74,4 @@ Toast.propTypes = {
 };
 
 Toast.displayName = "Toast";
-export default memo(Toast);
+export default Toast;

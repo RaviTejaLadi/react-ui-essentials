@@ -74,9 +74,10 @@ export { default as Form } from "./components/Form/Form";
 export { Audio, video } from "./components/Media";
 export { Tab, Tabs } from "./components/Tabs/Tabs";
 export { default as TabList } from "./components/TabList/TabList";
+export { default as SectionHeader } from "./components/SectionHeader/SectionHeader";
 
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
-export { useStateManager, Provider, useStateValue } from "./stateManagment/stateManagment";
+export { Provider, useStateValue } from "./stateManagment/stateManagment";
 
 const roundExports = Object.entries(svgsrounded).reduce((acc, [key, Svg]) => {
   acc[Svg.displayName] = Svg;

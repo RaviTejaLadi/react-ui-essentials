@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, memo, forwardRef } from "react";
+import React, { useState, forwardRef } from "react";
 import styles from "./Tooltip.module.css";
 
 const Tooltip = forwardRef(
@@ -127,4 +127,4 @@ Tooltip.propTypes = {
   style: PropTypes.object,
 };
 Tooltip.displayName = "Tooltip";
-export default memo(Tooltip);
+export default Tooltip;

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./GridBackground.module.css";
 
 const GridBackground = forwardRef(({ children, width, height, borderColor }, ref) => {
@@ -24,4 +24,4 @@ GridBackground.propTypes = {
   width: PropTypes.string,
 };
 GridBackground.displayName = "GridBackground";
-export default memo(GridBackground);
+export default GridBackground;

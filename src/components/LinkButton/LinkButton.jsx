@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./LinkButton.module.css";
 import { Link } from "react-router-dom";
@@ -24,4 +24,4 @@ LinkButton.propTypes = {
 };
 
 LinkButton.displayName = "LinkButton";
-export default memo(LinkButton);
+export default LinkButton;

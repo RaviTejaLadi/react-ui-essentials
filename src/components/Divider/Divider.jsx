@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Divider.module.css";
 
 const Divider = forwardRef(
@@ -64,4 +64,4 @@ Divider.propTypes = {
   thickness: PropTypes.string,
 };
 Divider.displayName = "Divider";
-export default memo(Divider);
+export default Divider;

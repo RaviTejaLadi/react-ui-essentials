@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, forwardRef, memo } from "react";
+import React, { useState, useLayoutEffect, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Ripple.module.css";
 
@@ -58,4 +58,4 @@ Ripple.propTypes = {
   color: PropTypes.string,
 };
 Ripple.displayName = "Ripple";
-export default memo(Ripple);
+export default Ripple;

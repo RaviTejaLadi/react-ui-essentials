@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 const Video = forwardRef(
@@ -51,4 +51,4 @@ Video.propTypes = {
   className: PropTypes.string,
 };
 Video.displayName = "Video";
-export default memo(Video);
+export default Video;

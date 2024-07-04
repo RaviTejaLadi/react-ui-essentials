@@ -1,4 +1,4 @@
-import React, { useEffect, memo, useState, forwardRef } from "react";
+import React, { useEffect, useState, forwardRef } from "react";
 import PropTypes from "prop-types";
 import Link from "../../Link/Link";
 import styles from "./DynamicBreadCrumb.module.css";
@@ -63,4 +63,4 @@ DynamicBreadCrumb.propTypes = {
 };
 
 DynamicBreadCrumb.displayName = "DynamicBreadCrumb";
-export default memo(DynamicBreadCrumb);
+export default DynamicBreadCrumb;

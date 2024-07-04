@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 const UnorderedList = forwardRef(({ children, listStyleType = "disc", ...rest }, ref) => {
   return (
@@ -24,4 +24,4 @@ ListItem.propTypes = {
 
 UnorderedList.Item = ListItem;
 UnorderedList.displayName = "UnorderedList";
-export default memo(UnorderedList);
+export default UnorderedList;

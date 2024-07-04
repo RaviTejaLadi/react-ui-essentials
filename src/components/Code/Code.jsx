@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Code.module.css";
 
 const Code = forwardRef(({ children, color = "red", underline = false, style = {}, ...rest }, ref) => {
@@ -22,4 +22,4 @@ Code.propTypes = {
   style: PropTypes.object,
 };
 Code.displayName = "Code";
-export default memo(Code);
+export default Code;

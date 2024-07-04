@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import styles from "./CloseButton.module.css";
 import Close from "./Close";
 
@@ -32,4 +32,4 @@ CloseButton.propTypes = {
   variant: PropTypes.string,
 };
 CloseButton.displayName = "CloseButton";
-export default memo(CloseButton);
+export default CloseButton;

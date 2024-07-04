@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useRef, useEffect, memo, forwardRef } from "react";
+import React, { useRef, useEffect, forwardRef } from "react";
 import styles from "./TextArea.module.css";
 
 const TextArea = forwardRef(({ height = "100%", width = "300px", value, ...rest }, ref) => {
@@ -130,4 +130,4 @@ TextArea.propTypes = {
   width: PropTypes.string,
 };
 TextArea.displayName = "TextArea";
-export default memo(TextArea);
+export default TextArea;

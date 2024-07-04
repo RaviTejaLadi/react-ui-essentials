@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./View.module.css";
 import Button from "../Button/Button";
 
@@ -85,4 +85,4 @@ View.propTypes = {
   elements: PropTypes.node.isRequired,
 };
 View.displayName = "View";
-export default memo(View);
+export default View;

@@ -1,4 +1,4 @@
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 const Link = forwardRef(({ to, children, target, rel, className, onClick, ...rest }, ref) => {
@@ -28,4 +28,4 @@ Link.propTypes = {
 };
 
 Link.displayName = "Link";
-export default memo(Link);
+export default Link;

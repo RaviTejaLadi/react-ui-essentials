@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef, memo } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./TextHighlighter.module.css";
 
@@ -85,4 +85,4 @@ TextHighlighter.propTypes = {
 };
 
 TextHighlighter.displayName = "TextHighlighter";
-export default memo(TextHighlighter);
+export default TextHighlighter;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef, memo } from "react";
+import React, { useState, useEffect, useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./JsonViewer.module.css";
 import Divider from "../Divider/Divider";
@@ -113,4 +113,4 @@ JsonViewer.propTypes = {
   padding: PropTypes.string,
 };
 JsonViewer.displayName = "JsonViewer";
-export default memo(JsonViewer);
+export default JsonViewer;

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 const OrderedList = forwardRef(({ children, type = 1, ...rest }, ref) => {
   return (
@@ -24,4 +24,4 @@ ListItem.propTypes = {
 
 OrderedList.Item = ListItem;
 OrderedList.displayName = "OrderedList";
-export default memo(OrderedList);
+export default OrderedList;

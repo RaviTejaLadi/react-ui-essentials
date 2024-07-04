@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, forwardRef, memo } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import Button from "../Button/Button";
 import { ZoomInMap, ZoomOutMap } from "../../Icons/Round";
 import styles from "./FullScreenToggle.module.css";
@@ -63,4 +63,4 @@ FullScreenToggle.propTypes = {
 };
 
 FullScreenToggle.displayName = "FullScreenToggle";
-export default memo(FullScreenToggle);
+export default FullScreenToggle;

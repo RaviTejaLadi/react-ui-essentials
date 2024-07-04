@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Pagination.module.css";
 import Button from "../Button/Button";
 import {
@@ -87,4 +87,4 @@ Pagination.propTypes = {
   totalPages: PropTypes.number,
 };
 Pagination.displayName = "Pagination";
-export default memo(Pagination);
+export default Pagination;

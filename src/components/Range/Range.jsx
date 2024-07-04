@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Range.module.css";
 
@@ -37,4 +37,4 @@ Range.propTypes = {
   width: PropTypes.any,
 };
 Range.displayName = "Range";
-export default memo(Range);
+export default Range;

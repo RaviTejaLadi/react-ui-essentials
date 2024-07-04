@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 const Audio = forwardRef(
@@ -33,4 +33,4 @@ Audio.propTypes = {
   className: PropTypes.string,
 };
 Audio.displayName = "Audio";
-export default memo(Audio);
+export default Audio;

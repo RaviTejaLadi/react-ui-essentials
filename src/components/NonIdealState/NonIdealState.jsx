@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./NonIdealState.module.css";
 
 const NonIdealState = forwardRef(
@@ -35,4 +35,4 @@ NonIdealState.propTypes = {
   width: PropTypes.string,
 };
 NonIdealState.displayName = "NonIdealState";
-export default memo(NonIdealState);
+export default NonIdealState;

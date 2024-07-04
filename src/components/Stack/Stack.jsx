@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 
 const Item = ({ children, ...rest }) => {
@@ -58,4 +58,4 @@ Stack.propTypes = {
 
 Stack.Item = Item;
 Stack.displayName = "Stack";
-export default memo(Stack);
+export default Stack;

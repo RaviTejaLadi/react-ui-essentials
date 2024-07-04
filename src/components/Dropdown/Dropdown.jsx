@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState, memo } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./Dropdown.module.css";
 
@@ -64,4 +64,4 @@ Dropdown.propTypes = {
 };
 
 Dropdown.displayName = "Dropdown";
-export default memo(Dropdown);
+export default Dropdown;

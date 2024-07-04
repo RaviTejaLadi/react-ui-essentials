@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Modal.module.css";
 import CloseButton from "../CloseButton/CloseButton";
 
@@ -131,4 +131,4 @@ Modal.Title = ModalTitle;
 Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
 Modal.displayName = "Modal";
-export default memo(Modal);
+export default Modal;

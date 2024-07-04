@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Content.module.css";
 import Divider from "../Divider/Divider";
 import Box from "../Box/Box";
@@ -105,4 +105,4 @@ Content.Header = ContentHeader;
 Content.Body = ContentBody;
 Content.Footer = ContentFooter;
 Content.displayName = "Content";
-export default memo(Content);
+export default Content;

@@ -46,4 +46,4 @@ SearchBar.propTypes = {
 };
 
 SearchBar.displayName = "SearchBar";
-export default memo(SearchBar);
+export default SearchBar;

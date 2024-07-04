@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import CloseButton from "../CloseButton/CloseButton";
 import styles from "./Drawer.module.css";
 
@@ -87,4 +87,4 @@ Drawer.Header = DrawerHeader;
 Drawer.Title = DrawerTitle;
 Drawer.Body = DrawerBody;
 Drawer.displayName = "Drawer";
-export default memo(Drawer);
+export default Drawer;

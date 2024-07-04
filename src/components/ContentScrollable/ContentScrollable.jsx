@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./ContentScrollable.module.css";
 
@@ -24,4 +24,4 @@ ContentScrollable.propTypes = {
   variant: PropTypes.string,
 };
 ContentScrollable.displayName = "ContentScrollable";
-export default memo(ContentScrollable);
+export default ContentScrollable;

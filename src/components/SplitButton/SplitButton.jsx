@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, forwardRef, memo } from "react";
+import React, { useState, forwardRef } from "react";
 import styles from "./SplitButton.module.css";
 
 const DownArrow = (props) => (
@@ -100,4 +100,4 @@ SplitButton.propTypes = {
 };
 
 SplitButton.displayName = "SplitButton";
-export default memo(SplitButton);
+export default SplitButton;

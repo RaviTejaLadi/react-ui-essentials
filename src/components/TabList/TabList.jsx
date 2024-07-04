@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, forwardRef, memo } from "react";
+import React, { useState, forwardRef } from "react";
 import Button from "../Button/Button";
 import Box from "../Box/Box";
 import styles from "./TabList.module.css";
@@ -133,4 +133,4 @@ TabList.propTypes = {
   elevation: PropTypes.number,
 };
 TabList.displayName = "TabList";
-export default memo(TabList);
+export default TabList;

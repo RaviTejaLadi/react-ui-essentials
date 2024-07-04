@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import styles from "./BasicCard.module.css";
 
 const BasicCard = forwardRef(({ title, content, key, ...rest }, ref) => {
@@ -16,4 +16,4 @@ BasicCard.propTypes = {
   title: PropTypes.string,
 };
 BasicCard.displayName = "BasicCard";
-export default memo(BasicCard);
+export default BasicCard;

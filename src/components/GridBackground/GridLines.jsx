@@ -1,4 +1,4 @@
-import React, { useEffect, useState, forwardRef, memo } from "react";
+import React, { useEffect, useState, forwardRef } from "react";
 import PropTypes from "prop-types";
 import buildGridSvg from "./SvgBuilder";
 
@@ -90,4 +90,4 @@ GridLines.propTypes = {
 };
 
 GridLines.displayName = "GridLines";
-export default memo(GridLines);
+export default GridLines;

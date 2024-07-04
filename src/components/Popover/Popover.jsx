@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, memo } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./Popover.module.css";
 import PropTypes from "prop-types";
 
@@ -135,4 +135,4 @@ Popover.Content = PopoverContent;
 Popover.Header = PopoverHeader;
 Popover.Body = PopoverBody;
 Popover.Footer = PopoverFooter;
-export default memo(Popover);
+export default Popover;

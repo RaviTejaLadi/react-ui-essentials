@@ -1,4 +1,4 @@
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Table.module.css";
 import Code from "../Code/Code";
@@ -62,4 +62,4 @@ Table.propTypes = {
   codeStyle: PropTypes.object,
 };
 Table.displayName = "Table";
-export default memo(Table);
+export default Table;

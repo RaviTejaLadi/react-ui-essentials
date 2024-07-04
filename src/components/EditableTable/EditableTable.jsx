@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, useRef, forwardRef, memo } from "react";
+import React, { useState, useEffect, useRef, forwardRef } from "react";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 import styles from "./EditableTable.module.css";
@@ -258,4 +258,4 @@ EditableTable.propTypes = {
   rows: PropTypes.array,
 };
 EditableTable.displayName = "EditableTable";
-export default memo(EditableTable);
+export default EditableTable;

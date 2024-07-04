@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useState, memo, forwardRef } from "react";
+import React, { useState, forwardRef } from "react";
 import styles from "./Heading.module.css";
 import { ContentCopy } from "../../../Icons/Round";
 
@@ -114,4 +114,4 @@ Heading.propTypes = {
   color: PropTypes.string,
 };
 Heading.displayName = "Heading";
-export default memo(Heading);
+export default Heading;

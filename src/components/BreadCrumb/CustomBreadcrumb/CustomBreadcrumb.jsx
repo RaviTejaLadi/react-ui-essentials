@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import styles from "./CustomBreadcrumb.module.css";
 import Link from "../../Link/Link";
 
@@ -117,4 +117,4 @@ CustomBreadcrumb.propTypes = {
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "info", "help", "light", "dark"]),
 };
 CustomBreadcrumb.displayName = "CustomBreadcrumb";
-export default memo(CustomBreadcrumb);
+export default CustomBreadcrumb;

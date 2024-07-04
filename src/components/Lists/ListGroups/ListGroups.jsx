@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./ListGropus.module.css";
 
 const ListGroups = forwardRef(({ width, items, size, variant, ...rest }, ref) => {
@@ -62,4 +62,4 @@ ListGroups.propTypes = {
 };
 
 ListGroups.displayName = "ListGroups";
-export default memo(ListGroups);
+export default ListGroups;

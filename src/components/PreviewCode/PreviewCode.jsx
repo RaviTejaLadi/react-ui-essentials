@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import Box from "../Box/Box";
 
 const PreviewCode = forwardRef(({ children, width = "auto", ...rest }, ref) => {
@@ -25,4 +25,4 @@ PreviewCode.propTypes = {
   width: PropTypes.string,
 };
 PreviewCode.displayName = "PreviewCode";
-export default memo(PreviewCode);
+export default PreviewCode;

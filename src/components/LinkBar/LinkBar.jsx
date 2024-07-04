@@ -1,4 +1,4 @@
-import React, { memo, useRef, forwardRef } from "react";
+import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./LinkBar.module.css";
 import Link from "../Link/Link";
@@ -73,4 +73,4 @@ LinkBar.propTypes = {
 };
 
 LinkBar.displayName = "LinkBar";
-export default memo(LinkBar);
+export default LinkBar;

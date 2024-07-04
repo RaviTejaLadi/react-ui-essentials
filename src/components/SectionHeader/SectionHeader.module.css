@@ -1,0 +1,65 @@
+.rue_sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rue_sectionHeader.center {
+    text-align: center;
+}
+
+.rue_sectionHeader.left {
+    text-align: left;
+}
+
+.rue_sectionHeader.right {
+    text-align: right;
+}
+
+.rue_title {
+    margin: .5rem 0rem;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #111827;
+}
+
+.rue_subtitle {
+    margin-bottom: 10px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #111827;
+}
+
+.rue_subtitle.xs,
+.rue_title.xs {
+    font-size: 1em;
+}
+
+.rue_subtitle.sm {
+    font-size: 1em;
+}
+
+.rue_title.sm {
+    font-size: 1.5em;
+}
+
+.rue_subtitle.md,
+.rue_title.md {
+    font-size: 2em;
+}
+
+.rue_subtitle.lg,
+.rue_title.lg {
+    font-size: 2.5em;
+}
+
+.rue_subtitle.xl,
+.rue_title.xl {
+    font-size: 3em;
+}
+
+.rue_subtitle.xs {
+    font-size: 0.75em;
+}

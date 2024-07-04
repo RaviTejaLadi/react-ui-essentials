@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./MiniCard.module.css";
 
 const MiniCard = forwardRef(({ svg, title, ...rest }, ref) => {
@@ -19,4 +19,4 @@ MiniCard.propTypes = {
 };
 
 MiniCard.displayName = "MiniCard";
-export default memo(MiniCard);
+export default MiniCard;

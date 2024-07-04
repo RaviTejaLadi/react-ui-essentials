@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Figure.module.css";
 
 const Figure = forwardRef(({ src, alt, caption, width, height }, ref) => {
@@ -31,4 +31,4 @@ Figure.propTypes = {
   width: PropTypes.string,
 };
 Figure.displayName = "Figure";
-export default memo(Figure);
+export default Figure;

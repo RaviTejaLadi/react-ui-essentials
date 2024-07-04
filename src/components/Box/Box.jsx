@@ -1,4 +1,4 @@
-import React, { forwardRef, memo, useMemo } from "react";
+import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import styles from "./Box.module.css";
 
@@ -74,4 +74,4 @@ Box.propTypes = {
   backgroundColor: PropTypes.string,
 };
 Box.displayName = "Box";
-export default memo(Box);
+export default Box;

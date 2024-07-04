@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Tag.module.css";
 
@@ -31,4 +31,4 @@ Tag.propTypes = {
   ]),
 };
 Tag.displayName = "Tag";
-export default memo(Tag);
+export default Tag;

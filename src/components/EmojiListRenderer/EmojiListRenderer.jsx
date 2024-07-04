@@ -1,4 +1,4 @@
-import React, { Fragment, memo, forwardRef } from "react";
+import React, { Fragment, forwardRef } from "react";
 import PropTypes from "prop-types";
 import Box from "../Box/Box";
 import Stack from "../Stack/Stack";
@@ -77,4 +77,4 @@ EmojiListRenderer.propTypes = {
   height: PropTypes.string,
 };
 EmojiListRenderer.displayName = "EmojiListRenderer";
-export default memo(EmojiListRenderer);
+export default EmojiListRenderer;

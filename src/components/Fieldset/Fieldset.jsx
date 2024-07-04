@@ -1,4 +1,4 @@
-import React, { memo, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Fieldset.module.css";
 
@@ -47,4 +47,4 @@ Fieldset.propTypes = {
   width: PropTypes.string,
 };
 Fieldset.displayName = "Fieldset";
-export default memo(Fieldset);
+export default Fieldset;

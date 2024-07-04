@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Button.module.css";
 
 const Button = forwardRef(
@@ -67,4 +67,4 @@ Button.propTypes = {
   variant: PropTypes.string,
 };
 Button.displayName = "Button";
-export default memo(Button);
+export default Button;
