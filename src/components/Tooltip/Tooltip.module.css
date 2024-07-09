@@ -5,7 +5,7 @@
 
 .rue_tooltip {
     position: absolute;
-    z-index: 1000;
+    z-index: 1000 !important;
     padding: 2px 4px;
     border: transparent;
     border-radius: 5px;

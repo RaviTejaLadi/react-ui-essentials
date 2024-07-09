@@ -10,7 +10,6 @@
     --animation-duration: 1.5s;
     --animation-direction: normal;
     --pseudo-element-display: block;
-    /* Enable animation */
 
     background-color: var(--base-color);
 
@@ -49,6 +48,5 @@
 @media (prefers-reduced-motion) {
     .react_loading_skeleton {
         --pseudo-element-display: none;
-        /* Disable animation */
     }
 }

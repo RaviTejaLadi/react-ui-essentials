@@ -1,23 +1,3 @@
-:root {
-  --rue-btn-text-color: #ffffff;
-  --rue-btn-primary-bg: #007bff;
-  --rue-btn-primary-hover-bg: #0056b3;
-  --rue-btn-secondary-bg: #6c757d;
-  --rue-btn-secondary-hover-bg: #545b62;
-  --rue-btn-success-bg: #28a745;
-  --rue-btn-success-hover-bg: #218838;
-  --rue-btn-info-bg: #17a2b8;
-  --rue-btn-info-hover-bg: #138496;
-  --rue-btn-warning-bg: #ffc107;
-  --rue-btn-warning-hover-bg: #e0a800;
-  --rue-btn-danger-bg: #dc3545;
-  --rue-btn-danger-hover-bg: #c82333;
-  --rue-btn-help-bg: #6f42c1;
-  --rue-btn-help-hover-bg: #5d3bb4;
-  --rue-btn-dark-bg: #343a40;
-  --rue-btn-dark-hover-bg: #23272b
-}
-
 .rue_accordion_toggle {
   display: flex;
   align-items: flex-start;
@@ -25,14 +5,14 @@
   justify-content: space-between;
   background-color: #fff;
   transition: .3s;
-  padding: 10px
+  padding: 10px;
 }
 
 .rue_accordion_cont {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center
+  align-items: center;
 }
 
 .rue_accordion_toggle img {
@@ -42,96 +22,96 @@
   border-radius: 4px;
   background-color: #7a9ee0;
   padding: 2px;
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 .rue_accordion_toggle.rue_active {
-  background-color: #8696b5
+  background-color: #8696b5;
 }
 
 .rue_accordion_toggle.rue_active_primary {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-primary-bg)
+  color: #ffffff;
+  background-color: #007bff;
 }
 
 .rue_accordion_toggle.rue_active_primary:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-primary-hover-bg)
+  color: #ffffff;
+  background-color: #0056b3;
 }
 
 .rue_accordion_toggle.rue_active_secondary {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-secondary-bg)
+  color: #ffffff;
+  background-color: #6c757d;
 }
 
 .rue_accordion_toggle.rue_active_secondary:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-secondary-hover-bg)
+  color: #ffffff;
+  background-color: #545b62;
 }
 
 .rue_accordion_toggle.rue_active_success {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-success-bg)
+  color: #ffffff;
+  background-color: #28a745;
 }
 
 .rue_accordion_toggle.rue_active_success:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-success-hover-bg)
+  color: #ffffff;
+  background-color: #218838;
 }
 
 .rue_accordion_toggle.rue_active_info {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-info-bg)
+  color: #ffffff;
+  background-color: #17a2b8;
 }
 
 .rue_accordion_toggle.rue_active_info:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-info-hover-bg)
+  color: #ffffff;
+  background-color: #138496;
 }
 
 .rue_accordion_toggle.rue_active_warning {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-warning-bg)
+  color: #ffffff;
+  background-color: #ffc107;
 }
 
 .rue_accordion_toggle.rue_active_warning:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-warning-hover-bg)
+  color: #ffffff;
+  background-color: #e0a800;
 }
 
 .rue_accordion_toggle.rue_active_danger {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-danger-bg)
+  color: #ffffff;
+  background-color: #dc3545;
 }
 
 .rue_accordion_toggle.rue_active_danger:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-danger-hover-bg)
+  color: #ffffff;
+  background-color: #c82333;
 }
 
 .rue_accordion_toggle.rue_active_help {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-help-bg)
+  color: #ffffff;
+  background-color: #6f42c1;
 }
 
 .rue_accordion_toggle.rue_active_help:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-help-hover-bg)
+  color: #ffffff;
+  background-color: #5d3bb4;
 }
 
 .rue_accordion_toggle.rue_active_dark {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-dark-bg)
+  color: #ffffff;
+  background-color: #343a40;
 }
 
 .rue_accordion_toggle.rue_active_dark:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-dark-hover-bg)
+  color: #ffffff;
+  background-color: #23272b;
 }
 
 .rue_accordion_toggle.rue_active .rue_accordion_icon {
   transform: rotate(180deg);
-  fill: #fff !important
+  fill: #fff !important;
 }
 
 .rue_accordion_card {
@@ -140,11 +120,11 @@
   overflow: hidden;
   width: 100%;
   max-width: 100%;
-  min-width: 30%
+  min-width: 30%;
 }
 
 .rue_accordion_card:last-child {
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .rue_accordion_title {
@@ -152,11 +132,11 @@
   font-size: 14px;
   position: relative;
   margin-bottom: 0;
-  transition: .3s
+  transition: .3s;
 }
 
 .rue_accordion_toggle.rue_active .rue_accordion_title {
-  color: #fff
+  color: #fff;
 }
 
 .rue_accordion_icon {
@@ -164,7 +144,7 @@
   top: 2px;
   color: #475f7b;
   transition: .35s;
-  font-size: 12px
+  font-size: 12px;
 }
 
 .rue_accordion_body {
@@ -173,7 +153,7 @@
   background-color: #fff;
   min-height: 50px;
   max-height: 210px;
-  overflow: auto
+  overflow: auto;
 }
 
 .rue_accordion_body p {
@@ -181,16 +161,16 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  color: #1c1e1f
+  color: #1c1e1f;
 }
 
 .rue_down {
   position: relative;
   height: 0;
   overflow: hidden;
-  transition: height .35s
+  transition: height .35s;
 }
 
 .rue_down.rue_show {
-  height: auto
+  height: auto;
 }

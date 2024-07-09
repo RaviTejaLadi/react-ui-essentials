@@ -1,4 +1,4 @@
-.scroll_to_top {
+.rue_scroll_to_top {
   background-color: white;
   right: 40px;
   bottom: 40px;
@@ -12,6 +12,6 @@
   border: none;
 }
 
-.scroll_to_top:active {
+.rue_scroll_to_top:active {
   transform: matrix(0.95, 0, 0, 0.95, 0, 0);
 }

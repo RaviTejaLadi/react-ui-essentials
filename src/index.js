@@ -20,6 +20,9 @@ export {
   UseFilteredContent,
 } from "./hooks";
 
+import { Seo, SeoProvider, SeoData } from "./Seo";
+
+export { Seo, SeoProvider, SeoData };
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Alert } from "./components/Alert/Alert";
 export { default as Avatar } from "./components/Avatar/Avatar";
@@ -55,6 +58,7 @@ export { default as Range } from "./components/Range/Range";
 export { default as SideBar } from "./components/SideBar/SideBar";
 export { default as SplitButton } from "./components/SplitButton/SplitButton";
 export { default as Stack } from "./components/Stack/Stack";
+export { default as Spinner } from "./components/Spinner/Spinner";
 export { default as Table } from "./components/Table/Table";
 export { default as Tag } from "./components/Tag/Tag";
 export { default as TextArea } from "./components/TextArea/TextArea";
@@ -75,6 +79,9 @@ export { Audio, video } from "./components/Media";
 export { Tab, Tabs } from "./components/Tabs/Tabs";
 export { default as TabList } from "./components/TabList/TabList";
 export { default as SectionHeader } from "./components/SectionHeader/SectionHeader";
+export { default as CheckboxCard } from "./components/CheckboxCard/CheckboxCard";
+export { default as RadioCard } from "./components/RadioCard/RadioCard";
+export { default as ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
 export { Provider, useStateValue } from "./stateManagment/stateManagment";

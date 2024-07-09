@@ -1,5 +1,6 @@
 .rue_badge {
-    display: inline-block;
+    display: inline-block !important;
+    width: fit-content;
     padding: 0.2em 0.5em;
     border-radius: 1px;
     font-size: 0.8em;
@@ -28,14 +29,6 @@
     font-size: 1.2em;
     padding: 0.75rem 1.5rem;
     border-radius: 0.35rem;
-}
-
-.rue_badge_xxl {
-    font-size: 1.5em;
-}
-
-.rue_badge_xxxl {
-    font-size: 2em;
 }
 
 .rue_badge_primary {

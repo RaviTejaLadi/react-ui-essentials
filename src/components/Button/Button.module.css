@@ -1,25 +1,3 @@
-:root {
-  --rue-btn-text-color: #ffffff;
-  --rue-btn-primary-bg: #007bff;
-  --rue-btn-primary-hover-bg: #0056b3;
-  --rue-btn-secondary-bg: #6c757d;
-  --rue-btn-secondary-hover-bg: #545b62;
-  --rue-btn-success-bg: #28a745;
-  --rue-btn-success-hover-bg: #218838;
-  --rue-btn-info-bg: #17a2b8;
-  --rue-btn-info-hover-bg: #138496;
-  --rue-btn-warning-bg: #ffc107;
-  --rue-btn-warning-hover-bg: #e0a800;
-  --rue-btn-danger-bg: #dc3545;
-  --rue-btn-danger-hover-bg: #c82333;
-  --rue-btn-help-bg: #6f42c1;
-  --rue-btn-help-hover-bg: #5d3bb4;
-  --rue-btn-light-bg: #f8f9fa;
-  --rue-btn-light-hover-bg: #e2e6ea;
-  --rue-btn-dark-bg: #343a40;
-  --rue-btn-dark-hover-bg: #23272b;
-}
-
 .rue_btn {
   display: flex;
   justify-content: space-between;
@@ -40,93 +18,93 @@
 }
 
 .rue_btn_primary {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-primary-bg);
+  color: #ffffff;
+  background-color: #007bff;
 }
 
 .rue_btn_primary:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-primary-hover-bg);
+  color: #ffffff;
+  background-color: #0056b3;
 }
 
 .rue_btn_secondary {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-secondary-bg);
+  color: #ffffff;
+  background-color: #6c757d;
 }
 
 .rue_btn_secondary:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-secondary-hover-bg);
+  color: #ffffff;
+  background-color: #545b62;
 }
 
 .rue_btn_success {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-success-bg);
+  color: #ffffff;
+  background-color: #28a745;
 }
 
 .rue_btn_success:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-success-hover-bg);
+  color: #ffffff;
+  background-color: #218838;
 }
 
 .rue_btn_info {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-info-bg);
+  color: #ffffff;
+  background-color: #17a2b8;
 }
 
 .rue_btn_info:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-info-hover-bg);
+  color: #ffffff;
+  background-color: #138496;
 }
 
 .rue_btn_warning {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-warning-bg);
+  color: #ffffff;
+  background-color: #ffc107;
 }
 
 .rue_btn_warning:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-warning-hover-bg);
+  color: #ffffff;
+  background-color: #e0a800;
 }
 
 .rue_btn_danger {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-danger-bg);
+  color: #ffffff;
+  background-color: #dc3545;
 }
 
 .rue_btn_danger:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-danger-hover-bg);
+  color: #ffffff;
+  background-color: #c82333;
 }
 
 .rue_btn_help {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-help-bg);
+  color: #ffffff;
+  background-color: #6f42c1;
 }
 
 .rue_btn_help:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-help-hover-bg);
+  color: #ffffff;
+  background-color: #5d3bb4;
 }
 
 .rue_btn_light {
   color: #979da3;
-  background-color: var(--rue-btn-light-bg);
+  background-color: #f8f9fa;
 }
 
 .rue_btn_light:hover {
   color: #979da3;
-  background-color: var(--rue-btn-light-hover-bg);
+  background-color: #e2e6ea;
 }
 
 .rue_btn_dark {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-dark-bg);
+  color: #ffffff;
+  background-color: #343a40;
 }
 
 .rue_btn_dark:hover {
-  color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-dark-hover-bg);
+  color: #ffffff;
+  background-color: #23272b;
 }
 
 .rue_btn_sm {

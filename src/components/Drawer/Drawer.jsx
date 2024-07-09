@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import CloseButton from "../CloseButton/CloseButton";
 import styles from "./Drawer.module.css";
 
-const Drawer = forwardRef(({ position, children, isOpen, onClose, width, height }, ref) => {
+const Drawer = forwardRef(({ position, children, isOpen, onClose, width, height, ...rest }, ref) => {
   const getPositionClass = () => {
     switch (position) {
       case "top":
@@ -31,7 +31,7 @@ const Drawer = forwardRef(({ position, children, isOpen, onClose, width, height 
   };
 
   return (
-    <div ref={ref}>
+    <div ref={ref} {...rest}>
       <div className={`${styles.rue_drawer_overlay} ${isOpen ? styles.rue_open : ""}`} onClick={handleClose} />
       <div
         className={`${styles.rue_drawer} ${getPositionClass()} ${isOpen ? styles.rue_open : ""}`}

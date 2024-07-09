@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Badge.module.css";
 
-const Badge = forwardRef(({ size, variant, children, ...rest }, ref) => {
+const Badge = forwardRef(({ size = "sm", variant = "primary", children, ...rest }, ref) => {
   const getBadgeStyles = () => {
     let sizeClass = "";
     switch (size) {
@@ -17,12 +17,6 @@ const Badge = forwardRef(({ size, variant, children, ...rest }, ref) => {
         break;
       case "xl":
         sizeClass = `${styles.rue_badge_xl}`;
-        break;
-      case "xxl":
-        sizeClass = `${styles.rue_badge_xxl}`;
-        break;
-      case "xxxl":
-        sizeClass = `${styles.rue_badge_xxxl}`;
         break;
       default:
         break;
@@ -69,7 +63,7 @@ const Badge = forwardRef(({ size, variant, children, ...rest }, ref) => {
 });
 
 Badge.propTypes = {
-  size: PropTypes.oneOf(["sm", "md", "lg", "xl", "xxl", "xxxl"]),
+  size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
   variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]),
   children: PropTypes.node.isRequired,
 };

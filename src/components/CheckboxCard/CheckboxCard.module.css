@@ -1,0 +1,41 @@
+.rue_card {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rue_cardChecked {
+  border-color: rgba(0, 76, 255, 0.842);
+}
+
+.rue_checkboxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.rue_checkbox {
+  width: 16px;
+  height: 16px;
+}
+
+.rue_content {
+  flex: 1;
+}
+
+.rue_title {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.rue_description {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
