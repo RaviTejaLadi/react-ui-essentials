@@ -1,6 +1,6 @@
 import * as svgsrounded from "./Icons/Round";
 
-export { useDynamicVariantsChange, useOnlineStatus, usePortal } from "./hooks";
+export { useDynamicVariantsChange, useOnlineStatus, usePortal, useLocalStorage, UseFilteredContent } from "./hooks";
 export { Seo, SeoProvider, SeoData } from "./Seo";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Alert } from "./components/Alert/Alert";
