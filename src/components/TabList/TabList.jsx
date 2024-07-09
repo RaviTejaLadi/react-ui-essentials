@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight } from "../../Icons/Round";
 const TabList = forwardRef(
   (
     {
+      tabButtonSize = "sm",
       orientation = "vertical",
       tabs = [],
       width = "auto",
@@ -85,6 +86,7 @@ const TabList = forwardRef(
           )}
           {tabs.map((tab, index) => (
             <Button
+              size={tabButtonSize}
               key={index}
               className={`${styles.rue_tab_list_items} ${activeTab === tab.label ? `${styles.active}` : ""}`}
               variant="light"
@@ -135,6 +137,7 @@ TabList.propTypes = {
   width: PropTypes.string,
   outlined: PropTypes.bool,
   elevation: PropTypes.number,
+  tabButtonSize: PropTypes.string,
 };
 TabList.displayName = "TabList";
 export default TabList;
