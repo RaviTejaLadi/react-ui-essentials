@@ -41,7 +41,9 @@ const LinkBar = forwardRef(
       >
         {showControls && (
           <Button size={controlsSize} variant={controlsVariant} onClick={() => scroll("left")}>
-            <ArrowLeft width="20px" height="20px" />
+            <Button.Icon>
+              <ArrowLeft width="20px" height="20px" />
+            </Button.Icon>
           </Button>
         )}
         <Box boxRef={linkBarRef} className={styles.rue_linkBar}>
@@ -53,7 +55,9 @@ const LinkBar = forwardRef(
         </Box>
         {showControls && (
           <Button size={controlsSize} variant={controlsVariant} onClick={() => scroll("right")}>
-            <ArrowRight width="20px" height="20px" />
+            <Button.Icon>
+              <ArrowRight width="20px" height="20px" />
+            </Button.Icon>
           </Button>
         )}
       </Box>

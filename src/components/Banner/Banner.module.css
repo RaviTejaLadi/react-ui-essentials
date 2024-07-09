@@ -1,5 +1,5 @@
-.rue_banner_links>a,
-.rue_banner_links>a:hover {
+.rue_banner_subtitle>a,
+.rue_banner_subtitle>a:hover {
     text-decoration: none;
     border: 1px solid transparent
 }
@@ -23,12 +23,12 @@
     width: 90%
 }
 
-.rue_banner_links,
+.rue_banner_subtitle,
 .rue_banner_title {
     height: 50%
 }
 
-.rue_banner_title>h4 {
+.rue_banner_title {
     margin-top: 10px;
     margin-left: 10px;
     font-weight: 600;
@@ -36,29 +36,12 @@
     line-height: 1.6rem
 }
 
-.rue_banner_links {
+.rue_banner_subtitle {
     margin-top: 10px;
     margin-left: 15px;
     display: flex;
     border: 1px solid transparent;
     gap: .5rem
-}
-
-.rue_banner_links>a,
-.rue_banner_links>p {
-    font-size: .875rem;
-    font-weight: 500;
-    line-height: 1.334rem
-}
-
-.rue_banner_links>a {
-    font-size: 1.2rem;
-    text-align: center;
-    color: #2a3547
-}
-
-.rue_banner_links>a:hover {
-    cursor: pointer
 }
 
 .rue_banner_logo {
@@ -151,7 +134,8 @@
 .rue_banner_sm {
     border: transparent;
     line-height: 1.5 !important;
-    width: 100%
+    width: 100%;
+    border-radius: .5rem !important
 }
 
 .rue_banner_light:hover {
@@ -161,25 +145,20 @@
 }
 
 .rue_banner_sm {
-    font-size: .875rem !important;
     padding: .25rem .5rem !important;
-    border-radius: .2rem !important;
     height: 5rem !important
 }
 
 .rue_banner_lg {
-    font-size: 1.25rem !important;
     padding: .5rem 1rem !important;
-    border-radius: .3rem !important;
-    height: 9rem !important
+    height: 7rem !important
 }
 
 .rue_banner_md {
-    font-size: 1rem !important;
     line-height: 1.5 !important;
     padding: .375rem .75rem !important;
     border: transparent;
-    border-radius: .25rem !important;
+    border-radius: .5rem !important;
     width: 100%;
-    height: 7rem !important
+    height: 6rem !important
 }

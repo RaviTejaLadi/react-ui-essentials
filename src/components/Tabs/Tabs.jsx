@@ -40,7 +40,9 @@ export const Tabs = forwardRef(
         <Box elevation={0} padding="5px" rounded outlined className={styles.tab_nav}>
           {controls && (
             <Button size={controlsButtonSize} variant={controlsButtonVariant} onClick={handleLeftClick}>
-              <ArrowLeft width="20px" height="20px" />
+              <Button.Icon>
+                <ArrowLeft width="20px" height="20px" />
+              </Button.Icon>
             </Button>
           )}
           <div className={styles.tab_buttons}>
@@ -57,14 +59,18 @@ export const Tabs = forwardRef(
                   color: activeTab === child?.props?.eventKey ? "#007bff" : "",
                 }}
               >
-                {child?.props?.title}
-                <Ripple />
+                <Button.Text>
+                  {child?.props?.title}
+                  <Ripple />
+                </Button.Text>
               </Button>
             ))}
           </div>
           {controls && (
             <Button size={controlsButtonSize} variant={controlsButtonVariant} onClick={handleRightClick}>
-              <ArrowRight width="20px" height="20px" />
+              <Button.Icon>
+                <ArrowRight width="20px" height="20px" />
+              </Button.Icon>
             </Button>
           )}
         </Box>

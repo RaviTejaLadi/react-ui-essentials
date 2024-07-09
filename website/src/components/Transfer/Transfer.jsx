@@ -106,10 +106,10 @@ const Transfer = () => {
           style={{ display: "flex", flexDirection: "column", justifyContent: "spaceBetween" }}
         >
           <Button onClick={moveItemsRight} style={{ marginBottom: "8px" }} disabled={selectedLeftItems.length === 0}>
-            Move Right
+            <Button.Text>Move Right</Button.Text>
           </Button>
           <Button onClick={moveItemsLeft} disabled={selectedRightItems.length === 0}>
-            Move Left
+            <Button.Text>Move Left</Button.Text>
           </Button>
         </Box>
         <Box padding="10px" width="300px" height="100%" outlined>
@@ -141,7 +141,9 @@ const Transfer = () => {
       </Box>
       <Divider horizontal />
       <Box padding="2px" style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button onClick={handleSubmit}>
+          <Button.Text>Submit</Button.Text>
+        </Button>
       </Box>
     </Box>
   );

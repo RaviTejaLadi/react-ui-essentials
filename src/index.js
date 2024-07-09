@@ -1,28 +1,7 @@
 import * as svgsrounded from "./Icons/Round";
 
-export {
-  useArray,
-  useAsync,
-  useDebounce,
-  useEventListener,
-  useFetch,
-  useFirstRender,
-  useLocalStorage,
-  useLocalStorage2,
-  useOnScreen,
-  usePrevious,
-  useScript,
-  useStateWithHistory,
-  useTimeout,
-  useToggle,
-  useUpdateEffect,
-  useWindowSize,
-  UseFilteredContent,
-} from "./hooks";
-
-import { Seo, SeoProvider, SeoData } from "./Seo";
-
-export { Seo, SeoProvider, SeoData };
+export { useDynamicVariantsChange, useOnlineStatus, usePortal } from "./hooks";
+export { Seo, SeoProvider, SeoData } from "./Seo";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Alert } from "./components/Alert/Alert";
 export { default as Avatar } from "./components/Avatar/Avatar";

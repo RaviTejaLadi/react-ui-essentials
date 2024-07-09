@@ -15,8 +15,6 @@ const Button = forwardRef(
       boxShadow = "",
       style = {},
       children,
-      startIcon,
-      endIcon,
       rounded,
       ...rest
     },
@@ -43,13 +41,26 @@ const Button = forwardRef(
         ref={ref}
         {...rest}
       >
-        {startIcon && <span>{startIcon}</span>}
         {children}
-        {endIcon && <span>{endIcon}</span>}
       </button>
     );
   }
 );
+
+const ButtonIcon = ({ children, ...rest }) => (
+  <div className={styles.rue_icon} {...rest}>
+    {children}
+  </div>
+);
+const ButtonText = ({ children, ...rest }) => (
+  <div className={styles.rue_text} {...rest}>
+    {children}
+  </div>
+);
+
+ButtonIcon.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 Button.propTypes = {
   boxShadow: PropTypes.string,
@@ -66,5 +77,7 @@ Button.propTypes = {
   type: PropTypes.string,
   variant: PropTypes.string,
 };
+Button.Icon = ButtonIcon;
+Button.Text = ButtonText;
 Button.displayName = "Button";
 export default Button;

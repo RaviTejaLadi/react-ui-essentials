@@ -78,7 +78,9 @@ const TabList = forwardRef(
         >
           {orientation === "horizontal" && controls && (
             <Button size="sm" variant="light" onClick={handlePrev}>
-              <ArrowLeft width="14px" height="14px" />
+              <Button.Icon>
+                <ArrowLeft width="14px" height="14px" />
+              </Button.Icon>
             </Button>
           )}
           {tabs.map((tab, index) => (
@@ -88,14 +90,16 @@ const TabList = forwardRef(
               variant="light"
               onClick={() => handleClick(tab)}
               disabled={tab.disabled}
-              startIcon={tab.icon}
             >
-              {tab.label}
+              <Button.Icon>{tab.icon}</Button.Icon>
+              <Button.Text>{tab.label}</Button.Text>
             </Button>
           ))}
           {orientation === "horizontal" && controls && (
             <Button size="sm" variant="light" onClick={handleNext}>
-              <ArrowRight width="14px" height="14px" />
+              <Button.Icon>
+                <ArrowRight width="14px" height="14px" />
+              </Button.Icon>
             </Button>
           )}
         </Box>

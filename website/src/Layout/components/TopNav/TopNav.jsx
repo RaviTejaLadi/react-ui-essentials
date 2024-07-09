@@ -11,7 +11,9 @@ const TopNav = ({ toggleSidebar }) => {
     <div className={styles.topnav_container}>
       <div>
         <Button size="sm" variant="light" onClick={toggleSidebar}>
-          <img src={collapseSidebar} width="20px" height="20px" style={{ display: "inline" }} alt="collapseSidebar" />
+          <Button.Icon>
+            <img src={collapseSidebar} width="20px" height="20px" style={{ display: "inline" }} alt="collapseSidebar" />
+          </Button.Icon>
         </Button>
       </div>
       <div className={styles.topnav_left_cont}>
@@ -34,10 +36,10 @@ const TopNav = ({ toggleSidebar }) => {
         <div className={styles.topnav_version}>Version</div>
         <div className={styles.topnav_btns_cont}>
           <Button variant="info" size="sm">
-            Light
+            <Button.Text>Light</Button.Text>
           </Button>
           <Button variant="light" size="sm">
-            settings
+            <Button.Text>settings</Button.Text>
           </Button>
         </div>
       </div>

@@ -1,9 +1,10 @@
 .rue_btn {
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
-  align-content: center;
   position: relative;
+  width: fit-content;
+  height: fit-content;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -15,6 +16,17 @@
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.rue_icon {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.3rem;
+}
+
+.rue_text {
+  display: inline-flex;
+  align-items: center;
 }
 
 .rue_btn_primary {

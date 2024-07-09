@@ -25,8 +25,9 @@ import {
 import { cardData, footerLinks } from "../../data/homeData";
 import Splitter from "../../components/Splitter/Splitter";
 import Transfer from "../../components/Transfer/Transfer";
-import MeterGroup from "../../components/MeterGroup/MeterGroup";
+// import MeterGroup from "../../components/MeterGroup/MeterGroup";
 // import TabList from "../../components/TabList/TabList";
+const {Abc}=RoundedIcons
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -160,7 +161,7 @@ const Home = () => {
       // active: false,
       disabled: false,
       content: "Content for Tab 4",
-      icon: "🏠",
+      icon: <Abc width="15px" height="15px" style={{marginTop:"5px"}}/>,
     },
   ];
 

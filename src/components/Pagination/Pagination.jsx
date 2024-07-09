@@ -38,7 +38,7 @@ const Pagination = forwardRef(
             key={i}
             onClick={() => setCurrentPage(i)}
           >
-            {i}
+            <Button.Text>{i}</Button.Text>
           </Button>
         );
       }
@@ -47,7 +47,9 @@ const Pagination = forwardRef(
     return (
       <div ref={ref} className={styles.pagination} {...rest}>
         <Button variant="light" size={size} onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>
-          <KeyboardDoubleArrowLeft width="20px" height="20px" />
+          <Button.Icon>
+            <KeyboardDoubleArrowLeft width="20px" height="20px" />
+          </Button.Icon>
         </Button>
         <Button
           variant="light"
@@ -55,7 +57,9 @@ const Pagination = forwardRef(
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          <KeyboardArrowLeft width="20px" height="20px" />
+          <Button.Icon>
+            <KeyboardArrowLeft width="20px" height="20px" />
+          </Button.Icon>
         </Button>
         {renderPageNumbers()}
         <Button
@@ -64,7 +68,9 @@ const Pagination = forwardRef(
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
-          <KeyboardArrowRight width="20px" height="20px" />
+          <Button.Icon>
+            <KeyboardArrowRight width="20px" height="20px" />
+          </Button.Icon>
         </Button>
         <Button
           variant="light"
@@ -72,7 +78,9 @@ const Pagination = forwardRef(
           onClick={() => setCurrentPage(totalPages)}
           disabled={currentPage === totalPages}
         >
-          <KeyboardDoubleArrowRight width="20px" height="20px" />
+          <Button.Icon>
+            <KeyboardDoubleArrowRight width="20px" height="20px" />
+          </Button.Icon>
         </Button>
       </div>
     );

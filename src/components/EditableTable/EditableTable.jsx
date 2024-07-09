@@ -109,10 +109,10 @@ const EditableTable = forwardRef(({ headers, rows }, ref) => {
           style={{ display: "flex", justifyContent: "space-between" }}
         >
           <Button size="sm" variant="light" onClick={toggleEditMode}>
-            Edit
+            <Button.Text>Edit</Button.Text>
           </Button>
           <Button size="sm" variant="light" onClick={handleSubmit}>
-            Submit
+            <Button.Text>Submit</Button.Text>
           </Button>
         </Box>
       )}
@@ -126,10 +126,10 @@ const EditableTable = forwardRef(({ headers, rows }, ref) => {
             style={{ display: "flex", justifyContent: "space-between" }}
           >
             <Button size="sm" variant="light" onClick={saveChanges}>
-              Save
+              <Button.Text>Save</Button.Text>
             </Button>
             <Button size="sm" variant="light" onClick={cancelChanges}>
-              Cancel
+              <Button.Text>Cancel</Button.Text>
             </Button>
           </Box>
         )}
@@ -176,7 +176,9 @@ const EditableTable = forwardRef(({ headers, rows }, ref) => {
                           variant="light"
                           onClick={() => setShowColumnControls(showColumnControls === index ? null : index)}
                         >
-                          <Ellipsis width="15px" height="15px" />
+                          <Button.Icon>
+                            <Ellipsis width="15px" height="15px" />
+                          </Button.Icon>
                         </Button>
                         {showColumnControls === index && (
                           <ColumnControlsMenu
@@ -231,7 +233,9 @@ const EditableTable = forwardRef(({ headers, rows }, ref) => {
                         variant="light"
                         onClick={() => setShowRowControls(showRowControls === rowIndex ? null : rowIndex)}
                       >
-                        <Ellipsis width="15px" height="15px" />
+                        <Button.Icon>
+                          <Ellipsis width="15px" height="15px" />
+                        </Button.Icon>
                       </Button>
                       {showRowControls === rowIndex && (
                         <RowControlsMenu

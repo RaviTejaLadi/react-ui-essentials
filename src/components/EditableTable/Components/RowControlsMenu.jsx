@@ -8,13 +8,13 @@ const RowControlsMenu = ({ deleteRow, addRowBelow, addRowAbove }) => {
   return (
     <Box outlined width="130px" padding="3px" className={styles.rue_editable_table_controls}>
       <Button size="sm" variant="light" endIcon={<Delete width="15px" height="15px" />} onClick={deleteRow}>
-        Delete
+        <Button.Text>Delete</Button.Text>
       </Button>
       <Button size="sm" variant="light" endIcon={<DownArrow width="15px" height="15px" />} onClick={addRowBelow}>
-        insert Below
+        <Button.Text>insert Below</Button.Text>
       </Button>
       <Button size="sm" variant="light" endIcon={<UpArrow width="15px" height="15px" />} onClick={addRowAbove}>
-        insert Above
+        <Button.Text>insert Above</Button.Text>
       </Button>
     </Box>
   );

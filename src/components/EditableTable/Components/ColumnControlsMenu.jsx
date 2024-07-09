@@ -8,7 +8,7 @@ const ColumnControlsMenu = ({ deleteColumn, addColumnRightSide, addColumnLeftSid
   return (
     <Box outlined width="130px" padding="5px" className={styles.rue_editable_table_controls}>
       <Button size="sm" variant="light" endIcon={<Delete width="15px" height="15px" />} onClick={deleteColumn}>
-        Delete
+        <Button.Text>Delete</Button.Text>
       </Button>
       <Button
         size="sm"
@@ -16,10 +16,10 @@ const ColumnControlsMenu = ({ deleteColumn, addColumnRightSide, addColumnLeftSid
         endIcon={<RightArrow width="15px" height="15px" />}
         onClick={addColumnRightSide}
       >
-        insert Right
+        <Button.Text>insert Right</Button.Text>
       </Button>
       <Button size="sm" variant="light" endIcon={<LeftArrow width="15px" height="15px" />} onClick={addColumnLeftSide}>
-        insert Left
+        <Button.Text>insert Left</Button.Text>
       </Button>
     </Box>
   );

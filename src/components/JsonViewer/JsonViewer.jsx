@@ -92,7 +92,7 @@ const JsonViewer = forwardRef(
         <div className={styles.rue_json_preview_header}>
           <div>{title}</div>
           <Button size="sm" variant="primary" onClick={handleCopyToClipboard}>
-            {copyButtonText}
+            <Button.Text>{copyButtonText}</Button.Text>
           </Button>
         </div>
         <Divider />

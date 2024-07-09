@@ -1,6 +1,5 @@
 .rue_badge {
     display: inline-block !important;
-    width: fit-content;
     padding: 0.2em 0.5em;
     border-radius: 1px;
     font-size: 0.8em;
@@ -34,39 +33,55 @@
 .rue_badge_primary {
     background-color: #007bff;
     color: #fff;
+    width: fit-content;
+
 }
 
 .rue_badge_secondary {
     background-color: #6c757d;
     color: #fff;
+    width: fit-content;
+
 }
 
 .rue_badge_success {
     background-color: #28a745;
     color: #fff;
+    width: fit-content;
+
 }
 
 .rue_badge_danger {
     background-color: #dc3545;
     color: #fff;
+    width: fit-content;
+
 }
 
 .rue_badge_warning {
     background-color: #ffc107;
     color: #212529;
+    width: fit-content;
+
 }
 
 .rue_badge_info {
     background-color: #17a2b8;
     color: #fff;
+    width: fit-content;
+
 }
 
 .rue_badge_light {
     background-color: #f8f9fa;
     color: #212529;
+    width: fit-content;
+
 }
 
 .rue_badge_dark {
     background-color: #343a40;
     color: #fff;
+    width: fit-content;
+
 }
