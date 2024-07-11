@@ -1,0 +1,31 @@
+.rue_Content_Overview_title {
+    margin-bottom: 10px;
+}
+
+.rue_Content_Overview_description {
+    margin-bottom: 20px;
+}
+
+.rue_Content_Overview_section_title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.rue_Content_Overview_topic_list {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rue_Content_Overview_topic_item {
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+
+.rue_Content_Overview_topic_id {
+    margin-right: 10px;
+    display: inline-block;
+    width: 30px;
+}

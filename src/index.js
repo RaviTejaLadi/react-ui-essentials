@@ -29,7 +29,7 @@ export { default as JsonViewer } from "./components/JsonViewer/JsonViewer";
 export { default as Link } from "./components/Link/Link";
 export { default as LinkBar } from "./components/LinkBar/LinkBar";
 export { default as LinkButton } from "./components/LinkButton/LinkButton";
-export { ListGroups, UnorderedList, OrderedList } from "./components/Lists";
+export { ListGroups, UnOrderedList, OrderedList } from "./components/Lists";
 export { default as Modal } from "./components/Modal/Modal";
 export { default as NonIdealState } from "./components/NonIdealState/NonIdealState";
 export { default as PreviewCode } from "./components/PreviewCode/PreviewCode";

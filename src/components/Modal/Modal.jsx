@@ -3,8 +3,8 @@ import React, { forwardRef } from "react";
 import styles from "./Modal.module.css";
 import CloseButton from "../CloseButton/CloseButton";
 
-const Modal = forwardRef(({ children, openModal, position = "center", size = "sm", variant = "", ...rest }, ref) => {
-  const getModalVarient = () => {
+const Modal = forwardRef(({ children, openModal, position = "center", size = "md", variant = "", ...rest }, ref) => {
+  const getModalVariant = () => {
     switch (variant) {
       case "success":
         return styles.rue_modal_success;
@@ -18,6 +18,7 @@ const Modal = forwardRef(({ children, openModal, position = "center", size = "sm
         return "";
     }
   };
+
   const getModalSize = () => {
     switch (size) {
       case "sm":
@@ -57,12 +58,12 @@ const Modal = forwardRef(({ children, openModal, position = "center", size = "sm
   return (
     <div
       ref={ref}
-      className={`${styles.rue_modal_overlay} ${openModal ? styles.rue_modal_open : ""}`}
+      className={`${styles.rue_modal_overlay} ${openModal ? styles.rue_modal_open : styles.rue_modal_closed}`}
       role="dialog"
       aria-modal="true"
     >
-      <div className={`${styles.rue_modal} ${getModalSize()} ${getModalPosition()} ${getModalVarient()}`} {...rest}>
-        {children}
+      <div className={`${styles.rue_modal} ${getModalSize()} ${getModalPosition()} ${getModalVariant()}`} {...rest}>
+        <div className={styles.rue_modal_content}>{children}</div>
       </div>
     </div>
   );
@@ -70,7 +71,7 @@ const Modal = forwardRef(({ children, openModal, position = "center", size = "sm
 
 Modal.propTypes = {
   children: PropTypes.node,
-  openModal: PropTypes.func,
+  openModal: PropTypes.bool.isRequired,
   position: PropTypes.oneOf(["top", "right", "bottom", "left", "center"]),
   size: PropTypes.oneOf(["sm", "md", "lg", "xl", "xxl", "fullscreen"]),
   variant: PropTypes.oneOf(["success", "warning", "info", "danger"]),
@@ -78,7 +79,7 @@ Modal.propTypes = {
 
 const ModalHeader = ({ children, closeButton, onClose, height }) => {
   return (
-    <div className={styles.rue_modal_header} style={{ height: height }}>
+    <div className={styles.rue_modal_header} style={{ height }}>
       <div>{children}</div>
       <div>{closeButton && <CloseButton onClick={onClose} />}</div>
     </div>
@@ -102,7 +103,7 @@ ModalTitle.propTypes = {
 
 const ModalBody = ({ children, height }) => {
   return (
-    <div className={styles.rue_modal_body} style={{ height: height }}>
+    <div className={styles.rue_modal_body} style={{ height }}>
       {children}
     </div>
   );
@@ -115,7 +116,7 @@ ModalBody.propTypes = {
 
 const ModalFooter = ({ children, height }) => {
   return (
-    <div className={styles.rue_modal_footer} style={{ height: height }}>
+    <div className={styles.rue_modal_footer} style={{ height }}>
       {children}
     </div>
   );

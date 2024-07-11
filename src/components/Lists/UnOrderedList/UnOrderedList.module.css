@@ -1,0 +1,10 @@
+.rue_unorderedList {
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+  
+  .rue_listItem {
+    margin-bottom: 5px;
+    color: #333;
+  }
+  

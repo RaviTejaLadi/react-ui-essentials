@@ -1,5 +1,5 @@
 import ListGroups from "./ListGroups/ListGroups";
 import OrderedList from "./OrderedList/OrderedList";
-import UnorderedList from "./UnOrderedList/UnorderedList";
+import UnOrderedList from "./UnOrderedList/UnOrderedList";
 
-export { ListGroups, UnorderedList, OrderedList };
+export { ListGroups, UnOrderedList, OrderedList };

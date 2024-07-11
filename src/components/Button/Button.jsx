@@ -12,7 +12,6 @@ const Button = forwardRef(
       variant = "primary",
       className = "",
       raised = false,
-      boxShadow = "",
       style = {},
       children,
       rounded,
@@ -63,7 +62,6 @@ ButtonIcon.propTypes = {
 };
 
 Button.propTypes = {
-  boxShadow: PropTypes.string,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,

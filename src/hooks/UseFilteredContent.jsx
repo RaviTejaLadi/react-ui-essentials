@@ -12,7 +12,7 @@ const UseFilteredContent = (data, CardsPerPage) => {
     );
   }, [data, debouncedSearchTerm]);
 
-  const totalPages = Math?.ceil(filteredData.length / CardsPerPage);
+  const totalPages = Math?.ceil(filteredData?.length / CardsPerPage);
   const indexOfLastItem = currentPage * CardsPerPage;
   const indexOfFirstItem = indexOfLastItem - CardsPerPage;
   const currentItems = filteredData?.slice(indexOfFirstItem, indexOfLastItem);
