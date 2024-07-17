@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 import styles from "./UnOrderedList.module.css";
 
-
 const UnOrderedList = forwardRef(({ children, listStyleType = "disc", ...rest }, ref) => {
   return (
     <ul ref={ref} className={styles.rue_unorderedList} style={{ listStyleType: listStyleType }} {...rest}>
@@ -17,7 +16,11 @@ UnOrderedList.propTypes = {
 };
 
 const ListItem = ({ children, ...rest }) => {
-  return <li className={styles.rue_listItem} {...rest}>{children}</li>;
+  return (
+    <li className={styles.rue_listItem} {...rest}>
+      {children}
+    </li>
+  );
 };
 
 ListItem.propTypes = {

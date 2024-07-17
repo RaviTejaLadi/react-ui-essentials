@@ -2,16 +2,13 @@ import PropTypes from "prop-types";
 import React, { useContext } from "react";
 import styles from "./Content.module.css";
 import ParentContext from "../../../context/ParentContext";
-import { useFirstRender, useDarkMode } from "react-ui-essentials";
+import { useDarkMode } from "react-ui-essentials";
 
 const Content = ({ children }) => {
   const { state } = useContext(ParentContext);
   const { pageType } = state;
 
   const { mode, setMode } = useDarkMode();
-
-  const firstRender = useFirstRender();
-  if (firstRender) return null;
 
   const modes = ["light", "dark", "system"];
 

@@ -1,0 +1,181 @@
+.rue_breadcrumb_container {
+    width: fit-content !important;
+}
+
+.rue_breadcrumb {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+.rue_breadcrumb_item {
+    display: inline-block;
+}
+
+.rue_breadcrumb_link {
+    display: flex;
+    align-items: center
+}
+
+.rue_breadcrumb_separator {
+    margin: 0 !important;
+    color: #2d3748
+}
+
+.rue_breadcrumb_text {
+    color: #2d3748;
+    text-decoration: none;
+    width: fit-content;
+    height: fit-content;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.rue_breadcrumb_text:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.rue_breadcrumb_primary {
+    color: #007bff;
+    border: 1px solid #0056b3;
+}
+
+.rue_breadcrumb_primary:hover {
+    color: #fff;
+    background-color: #007bff;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_primary:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.rue_breadcrumb_secondary {
+    color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+.rue_breadcrumb_secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_secondary:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
+
+.rue_breadcrumb_success {
+    color: #28a745;
+    border: 1px solid #218838;
+}
+
+.rue_breadcrumb_success:hover {
+    color: #fff;
+    background-color: #28a745;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_success:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.rue_breadcrumb_info {
+    color: #17a2b8;
+    border: 1px solid #138496;
+}
+
+.rue_breadcrumb_info:hover {
+    color: #fff;
+    background-color: #17a2b8;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_info:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.25);
+}
+
+.rue_breadcrumb_warning {
+    color: #ffc107;
+    border: 1px solid #e0a800;
+}
+
+.rue_breadcrumb_warning:hover {
+    color: #fff;
+    background-color: #ffc107;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_warning:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+.rue_breadcrumb_danger {
+    color: #dc3545;
+    border: 1px solid #c82333;
+}
+
+.rue_breadcrumb_danger:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_danger:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.rue_breadcrumb_help {
+    color: #6f42c1;
+    border: 1px solid #5d3bb4;
+}
+
+.rue_breadcrumb_help:hover {
+    color: #fff;
+    background-color: #6f42c1;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_help:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.25);
+}
+
+.rue_breadcrumb_light {
+    color: #2d3748;
+    border: 1px solid #e2e6ea;
+}
+
+.rue_breadcrumb_light:hover {
+    color: #2d3748;
+    background-color: #f8f9fa;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_light:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.25);
+}
+
+.rue_breadcrumb_dark {
+    color: #2d3748;
+    border: 1px solid #23272b;
+}
+
+.rue_breadcrumb_dark:hover {
+    color: #fff;
+    background-color: #343a40;
+    border: 1px solid transparent;
+}
+
+.rue_breadcrumb_dark:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.25);
+}

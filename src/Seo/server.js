@@ -1,7 +1,7 @@
 import React from "react";
 
 import {
-  HELMET_ATTRIBUTE,
+  SEO_ATTRIBUTE,
   TAG_NAMES,
   REACT_TAG_MAP,
   TAG_PROPERTIES,
@@ -35,11 +35,8 @@ const generateTitleAsString = (type, title, attributes, encode) => {
   const attributeString = generateElementAttributesAsString(attributes);
   const flattenedTitle = flattenArray(title);
   return attributeString
-    ? `<${type} ${HELMET_ATTRIBUTE}="true" ${attributeString}>${encodeSpecialCharacters(
-        flattenedTitle,
-        encode
-      )}</${type}>`
-    : `<${type} ${HELMET_ATTRIBUTE}="true">${encodeSpecialCharacters(flattenedTitle, encode)}</${type}>`;
+    ? `<${type} ${SEO_ATTRIBUTE}="true" ${attributeString}>${encodeSpecialCharacters(flattenedTitle, encode)}</${type}>`
+    : `<${type} ${SEO_ATTRIBUTE}="true">${encodeSpecialCharacters(flattenedTitle, encode)}</${type}>`;
 };
 
 const generateTagsAsString = (type, tags, encode = true) =>
@@ -59,7 +56,7 @@ const generateTagsAsString = (type, tags, encode = true) =>
 
     const isSelfClosing = SELF_CLOSING_TAGS.indexOf(type) === -1;
 
-    return `${str}<${type} ${HELMET_ATTRIBUTE}="true" ${attributeHtml}${
+    return `${str}<${type} ${SEO_ATTRIBUTE}="true" ${attributeHtml}${
       isSelfClosing ? `/>` : `>${tagContent}</${type}>`
     }`;
   }, "");
@@ -75,7 +72,7 @@ const generateTitleAsReactComponent = (_type, title, attributes) => {
   // assigning into an array to define toString function on it
   const initProps = {
     key: title,
-    [HELMET_ATTRIBUTE]: true,
+    [SEO_ATTRIBUTE]: true,
   };
   const props = convertElementAttributesToReactProps(attributes, initProps);
 
@@ -86,7 +83,7 @@ const generateTagsAsReactComponent = (type, tags) =>
   tags.map((tag, i) => {
     const mappedTag = {
       key: i,
-      [HELMET_ATTRIBUTE]: true,
+      [SEO_ATTRIBUTE]: true,
     };
 
     Object.keys(tag).forEach((attribute) => {

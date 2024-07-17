@@ -1,9 +1,9 @@
-import { HELMET_ATTRIBUTE, TAG_NAMES, TAG_PROPERTIES } from "./constants";
+import { SEO_ATTRIBUTE, TAG_NAMES, TAG_PROPERTIES } from "./constants";
 import { flattenArray } from "./utils";
 
 const updateTags = (type, tags) => {
   const headElement = document.head || document.querySelector(TAG_NAMES.HEAD);
-  const tagNodes = headElement.querySelectorAll(`${type}[${HELMET_ATTRIBUTE}]`);
+  const tagNodes = headElement.querySelectorAll(`${type}[${SEO_ATTRIBUTE}]`);
   const oldTags = [].slice.call(tagNodes);
   const newTags = [];
   let indexToDelete;
@@ -30,7 +30,7 @@ const updateTags = (type, tags) => {
         }
       }
 
-      newElement.setAttribute(HELMET_ATTRIBUTE, "true");
+      newElement.setAttribute(SEO_ATTRIBUTE, "true");
 
       // Remove a duplicate tag from domTagstoRemove, so it isn't cleared.
       if (
@@ -62,9 +62,9 @@ const updateAttributes = (tagName, attributes) => {
     return;
   }
 
-  const helmetAttributeString = elementTag.getAttribute(HELMET_ATTRIBUTE);
-  const helmetAttributes = helmetAttributeString ? helmetAttributeString.split(",") : [];
-  const attributesToRemove = [...helmetAttributes];
+  const seoAttributeString = elementTag.getAttribute(SEO_ATTRIBUTE);
+  const seoAttributes = seoAttributeString ? seoAttributeString.split(",") : [];
+  const attributesToRemove = [...seoAttributes];
   const attributeKeys = Object.keys(attributes);
 
   for (const attribute of attributeKeys) {
@@ -74,8 +74,8 @@ const updateAttributes = (tagName, attributes) => {
       elementTag.setAttribute(attribute, value);
     }
 
-    if (helmetAttributes.indexOf(attribute) === -1) {
-      helmetAttributes.push(attribute);
+    if (seoAttributes.indexOf(attribute) === -1) {
+      seoAttributes.push(attribute);
     }
 
     const indexToSave = attributesToRemove.indexOf(attribute);
@@ -88,10 +88,10 @@ const updateAttributes = (tagName, attributes) => {
     elementTag.removeAttribute(attributesToRemove[i]);
   }
 
-  if (helmetAttributes.length === attributesToRemove.length) {
-    elementTag.removeAttribute(HELMET_ATTRIBUTE);
-  } else if (elementTag.getAttribute(HELMET_ATTRIBUTE) !== attributeKeys.join(",")) {
-    elementTag.setAttribute(HELMET_ATTRIBUTE, attributeKeys.join(","));
+  if (seoAttributes.length === attributesToRemove.length) {
+    elementTag.removeAttribute(SEO_ATTRIBUTE);
+  } else if (elementTag.getAttribute(SEO_ATTRIBUTE) !== attributeKeys.join(",")) {
+    elementTag.setAttribute(SEO_ATTRIBUTE, attributeKeys.join(","));
   }
 };
 
@@ -152,22 +152,22 @@ const commitTagChanges = (newState, cb) => {
   onChangeClientState(newState, addedTags, removedTags);
 };
 
-let _helmetCallback = null;
+let _seoCallback = null;
 
 const handleStateChangeOnClient = (newState) => {
-  if (_helmetCallback) {
-    cancelAnimationFrame(_helmetCallback);
+  if (_seoCallback) {
+    cancelAnimationFrame(_seoCallback);
   }
 
   if (newState.defer) {
-    _helmetCallback = requestAnimationFrame(() => {
+    _seoCallback = requestAnimationFrame(() => {
       commitTagChanges(newState, () => {
-        _helmetCallback = null;
+        _seoCallback = null;
       });
     });
   } else {
     commitTagChanges(newState);
-    _helmetCallback = null;
+    _seoCallback = null;
   }
 };
 

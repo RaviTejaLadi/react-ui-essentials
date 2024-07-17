@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Alert.module.css";
 
-const Alert = forwardRef(({ variant="primary", children, ...rest }, ref) => {
+const Alert = forwardRef(({ variant = "primary", children, ...rest }, ref) => {
   const alertClasses = `${styles.rue_alert} ${variant ? `${styles[`rue_alert_${variant}`]}` : ""}`;
   return (
     <div className={alertClasses} ref={ref} {...rest}>

@@ -26,14 +26,23 @@ const Fieldset = forwardRef(({ children, height = "auto", width = "100%", varian
     }
   };
   return (
-    <div ref={ref} className={`${styles.rue_fieldset} ${getTitleStyle()}`} style={{ width: width, height: height }} {...rest}>
+    <div
+      ref={ref}
+      className={`${styles.rue_fieldset} ${getTitleStyle()}`}
+      style={{ width: width, height: height }}
+      {...rest}
+    >
       {children}
     </div>
   );
 });
 
 const FieldsetHeader = ({ children, ...rest }) => {
-  return <div className={styles.rue_fieldset_header} {...rest}>{children}</div>;
+  return (
+    <div className={styles.rue_fieldset_header} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 FieldsetHeader.propTypes = {

@@ -10,12 +10,12 @@ const useStateManager = (reducer, initialState) => {
 
 const defaultStore = {
   initialStates: {},
-  reducers: {}
+  reducers: {},
 };
 
 export const Provider = ({ children, store = defaultStore }) => {
-  if (!store || typeof store !== 'object') {
-    throw new Error('Invalid store provided to Provider');
+  if (!store || typeof store !== "object") {
+    throw new Error("Invalid store provided to Provider");
   }
 
   const { reducers, initialStates } = store;

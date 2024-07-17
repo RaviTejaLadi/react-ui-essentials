@@ -10,7 +10,7 @@ export { default as Badge } from "./components/Badge/Badge";
 export { default as Banner } from "./components/Banner/Banner";
 export { default as BasicCard } from "./components/Cards/BasicCard/BasicCard";
 export { default as Box } from "./components/Box/Box";
-export { CustomBreadcrumb, DynamicBreadCrumb } from "./components/BreadCrumb";
+export { default as BreadCrumb } from "./components/BreadCrumb/Breadcrumb";
 export { default as CloseButton } from "./components/CloseButton/CloseButton";
 export { default as Code } from "./components/Code/Code";
 export { default as ColorPicker } from "./components/ColorPicker/ColorPicker";
@@ -18,7 +18,6 @@ export { default as ContentScrollable } from "./components/ContentScrollable/Con
 export { default as Divider } from "./components/Divider/Divider";
 export { default as Drawer } from "./components/Drawer/Drawer";
 export { default as Dropdown } from "./components/Dropdown/Dropdown";
-export { default as EmojiListRenderer } from "./components/EmojiListRenderer/EmojiListRenderer";
 export { default as Fieldset } from "./components/Fieldset/Fieldset";
 export { default as Figure } from "./components/Figure/Figure";
 export { default as FullScreenToggle } from "./components/FullScreenToggle/FullScreenToggle";
@@ -61,6 +60,7 @@ export { default as SectionHeader } from "./components/SectionHeader/SectionHead
 export { default as CheckboxCard } from "./components/CheckboxCard/CheckboxCard";
 export { default as RadioCard } from "./components/RadioCard/RadioCard";
 export { default as ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
+export { default as TextCarousel } from "./components/TextCarousel/TextCarousel";
 
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
 export { Provider, useStateValue } from "./stateManagment/stateManagment";

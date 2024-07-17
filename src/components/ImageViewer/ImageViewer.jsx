@@ -131,5 +131,5 @@ const ImageViewer = forwardRef(({ src, alt, caption, ...rest }, ref) => {
     </div>
   );
 });
-
+ImageViewer.displayName = "ImageViewer";
 export default ImageViewer;

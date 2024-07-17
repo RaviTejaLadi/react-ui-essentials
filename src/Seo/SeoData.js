@@ -1,21 +1,23 @@
 import mapStateOnServer from "./server";
 
+const instances = [];
+
 export function clearInstances() {
   instances.length = 0;
 }
 
 export const isDocument = !!(typeof window !== "undefined" && window.document && window.document.createElement);
 
-export default class HelmetData {
+export default class SeoData {
   instances = [];
   canUseDOM = isDocument;
   context;
 
   value = {
-    setHelmet: (serverState) => {
-      this.context.helmet = serverState;
+    setSeo: (serverState) => {
+      this.context.seo = serverState;
     },
-    helmetInstances: {
+    seoInstances: {
       get: () => (this.canUseDOM ? instances : this.instances),
       add: (instance) => {
         (this.canUseDOM ? instances : this.instances).push(instance);
@@ -32,7 +34,7 @@ export default class HelmetData {
     this.canUseDOM = canUseDOM || false;
 
     if (!canUseDOM) {
-      context.helmet = mapStateOnServer({
+      context.seo = mapStateOnServer({
         baseTag: [],
         bodyAttributes: {},
         encodeSpecialCharacters: true,

@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 
-import HelmetData, { isDocument } from "./HelmetData";
+import SeoData, { isDocument } from "./SeoData";
 
 const defaultValue = {};
 
 export const Context = React.createContext(defaultValue);
 
-export default class HelmetProvider extends Component {
+export default class SeoProvider extends Component {
   static canUseDOM = isDocument;
 
-  helmetData;
+  seoData;
 
   constructor(props) {
     super(props);
 
-    this.helmetData = new HelmetData(this.props.context || {}, HelmetProvider.canUseDOM);
+    this.seoData = new SeoData(this.props.context || {}, SeoProvider.canUseDOM);
   }
 
   render() {
-    return <Context.Provider value={this.helmetData.value}>{this.props.children}</Context.Provider>;
+    return <Context.Provider value={this.seoData.value}>{this.props.children}</Context.Provider>;
   }
 }

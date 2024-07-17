@@ -1,35 +1,60 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./SectionHeader.module.css";
+import Box from "../Box/Box";
+import Heading from "../Typography/Heading/Heading";
+import Paragraph from "../Typography/Paragraph/Paragraph";
 
 const SectionHeader = forwardRef(
-  ({ title, subtitle, placement = "center", size = "sm", padding = "20px", margin = "0", controls, ...rest }, ref) => {
+  ({ children, padding = "20px", margin = "0", controls, placement = "left", size = "md", ...rest }, ref) => {
     return (
-      <div
+      <Box
         ref={ref}
-        className={`${styles.rue_sectionHeader} ${styles[placement]}`}
-        style={{ padding: padding, margin: margin }}
+        style={{ padding, margin }}
+        className={`${styles.rue_sectionHeader} ${styles[`rue_sectionHeader_placement-${placement}`]} ${
+          styles[`rue_sectionHeader_size-${size}`]
+        }`}
         {...rest}
       >
-        <div>
-          <h2 className={`${styles.rue_title} ${styles[size]}`}>{title}</h2>
-          {subtitle && <p className={`${styles.rue_subtitle} ${styles[size]}`}>{subtitle}</p>}
-        </div>
-        {controls && <div>{controls}</div>}
-      </div>
+        <div className={styles.rue_sectionHeader_content}>{children}</div>
+        {controls && <div className={styles.rue_sectionHeader_controls}>{controls}</div>}
+      </Box>
     );
   }
 );
 
-SectionHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
-  placement: PropTypes.oneOf(["left", "right", "center"]),
-  size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
-  margin: PropTypes.string,
-  padding: PropTypes.string,
-  controls: PropTypes.node,
+const SectionHeaderTitle = ({ children, ...rest }) => {
+  return (
+    <Heading className={styles.rue_sectionHeader_title} {...rest}>
+      {children}
+    </Heading>
+  );
 };
 
+SectionHeaderTitle.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+const SectionHeaderSubTitle = ({ children, ...rest }) => {
+  return (
+    <Paragraph className={styles.rue_sectionHeader_subtitle} {...rest}>
+      {children}
+    </Paragraph>
+  );
+};
+
+SectionHeaderSubTitle.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+SectionHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+  controls: PropTypes.node.isRequired,
+  margin: PropTypes.string,
+  padding: PropTypes.string,
+  placement: PropTypes.oneOf(["left", "right", "center"]),
+  size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+};
+SectionHeader.Title = SectionHeaderTitle;
+SectionHeader.SubTitle = SectionHeaderSubTitle;
 SectionHeader.displayName = "SectionHeader";
 export default SectionHeader;

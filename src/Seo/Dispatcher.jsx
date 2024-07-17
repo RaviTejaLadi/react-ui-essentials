@@ -6,7 +6,7 @@ import mapStateOnServer from "./server";
 import { reducePropsToState } from "./utils";
 import Provider from "./Provider";
 
-export default class HelmetDispatcher extends Component {
+export default class SeoDispatcher extends Component {
   rendered = false;
 
   shouldComponentUpdate(nextProps) {
@@ -18,18 +18,17 @@ export default class HelmetDispatcher extends Component {
   }
 
   componentWillUnmount() {
-    const { helmetInstances } = this.props.context;
-    helmetInstances.remove(this);
+    const { seoInstances } = this.props.context;
+    seoInstances.remove(this);
     this.emitChange();
   }
 
   emitChange() {
-    const { helmetInstances, setHelmet } = this.props.context;
+    const { seoInstances, setSeo } = this.props.context;
     let serverState = null;
     const state = reducePropsToState(
-      helmetInstances.get().map((instance) => {
+      seoInstances.get().map((instance) => {
         const props = { ...instance.props };
-        // @ts-ignore
         delete props.context;
         return props;
       })
@@ -39,7 +38,7 @@ export default class HelmetDispatcher extends Component {
     } else if (mapStateOnServer) {
       serverState = mapStateOnServer(state);
     }
-    setHelmet(serverState);
+    setSeo(serverState);
   }
 
   init() {
@@ -49,8 +48,8 @@ export default class HelmetDispatcher extends Component {
 
     this.rendered = true;
 
-    const { helmetInstances } = this.props.context;
-    helmetInstances.add(this);
+    const { seoInstances } = this.props.context;
+    seoInstances.add(this);
     this.emitChange();
   }
 

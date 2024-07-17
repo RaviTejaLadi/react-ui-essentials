@@ -21,13 +21,15 @@ import {
   // Tab,
   // Tabs,
   TabList,
+  Seo,
+  SeoData,
 } from "react-ui-essentials";
 import { cardData, footerLinks } from "../../data/homeData";
-import Splitter from "../../components/Splitter/Splitter";
+// import Splitter from "../../components/Splitter/Splitter";
 import Transfer from "../../components/Transfer/Transfer";
 // import MeterGroup from "../../components/MeterGroup/MeterGroup";
 // import TabList from "../../components/TabList/TabList";
-const {Abc}=RoundedIcons
+const { Abc } = RoundedIcons;
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -130,44 +132,14 @@ const Home = () => {
     `,
     import: `import ${SvgComponent.displayName} from "./${SvgComponent.displayName}"`,
   }));
-  // console.log(roundSvgList);
   const CardsPerPage = 40;
   const { searchStates, PaginationStates, cardData } = UseFilteredContent(roundSvgList, CardsPerPage);
-  // console.log(cardData);
-  let tabs = [
-    {
-      label: "Tab 1",
-      active: true,
-      disabled: false,
-      content: "Content for Tab 1",
-      icon: "⬇️",
-    },
-    {
-      label: "Tab 2",
-      // active: true,
-      disabled: false,
-      content: "Content for Tab 2",
-      icon: "⬆️",
-    },
-    {
-      label: "Tab 3",
-      // active: false,
-      disabled: false,
-      content: "Content for Tab 3 (disabled)",
-      icon: "👉🏻",
-    },
-    {
-      label: "Tab 4",
-      // active: false,
-      disabled: false,
-      content: "Content for Tab 4",
-      icon: <Abc width="15px" height="15px" style={{marginTop:"5px"}}/>,
-    },
-  ];
 
   return (
     <div>
-      <TabList tabs={tabs} orientation="horizontal" width="fit-content" margin="5px" />
+      <Seo>
+        <title>HomePage</title>
+      </Seo>
       <Content margin="10px" rounded padding="10px">
         <Content.Header>Header</Content.Header>
         <Divider />

@@ -1,0 +1,8 @@
+.rue_carouselContent {
+    position: relative;
+    overflow: hidden;
+}
+
+.rue_carouselItem {
+    transition: opacity 0.5s ease-in;
+}

@@ -28,10 +28,7 @@ const usePortal = (id) => {
   };
 
   const addRootElem = (rootElem) => {
-    document.body.insertBefore(
-      rootElem,
-      document.body.lastElementChild.nextElementSibling
-    );
+    document.body.insertBefore(rootElem, document.body.lastElementChild.nextElementSibling);
   };
 
   const getRootElem = () => {

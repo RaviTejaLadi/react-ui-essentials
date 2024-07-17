@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import fastCompare from "react-fast-compare";
 import invariant from "invariant";
 
-import HelmetProvider, { Context } from "./Provider";
-import HelmetData from "./HelmetData";
+import SeoProvider, { Context } from "./Provider";
+import SeoData from "./SeoData";
 import Dispatcher from "./Dispatcher";
 import { without } from "./utils";
 import { TAG_NAMES, VALID_TAG_NAMES, HTML_TAG_MAP } from "./constants";
 
-class Helmet extends Component {
+class Seo extends Component {
   static defaultProps = {
     defer: true,
     encodeSpecialCharacters: true,
@@ -16,7 +16,7 @@ class Helmet extends Component {
   };
 
   shouldComponentUpdate(nextProps) {
-    return !fastCompare(without(this.props, "helmetData"), without(nextProps, "helmetData"));
+    return !fastCompare(without(this.props, "seoData"), without(nextProps, "seoData"));
   }
 
   mapNestedChildrenToProps(child, nestedChildren) {
@@ -100,8 +100,8 @@ class Helmet extends Component {
     invariant(
       VALID_TAG_NAMES.some((name) => child.type === name),
       typeof child.type === "function"
-        ? `You may be attempting to nest <Helmet> components within each other, which is not allowed. Refer to our API for more information.`
-        : `Only elements types ${VALID_TAG_NAMES.join(", ")} are allowed. Helmet does not support rendering <${
+        ? `You may be attempting to nest <Seo> components within each other, which is not allowed. Refer to our API for more information.`
+        : `Only elements types ${VALID_TAG_NAMES.join(", ")} are allowed. Seo does not support rendering <${
             child.type
           }> elements. Refer to our API for more information.`
     );
@@ -110,7 +110,7 @@ class Helmet extends Component {
       !nestedChildren ||
         typeof nestedChildren === "string" ||
         (Array.isArray(nestedChildren) && !nestedChildren.some((nestedChild) => typeof nestedChild !== "string")),
-      `Helmet expects a string as a child of <${child.type}>. Did you forget to wrap your children in braces? ( <${child.type}>{\`\`}</${child.type}> ) Refer to our API for more information.`
+      `Seo expects a string as a child of <${child.type}>. Did you forget to wrap your children in braces? ( <${child.type}>{\`\`}</${child.type}> ) Refer to our API for more information.`
     );
 
     return true;
@@ -162,24 +162,24 @@ class Helmet extends Component {
   render() {
     const { children, ...props } = this.props;
     let newProps = { ...props };
-    let { helmetData } = props;
+    let { seoData } = props;
 
     if (children) {
       newProps = this.mapChildrenToProps(children, newProps);
     }
 
-    if (helmetData && !(helmetData instanceof HelmetData)) {
-      const data = helmetData;
-      helmetData = new HelmetData(data.context, true);
-      delete newProps.helmetData;
+    if (seoData && !(seoData instanceof SeoData)) {
+      const data = seoData;
+      seoData = new SeoData(data.context, true);
+      delete newProps.seoData;
     }
 
-    return helmetData ? (
-      <Dispatcher {...newProps} context={helmetData.value} />
+    return seoData ? (
+      <Dispatcher {...newProps} context={seoData.value} />
     ) : (
       <Context.Consumer>{(context) => <Dispatcher {...newProps} context={context} />}</Context.Consumer>
     );
   }
 }
 
-export { Helmet as Seo, HelmetData as SeoData, HelmetProvider as SeoProvider };
+export { Seo, SeoData, SeoProvider };

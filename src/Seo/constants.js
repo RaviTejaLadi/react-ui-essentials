@@ -73,4 +73,4 @@ export const HTML_TAG_MAP = Object.entries(REACT_TAG_MAP).reduce((carry, [key, v
   return carry;
 }, {});
 
-export const HELMET_ATTRIBUTE = "data-rh";
+export const SEO_ATTRIBUTE = "data-rh";

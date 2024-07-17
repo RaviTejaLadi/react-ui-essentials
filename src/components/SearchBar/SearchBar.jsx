@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useState, memo, forwardRef } from "react";
+import React, { useEffect, useState, forwardRef } from "react";
 import CloseButton from "../CloseButton/CloseButton";
 import styles from "./SearchBar.module.css";
 import { Search } from "../../Icons/Round";

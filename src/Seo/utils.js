@@ -1,6 +1,6 @@
 import { TAG_NAMES, TAG_PROPERTIES, ATTRIBUTE_NAMES } from "./constants";
 
-const HELMET_PROPS = {
+const SEO_PROPS = {
   DEFAULT_TITLE: "defaultTitle",
   DEFER: "defer",
   ENCODE_SPECIAL_CHARACTERS: "encodeSpecialCharacters",
@@ -23,7 +23,7 @@ const getInnermostProperty = (propsList, property) => {
 
 const getTitleFromPropsList = (propsList) => {
   let innermostTitle = getInnermostProperty(propsList, TAG_NAMES.TITLE);
-  const innermostTemplate = getInnermostProperty(propsList, HELMET_PROPS.TITLE_TEMPLATE);
+  const innermostTemplate = getInnermostProperty(propsList, SEO_PROPS.TITLE_TEMPLATE);
   if (Array.isArray(innermostTitle)) {
     innermostTitle = innermostTitle.join("");
   }
@@ -32,13 +32,13 @@ const getTitleFromPropsList = (propsList) => {
     return innermostTemplate.replace(/%s/g, () => innermostTitle);
   }
 
-  const innermostDefaultTitle = getInnermostProperty(propsList, HELMET_PROPS.DEFAULT_TITLE);
+  const innermostDefaultTitle = getInnermostProperty(propsList, SEO_PROPS.DEFAULT_TITLE);
 
   return innermostTitle || innermostDefaultTitle || undefined;
 };
 
 const getOnChangeClientState = (propsList) =>
-  getInnermostProperty(propsList, HELMET_PROPS.ON_CHANGE_CLIENT_STATE) || (() => {});
+  getInnermostProperty(propsList, SEO_PROPS.ON_CHANGE_CLIENT_STATE) || (() => {});
 
 const getAttributesFromPropsList = (tagType, propsList) =>
   propsList
@@ -80,7 +80,7 @@ const getTagsFromPropsList = (tagName, primaryAttributes, propsList) => {
         return true;
       }
       if (typeof props[tagName] !== "undefined") {
-        warn(`Helmet: ${tagName} should be of type "Array". Instead found type "${typeof props[tagName]}"`);
+        warn(`Seo: ${tagName} should be of type "Array". Instead found type "${typeof props[tagName]}"`);
       }
       return false;
     })
@@ -175,8 +175,8 @@ const getAnyTrueFromPropsList = (propsList, checkedTag) => {
 const reducePropsToState = (propsList) => ({
   baseTag: getBaseTagFromPropsList([TAG_PROPERTIES.HREF], propsList),
   bodyAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.BODY, propsList),
-  defer: getInnermostProperty(propsList, HELMET_PROPS.DEFER),
-  encode: getInnermostProperty(propsList, HELMET_PROPS.ENCODE_SPECIAL_CHARACTERS),
+  defer: getInnermostProperty(propsList, SEO_PROPS.DEFER),
+  encode: getInnermostProperty(propsList, SEO_PROPS.ENCODE_SPECIAL_CHARACTERS),
   htmlAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.HTML, propsList),
   linkTags: getTagsFromPropsList(TAG_NAMES.LINK, [TAG_PROPERTIES.REL, TAG_PROPERTIES.HREF], propsList),
   metaTags: getTagsFromPropsList(
@@ -196,7 +196,7 @@ const reducePropsToState = (propsList) => ({
   styleTags: getTagsFromPropsList(TAG_NAMES.STYLE, [TAG_PROPERTIES.CSS_TEXT], propsList),
   title: getTitleFromPropsList(propsList),
   titleAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.TITLE, propsList),
-  prioritizeSeoTags: getAnyTrueFromPropsList(propsList, HELMET_PROPS.PRIORITIZE_SEO_TAGS),
+  prioritizeSeoTags: getAnyTrueFromPropsList(propsList, SEO_PROPS.PRIORITIZE_SEO_TAGS),
 });
 
 export const flattenArray = (possibleArray) => (Array.isArray(possibleArray) ? possibleArray.join("") : possibleArray);
