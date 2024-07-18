@@ -1,18 +1,4 @@
 .link {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
-  }
-  
-  .link:hover {
-    color: #007bff; 
-    text-decoration: underline;
-  }
-  
-  .link:active {
-    color: #0056b3; 
-  }
-  
-  .link:visited {
-    color: #551a8b; 
-  }
+  text-decoration: none;
+  transition: color 0.3s ease;
+}

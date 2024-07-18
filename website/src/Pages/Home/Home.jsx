@@ -23,6 +23,7 @@ import {
   TabList,
   Seo,
   SeoData,
+  BreadCrumb,
 } from "react-ui-essentials";
 import { cardData, footerLinks } from "../../data/homeData";
 // import Splitter from "../../components/Splitter/Splitter";
