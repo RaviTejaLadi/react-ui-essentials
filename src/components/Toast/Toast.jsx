@@ -1,77 +1,87 @@
 import PropTypes from "prop-types";
-import React, { useState, useEffect, forwardRef, memo } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import styles from "./Toast.module.css";
 
-const Toast = forwardRef(({ variant, message, onClose, showClose, autoClose, startIcon, ...rest }, ref) => {
-  const [showToast, setShowToast] = useState(false);
-  const [hideToast, setHideToast] = useState(false);
+const Toast = forwardRef(
+  (
+    {
+      variant = "default",
+      message,
+      onClose,
+      showClose = true,
+      autoClose = 5000,
+      startIcon,
+      rounded = false,
+      className,
+      style,
+      ...rest
+    },
+    ref
+  ) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const [isHiding, setIsHiding] = useState(false);
 
-  useEffect(() => {
-    setShowToast(true);
-
-    const timeout = setTimeout(() => {
+    useEffect(() => {
+      const showTimeout = setTimeout(() => setIsVisible(true), 100);
       const hideTimeout = setTimeout(() => {
-        onClose();
-      }, 1500);
-      setHideToast(true);
-      return () => clearTimeout(hideTimeout);
-    }, autoClose);
+        setIsHiding(true);
+        setTimeout(onClose, 500);
+      }, autoClose);
 
-    return () => clearTimeout(timeout);
-  }, [onClose, autoClose]);
+      return () => {
+        clearTimeout(showTimeout);
+        clearTimeout(hideTimeout);
+      };
+    }, [onClose, autoClose]);
 
-  const getToastType = () => {
-    switch (variant) {
-      case "primary":
-        return styles.primary;
-      case "secondary":
-        return styles.secondary;
-      case "success":
-        return styles.success;
-      case "info":
-        return styles.info;
-      case "warning":
-        return styles.warning;
-      case "danger":
-        return styles.danger;
-      case "help":
-        return styles.help;
-      case "light":
-        return styles.light;
-      case "dark":
-        return styles.dark;
-      default:
-        return styles.default;
-    }
-  };
+    const toastClasses = [
+      styles.rue_toast,
+      styles[variant],
+      isVisible && styles.show,
+      isHiding && styles.hide,
+      rounded && styles.rounded,
+      className,
+    ]
+      .filter(Boolean)
+      .join(" ");
 
-  return (
-    <div
-      ref={ref}
-      className={`${styles.rue_toast} ${getToastType()} ${showToast ? styles.show : ""} ${
-        hideToast ? styles.hide : ""
-      }`}
-      {...rest}
-    >
-      {startIcon && <div>{startIcon}</div>}
-      <div className={styles.rue_toast_content}>{message}</div>
-      {showClose && (
-        <button className={styles.rue_toast_close} onClick={onClose}>
-          &times;
-        </button>
-      )}
-    </div>
-  );
-});
+    return (
+      <div ref={ref} className={toastClasses} style={style} {...rest}>
+        {startIcon && <div className={styles.rue_toast_icon}>{startIcon}</div>}
+        <div className={styles.rue_toast_content}>{message}</div>
+        {showClose && (
+          <button className={styles.rue_toast_close} onClick={onClose} aria-label="Close">
+            &times;
+          </button>
+        )}
+      </div>
+    );
+  }
+);
 
 Toast.propTypes = {
-  message: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onClose: PropTypes.func,
-  variant: PropTypes.string,
+  message: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired,
+  variant: PropTypes.oneOf([
+    "default",
+    "primary",
+    "secondary",
+    "success",
+    "info",
+    "warning",
+    "danger",
+    "help",
+    "light",
+    "dark",
+  ]),
   showClose: PropTypes.bool,
   autoClose: PropTypes.number,
-  startIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  startIcon: PropTypes.node,
+  rounded: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Toast.displayName = "Toast";
-export default memo(Toast);
+
+export default Toast;

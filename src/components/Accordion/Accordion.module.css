@@ -15,7 +15,7 @@
   --rue-btn-help-bg: #6f42c1;
   --rue-btn-help-hover-bg: #5d3bb4;
   --rue-btn-dark-bg: #343a40;
-  --rue-btn-dark-hover-bg: #23272b
+  --rue-btn-dark-hover-bg: #23272b;
 }
 
 .rue_accordion_toggle {
@@ -24,15 +24,15 @@
   cursor: pointer;
   justify-content: space-between;
   background-color: #fff;
-  transition: .3s;
-  padding: 10px
+  transition: 0.3s;
+  padding: 10px;
 }
 
 .rue_accordion_cont {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: center
+  align-items: center;
 }
 
 .rue_accordion_toggle img {
@@ -42,96 +42,96 @@
   border-radius: 4px;
   background-color: #7a9ee0;
   padding: 2px;
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 .rue_accordion_toggle.rue_active {
-  background-color: #8696b5
+  background-color: #8696b5;
 }
 
 .rue_accordion_toggle.rue_active_primary {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-primary-bg)
+  background-color: var(--rue-btn-primary-bg);
 }
 
 .rue_accordion_toggle.rue_active_primary:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-primary-hover-bg)
+  background-color: var(--rue-btn-primary-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active_secondary {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-secondary-bg)
+  background-color: var(--rue-btn-secondary-bg);
 }
 
 .rue_accordion_toggle.rue_active_secondary:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-secondary-hover-bg)
+  background-color: var(--rue-btn-secondary-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active_success {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-success-bg)
+  background-color: var(--rue-btn-success-bg);
 }
 
 .rue_accordion_toggle.rue_active_success:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-success-hover-bg)
+  background-color: var(--rue-btn-success-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active_info {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-info-bg)
+  background-color: var(--rue-btn-info-bg);
 }
 
 .rue_accordion_toggle.rue_active_info:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-info-hover-bg)
+  background-color: var(--rue-btn-info-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active_warning {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-warning-bg)
+  background-color: var(--rue-btn-warning-bg);
 }
 
 .rue_accordion_toggle.rue_active_warning:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-warning-hover-bg)
+  background-color: var(--rue-btn-warning-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active_danger {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-danger-bg)
+  background-color: var(--rue-btn-danger-bg);
 }
 
 .rue_accordion_toggle.rue_active_danger:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-danger-hover-bg)
+  background-color: var(--rue-btn-danger-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active_help {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-help-bg)
+  background-color: var(--rue-btn-help-bg);
 }
 
 .rue_accordion_toggle.rue_active_help:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-help-hover-bg)
+  background-color: var(--rue-btn-help-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active_dark {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-dark-bg)
+  background-color: var(--rue-btn-dark-bg);
 }
 
 .rue_accordion_toggle.rue_active_dark:hover {
   color: var(--rue-btn-text-color);
-  background-color: var(--rue-btn-dark-hover-bg)
+  background-color: var(--rue-btn-dark-hover-bg);
 }
 
 .rue_accordion_toggle.rue_active .rue_accordion_icon {
   transform: rotate(180deg);
-  fill: #fff !important
+  fill: #fff !important;
 }
 
 .rue_accordion_card {
@@ -140,11 +140,11 @@
   overflow: hidden;
   width: 100%;
   max-width: 100%;
-  min-width: 30%
+  min-width: 30%;
 }
 
 .rue_accordion_card:last-child {
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .rue_accordion_title {
@@ -152,19 +152,19 @@
   font-size: 14px;
   position: relative;
   margin-bottom: 0;
-  transition: .3s
+  transition: 0.3s;
 }
 
 .rue_accordion_toggle.rue_active .rue_accordion_title {
-  color: #fff
+  color: #fff;
 }
 
 .rue_accordion_icon {
   position: relative;
   top: 2px;
   color: #475f7b;
-  transition: .35s;
-  font-size: 12px
+  transition: 0.35s;
+  font-size: 12px;
 }
 
 .rue_accordion_body {
@@ -173,7 +173,7 @@
   background-color: #fff;
   min-height: 50px;
   max-height: 210px;
-  overflow: auto
+  overflow: auto;
 }
 
 .rue_accordion_body p {
@@ -181,16 +181,16 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
-  color: #1c1e1f
+  color: #1c1e1f;
 }
 
 .rue_down {
   position: relative;
   height: 0;
   overflow: hidden;
-  transition: height .35s
+  transition: height 0.35s;
 }
 
 .rue_down.rue_show {
-  height: auto
+  height: auto;
 }
