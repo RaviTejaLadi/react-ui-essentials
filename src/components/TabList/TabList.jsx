@@ -9,7 +9,7 @@ const TabList = forwardRef(
   (
     {
       tabButtonSize = "sm",
-      orientation = "vertical",
+      orientation = "horizontal",
       tabs = [],
       width = "auto",
       height = "auto",

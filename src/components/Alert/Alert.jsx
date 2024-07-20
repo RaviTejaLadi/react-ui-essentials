@@ -11,16 +11,28 @@ const Alert = forwardRef(({ variant = "primary", children, ...rest }, ref) => {
   );
 });
 
-const Header = ({ children }) => {
-  return <div className={styles.rue_alert_header}>{children}</div>;
+const Header = ({ children, ...rest }) => {
+  return (
+    <div className={styles.rue_alert_header} {...rest}>
+      {children}
+    </div>
+  );
 };
 
-const Body = ({ children }) => {
-  return <div className={styles.rue_alert_body}>{children}</div>;
+const Body = ({ children, ...rest }) => {
+  return (
+    <div className={styles.rue_alert_body} {...rest}>
+      {children}
+    </div>
+  );
 };
 
-const Footer = ({ children }) => {
-  return <div className={styles.rue_alert_footer}>{children}</div>;
+const Footer = ({ children, ...rest }) => {
+  return (
+    <div className={styles.rue_alert_footer} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 Alert.propTypes = {

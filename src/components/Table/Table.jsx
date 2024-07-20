@@ -5,30 +5,20 @@ import Code from "../Code/Code";
 
 const Table = forwardRef(
   (
-    {
-      columns,
-      rows,
-      basic = false,
-      code = false,
-      CodeColumn = 0,
-      codeColor = "",
-      codeUnderline = false,
-      codeStyle = {},
-      ...rest
-    },
+    { columns, rows, code = false, CodeColumn = 0, codeColor = "", codeUnderline = false, codeStyle = {}, ...rest },
     ref
   ) => {
     return (
       <div ref={ref} className={styles.rue_table_container} {...rest}>
-        <table
-          className={basic ? `${styles.rue_basic_table} ${styles.rue_basic_table_striped}` : `${styles.rue_table}`}
-        >
-          <tbody>
+        <table className={styles.table}>
+          <thead className={styles.tableHeader}>
             <tr>
               {columns.map((column, index) => (
                 <th key={index}>{column}</th>
               ))}
             </tr>
+          </thead>
+          <tbody className={styles.tableBody}>
             {rows.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {row.map((cell, cellIndex) => (
@@ -54,7 +44,6 @@ const Table = forwardRef(
 Table.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.string).isRequired,
   rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.node)).isRequired,
-  basic: PropTypes.bool,
   code: PropTypes.bool,
   CodeColumn: PropTypes.number,
   codeColor: PropTypes.string,

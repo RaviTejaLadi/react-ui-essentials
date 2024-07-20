@@ -15,7 +15,7 @@
   line-height: 1.5;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .rue_icon {
@@ -39,6 +39,11 @@
   background-color: #0056b3;
 }
 
+.rue_btn_primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
 .rue_btn_secondary {
   color: #ffffff;
   background-color: #6c757d;
@@ -47,6 +52,11 @@
 .rue_btn_secondary:hover {
   color: #ffffff;
   background-color: #545b62;
+}
+
+.rue_btn_secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
 
 .rue_btn_success {
@@ -59,6 +69,11 @@
   background-color: #218838;
 }
 
+.rue_btn_success:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+}
+
 .rue_btn_info {
   color: #ffffff;
   background-color: #17a2b8;
@@ -67,6 +82,11 @@
 .rue_btn_info:hover {
   color: #ffffff;
   background-color: #138496;
+}
+
+.rue_btn_info:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
 
 .rue_btn_warning {
@@ -79,6 +99,11 @@
   background-color: #e0a800;
 }
 
+.rue_btn_warning:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+}
+
 .rue_btn_danger {
   color: #ffffff;
   background-color: #dc3545;
@@ -87,6 +112,11 @@
 .rue_btn_danger:hover {
   color: #ffffff;
   background-color: #c82333;
+}
+
+.rue_btn_danger:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
 
 .rue_btn_help {
@@ -99,6 +129,11 @@
   background-color: #5d3bb4;
 }
 
+.rue_btn_help:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.5);
+}
+
 .rue_btn_light {
   color: #979da3;
   background-color: #f8f9fa;
@@ -109,6 +144,11 @@
   background-color: #e2e6ea;
 }
 
+.rue_btn_light:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+}
+
 .rue_btn_dark {
   color: #ffffff;
   background-color: #343a40;
@@ -117,6 +157,11 @@
 .rue_btn_dark:hover {
   color: #ffffff;
   background-color: #23272b;
+}
+
+.rue_btn_dark:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
 
 .rue_btn_sm {

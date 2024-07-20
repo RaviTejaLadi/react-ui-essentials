@@ -26,9 +26,9 @@
   padding-bottom: 60px;
 }
 
-.rue_sidebar:hover {
+/* .rue_sidebar:hover {
   overflow-y: scroll;
-}
+} */
 
 .rue_sidebar a,
 .rue_sidebar_toggel {
