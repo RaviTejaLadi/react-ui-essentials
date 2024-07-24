@@ -1,7 +1,7 @@
 import React, { createContext, forwardRef, useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./Accordion.module.css";
-import ArrowDropDown from "../../icons/ArrowDropDown/ArrowDropDown";
+import ArrowDropDown from "../../Icons/Round/ArrowDropDown";
 
 const AccordionContext = createContext(null);
 
