@@ -3,21 +3,29 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-  }
-  
-  .rue_title {
+    overflow: hidden;
+}
+
+.rue_header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
+
+.rue_title {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #333;
-  }
-  
-  .rue_content {
+}
+
+.rue_content {
     font-size: 1rem;
     color: #666;
-  }
-  
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .rue_card {
-      width: 100% !important;
+        width: 100% !important;
     }
-  }
+}

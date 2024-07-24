@@ -1,135 +1,264 @@
 .rue_tabsContainer {
     width: 100%;
-    margin: 10px;
+    overflow: hidden;
+    background-color: #fff !important
 }
 
 .rue_tabList {
     display: flex;
-    border-bottom: 2px solid #e0e0e0;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    padding: 5px
 }
 
 .rue_tabButton {
-    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     border: none;
-    margin-right: 2px;
-    background: none;
-    font-size: 16px;
-    font-weight: 500;
+    border-radius: 5px;
+    background: 0 0;
     cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
+    transition: background-color .2s, color .2s;
+    margin-right: 5px;
+    min-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 160px;
+    text-overflow: ellipsis;
+    text-wrap: nowrap
 }
 
-.rue_tabButton::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+.rue_tabButton:hover {
+    background-color: rgba(212, 206, 206, .587);
+    color: #000
 }
 
-.rue_activeTab::after {
-    transform: scaleX(1);
+.rue_tabButton:disabled {
+    cursor: not-allowed;
+    opacity: .6
+}
+
+.rue_activeTab {
+    font-weight: 700
+}
+
+.lg,
+.md,
+.sm {
+    font-weight: 600
 }
 
 .rue_tabContent {
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.primary .rue_tabButton {
-    color: #007bff;
-}
-
-.primary .rue_tabButton::after {
-    background-color: #007bff;
-}
-
-.secondary .rue_tabButton {
-    color: #6c757d;
-}
-
-.secondary .rue_tabButton::after {
-    background-color: #6c757d;
-}
-
-.success .rue_tabButton {
-    color: #28a745;
-}
-
-.success .rue_tabButton::after {
-    background-color: #28a745;
-}
-
-.danger .rue_tabButton {
-    color: #dc3545;
-}
-
-.danger .rue_tabButton::after {
-    background-color: #dc3545;
-}
-
-.warning .rue_tabButton {
-    color: #ffc107;
-}
-
-.warning .rue_tabButton::after {
-    background-color: #ffc107;
-}
-
-.info .rue_tabButton {
-    color: #17a2b8;
-}
-
-.info .rue_tabButton::after {
-    background-color: #17a2b8;
-}
-
-.dark .rue_tabButton {
-    color: #343a40;
-}
-
-.dark .rue_tabButton::after {
-    background-color: #343a40;
-}
-
-.sm .rue_tabButton {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 10px;
+    color: #000;
     font-size: 14px;
-    padding: 8px 16px;
+    min-height: 80px
 }
 
-.md .rue_tabButton {
+.rue_leftIcon,
+.rue_rightIcon {
+    display: flex;
+    align-items: center
+}
+
+.rue_leftIcon {
+    margin-right: 8px
+}
+
+.rue_rightIcon {
+    margin-left: 8px
+}
+
+.rue_buttonText {
+    flex: 1;
+    text-align: center
+}
+
+.danger,
+.dark,
+.help,
+.info,
+.light,
+.primary,
+.secondary,
+.success,
+.warning {
+    background-color: #f8f9fa
+}
+
+.rue_dangerButton,
+.rue_darkButton,
+.rue_helpButton,
+.rue_infoButton,
+.rue_lightButton,
+.rue_primaryButton,
+.rue_secondaryButton,
+.rue_successButton,
+.rue_warningButton {
+    color: #000
+}
+
+.primary .rue_activeTab {
+    color: #fff;
+    background-color: #007bff
+}
+
+.primary .rue_activeTab:hover {
+    color: #fff;
+    background-color: #0056b3
+}
+
+.primary .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+}
+
+.secondary .rue_activeTab {
+    color: #fff;
+    background-color: #6c757d
+}
+
+.secondary .rue_activeTab:hover {
+    color: #fff;
+    background-color: #545b62
+}
+
+.secondary .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5)
+}
+
+.success .rue_activeTab {
+    color: #fff;
+    background-color: #28a745
+}
+
+.success .rue_activeTab:hover {
+    color: #fff;
+    background-color: #218838
+}
+
+.success .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5)
+}
+
+.danger .rue_activeTab {
+    color: #fff;
+    background-color: #dc3545
+}
+
+.danger .rue_activeTab:hover {
+    color: #fff;
+    background-color: #c82333
+}
+
+.danger .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .5)
+}
+
+.warning .rue_activeTab {
+    color: #fff;
+    background-color: #ffc107
+}
+
+.warning .rue_activeTab:hover {
+    color: #fff;
+    background-color: #e0a800
+}
+
+.warning .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(255, 193, 7, .5)
+}
+
+.info .rue_activeTab {
+    color: #fff;
+    background-color: #17a2b8
+}
+
+.info .rue_activeTab:hover {
+    color: #fff;
+    background-color: #138496
+}
+
+.info .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5)
+}
+
+.dark .rue_activeTab {
+    color: #fff;
+    background-color: #343a40
+}
+
+.dark .rue_activeTab:hover {
+    color: #fff;
+    background-color: #23272b
+}
+
+.dark .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
+}
+
+.light .rue_activeTab {
+    color: #979da3;
+    background-color: #f8f9fa
+}
+
+.light .rue_activeTab:hover {
+    color: #979da3;
+    background-color: #e2e6ea
+}
+
+.light .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(248, 249, 250, .5)
+}
+
+.help .rue_activeTab {
+    color: #fff;
+    background-color: #6f42c1
+}
+
+.help .rue_activeTab:hover {
+    color: #fff;
+    background-color: #5d3bb4
+}
+
+.help .rue_activeTab:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(111, 66, 193, .5)
+}
+
+.sm {
+    font-size: 12px;
+    padding: 5px 10px
+}
+
+.md {
+    font-size: 14px;
+    padding: 10px 15px
+}
+
+.lg {
     font-size: 16px;
-    padding: 10px 20px;
+    padding: 15px 20px
 }
 
-.lg .rue_tabButton {
-    font-size: 18px;
-    padding: 12px 24px;
-}
-
-@media (max-width: 600px) {
-    .rue_tabList {
-        flex-direction: column;
-        border-bottom: none;
-    }
-
+@media (max-width:480px) {
     .rue_tabButton {
-        width: 100%;
-        text-align: left;
-        border-bottom: 1px solid #e0e0e0;
+        font-size: 12px;
+        padding: 10px 12px
     }
 
-    .rue_tabButton::after {
-        display: none;
-    }
-
-    .rue_activeTab {
-        background-color: rgba(0, 0, 0, 0.1);
+    .rue_leftIcon,
+    .rue_rightIcon {
+        font-size: 14px
     }
 }

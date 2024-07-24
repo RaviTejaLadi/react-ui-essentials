@@ -1,0 +1,80 @@
+.rue_card {
+    display: flex;
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rue_card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.rue_imageWrapper {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.rue_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.rue_imageWrapper:hover .rue_image {
+    transform: scale(1.05);
+}
+
+.rue_contentContainer {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rue_title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.2;
+}
+
+.rue_subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.rue_content {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.rue_buttonGroup {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .rue_card {
+        flex-direction: column !important;
+    }
+
+    .rue_imageWrapper {
+        min-height: 250px;
+    }
+
+    .rue_contentContainer {
+        padding: 30px !important;
+    }
+}

@@ -1,176 +1,135 @@
-.rue_accordion_toggle {
-  display: flex;
-  align-items: flex-start;
-  cursor: pointer;
-  justify-content: space-between;
-  background-color: #fff;
-  transition: .3s;
-  padding: 10px;
+.rue_accordionHeader.active,
+.rue_iconActive {
+    color: #fff !important
 }
 
-.rue_accordion_cont {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+.rue_accordion {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    overflow: hidden
 }
 
-.rue_accordion_toggle img {
-  width: 25px;
-  height: 25px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  background-color: #7a9ee0;
-  padding: 2px;
-  margin-right: 20px;
+.rue_accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    transition: background-color .3s
 }
 
-.rue_accordion_toggle.rue_active {
-  background-color: #8696b5;
+.rue_accordionHeader:hover {
+    background-color: #e9ecef
 }
 
-.rue_accordion_toggle.rue_active_primary {
-  color: #ffffff;
-  background-color: #007bff;
+.rue_icon {
+    width: 25px;
+    height: 25px;
+    transition: transform .3s
 }
 
-.rue_accordion_toggle.rue_active_primary:hover {
-  color: #ffffff;
-  background-color: #0056b3;
+.rue_iconActive {
+    transform: rotate(180deg)
 }
 
-.rue_accordion_toggle.rue_active_secondary {
-  color: #ffffff;
-  background-color: #6c757d;
+.rue_accordionBody {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s
 }
 
-.rue_accordion_toggle.rue_active_secondary:hover {
-  color: #ffffff;
-  background-color: #545b62;
+.rue_bodyActive {
+    max-height: 1000px
 }
 
-.rue_accordion_toggle.rue_active_success {
-  color: #ffffff;
-  background-color: #28a745;
+.rue_bodyContent,
+.rue_size_md .rue_bodyContent {
+    padding: 1rem
 }
 
-.rue_accordion_toggle.rue_active_success:hover {
-  color: #ffffff;
-  background-color: #218838;
+.rue_accordion_primary .rue_accordionHeader.rue_active {
+    background-color: #007bff;
+    color: #ffffff;
 }
 
-.rue_accordion_toggle.rue_active_info {
-  color: #ffffff;
-  background-color: #17a2b8;
+.rue_accordion_secondary .rue_accordionHeader.rue_active {
+    background-color: #6c757d
 }
 
-.rue_accordion_toggle.rue_active_info:hover {
-  color: #ffffff;
-  background-color: #138496;
+.rue_accordion_success .rue_accordionHeader.rue_active {
+    background-color: #28a745
 }
 
-.rue_accordion_toggle.rue_active_warning {
-  color: #ffffff;
-  background-color: #ffc107;
+.rue_accordion_danger .rue_accordionHeader.rue_active {
+    background-color: #dc3545
 }
 
-.rue_accordion_toggle.rue_active_warning:hover {
-  color: #ffffff;
-  background-color: #e0a800;
+.rue_accordion_warning .rue_accordionHeader.rue_active {
+    background-color: #ffc107;
+    color: #212529
 }
 
-.rue_accordion_toggle.rue_active_danger {
-  color: #ffffff;
-  background-color: #dc3545;
+.rue_accordion_help .rue_accordionHeader.rue_active {
+    color: #ffffff;
+    background-color: #6f42c1;
 }
 
-.rue_accordion_toggle.rue_active_danger:hover {
-  color: #ffffff;
-  background-color: #c82333;
+.rue_accordion_info .rue_accordionHeader.rue_active {
+    background-color: #17a2b8
 }
 
-.rue_accordion_toggle.rue_active_help {
-  color: #ffffff;
-  background-color: #6f42c1;
+.rue_accordion_dark .rue_accordionHeader.rue_active {
+    background-color: #343a40
 }
 
-.rue_accordion_toggle.rue_active_help:hover {
-  color: #ffffff;
-  background-color: #5d3bb4;
+.rue_accordion_light .rue_accordionHeader.rue_active {
+    background-color: #f8f9fa;
+    color: #212529 !important
 }
 
-.rue_accordion_toggle.rue_active_dark {
-  color: #ffffff;
-  background-color: #343a40;
+.rue_size_sm .rue_accordionHeader {
+    padding: .5rem .75rem;
+    font-size: .875rem
 }
 
-.rue_accordion_toggle.rue_active_dark:hover {
-  color: #ffffff;
-  background-color: #23272b;
+.rue_size_lg .rue_icon,
+.rue_size_md .rue_icon,
+.rue_size_sm .rue_icon {
+    width: 25px;
+    height: 25px
 }
 
-.rue_accordion_toggle.rue_active .rue_accordion_icon {
-  transform: rotate(180deg);
-  fill: #fff !important;
+.rue_size_sm .rue_bodyContent {
+    padding: .75rem
 }
 
-.rue_accordion_card {
-  border: 1px solid transparent;
-  margin-bottom: 10px;
-  overflow: hidden;
-  width: 100%;
-  max-width: 100%;
-  min-width: 30%;
+.rue_size_md .rue_accordionHeader {
+    padding: .75rem 1rem;
+    font-size: 1rem
 }
 
-.rue_accordion_card:last-child {
-  margin-bottom: 10px;
+.rue_size_lg .rue_accordionHeader {
+    padding: 1rem 1.25rem;
+    font-size: 1.25rem
 }
 
-.rue_accordion_title {
-  font-weight: 600;
-  font-size: 14px;
-  position: relative;
-  margin-bottom: 0;
-  transition: .3s;
+.rue_size_lg .rue_bodyContent {
+    padding: 1.25rem
 }
 
-.rue_accordion_toggle.rue_active .rue_accordion_title {
-  color: #fff;
+.rue_size_sm {
+    border-radius: .2rem
 }
 
-.rue_accordion_icon {
-  position: relative;
-  top: 2px;
-  color: #475f7b;
-  transition: .35s;
-  font-size: 12px;
+.rue_size_md {
+    border-radius: .25rem
 }
 
-.rue_accordion_body {
-  flex: 1 1 auto;
-  padding: 8px;
-  background-color: #fff;
-  min-height: 50px;
-  max-height: 210px;
-  overflow: auto;
+.rue_size_lg {
+    border-radius: .3rem
 }
 
-.rue_accordion_body p {
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 24px;
-  color: #1c1e1f;
-}
-
-.rue_down {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  transition: height .35s;
-}
-
-.rue_down.rue_show {
-  height: auto;
+.rue_accordionHeader:not(:first-child) {
+    border-top: 1px solid rgba(0, 0, 0, .125)
 }

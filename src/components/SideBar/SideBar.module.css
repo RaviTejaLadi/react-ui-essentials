@@ -1,5 +1,6 @@
 .rue_sidebar a,
-.rue_sidebar a:hover {
+.rue_sidebar a:hover,
+.rue_sidebar a:focus {
   margin-left: 8px;
   margin-top: 8px;
   padding: 3px;
@@ -8,7 +9,8 @@
 
 .rue_sidebar a.rue_active,
 .rue_submenu a.rue_active,
-.rue_submenu a:hover {
+.rue_submenu a:hover,
+.rue_submenu a:focus {
   display: flex;
   text-align: center;
   height: 32px;
@@ -17,18 +19,14 @@
 }
 
 .rue_sidebar {
-  border-right: 1px solid #ece9e9;
   transition: width .2s ease-in;
   height: 100vh;
   width: 16%;
   min-width: 16%;
   position: fixed;
   padding-bottom: 60px;
+  overflow-y: auto;
 }
-
-/* .rue_sidebar:hover {
-  overflow-y: scroll;
-} */
 
 .rue_sidebar a,
 .rue_sidebar_toggel {
@@ -54,10 +52,13 @@
 
 .rue_sidebar a:hover {
   color: #121212;
-  border-radius: 4px;
   background-color: #eee;
   border: 1px solid transparent;
-  height: 32px;
+}
+
+.rue_sidebar a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
 }
 
 .rue_sidebar a.rue_active {
@@ -73,14 +74,23 @@
   background-color: #0056b3;
 }
 
+.rue_sidebar a.rue_active:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
 .rue_sidebar a.rue_active_primary {
   color: #ffffff;
   background-color: #007bff;
 }
 
 .rue_sidebar a.rue_active_primary:hover {
-  color: #ffffff;
   background-color: #0056b3;
+}
+
+.rue_sidebar a.rue_active_primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
 }
 
 .rue_sidebar a.rue_active_secondary {
@@ -89,8 +99,12 @@
 }
 
 .rue_sidebar a.rue_active_secondary:hover {
-  color: #ffffff;
   background-color: #545b62;
+}
+
+.rue_sidebar a.rue_active_secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.5);
 }
 
 .rue_sidebar a.rue_active_success {
@@ -99,8 +113,12 @@
 }
 
 .rue_sidebar a.rue_active_success:hover {
-  color: #ffffff;
   background-color: #218838;
+}
+
+.rue_sidebar a.rue_active_success:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.5);
 }
 
 .rue_sidebar a.rue_active_info {
@@ -109,8 +127,12 @@
 }
 
 .rue_sidebar a.rue_active_info:hover {
-  color: #ffffff;
   background-color: #138496;
+}
+
+.rue_sidebar a.rue_active_info:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.5);
 }
 
 .rue_sidebar a.rue_active_warning {
@@ -119,8 +141,12 @@
 }
 
 .rue_sidebar a.rue_active_warning:hover {
-  color: #ffffff;
   background-color: #e0a800;
+}
+
+.rue_sidebar a.rue_active_warning:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.5);
 }
 
 .rue_sidebar a.rue_active_danger {
@@ -129,8 +155,12 @@
 }
 
 .rue_sidebar a.rue_active_danger:hover {
-  color: #ffffff;
   background-color: #c82333;
+}
+
+.rue_sidebar a.rue_active_danger:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.5);
 }
 
 .rue_sidebar a.rue_active_help {
@@ -139,8 +169,12 @@
 }
 
 .rue_sidebar a.rue_active_help:hover {
-  color: #ffffff;
   background-color: #5d3bb4;
+}
+
+.rue_sidebar a.rue_active_help:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(111, 66, 193, 0.5);
 }
 
 .rue_sidebar a.rue_active_light {
@@ -149,8 +183,12 @@
 }
 
 .rue_sidebar a.rue_active_light:hover {
-  color: #979da3;
   background-color: #e2e6ea;
+}
+
+.rue_sidebar a.rue_active_light:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(248, 249, 250, 0.5);
 }
 
 .rue_sidebar a.rue_active_dark {
@@ -159,8 +197,12 @@
 }
 
 .rue_sidebar a.rue_active_dark:hover {
-  color: #ffffff;
   background-color: #23272b;
+}
+
+.rue_sidebar a.rue_active_dark:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 58, 64, 0.5);
 }
 
 .rue_submenu,
@@ -209,7 +251,8 @@
 .rue_submenu,
 .rue_submenu a,
 .rue_submenu a.rue_active,
-.rue_submenu a:hover {
+.rue_submenu a:hover,
+.rue_submenu a:focus {
   height: auto;
   padding: 4px 4px 4px 0;
   margin: 5px 5px 6px 8px;
@@ -235,13 +278,15 @@
   color: red;
 }
 
-.rue_submenu a.rue_active,
 .rue_submenu a:hover {
   color: #121212;
-  border-radius: 4px;
-  justify-content: flex-start;
-  width: 95%;
+  background-color: #eee;
   border: 1px solid #e5e7ebb3;
+}
+
+.rue_submenu a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
 }
 
 .rue_submenu a.rue_active .rue_highlight {

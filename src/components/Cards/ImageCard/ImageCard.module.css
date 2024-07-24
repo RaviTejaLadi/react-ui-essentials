@@ -3,6 +3,13 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
+    overflow: hidden;
+  }
+  
+  .rue_image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
   
   .rue_title {
@@ -19,5 +26,9 @@
   @media (max-width: 768px) {
     .rue_card {
       width: 100% !important;
+    }
+  
+    .rue_image {
+      height: 150px;
     }
   }

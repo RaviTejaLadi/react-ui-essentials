@@ -14,6 +14,7 @@ export { default as BreadCrumb } from "./components/BreadCrumb/Breadcrumb";
 export { default as CloseButton } from "./components/CloseButton/CloseButton";
 export { default as Code } from "./components/Code/Code";
 export { default as ColorPicker } from "./components/ColorPicker/ColorPicker";
+export { BasicCard, FlexibleCard, HeaderCard, ImageCard } from "./components";
 export { default as ContentScrollable } from "./components/ContentScrollable/ContentScrollable";
 export { default as Divider } from "./components/Divider/Divider";
 export { default as Drawer } from "./components/Drawer/Drawer";

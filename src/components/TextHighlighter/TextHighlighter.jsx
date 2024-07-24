@@ -61,7 +61,7 @@ const TextHighlighter = forwardRef(({ children, highlightText, colorsList = [], 
       });
 
       return matchedText ? (
-        <span key={index} className={styles.higilitedText} style={{ backgroundColor: colorMap[matchedText] }}>
+        <span key={index} className={styles.rue_higilitedText} style={{ backgroundColor: colorMap[matchedText] }}>
           {part}
         </span>
       ) : (
@@ -80,8 +80,8 @@ const TextHighlighter = forwardRef(({ children, highlightText, colorsList = [], 
 
 TextHighlighter.propTypes = {
   children: PropTypes.node.isRequired,
-  colorsList: PropTypes.array.isRequired,
-  highlightText: PropTypes.array.isRequired,
+  colorsList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  highlightText: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 TextHighlighter.displayName = "TextHighlighter";

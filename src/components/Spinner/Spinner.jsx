@@ -39,7 +39,7 @@ const Spinner = forwardRef(({ variant = "primary", size = "md", ...rest }, ref) 
             <path
               d="M36 18c0-9.94-8.06-18-18-18"
               id="Oval-2"
-              stroke={url(`#spinner-gradient-${variant}`)}
+              stroke={`#spinner-gradient-${variant}`}
               strokeWidth="4"
             >
               <animateTransform

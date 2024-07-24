@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./Tabs.module.css";
+import  Box  from "../Box/Box";
 
-const Tabs = ({ children, active, onChange, variant = "primary", size = "sm", ...rest }) => {
-  const [activeTab, setActiveTab] = useState(active || children[0]?.props?.value);
+const Tabs = ({ children, active, onChange, variant = "primary", size = "sm", headerStyles, bodyStyles, ...rest }) => {
+  const getInitialActiveTab = () => {
+    const firstEnabledTab = React.Children.toArray(children).find((child) => !child.props.disabled);
+    return active || firstEnabledTab?.props?.value;
+  };
+  const [activeTab, setActiveTab] = useState(getInitialActiveTab);
 
   useEffect(() => {
     if (active !== undefined) {
@@ -19,31 +24,38 @@ const Tabs = ({ children, active, onChange, variant = "primary", size = "sm", ..
   };
 
   return (
-    <div className={`${styles.rue_tabsContainer} ${styles[variant]} ${styles[size]}`} {...rest}>
-      <div className={styles.rue_tabList}>
+    <Box padding="5px" rounded className={styles.rue_tabsContainer} {...rest}>
+      <div className={`${styles.rue_tabList} ${styles[variant]}`} style={headerStyles}>
         {React.Children.map(children, (child) => (
           <button
             key={child.props.value}
-            className={`${styles.rue_tabButton} ${child.props.value === activeTab ? styles.rue_activeTab : ""}`}
-            onClick={() => handleTabClick(child.props.value)}
+            className={`${styles.rue_tabButton} ${styles[size]} ${
+              child.props.value === activeTab ? styles.rue_activeTab : ""
+            } ${styles[`rue_${variant}Button`]}`}
+            onClick={() => !child.props.disabled && handleTabClick(child.props.value)}
+            disabled={child.props.disabled}
           >
-            {child.props.label}
+            {child.props.leftIcon && <span className={styles.rue_leftIcon}>{child.props.leftIcon}</span>}
+            <span className={styles.rue_buttonText}>{child.props.label}</span>
+            {child.props.rightIcon && <span className={styles.rue_rightIcon}>{child.props.rightIcon}</span>}
           </button>
         ))}
       </div>
-      <div className={styles.rue_tabContent}>
+      <div className={styles.rue_tabContent} style={bodyStyles}>
         {React.Children.toArray(children).find((child) => child.props.value === activeTab)}
       </div>
-    </div>
+    </Box>
   );
 };
 
 Tabs.propTypes = {
-  children: PropTypes.node.isRequired,
   active: PropTypes.string,
+  bodyStyles: PropTypes.object,
+  children: PropTypes.node.isRequired,
+  headerStyles: PropTypes.object,
   onChange: PropTypes.func,
-  variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "dark", "light"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
+  variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "help", "info", "dark", "light"]),
 };
 
 const Tab = ({ children }) => children;
@@ -52,6 +64,9 @@ Tab.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  leftIcon: PropTypes.node,
+  rightIcon: PropTypes.node,
+  disabled: PropTypes.bool,
 };
 
 export { Tabs, Tab };

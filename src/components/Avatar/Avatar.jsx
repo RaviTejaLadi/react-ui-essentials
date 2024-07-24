@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import styles from "./Avatar.module.css";
 
 const Avatar = forwardRef(
-  ({ src, alt = "avatar", width = "50px", height = "50px", fluid, curvedBorder = true, circle, ...rest }, ref) => {
+  ({ src, alt = "avatar", width = "50px", height = "50px", fluid, curvedBorder, circle, ...rest }, ref) => {
     const imageStyle = {
       width: width,
       height: height,

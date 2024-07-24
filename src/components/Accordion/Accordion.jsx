@@ -1,134 +1,144 @@
-import React, { forwardRef, useState } from "react";
+import React, {
+  createContext,
+  forwardRef,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 import PropTypes from "prop-types";
 import styles from "./Accordion.module.css";
-import Box from "../Box/Box";
-import DownArrow from "./DownArrow";
+import ArrowDropDown  from "../../icons/ArrowDropDown/ArrowDropDown"
 
-const AccordionHeader = ({ header, isActive, onClick, icon, id, variant, toogleIcon }) => {
-  const getAccordionVariant = () => {
-    switch (variant) {
-      case "primary":
-        return styles.rue_active_primary;
-      case "secondary":
-        return styles.rue_active_secondary;
-      case "success":
-        return styles.rue_active_success;
-      case "danger":
-        return styles.rue_active_danger;
-      case "warning":
-        return styles.rue_active_warning;
-      case "info":
-        return styles.rue_active_info;
-      case "help":
-        return styles.rue_active_help;
-      case "dark":
-        return styles.rue_active_dark;
-      default:
-        return styles.rue_active_primary;
-    }
-  };
-  return (
-    <div
-      className={`${styles.rue_accordion_toggle} ${isActive ? `${styles.rue_active} ${getAccordionVariant()}` : ""}`}
-      onClick={onClick}
-    >
-      <span className={styles.rue_accordion_cont}>
-        {icon && <img src={icon} alt="icon" />}
-        <h6 className={styles.rue_accordion_title}>
-          {id}. {header}
-        </h6>
-      </span>
-      {toogleIcon || <DownArrow className={styles.rue_accordion_icon} size="10px" />}
-    </div>
-  );
-};
-AccordionHeader.propTypes = {
-  header: PropTypes.string,
-  isActive: PropTypes.bool,
-  onClick: PropTypes.func,
-  icon: PropTypes.string,
-  id: PropTypes.number,
-  toogleIcon: PropTypes.node,
-};
-
-const AccordionBody = ({ text, isActive, contentElRef }) => (
-  <div
-    ref={contentElRef}
-    className={`${styles.rue_down} ${isActive ? styles.rue_show : ""}`}
-    style={isActive ? { height: contentElRef.current.scrollHeight } : { height: "0px" }}
-  >
-    <div className={styles.rue_accordion_body}>
-      <p>{text}</p>
-    </div>
-  </div>
-);
-
-AccordionBody.propTypes = {
-  text: PropTypes.string,
-  isActive: PropTypes.bool,
-  contentElRef: PropTypes.object,
-};
+const AccordionContext = createContext(null);
 
 const Accordion = forwardRef(
-  (
-    { content, icon, variant = "primary", outlined = true, rounded = true, elevation = 0, width = "", toogleIcon },
-    ref
-  ) => {
-    const [active, setActive] = useState(null);
+  ({ children, variant = "primary", size = "sm", ...rest }, ref) => {
+    const [activeKeys, setActiveKeys] = useState(new Set());
 
-    const handleToggle = React.useCallback(
-      (index) => {
-        if (active === index) {
-          setActive(null);
+    const toggleItem = (eventKey) => {
+      setActiveKeys((prevActiveKeys) => {
+        const newActiveKeys = new Set(prevActiveKeys);
+        if (newActiveKeys.has(eventKey)) {
+          newActiveKeys.delete(eventKey);
         } else {
-          setActive(index);
+          newActiveKeys.add(eventKey);
         }
-      },
-      [active]
-    );
+        return newActiveKeys;
+      });
+    };
 
-    const contentElRef = React.useRef();
-    const { header, id, text } = content;
+    const openItem = (eventKey) => {
+      setActiveKeys((prevActiveKeys) => {
+        const newActiveKeys = new Set(prevActiveKeys);
+        newActiveKeys.add(eventKey);
+        return newActiveKeys;
+      });
+    };
 
     return (
-      <Box
-        elevation={elevation}
-        outlined={outlined}
-        rounded={rounded}
-        margin="10px 10px"
-        className={styles.rue_accordion_card}
-        style={{ width: width }}
-        ref={ref}
+      <AccordionContext.Provider
+        value={{ activeKeys, toggleItem, openItem, variant, size }}
       >
-        <AccordionHeader
-          header={header}
-          isActive={active === id}
-          onClick={() => handleToggle(id)}
-          icon={icon}
-          id={id}
-          variant={variant}
-          toogleIcon={toogleIcon}
-        />
-        <AccordionBody text={text} isActive={active === id} contentElRef={contentElRef} />
-      </Box>
+        <div
+          ref={ref}
+          className={`${styles.rue_accordion} ${
+            styles[`rue_accordion_${variant}`]
+          } ${styles[`rue_size_${size}`]}`}
+          {...rest}
+        >
+          {children}
+        </div>
+      </AccordionContext.Provider>
     );
   }
 );
 
 Accordion.propTypes = {
-  content: PropTypes.shape({
-    header: PropTypes.string,
-    icon: PropTypes.string,
-    id: PropTypes.number,
-    text: PropTypes.string,
-  }),
-  elevation: PropTypes.number,
-  icon: PropTypes.any,
-  outlined: PropTypes.bool,
-  rounded: PropTypes.bool,
-  variant: PropTypes.string,
-  width: PropTypes.string,
-  toogleIcon: PropTypes.node,
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf([
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "help",
+    "info",
+    "dark",
+    "light",
+  ]),
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
 };
+const AccordionItem = ({ children, ...rest }) => {
+  return <div {...rest}>{children}</div>;
+};
+
+AccordionItem.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+const AccordionHeader = ({ children, icon, eventKey, open, ...rest }) => {
+  const { activeKeys, toggleItem, openItem, variant } =
+    useContext(AccordionContext);
+  const isActive = activeKeys.has(eventKey);
+
+  useEffect(() => {
+    if (open && !isActive) {
+      openItem(eventKey);
+    }
+  }, [open, eventKey, openItem, isActive]);
+
+  return (
+    <div
+      className={`${styles.rue_accordionHeader} ${
+        isActive ? styles.rue_active : ""
+      } ${styles[`rue_header_${variant}`]}`}
+      onClick={() => toggleItem(eventKey)}
+      {...rest}
+    >
+      {children}
+      {icon ? (
+        icon
+      ) : (
+        <ArrowDropDown
+          className={`${styles.rue_icon} ${
+            isActive ? styles.rue_iconActive : ""
+          }`}
+        />
+      )}
+    </div>
+  );
+};
+
+AccordionHeader.propTypes = {
+  children: PropTypes.node.isRequired,
+  eventKey: PropTypes.string.isRequired,
+  icon: PropTypes.node,
+  open: PropTypes.bool,
+};
+
+const AccordionBody = ({ children, eventKey, ...rest }) => {
+  const { activeKeys } = useContext(AccordionContext);
+  const isActive = activeKeys.has(eventKey);
+
+  return (
+    <div
+      className={`${styles.rue_accordionBody} ${
+        isActive ? styles.rue_bodyActive : ""
+      }`}
+      {...rest}
+    >
+      <div className={styles.rue_bodyContent}>{children}</div>
+    </div>
+  );
+};
+
+AccordionBody.propTypes = {
+  children: PropTypes.node.isRequired,
+  eventKey: PropTypes.string.isRequired,
+};
+
+Accordion.Header = AccordionHeader;
+Accordion.Body = AccordionBody;
+Accordion.Item = AccordionItem;
 Accordion.displayName = "Accordion";
 export default Accordion;

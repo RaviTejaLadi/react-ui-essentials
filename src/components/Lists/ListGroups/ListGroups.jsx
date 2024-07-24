@@ -46,7 +46,7 @@ const ListGroups = forwardRef(({ width, items, size, variant, ...rest }, ref) =>
   return (
     <ul ref={ref} style={{ width: width }} className={`${styles.rue_list_group} ${getSizeClassName()}`} {...rest}>
       {items?.map((item, index) => (
-        <li key={index} className={`${styles.rue_list_group_item} ${getVariantClassName()}`}>
+        <li key={index} className={`${styles.rue_list_group_item}  ${getVariantClassName()}`} onClick={item.func}>
           {item}
         </li>
       ))}
