@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styles from "./Tabs.module.css";
-import  Box  from "../Box/Box";
+import Box from "../Box/Box";
 
 const Tabs = ({ children, active, onChange, variant = "primary", size = "sm", headerStyles, bodyStyles, ...rest }) => {
   const getInitialActiveTab = () => {

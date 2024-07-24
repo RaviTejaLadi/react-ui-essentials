@@ -15,7 +15,7 @@ const LinkBar = forwardRef(
       width = "100%",
       height = "40px",
       links,
-      activeLinkUrl, 
+      activeLinkUrl,
       ...rest
     },
     ref
@@ -32,19 +32,9 @@ const LinkBar = forwardRef(
     };
 
     return (
-      <Box
-        ref={ref}
-        width={width}
-        height={height}
-        className={styles.rue_linkbar_container}
-        {...rest}
-      >
+      <Box ref={ref} width={width} height={height} className={styles.rue_linkbar_container} {...rest}>
         {showControls && (
-          <Button
-            size={controlsSize}
-            variant={controlsVariant}
-            onClick={() => scroll("left")}
-          >
+          <Button size={controlsSize} variant={controlsVariant} onClick={() => scroll("left")}>
             <Button.Icon>
               <ArrowLeft width="20px" height="20px" />
             </Button.Icon>
@@ -55,28 +45,16 @@ const LinkBar = forwardRef(
             <Link
               key={`${index}-${link.name}`}
               to={link.url}
-              className={`${styles.rue_link} ${
-                link.url === activeLinkUrl ? styles.rue_link_active : ""
-              }`}
+              className={`${styles.rue_link} ${link.url === activeLinkUrl ? styles.rue_link_active : ""}`}
             >
-              {link.startIcon && (
-                <span className={styles.rue_link_start_icon}>
-                  {link.startIcon}
-                </span>
-              )}
+              {link.startIcon && <span className={styles.rue_link_start_icon}>{link.startIcon}</span>}
               <span className={styles.rue_link_text}>{link.name}</span>
-              {link.endIcon && (
-                <span className={styles.rue_link_end_icon}>{link.endIcon}</span>
-              )}
+              {link.endIcon && <span className={styles.rue_link_end_icon}>{link.endIcon}</span>}
             </Link>
           ))}
         </Box>
         {showControls && (
-          <Button
-            size={controlsSize}
-            variant={controlsVariant}
-            onClick={() => scroll("right")}
-          >
+          <Button size={controlsSize} variant={controlsVariant} onClick={() => scroll("right")}>
             <Button.Icon>
               <ArrowRight width="20px" height="20px" />
             </Button.Icon>
