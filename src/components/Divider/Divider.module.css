@@ -2,32 +2,32 @@
     display: flex;
     align-items: center;
     position: relative;
-}
-
-.rue_horizontal {
+  }
+  
+  .rue_horizontal {
     width: 100%;
     justify-content: center;
-}
-
-.rue_vertical {
+  }
+  
+  .rue_vertical {
     min-height: 100%;
-}
-
-.rue_content {
+  }
+  
+  .rue_content {
     background-color: white;
     padding: 0 10px;
     position: absolute;
-}
-
-.rue_content_start {
+  }
+  
+  .rue_content_start {
     left: 0;
-}
-
-.rue_content_center {
+  }
+  
+  .rue_content_center {
     left: 50%;
     transform: translateX(-50%);
-}
-
-.rue_content_end {
+  }
+  
+  .rue_content_end {
     right: 0;
-}
+  }

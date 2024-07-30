@@ -111,7 +111,7 @@ const Splitter = forwardRef(
 
     const secondHalfStyles = {
       padding: children[1].props.padding,
-      flexBasis: calc(100 % -`${children[0].props[isHorizontal ? "width" : "height"] || "50%"}`),
+      flexBasis: `calc(100 % - ${children[0].props[isHorizontal ? "width" : "height"] || "50%"})`,
       minWidth: children[1].props.minWidth,
       minHeight: children[1].props.minHeight,
     };

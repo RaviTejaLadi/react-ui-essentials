@@ -1,16 +1,29 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useMemo } from "react";
 import PropTypes from "prop-types";
 
 const StateContext = createContext();
 
-const useStateManager = (reducer, initialState) => {
+const useStateManager = (reducer, initialState, middleware) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return { state, dispatch };
+
+  const enhancedDispatch = useMemo(() => {
+    if (middleware && Array.isArray(middleware)) {
+      return (action) => {
+        const middlewareChain = middleware.map((m) => m({ getState: () => state, dispatch }));
+        const composedMiddleware = middlewareChain.reduce((a, b) => (next) => a(b(next)));
+        composedMiddleware(dispatch)(action);
+      };
+    }
+    return dispatch;
+  }, [state, middleware]);
+
+  return { state, dispatch: enhancedDispatch };
 };
 
 const defaultStore = {
   initialStates: {},
   reducers: {},
+  middleware: [],
 };
 
 export const Provider = ({ children, store = defaultStore }) => {
@@ -18,51 +31,46 @@ export const Provider = ({ children, store = defaultStore }) => {
     throw new Error("Invalid store provided to Provider");
   }
 
-  const { reducers, initialStates } = store;
+  const { reducers, initialStates, middleware } = store;
 
-  const rootReducer = (state, action) => {
-    const newReducer = {};
-    const oldReducer = reducers ? { ...Object.values(reducers) } : {};
-
+  const rootReducer = useMemo(() => {
+    const actionHandlers = {};
     const reducerKeys = new Set();
-    for (const key in oldReducer) {
-      if (oldReducer[key]) {
-        for (const innerKey in oldReducer[key]) {
-          if (reducerKeys.has(innerKey)) {
-            throw new Error(`Duplicate key found in reducers: ${innerKey}`);
-          }
-          reducerKeys.add(innerKey);
-          newReducer[innerKey] = oldReducer[key][innerKey];
+
+    Object.values(reducers).forEach((reducerGroup) => {
+      Object.entries(reducerGroup).forEach(([key, handler]) => {
+        if (reducerKeys.has(key)) {
+          throw new Error(`Duplicate key found in reducers: ${key}`);
         }
-      }
-    }
+        reducerKeys.add(key);
+        actionHandlers[key] = handler;
+      });
+    });
 
-    const actionHandlers = { ...newReducer };
-    const handler = action && action.type ? actionHandlers[action.type] : null;
-    if (handler) {
-      return handler(state, action);
-    }
-    return state;
-  };
+    return (state, action) => {
+      const handler = action && action.type ? actionHandlers[action.type] : null;
+      return handler ? handler(state, action) : state;
+    };
+  }, [reducers]);
 
-  const newStates = {};
-  const oldStates = initialStates ? { ...Object.values(initialStates) } : {};
+  const rootInitialStates = useMemo(() => {
+    const newStates = {};
+    const stateKeys = new Set();
 
-  const stateKeys = new Set();
-  for (const key in oldStates) {
-    if (oldStates[key]) {
-      for (const innerKey in oldStates[key]) {
-        if (stateKeys.has(innerKey)) {
-          throw new Error(`Duplicate key found in initialStates: ${innerKey}`);
+    Object.values(initialStates).forEach((stateGroup) => {
+      Object.entries(stateGroup).forEach(([key, value]) => {
+        if (stateKeys.has(key)) {
+          throw new Error(`Duplicate key found in initialStates: ${key}`);
         }
-        stateKeys.add(innerKey);
-        newStates[innerKey] = oldStates[key][innerKey];
-      }
-    }
-  }
+        stateKeys.add(key);
+        newStates[key] = value;
+      });
+    });
 
-  const rootInitialStates = { ...newStates };
-  const { state, dispatch } = useStateManager(rootReducer, rootInitialStates);
+    return newStates;
+  }, [initialStates]);
+
+  const { state, dispatch } = useStateManager(rootReducer, rootInitialStates, middleware);
 
   return <StateContext.Provider value={{ state, dispatch }}>{children}</StateContext.Provider>;
 };
@@ -70,8 +78,9 @@ export const Provider = ({ children, store = defaultStore }) => {
 Provider.propTypes = {
   children: PropTypes.node,
   store: PropTypes.shape({
-    initialStates: PropTypes.object,
-    reducers: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    initialStates: PropTypes.objectOf(PropTypes.object),
+    reducers: PropTypes.objectOf(PropTypes.objectOf(PropTypes.func)),
+    middleware: PropTypes.arrayOf(PropTypes.func),
   }),
 };
 

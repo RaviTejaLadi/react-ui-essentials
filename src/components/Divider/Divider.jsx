@@ -21,7 +21,9 @@ const Divider = forwardRef(
     } ${className || ""}`;
 
     const dividerStyle =
-      orientation === "vertical" ? { minHeight: "100%", width: thickness } : { height: thickness, width: "100%" };
+      orientation === "vertical"
+        ? { minHeight: "100%", width: thickness }
+        : { borderTop: `${thickness} solid ${color}`, width: "100%" };
 
     const getContentPosition = () => {
       switch (position) {
@@ -35,6 +37,7 @@ const Divider = forwardRef(
           return styles.rue_content_center;
       }
     };
+
     const contentClasses = `${styles.rue_content} ${getContentPosition()}`;
 
     return (
@@ -43,7 +46,6 @@ const Divider = forwardRef(
         className={dividerClasses}
         style={{
           margin: margin,
-          backgroundColor: color,
           ...dividerStyle,
         }}
         {...rest}
@@ -63,5 +65,7 @@ Divider.propTypes = {
   orientation: PropTypes.string,
   thickness: PropTypes.string,
 };
+
 Divider.displayName = "Divider";
+
 export default Divider;

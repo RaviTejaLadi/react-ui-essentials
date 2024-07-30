@@ -52,9 +52,9 @@ Drawer.propTypes = {
   width: PropTypes.string,
 };
 
-const DrawerHeader = ({ children, closeButton, onClose }) => {
+const DrawerHeader = ({ children, closeButton, onClose, ...rest }) => {
   return (
-    <div className={styles.rue_drawer_header}>
+    <div className={styles.rue_drawer_header} {...rest}>
       <div>{children}</div>
       {closeButton && <CloseButton onClick={onClose} />}
     </div>
@@ -67,16 +67,24 @@ DrawerHeader.propTypes = {
   onClose: PropTypes.func,
 };
 
-const DrawerTitle = ({ children }) => {
-  return <div className={styles.rue_drawer_title}>{children}</div>;
+const DrawerTitle = ({ children, ...rest }) => {
+  return (
+    <div className={styles.rue_drawer_title} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 DrawerTitle.propTypes = {
   children: PropTypes.node,
 };
 
-const DrawerBody = ({ children }) => {
-  return <div className={styles.rue_drawer_body}>{children}</div>;
+const DrawerBody = ({ children, ...rest }) => {
+  return (
+    <div className={styles.rue_drawer_body} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 DrawerBody.propTypes = {

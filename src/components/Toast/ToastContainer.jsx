@@ -42,7 +42,7 @@ const ToastContainer = forwardRef(
 
     return (
       <div ref={ref} className={containerClasses} style={style} {...rest}>
-        {toasts.map((toast) => (
+        {toasts?.map((toast) => (
           <Toast
             key={toast.id}
             {...toast}

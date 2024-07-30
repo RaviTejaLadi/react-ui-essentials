@@ -1,50 +1,33 @@
-import PropTypes from "prop-types";
-import React, { forwardRef } from "react";
+import React from "react";
 import styles from "./BasicCard.module.css";
 
 const Title = ({ children, ...rest }) => (
-  <h2 className={styles.rue_title} {...rest}>
+  <h5 className={styles.rue_title} {...rest}>
     {children}
-  </h2>
+  </h5>
 );
-
-Title.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 const Content = ({ children, ...rest }) => (
   <div className={styles.rue_content} {...rest}>
     {children}
   </div>
 );
 
-Content.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-const BasicCard = forwardRef(({ children, width, height, padding, margin, ...rest }, ref) => {
+const BasicCard = ({ children, width, height, padding, margin, ...rest }) => {
   const cardStyle = {
     width: width || "100%",
     height: height || "auto",
-    padding: padding || "20px",
-    margin: margin || "10px",
+    padding: padding || "5px",
+    margin: margin || "5px",
   };
 
   return (
-    <div ref={ref} className={styles.rue_card} style={cardStyle} {...rest}>
+    <div className={styles.rue_card} style={cardStyle} {...rest}>
       {children}
     </div>
   );
-});
-
-BasicCard.propTypes = {
-  children: PropTypes.node.isRequired,
-  height: PropTypes.string,
-  margin: PropTypes.string,
-  padding: PropTypes.string,
-  width: PropTypes.string,
 };
 
 BasicCard.Title = Title;
 BasicCard.Content = Content;
-BasicCard.displayName = "BasicCard";
+
 export default BasicCard;

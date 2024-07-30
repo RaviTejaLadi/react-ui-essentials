@@ -1,23 +1,31 @@
 .rue_card {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.rue_card:hover {
+  border-color: #1290eb;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
+}
+
+.rue_title {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.rue_content {
+  font-size: .9rem;
+  color: #666;
+
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .rue_card {
+    width: 100% !important;
   }
-  
-  .rue_title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .rue_content {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  @media (max-width: 768px) {
-    .rue_card {
-      width: 100% !important;
-    }
-  }
+}

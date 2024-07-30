@@ -5,9 +5,11 @@ import Code from "../Code/Code";
 
 const Table = forwardRef(
   (
-    { columns, rows, code = false, CodeColumn = 0, codeColor = "", codeUnderline = false, codeStyle = {}, ...rest },
+    { columns, rows, code = false, CodeColumn = [], codeColor = "", codeUnderline = false, codeStyle = {}, ...rest },
     ref
   ) => {
+    const codeColumns = Array.isArray(CodeColumn) ? CodeColumn : [CodeColumn];
+
     return (
       <div ref={ref} className={styles.rue_table_container} {...rest}>
         <table className={styles.table}>
@@ -23,7 +25,7 @@ const Table = forwardRef(
               <tr key={rowIndex}>
                 {row.map((cell, cellIndex) => (
                   <td key={cellIndex} data-th={columns[cellIndex]}>
-                    {code && cellIndex === CodeColumn ? (
+                    {code && codeColumns.includes(cellIndex) ? (
                       <Code color={codeColor} underline={codeUnderline} style={codeStyle}>
                         {cell}
                       </Code>
@@ -45,7 +47,7 @@ Table.propTypes = {
   columns: PropTypes.arrayOf(PropTypes.string).isRequired,
   rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.node)).isRequired,
   code: PropTypes.bool,
-  CodeColumn: PropTypes.number,
+  CodeColumn: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
   codeColor: PropTypes.string,
   codeUnderline: PropTypes.bool,
   codeStyle: PropTypes.object,

@@ -1,17 +1,12 @@
 import PropTypes from "prop-types";
 import React, { Fragment, forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./SideBar.module.css";
-import Link from "../Link/Link";
-import Tooltip from "../Tooltip/Tooltip";
-import { ArrowDropDown, ArrowRight } from "../../Icons/Round";
+import { Link, RoundedIcons } from "react-ui-essentials";
+const { ArrowDropDown, ArrowRight, Search } = RoundedIcons;
 
 const SideBar = forwardRef(({ children, backgroundColor = "", color = "", width = "" }, ref) => {
   return (
-    <aside
-      ref={ref}
-      className={styles.rue_sidebar}
-      style={{ backgroundColor: backgroundColor, color: color, width: width }}
-    >
+    <aside ref={ref} className={styles.rue_sidebar} style={{ backgroundColor, color, width }}>
       {children}
     </aside>
   );
@@ -24,64 +19,44 @@ SideBar.propTypes = {
   width: PropTypes.string,
 };
 
-const SidebarHeader = ({ children }) => {
-  return <div className={styles.rue_sidebar_header}>{children}</div>;
-};
+const SidebarHeader = ({ children }) => <div className={styles.rue_sidebar_header}>{children}</div>;
 
 SidebarHeader.propTypes = {
   children: PropTypes.node,
 };
 
-const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }, ref) => {
-  const FindActivePathName = routes?.map(({ path }) => {
-    return path === window.location.pathname;
-  });
-
-  const matchedIndex = FindActivePathName?.findIndex((val) => val);
-  const matchedId = matchedIndex !== -1 ? routes?.[matchedIndex]?.id : null;
-  const [activeLink, setActiveLink] = useState(matchedId - 1);
-
-  const [activeDropdown, setActiveDropdown] = useState(activeLink);
-  const sidebarItemsRefs = useRef([]);
+const SideBarBody = forwardRef(({ routes, variant = "primary" }, ref) => {
+  const [activeLink, setActiveLink] = useState(null);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    sidebarItemsRefs.current = sidebarItemsRefs.current.slice(0);
-  }, []);
+    const handleRouteChange = () => {
+      const path = window.location.pathname;
+      const matchedRoute = routes.find((route) => route.path === path);
+      setActiveLink(matchedRoute ? matchedRoute.id : null);
+    };
+
+    window.addEventListener("popstate", handleRouteChange);
+    handleRouteChange();
+
+    return () => {
+      window.removeEventListener("popstate", handleRouteChange);
+    };
+  }, [routes]);
 
   const toggleDropdown = (index) => {
-    setActiveLink(index);
     setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
+  const getLinkVariant = () => {
+    return styles[`rue_active_${variant}`] || styles.rue_active_default;
   };
 
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setActiveDropdown(null);
-    }
-  };
-
-  const getLinkVarient = () => {
-    switch (variant) {
-      case "primary":
-        return styles.rue_active_primary;
-      case "secondary":
-        return styles.rue_active_secondary;
-      case "success":
-        return styles.rue_active_success;
-      case "danger":
-        return styles.rue_active_danger;
-      case "warning":
-        return styles.rue_active_warning;
-      case "info":
-        return styles.rue_active_info;
-      case "help":
-        return styles.rue_active_help;
-      case "light":
-        return styles.rue_active_light;
-      case "dark":
-        return styles.rue_active_dark;
-      default:
-        return styles.rue_active_default;
     }
   };
 
@@ -92,19 +67,31 @@ const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }
     };
   }, []);
 
+  const filteredRoutes = routes.filter((route) => route.label.toLowerCase().includes(searchTerm.toLowerCase()));
+
   return (
-    <Fragment ref={ref}>
-      {routes?.map(({ id, label, path, icons, subMenu }, index) => {
+    <div ref={ref}>
+      <div className={styles.rue_search_container}>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className={styles.rue_search_input}
+        />
+        <Search width="20px" height="20px" className={styles.rue_search_icon} />
+      </div>
+      {filteredRoutes.map(({ id, label, path, icons, subMenu }, index) => {
         const isDropdownActive = activeDropdown === index;
-        const isActiveLink = window.location.pathname === path;
+        const isActiveLink = activeLink === id;
         return (
           <Fragment key={id}>
             <Link
               id={id}
               to={path}
-              className={isDropdownActive || isActiveLink ? `${styles.rue_active} ${getLinkVarient()}` : ""}
-              ref={(element) => (sidebarItemsRefs.current[index] = element)}
+              className={`${isDropdownActive || isActiveLink ? `${styles.rue_active} ${getLinkVariant()}` : ""}`}
               onClick={() => toggleDropdown(index)}
+              title={label}
             >
               <span className={styles.rue_highlight} />
               {icons && (
@@ -112,18 +99,7 @@ const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }
                   <img src={icons} alt="sidebar_icons" />
                 </span>
               )}
-              {tooltip && (
-                <Tooltip text={label} position="bottom" variant="dark">
-                  <span className={styles.rue_sidebar_p}>
-                    {label.length > 15 ? <span>{label.slice(0, 15)}...</span> : label}
-                  </span>
-                </Tooltip>
-              )}
-              {!tooltip && (
-                <span className={styles.rue_sidebar_p}>
-                  {label.length > 15 ? <span>{label.slice(0, 15)}...</span> : label}
-                </span>
-              )}
+              <span className={styles.rue_sidebar_p}>{label.length > 15 ? `${label.slice(0, 15)}...` : label}</span>
               {subMenu && (
                 <span className={styles.rue_submenu_arrow}>
                   {isDropdownActive ? (
@@ -135,35 +111,30 @@ const SideBarBody = forwardRef(({ routes, tooltip = false, variant = "primary" }
               )}
             </Link>
             {subMenu && isDropdownActive && (
-              <div className={styles.rue_submenu}>
+              <div className={styles.rue_submenu} ref={dropdownRef}>
                 {subMenu.map(({ id, label, path }) => (
-                  <span key={id}>
-                    <Link to={path}>
-                      <span role="img" className={styles.rue_highlight}>
-                        🔹
-                      </span>
-                      <span className={styles.rue_sidebar_p}>{label}</span>
-                    </Link>
-                  </span>
+                  <Link key={id} to={path}>
+                    <span role="img" className={styles.rue_highlight}>
+                      🎯
+                    </span>
+                    <span className={styles.rue_sidebar_p}>{label}</span>
+                  </Link>
                 ))}
               </div>
             )}
           </Fragment>
         );
       })}
-    </Fragment>
+    </div>
   );
 });
 
 SideBarBody.propTypes = {
   routes: PropTypes.array.isRequired,
-  tooltip: PropTypes.bool,
-  variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "info", "help", "light", "dark"]),
+  variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "help", "light", "dark"]),
 };
 
-const SideBarFooter = ({ children }) => {
-  return <div className={styles.rue_sidebar_footer}>{children}</div>;
-};
+const SideBarFooter = ({ children }) => <div className={styles.rue_sidebar_footer}>{children}</div>;
 
 SideBarFooter.propTypes = {
   children: PropTypes.node,
@@ -174,4 +145,5 @@ SideBar.Footer = SideBarFooter;
 SideBar.Body = SideBarBody;
 SideBar.displayName = "SideBar";
 SideBarBody.displayName = "SideBarBody";
+
 export default SideBar;

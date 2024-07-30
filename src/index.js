@@ -1,7 +1,7 @@
 import * as svgsrounded from "./Icons/Round";
 
 export { useDynamicVariantsChange, useOnlineStatus, usePortal, useLocalStorage, UseFilteredContent } from "./hooks";
-export { Seo, SeoProvider, SeoData } from "./Seo";
+export { Seo, SeoProvider, SeoData, useSeo } from "./Seo";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Alert } from "./components/Alert/Alert";
 export { default as Avatar } from "./components/Avatar/Avatar";
@@ -61,6 +61,7 @@ export { default as CheckboxCard } from "./components/CheckboxCard/CheckboxCard"
 export { default as RadioCard } from "./components/RadioCard/RadioCard";
 export { default as ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 export { default as TextCarousel } from "./components/TextCarousel/TextCarousel";
+export { default as Splitter } from "./components/Splitter/Splitter";
 
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
 export { Provider, useStateValue } from "./stateManagment/stateManagment";

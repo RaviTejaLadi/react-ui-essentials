@@ -302,3 +302,33 @@
 .rue_sidebar_header {
   padding: 5px;
 }
+
+.rue_search_container {
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+.rue_search_input {
+  width: 100%;
+  height: 30px;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.rue_search_input:focus {
+  outline: 0;
+  border-color: #007bff;
+  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+}
+
+.rue_search_icon {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}

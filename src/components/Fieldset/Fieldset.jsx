@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Fieldset.module.css";
 
-const Fieldset = forwardRef(({ children, height = "auto", width = "100%", variant, ...rest }, ref) => {
+const Fieldset = forwardRef(({ children, height = "auto", width = "100%", variant = "primary", ...rest }, ref) => {
   const getTitleStyle = () => {
     switch (variant) {
       case "primary":

@@ -36,7 +36,12 @@ const Spinner = forwardRef(({ variant = "primary", size = "md", ...rest }, ref) 
         </defs>
         <g fill="none" fillRule="evenodd">
           <g transform="translate(1 1)">
-            <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" stroke={`#spinner-gradient-${variant}`} strokeWidth="4">
+            <path
+              d="M36 18c0-9.94-8.06-18-18-18"
+              id="Oval-2"
+              stroke={`url(#spinner-gradient-${variant})`}
+              strokeWidth="4"
+            >
               <animateTransform
                 attributeName="transform"
                 type="rotate"

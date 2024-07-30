@@ -77,9 +77,9 @@ Modal.propTypes = {
   variant: PropTypes.oneOf(["success", "warning", "info", "danger"]),
 };
 
-const ModalHeader = ({ children, closeButton, onClose, height }) => {
+const ModalHeader = ({ children, closeButton, onClose, height, ...rest }) => {
   return (
-    <div className={styles.rue_modal_header} style={{ height }}>
+    <div className={styles.rue_modal_header} style={{ height }} {...rest}>
       <div>{children}</div>
       <div>{closeButton && <CloseButton onClick={onClose} />}</div>
     </div>
@@ -93,17 +93,21 @@ ModalHeader.propTypes = {
   onClose: PropTypes.func,
 };
 
-const ModalTitle = ({ children }) => {
-  return <div className={styles.rue_modal_title}>{children}</div>;
+const ModalTitle = ({ children, ...rest }) => {
+  return (
+    <div className={styles.rue_modal_title} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 ModalTitle.propTypes = {
   children: PropTypes.node,
 };
 
-const ModalBody = ({ children, height }) => {
+const ModalBody = ({ children, height, ...rest }) => {
   return (
-    <div className={styles.rue_modal_body} style={{ height }}>
+    <div className={styles.rue_modal_body} style={{ height }} {...rest}>
       {children}
     </div>
   );
@@ -114,9 +118,9 @@ ModalBody.propTypes = {
   height: PropTypes.string,
 };
 
-const ModalFooter = ({ children, height }) => {
+const ModalFooter = ({ children, height, ...rest }) => {
   return (
-    <div className={styles.rue_modal_footer} style={{ height }}>
+    <div className={styles.rue_modal_footer} style={{ height }} {...rest}>
       {children}
     </div>
   );

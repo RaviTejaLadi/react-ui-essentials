@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import fastCompare from "react-fast-compare";
 import invariant from "invariant";
-
+import useSeo from "./useSeo";
 import SeoProvider, { Context } from "./Provider";
 import SeoData from "./SeoData";
 import Dispatcher from "./Dispatcher";
@@ -182,4 +182,4 @@ class Seo extends Component {
   }
 }
 
-export { Seo, SeoData, SeoProvider };
+export { Seo, SeoData, SeoProvider, useSeo };
