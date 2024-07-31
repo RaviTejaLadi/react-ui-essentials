@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import React, { Fragment, forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./SideBar.module.css";
-import { Link, RoundedIcons } from "react-ui-essentials";
-const { ArrowDropDown, ArrowRight, Search } = RoundedIcons;
+import Link from "../Link/Link";
+import ArrowDropDown from "../../Icons/Round/ArrowDropDown";
+import ArrowRight from "../../Icons/Round/ArrowRight";
+import Search from "../../Icons/Round/Search";
 
 const SideBar = forwardRef(({ children, backgroundColor = "", color = "", width = "" }, ref) => {
   return (
