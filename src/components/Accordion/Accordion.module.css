@@ -6,7 +6,7 @@
 .rue_accordion {
     width: 100%;
     border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
+    border-radius: .375rem;
     overflow: hidden
 }
 
@@ -54,14 +54,17 @@
 }
 
 .rue_accordion_secondary .rue_accordionHeader.rue_active {
+    color: #ffffff;
     background-color: #6c757d
 }
 
 .rue_accordion_success .rue_accordionHeader.rue_active {
+    color: #ffffff;
     background-color: #28a745
 }
 
 .rue_accordion_danger .rue_accordionHeader.rue_active {
+    color: #ffffff;
     background-color: #dc3545
 }
 
@@ -76,10 +79,12 @@
 }
 
 .rue_accordion_info .rue_accordionHeader.rue_active {
+    color: #ffffff;
     background-color: #17a2b8
 }
 
 .rue_accordion_dark .rue_accordionHeader.rue_active {
+    color: #ffffff;
     background-color: #343a40
 }
 
@@ -90,7 +95,8 @@
 
 .rue_size_sm .rue_accordionHeader {
     padding: .5rem .75rem;
-    font-size: .875rem
+    font-size: .875rem;
+    font-weight: 500;
 }
 
 .rue_size_lg .rue_icon,
@@ -106,28 +112,24 @@
 
 .rue_size_md .rue_accordionHeader {
     padding: .75rem 1rem;
-    font-size: 1rem
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .rue_size_lg .rue_accordionHeader {
     padding: 1rem 1.25rem;
-    font-size: 1.25rem
+    font-size: 1.25rem;
+    font-weight: 500;
 }
 
 .rue_size_lg .rue_bodyContent {
     padding: 1.25rem
 }
 
-.rue_size_sm {
-    border-radius: .2rem
-}
-
-.rue_size_md {
-    border-radius: .25rem
-}
-
+.rue_size_sm,
+.rue_size_md,
 .rue_size_lg {
-    border-radius: .3rem
+    border-radius: .375rem
 }
 
 .rue_accordionHeader:not(:first-child) {

@@ -316,7 +316,7 @@
   padding: 8px 30px 8px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .rue_search_input:focus {
@@ -331,4 +331,12 @@
   top: 50%;
   transform: translateY(-50%);
   color: #888;
+}
+
+.rue_fallback_message {
+  border: 1px solid #ccc;
+  margin: 5px;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 12px;
 }

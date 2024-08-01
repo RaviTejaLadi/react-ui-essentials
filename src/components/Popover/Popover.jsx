@@ -12,31 +12,11 @@ const Popover = ({ position = "top", size = "sm", width = "", height = "", conte
   };
 
   const getPosition = () => {
-    switch (position) {
-      case "top":
-        return styles.rue_popover_top;
-      case "bottom":
-        return styles.rue_popover_bottom;
-      case "left":
-        return styles.rue_popover_left;
-      case "right":
-        return styles.rue_popover_right;
-      default:
-        return styles.rue_popover_top;
-    }
+    return styles[`rue_popover_${position}`] || styles.rue_popover_top;
   };
 
   const getSizeClass = () => {
-    switch (size) {
-      case "sm":
-        return styles.rue_popover_sm;
-      case "md":
-        return styles.rue_popover_md;
-      case "lg":
-        return styles.rue_popover_lg;
-      default:
-        return styles.rue_popover_sm;
-    }
+    return styles[`rue_popover_${size}`] || styles.rue_popover_sm;
   };
 
   const handleClickOutside = (event) => {

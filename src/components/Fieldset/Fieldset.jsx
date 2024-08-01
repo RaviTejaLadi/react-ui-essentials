@@ -4,27 +4,9 @@ import styles from "./Fieldset.module.css";
 
 const Fieldset = forwardRef(({ children, height = "auto", width = "100%", variant = "primary", ...rest }, ref) => {
   const getTitleStyle = () => {
-    switch (variant) {
-      case "primary":
-        return styles.rue_fieldset_content_primary;
-      case "secondary":
-        return styles.rue_fieldset_content_secondary;
-      case "success":
-        return styles.rue_fieldset_content_success;
-      case "warning":
-        return styles.rue_fieldset_content_warning;
-      case "danger":
-        return styles.rue_fieldset_content_danger;
-      case "info":
-        return styles.rue_fieldset_content_info;
-      case "light":
-        return styles.rue_fieldset_content_light;
-      case "dark":
-        return styles.rue_fieldset_content_dark;
-      default:
-        return styles.rue_fieldset_title;
-    }
+    return styles[`rue_fieldset_content_${variant}`] || styles.rue_fieldset_content_primary;
   };
+
   return (
     <div
       ref={ref}

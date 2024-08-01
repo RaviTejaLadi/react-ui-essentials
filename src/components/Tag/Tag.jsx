@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./Tag.module.css";
 
 const Tag = forwardRef(({ children, variant = "primary", size = "sm", ...rest }, ref) => {
-  const classNames = `${styles.rue_tag} ${variant ? `${styles[`rue_tag_${variant}`]}` : ""}${
-    size ? `${styles[`rue_tag_${size}`]}` : ""
-  }`;
+  const classNames = `${styles.rue_tag} ${styles[`rue_tag_${variant}`]} ${styles[`rue_tag_${size}`]}`;
 
   return (
     <span ref={ref} className={classNames} {...rest}>
@@ -41,14 +39,15 @@ const TagCloseButton = ({ onClick, ...props }) => (
 );
 
 TagCloseButton.propTypes = {
-  onClick: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 Tag.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   size: PropTypes.oneOf(["sm", "md", "lg", "xl", "xxl"]),
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "danger", "info", "light", "dark"]),
 };
+
 Tag.displayName = "Tag";
 Tag.Icon = TagIcon;
 Tag.Text = TagText;

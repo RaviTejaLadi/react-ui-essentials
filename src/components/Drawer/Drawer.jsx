@@ -3,45 +3,40 @@ import React, { forwardRef } from "react";
 import CloseButton from "../CloseButton/CloseButton";
 import styles from "./Drawer.module.css";
 
-const Drawer = forwardRef(({ position, children, isOpen, onClose, width, height, ...rest }, ref) => {
-  const getPositionClass = () => {
-    switch (position) {
-      case "top":
-        return styles.rue_drawer_top;
-      case "right":
-        return styles.rue_drawer_right;
-      case "bottom":
-        return styles.rue_drawer_bottom;
-      case "left":
-        return styles.rue_drawer_left;
-      default:
-        return styles.rue_drawer_right;
-    }
-  };
+const Drawer = forwardRef(
+  ({ position, children, isOpen, onClose, width, height, overLayColor = "rgb(204 204 204 / 39%)", ...rest }, ref) => {
+    const getPositionClass = () => {
+      return styles[`rue_drawer_${position}`] || styles.rue_drawer_right;
+    };
 
-  const handleClose = () => {
-    onClose();
-  };
+    const handleClose = () => {
+      onClose();
+    };
 
-  const positionStyles = {
-    top: position === "top" ? { height: `${height}`, width: "100%" } : {},
-    right: position === "right" ? { height: "100%", width: `${width}` } : {},
-    bottom: position === "bottom" ? { height: `${height}`, width: "100%" } : {},
-    left: position === "left" ? { height: "100%", width: `${width}` } : {},
-  };
+    const positionStyles = {
+      top: position === "top" ? { height: `${height}`, width: "100%" } : {},
+      right: position === "right" ? { height: "100%", width: `${width}` } : {},
+      bottom: position === "bottom" ? { height: `${height}`, width: "100%" } : {},
+      left: position === "left" ? { height: "100%", width: `${width}` } : {},
+    };
 
-  return (
-    <div ref={ref} {...rest}>
-      <div className={`${styles.rue_drawer_overlay} ${isOpen ? styles.rue_open : ""}`} onClick={handleClose} />
-      <div
-        className={`${styles.rue_drawer} ${getPositionClass()} ${isOpen ? styles.rue_open : ""}`}
-        style={positionStyles[position]}
-      >
-        {children}
+    return (
+      <div ref={ref} {...rest}>
+        <div
+          className={`${styles.rue_drawer_overlay} ${isOpen ? styles.rue_open : ""}`}
+          style={{ backgroundColor: overLayColor }}
+          onClick={handleClose}
+        />
+        <div
+          className={`${styles.rue_drawer} ${getPositionClass()} ${isOpen ? styles.rue_open : ""}`}
+          style={positionStyles[position]}
+        >
+          {children}
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 Drawer.propTypes = {
   children: PropTypes.node,
@@ -50,6 +45,7 @@ Drawer.propTypes = {
   onClose: PropTypes.func,
   position: PropTypes.oneOf(["top", "right", "bottom", "left"]),
   width: PropTypes.string,
+  overLayColor: PropTypes.string,
 };
 
 const DrawerHeader = ({ children, closeButton, onClose, ...rest }) => {

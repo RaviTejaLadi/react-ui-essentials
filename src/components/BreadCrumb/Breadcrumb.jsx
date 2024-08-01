@@ -20,28 +20,7 @@ const Breadcrumb = forwardRef(
     ref
   ) => {
     const getBreadcrumbVariant = () => {
-      switch (variant) {
-        case "primary":
-          return styles.rue_breadcrumb_primary;
-        case "secondary":
-          return styles.rue_breadcrumb_secondary;
-        case "success":
-          return styles.rue_breadcrumb_success;
-        case "danger":
-          return styles.rue_breadcrumb_danger;
-        case "warning":
-          return styles.rue_breadcrumb_warning;
-        case "info":
-          return styles.rue_breadcrumb_info;
-        case "help":
-          return styles.rue_breadcrumb_help;
-        case "light":
-          return styles.rue_breadcrumb_light;
-        case "dark":
-          return styles.rue_breadcrumb_dark;
-        default:
-          return styles.rue_breadcrumb_default;
-      }
+      return styles[`rue_breadcrumb_${variant}`] || styles.rue_breadcrumb_default;
     };
 
     const TextStyles = {
