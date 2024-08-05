@@ -15,6 +15,8 @@ const Breadcrumb = forwardRef(
       variant,
       color,
       margin,
+      className,
+      style,
       ...rest
     },
     ref
@@ -31,11 +33,15 @@ const Breadcrumb = forwardRef(
       color: color,
     };
 
+    const contStyles = {
+      margin: margin,
+      ...style,
+    };
     return (
       <Box
         aria-label="breadcrumb"
-        className={styles.rue_breadcrumb_container}
-        style={{ margin: margin }}
+        className={`${styles.rue_breadcrumb_container} ${className}`}
+        style={contStyles}
         ref={ref}
         {...rest}
       >
@@ -64,16 +70,18 @@ Breadcrumb.propTypes = {
   separator: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "danger", "info", "help", "light", "dark"]),
   color: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Breadcrumb.displayName = "Breadcrumb";
 
-const BreadcrumbItem = ({ to, active, children, ...rest }) => {
+const BreadcrumbItem = ({ to, active, children, className, style, ...rest }) => {
   if (active) {
     return <span {...rest}>{children}</span>;
   }
   return (
-    <Link to={to} {...rest}>
+    <Link to={to} className={className} style={style} {...rest}>
       {children}
     </Link>
   );
@@ -83,6 +91,8 @@ BreadcrumbItem.propTypes = {
   to: PropTypes.string,
   active: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Breadcrumb.Item = BreadcrumbItem;

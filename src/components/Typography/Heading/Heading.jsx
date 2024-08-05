@@ -23,6 +23,7 @@ const Heading = forwardRef(
       inserted,
       children,
       fontWeight,
+      style,
       ...rest
     },
     ref
@@ -52,7 +53,7 @@ const Heading = forwardRef(
       }
     };
 
-    const style = {
+    const headingStyle = {
       textDecoration: underline
         ? "underline "
         : overline
@@ -72,6 +73,7 @@ const Heading = forwardRef(
       fontSize: fontSize || (smaller ? "0.8em " : ""),
       width: "fit-content",
       color: color,
+      ...style,
     };
 
     const handleCopy = () => {
@@ -81,7 +83,7 @@ const Heading = forwardRef(
     };
 
     return (
-      <Component ref={ref} className={`${styles.rue_heading} ${getVariantClass()}`} style={style} {...rest}>
+      <Component ref={ref} className={`${styles.rue_heading} ${getVariantClass()}`} style={headingStyle} {...rest}>
         <span>{children}</span>
         {copy && (
           <span className={styles.rue_copyIcon} onClick={handleCopy}>

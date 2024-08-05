@@ -5,7 +5,7 @@ import ArrowDropDown from "../../Icons/Round/ArrowDropDown";
 
 const AccordionContext = createContext(null);
 
-const Accordion = forwardRef(({ children, variant = "primary", size = "sm", ...rest }, ref) => {
+const Accordion = forwardRef(({ children, variant = "primary", size = "sm", className, style, ...rest }, ref) => {
   const [activeKeys, setActiveKeys] = useState(new Set());
 
   const toggleItem = (eventKey) => {
@@ -32,7 +32,10 @@ const Accordion = forwardRef(({ children, variant = "primary", size = "sm", ...r
     <AccordionContext.Provider value={{ activeKeys, toggleItem, openItem, variant, size }}>
       <div
         ref={ref}
-        className={`${styles.rue_accordion} ${styles[`rue_accordion_${variant}`]} ${styles[`rue_size_${size}`]}`}
+        className={`${styles.rue_accordion} ${styles[`rue_accordion_${variant}`]} ${
+          styles[`rue_size_${size}`]
+        } ${className}`}
+        style={style}
         {...rest}
       >
         {children}
@@ -45,16 +48,24 @@ Accordion.propTypes = {
   children: PropTypes.node.isRequired,
   variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "help", "info", "dark", "light"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
-const AccordionItem = ({ children, ...rest }) => {
-  return <div {...rest}>{children}</div>;
+const AccordionItem = ({ children, className, style, ...rest }) => {
+  return (
+    <div className={className} style={style} {...rest}>
+      {children}
+    </div>
+  );
 };
 
 AccordionItem.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const AccordionHeader = ({ children, icon, eventKey, open, ...rest }) => {
+const AccordionHeader = ({ children, icon, eventKey, open, className, style, ...rest }) => {
   const { activeKeys, toggleItem, openItem, variant } = useContext(AccordionContext);
   const isActive = activeKeys.has(eventKey);
 
@@ -68,8 +79,9 @@ const AccordionHeader = ({ children, icon, eventKey, open, ...rest }) => {
     <div
       className={`${styles.rue_accordionHeader} ${isActive ? styles.rue_active : ""} ${
         styles[`rue_header_${variant}`]
-      }`}
+      }  ${className}`}
       onClick={() => toggleItem(eventKey)}
+      style={style}
       {...rest}
     >
       {children}
@@ -83,14 +95,20 @@ AccordionHeader.propTypes = {
   eventKey: PropTypes.string.isRequired,
   icon: PropTypes.node,
   open: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const AccordionBody = ({ children, eventKey, ...rest }) => {
+const AccordionBody = ({ children, eventKey, className, style, ...rest }) => {
   const { activeKeys } = useContext(AccordionContext);
   const isActive = activeKeys.has(eventKey);
 
   return (
-    <div className={`${styles.rue_accordionBody} ${isActive ? styles.rue_bodyActive : ""}`} {...rest}>
+    <div
+      className={`${styles.rue_accordionBody} ${isActive ? styles.rue_bodyActive : ""} ${className}`}
+      style={style}
+      {...rest}
+    >
       <div className={styles.rue_bodyContent}>{children}</div>
     </div>
   );
@@ -99,6 +117,8 @@ const AccordionBody = ({ children, eventKey, ...rest }) => {
 AccordionBody.propTypes = {
   children: PropTypes.node.isRequired,
   eventKey: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Accordion.Header = AccordionHeader;

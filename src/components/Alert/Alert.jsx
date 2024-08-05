@@ -2,34 +2,34 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Alert.module.css";
 
-const Alert = forwardRef(({ variant = "primary", children, ...rest }, ref) => {
-  const alertClasses = `${styles.rue_alert} ${variant ? `${styles[`rue_alert_${variant}`]}` : ""}`;
+const Alert = forwardRef(({ variant = "primary", children, className, style, ...rest }, ref) => {
+  const alertClasses = `${styles.rue_alert} ${variant ? `${styles[`rue_alert_${variant}`]}` : ""}  ${className}`;
   return (
-    <div className={alertClasses} ref={ref} {...rest}>
+    <div className={alertClasses} ref={ref} style={style} {...rest}>
       {children}
     </div>
   );
 });
 
-const Header = ({ children, ...rest }) => {
+const Header = ({ children, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_alert_header} {...rest}>
+    <div className={`${styles.rue_alert_header} ${className}`} style={style} {...rest}>
       {children}
     </div>
   );
 };
 
-const Body = ({ children, ...rest }) => {
+const Body = ({ children, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_alert_body} {...rest}>
+    <div className={`${styles.rue_alert_body}  ${className}`} style={style} {...rest}>
       {children}
     </div>
   );
 };
 
-const Footer = ({ children, ...rest }) => {
+const Footer = ({ children, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_alert_footer} {...rest}>
+    <div className={`${styles.rue_alert_footer} ${className} `} style={style} {...rest}>
       {children}
     </div>
   );
@@ -38,18 +38,26 @@ const Footer = ({ children, ...rest }) => {
 Alert.propTypes = {
   variant: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Header.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Body.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Footer.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Alert.Header = Header;

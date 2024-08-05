@@ -16,7 +16,7 @@ const Box = forwardRef(
       padding = "0",
       color,
       backgroundColor,
-      style = {},
+      style,
       ...rest
     },
     ref

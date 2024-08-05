@@ -23,6 +23,7 @@ const Paragraph = forwardRef(
       inserted,
       children,
       fontWeight,
+      style,
       ...rest
     },
     ref
@@ -52,7 +53,7 @@ const Paragraph = forwardRef(
       }
     };
 
-    const style = {
+    const paraStyle = {
       textDecoration: underline
         ? "underline "
         : overline
@@ -72,6 +73,7 @@ const Paragraph = forwardRef(
       fontSize: fontSize || (smaller ? "0.8em " : ""),
       width: "fit-content",
       color: color,
+      ...style
     };
 
     const handleCopy = () => {
@@ -81,7 +83,7 @@ const Paragraph = forwardRef(
     };
 
     return (
-      <Component ref={ref} className={`${styles.rue_para} ${getVariantClass()}`} style={style} {...rest}>
+      <Component ref={ref} className={`${styles.rue_para} ${getVariantClass()}`} style={paraStyle} {...rest}>
         <span>{children}</span>
         {copy && (
           <span className={styles.rue_copyIcon} onClick={handleCopy}>
