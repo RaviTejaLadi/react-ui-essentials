@@ -1,30 +1,55 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styles from "./BasicCard.module.css";
 
-const Title = ({ children, ...rest }) => (
-  <h5 className={styles.rue_title} {...rest}>
+const Title = ({ children, className, style, ...rest }) => (
+  <h5 className={`${styles.rue_title}  ${className}`} style={style} {...rest}>
     {children}
   </h5>
 );
-const Content = ({ children, ...rest }) => (
-  <div className={styles.rue_content} {...rest}>
+
+Title.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
+const Content = ({ children, className, style, ...rest }) => (
+  <div className={`${styles.rue_content} ${className}`} style={style} {...rest}>
     {children}
   </div>
 );
 
-const BasicCard = ({ children, width, height, padding, margin, ...rest }) => {
+Content.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
+const BasicCard = ({ children, width, height, padding, margin, className, style, ...rest }) => {
   const cardStyle = {
     width: width || "100%",
     height: height || "auto",
     padding: padding || "5px",
     margin: margin || "5px",
+    ...style,
   };
 
   return (
-    <div className={styles.rue_card} style={cardStyle} {...rest}>
+    <div className={`${styles.rue_card}  ${className}`} style={cardStyle} {...rest}>
       {children}
     </div>
   );
+};
+
+BasicCard.propTypes = {
+  children: PropTypes.node.isRequired,
+  height: PropTypes.string,
+  margin: PropTypes.string,
+  padding: PropTypes.string,
+  width: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 BasicCard.Title = Title;

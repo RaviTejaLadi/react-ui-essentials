@@ -73,7 +73,7 @@ const Paragraph = forwardRef(
       fontSize: fontSize || (smaller ? "0.8em " : ""),
       width: "fit-content",
       color: color,
-      ...style
+      ...style,
     };
 
     const handleCopy = () => {

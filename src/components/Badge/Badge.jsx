@@ -4,8 +4,8 @@ import styles from "./Badge.module.css";
 
 const Badge = forwardRef(({ size = "sm", variant = "primary", children, pill, className, style, ...rest }, ref) => {
   const getBadgeStyles = () => {
-    let sizeClass = styles[`rue_badge_${size}`] || "";
-    let variantClass = styles[`rue_badge_${variant}`] || "";
+    const sizeClass = styles[`rue_badge_${size}`] || "";
+    const variantClass = styles[`rue_badge_${variant}`] || "";
     return `badge ${sizeClass} ${variantClass} ${className}`;
   };
 
@@ -13,7 +13,7 @@ const Badge = forwardRef(({ size = "sm", variant = "primary", children, pill, cl
     borderRadius: pill ? "1rem" : "",
     ...style,
   };
-  
+
   return (
     <span className={getBadgeStyles()} style={pillStyles} ref={ref} {...rest}>
       {children}

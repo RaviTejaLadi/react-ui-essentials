@@ -2,26 +2,28 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Fieldset.module.css";
 
-const Fieldset = forwardRef(({ children, height = "auto", width = "100%", variant = "primary", ...rest }, ref) => {
-  const getTitleStyle = () => {
-    return styles[`rue_fieldset_content_${variant}`] || styles.rue_fieldset_content_primary;
-  };
+const Fieldset = forwardRef(
+  ({ children, height = "auto", width = "100%", variant = "primary", className, style, ...rest }, ref) => {
+    const getTitleStyle = () => {
+      return styles[`rue_fieldset_content_${variant}`] || styles.rue_fieldset_content_primary;
+    };
 
-  return (
-    <div
-      ref={ref}
-      className={`${styles.rue_fieldset} ${getTitleStyle()}`}
-      style={{ width: width, height: height }}
-      {...rest}
-    >
-      {children}
-    </div>
-  );
-});
+    return (
+      <div
+        ref={ref}
+        className={`${styles.rue_fieldset} ${getTitleStyle()} ${className}`}
+        style={{ width: width, height: height, ...style }}
+        {...rest}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
-const FieldsetHeader = ({ children, ...rest }) => {
+const FieldsetHeader = ({ children, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_fieldset_header} {...rest}>
+    <div className={`${styles.rue_fieldset_header} ${className}`} style={style} {...rest}>
       {children}
     </div>
   );
@@ -29,11 +31,13 @@ const FieldsetHeader = ({ children, ...rest }) => {
 
 FieldsetHeader.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const FieldsetBody = ({ children, ...rest }) => {
+const FieldsetBody = ({ children, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_fieldset_content_ontent} {...rest}>
+    <div className={`${styles.rue_fieldset_content_ontent} ${className}`} style={style} {...rest}>
       {children}
     </div>
   );
@@ -41,6 +45,8 @@ const FieldsetBody = ({ children, ...rest }) => {
 
 FieldsetBody.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Fieldset.propTypes = {
@@ -48,8 +54,12 @@ Fieldset.propTypes = {
   height: PropTypes.string,
   variant: PropTypes.oneOf(["primary", "secondary", "success", "warning", "danger", "info", "light", "dark"]),
   width: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 Fieldset.Header = FieldsetHeader;
 Fieldset.Body = FieldsetBody;
+
 Fieldset.displayName = "Fieldset";
 export default Fieldset;

@@ -16,6 +16,8 @@ const ContentOverview = forwardRef(
       mainParagraphProps = {},
       sectionHeadingProps = {},
       sectionParagraphProps = {},
+      className,
+      style,
       ...rest
     },
     ref
@@ -23,7 +25,7 @@ const ContentOverview = forwardRef(
     const itemWidth = `${100 / itemsPerRow}%`;
 
     return (
-      <Box ref={ref} {...rest}>
+      <Box ref={ref} className={className} style={style} {...rest}>
         {courseData.map((course, index) => (
           <Fragment key={`${course.title.slice(0, 3)}-${index}`}>
             <Heading type="h3" className={styles.rue_Content_Overview_title} {...mainHeadingProps}>
@@ -97,6 +99,8 @@ ContentOverview.propTypes = {
   mainParagraphProps: PropTypes.object,
   sectionHeadingProps: PropTypes.object,
   sectionParagraphProps: PropTypes.object,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 ContentOverview.displayName = "ContentOverview";

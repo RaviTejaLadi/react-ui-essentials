@@ -12,6 +12,7 @@ const Divider = forwardRef(
       className,
       children,
       margin,
+      style,
       ...rest
     },
     ref
@@ -47,6 +48,7 @@ const Divider = forwardRef(
         style={{
           margin: margin,
           ...dividerStyle,
+          ...style,
         }}
         {...rest}
       >
@@ -64,6 +66,7 @@ Divider.propTypes = {
   margin: PropTypes.string,
   orientation: PropTypes.string,
   thickness: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Divider.displayName = "Divider";

@@ -11,11 +11,7 @@ const Content = ({ children }) => {
     pageType ? `${styles[`component`]}` : ""
   }`;
 
-  return (
-    <div className={contentContainer}>
-      {children}
-    </div>
-  );
+  return <div className={contentContainer}>{children}</div>;
 };
 
 Content.propTypes = {
