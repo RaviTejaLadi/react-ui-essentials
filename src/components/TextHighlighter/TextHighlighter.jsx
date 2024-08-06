@@ -26,7 +26,7 @@ const defaultColors = [
   "#845EC2",
 ];
 
-const TextHighlighter = forwardRef(({ children, highlightText, colorsList = [], ...rest }, ref) => {
+const TextHighlighter = forwardRef(({ children, highlightText, colorsList = [], className, style, ...rest }, ref) => {
   const [highlightedText, setHighlightedText] = useState(null);
 
   useEffect(() => {
@@ -72,7 +72,7 @@ const TextHighlighter = forwardRef(({ children, highlightText, colorsList = [], 
   }, [children, highlightText, colorsList]);
 
   return (
-    <span ref={ref} {...rest}>
+    <span ref={ref} className={className} style={style} {...rest}>
       {highlightedText}
     </span>
   );
@@ -82,6 +82,8 @@ TextHighlighter.propTypes = {
   children: PropTypes.node.isRequired,
   colorsList: PropTypes.arrayOf(PropTypes.string).isRequired,
   highlightText: PropTypes.arrayOf(PropTypes.string).isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 TextHighlighter.displayName = "TextHighlighter";

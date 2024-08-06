@@ -3,14 +3,15 @@ import React, { forwardRef } from "react";
 import styles from "./View.module.css";
 import Button from "../Button/Button";
 
-const View = forwardRef(({ width = "100%", height = "auto", code, elements, ...rest }, ref) => {
+const View = forwardRef(({ width = "100%", height = "auto", code, elements, className, style, ...rest }, ref) => {
   const containerStyles = {
     width: width,
     height: height,
+    ...style,
   };
 
   return (
-    <div ref={ref} style={containerStyles} className={styles.rue_view_cont} {...rest}>
+    <div ref={ref} style={containerStyles} className={`${styles.rue_view_cont} ${className}`} {...rest}>
       <div className={styles.rue_view_header}>
         <div className={styles.rue_view_title}>Result</div>
       </div>
@@ -93,6 +94,9 @@ View.propTypes = {
   width: PropTypes.string,
   code: PropTypes.node.isRequired,
   elements: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 View.displayName = "View";
 export default View;

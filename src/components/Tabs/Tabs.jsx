@@ -3,7 +3,18 @@ import PropTypes from "prop-types";
 import styles from "./Tabs.module.css";
 import Box from "../Box/Box";
 
-const Tabs = ({ children, active, onChange, variant = "primary", size = "sm", headerStyles, bodyStyles, ...rest }) => {
+const Tabs = ({
+  children,
+  active,
+  onChange,
+  variant = "primary",
+  size = "sm",
+  headerStyles,
+  bodyStyles,
+  className,
+  style,
+  ...rest
+}) => {
   const getInitialActiveTab = () => {
     const firstEnabledTab = React.Children.toArray(children).find((child) => !child.props.disabled);
     return active || firstEnabledTab?.props?.value;
@@ -24,7 +35,7 @@ const Tabs = ({ children, active, onChange, variant = "primary", size = "sm", he
   };
 
   return (
-    <Box padding="5px" rounded className={styles.rue_tabsContainer} {...rest}>
+    <Box padding="5px" rounded className={`${styles.rue_tabsContainer} ${className}`} style={style} {...rest}>
       <div className={`${styles.rue_tabList} ${styles[variant]}`} style={headerStyles}>
         {React.Children.map(children, (child) => (
           <button
@@ -67,6 +78,8 @@ Tab.propTypes = {
   leftIcon: PropTypes.node,
   rightIcon: PropTypes.node,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export { Tabs, Tab };

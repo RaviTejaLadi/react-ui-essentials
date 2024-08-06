@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import styles from "./Modal.module.css";
 import CloseButton from "../CloseButton/CloseButton";
 
-const Modal = forwardRef(({ children, openModal, position = "center", size = "md", variant = "", ...rest }, ref) => {
+const Modal = forwardRef(({ children, openModal, position = "center", size = "md", variant = "",className, style, ...rest }, ref) => {
   const getModalClassNames = () => {
     return [
       styles[`rue_modal_${variant}`] || "",
@@ -16,7 +16,7 @@ const Modal = forwardRef(({ children, openModal, position = "center", size = "md
   return (
     <div
       ref={ref}
-      className={`${styles.rue_modal_overlay} ${openModal ? styles.rue_modal_open : styles.rue_modal_closed}`}
+      className={`${styles.rue_modal_overlay} ${openModal ? styles.rue_modal_open : styles.rue_modal_closed} ${className}`}
       role="dialog"
       aria-modal="true"
     >

@@ -2,10 +2,11 @@ import PropTypes from "prop-types";
 import React, { useRef, useEffect, forwardRef } from "react";
 import styles from "./TextArea.module.css";
 
-const TextArea = forwardRef(({ height = "100%", width = "300px", value, ...rest }, ref) => {
+const TextArea = forwardRef(({ height = "100%", width = "300px", value, className, style, ...rest }, ref) => {
   const containerStyles = {
     width: width,
     height: height,
+    ...style,
   };
 
   const textareaRef = useRef(null);
@@ -109,7 +110,7 @@ const TextArea = forwardRef(({ height = "100%", width = "300px", value, ...rest 
   }, []);
 
   return (
-    <div ref={ref} style={containerStyles} className={styles.rue_container} {...rest}>
+    <div ref={ref} style={containerStyles} className={`${styles.rue_container} ${className}`} {...rest}>
       <div ref={lineNumbersRef} className={styles.rue_line_numbers} />
       <textarea
         style={{ width: width }}
@@ -128,6 +129,8 @@ TextArea.propTypes = {
   height: PropTypes.string,
   value: PropTypes.any,
   width: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 TextArea.displayName = "TextArea";
 export default TextArea;

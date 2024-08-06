@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 import styles from "./Spinner.module.css";
 
-const Spinner = forwardRef(({ variant = "primary", size = "md", ...rest }, ref) => {
+const Spinner = forwardRef(({ variant = "primary", size = "md", className, style, ...rest }, ref) => {
   const colorMap = {
     primary: "#007bff",
     secondary: "#6c757d",
@@ -25,7 +25,7 @@ const Spinner = forwardRef(({ variant = "primary", size = "md", ...rest }, ref) 
   const dimensions = sizeMap[size];
 
   return (
-    <div ref={ref} {...rest} className={styles.spinner}>
+    <div ref={ref} {...rest} className={`${styles.spinner} ${className}`} style={style}>
       <svg width={dimensions} height={dimensions} viewBox="-1 -1 42 42" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id={`spinner-gradient-${variant}`}>
@@ -70,6 +70,8 @@ const Spinner = forwardRef(({ variant = "primary", size = "md", ...rest }, ref) 
 Spinner.propTypes = {
   size: PropTypes.string,
   variant: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Spinner.displayName = "Spinner";

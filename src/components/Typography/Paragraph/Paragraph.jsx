@@ -24,6 +24,7 @@ const Paragraph = forwardRef(
       children,
       fontWeight,
       style,
+      className,
       ...rest
     },
     ref
@@ -83,7 +84,12 @@ const Paragraph = forwardRef(
     };
 
     return (
-      <Component ref={ref} className={`${styles.rue_para} ${getVariantClass()}`} style={paraStyle} {...rest}>
+      <Component
+        ref={ref}
+        className={`${styles.rue_para} ${getVariantClass()} ${className}`}
+        style={paraStyle}
+        {...rest}
+      >
         <span>{children}</span>
         {copy && (
           <span className={styles.rue_copyIcon} onClick={handleCopy}>
@@ -114,6 +120,9 @@ Text.propTypes = {
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
   color: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 Paragraph.displayName = "Paragraph";
 export default Paragraph;

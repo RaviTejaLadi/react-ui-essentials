@@ -6,14 +6,17 @@ import Heading from "../Typography/Heading/Heading";
 import Paragraph from "../Typography/Paragraph/Paragraph";
 
 const SectionHeader = forwardRef(
-  ({ children, padding = "20px", margin = "0", controls, placement = "left", size = "md", ...rest }, ref) => {
+  (
+    { children, padding = "20px", margin = "0", controls, placement = "left", size = "md", className, style, ...rest },
+    ref
+  ) => {
     return (
       <Box
         ref={ref}
-        style={{ padding, margin }}
+        style={{ padding, margin, ...style }}
         className={`${styles.rue_sectionHeader} ${styles[`rue_sectionHeader_placement-${placement}`]} ${
           styles[`rue_sectionHeader_size-${size}`]
-        }`}
+        } ${className}`}
         {...rest}
       >
         <div className={styles.rue_sectionHeader_content}>{children}</div>
@@ -23,9 +26,9 @@ const SectionHeader = forwardRef(
   }
 );
 
-const SectionHeaderTitle = ({ children, ...rest }) => {
+const SectionHeaderTitle = ({ children, className, style, ...rest }) => {
   return (
-    <Heading className={styles.rue_sectionHeader_title} {...rest}>
+    <Heading className={`${styles.rue_sectionHeader_title} ${classNmae}`} style={style} {...rest}>
       {children}
     </Heading>
   );
@@ -33,10 +36,13 @@ const SectionHeaderTitle = ({ children, ...rest }) => {
 
 SectionHeaderTitle.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
-const SectionHeaderSubTitle = ({ children, ...rest }) => {
+
+const SectionHeaderSubTitle = ({ children, className, style, ...rest }) => {
   return (
-    <Paragraph className={styles.rue_sectionHeader_subtitle} {...rest}>
+    <Paragraph className={`${styles.rue_sectionHeader_subtitle} ${classNmae}`} style={style} {...rest}>
       {children}
     </Paragraph>
   );
@@ -44,6 +50,8 @@ const SectionHeaderSubTitle = ({ children, ...rest }) => {
 
 SectionHeaderSubTitle.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 SectionHeader.propTypes = {
@@ -53,7 +61,10 @@ SectionHeader.propTypes = {
   padding: PropTypes.string,
   placement: PropTypes.oneOf(["left", "right", "center"]),
   size: PropTypes.oneOf(["xs", "sm", "md", "lg", "xl"]),
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 SectionHeader.Title = SectionHeaderTitle;
 SectionHeader.SubTitle = SectionHeaderSubTitle;
 SectionHeader.displayName = "SectionHeader";

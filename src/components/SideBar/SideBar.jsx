@@ -6,33 +6,44 @@ import ArrowDropDown from "../../Icons/Round/ArrowDropDown";
 import ArrowRight from "../../Icons/Round/ArrowRight";
 import Search from "../../Icons/Round/Search";
 
-const SideBar = forwardRef(({ children, backgroundColor = "", color = "", width = "", ...rest }, ref) => {
-  return (
-    <aside ref={ref} className={styles.rue_sidebar} style={{ backgroundColor, color, width }} {...rest}>
-      {children}
-    </aside>
-  );
-});
+const SideBar = forwardRef(
+  ({ children, backgroundColor = "", color = "", width = "", className, style, ...rest }, ref) => {
+    return (
+      <aside
+        ref={ref}
+        className={`${styles.rue_sidebar} ${className}`}
+        style={{ backgroundColor, color, width, ...style }}
+        {...rest}
+      >
+        {children}
+      </aside>
+    );
+  }
+);
 
 SideBar.propTypes = {
   backgroundColor: PropTypes.string,
   children: PropTypes.node,
   color: PropTypes.string,
   width: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const SidebarHeader = ({ children, ...rest }) => (
-  <div className={styles.rue_sidebar_header} {...rest}>
+const SidebarHeader = ({ children, className, style, ...rest }) => (
+  <div className={`${styles.rue_sidebar_header} ${className}`} style={style} {...rest}>
     {children}
   </div>
 );
 
 SidebarHeader.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 const SideBarBody = forwardRef(
-  ({ routes, variant = "primary", fallbackMessage = "😒 No Components found...", ...rest }, ref) => {
+  ({ routes, variant = "primary", fallbackMessage = "😒 No Components found...", className, style, ...rest }, ref) => {
     const [activeLink, setActiveLink] = useState(null);
     const [activeDropdown, setActiveDropdown] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
@@ -90,7 +101,7 @@ const SideBarBody = forwardRef(
     const filteredRoutes = routes.filter((route) => route.label.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-      <div ref={ref} {...rest}>
+      <div ref={ref} className={className} style={style} {...rest}>
         <div className={styles.rue_search_container}>
           <input
             type="text"
@@ -173,16 +184,20 @@ SideBarBody.propTypes = {
   routes: PropTypes.array.isRequired,
   variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "help", "light", "dark"]),
   fallbackMessage: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const SideBarFooter = ({ children, ...rest }) => (
-  <div className={styles.rue_sidebar_footer} {...rest}>
+const SideBarFooter = ({ children, className, style, ...rest }) => (
+  <div className={`${styles.rue_sidebar_footer} ${className}`} style={style} {...rest}>
     {children}
   </div>
 );
 
 SideBarFooter.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 SideBar.Header = SidebarHeader;

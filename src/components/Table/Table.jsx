@@ -5,13 +5,24 @@ import Code from "../Code/Code";
 
 const Table = forwardRef(
   (
-    { columns, rows, code = false, CodeColumn = [], codeColor = "", codeUnderline = false, codeStyle = {}, ...rest },
+    {
+      columns,
+      rows,
+      code = false,
+      CodeColumn = [],
+      codeColor = "",
+      codeUnderline = false,
+      codeStyle = {},
+      className,
+      style,
+      ...rest
+    },
     ref
   ) => {
     const codeColumns = Array.isArray(CodeColumn) ? CodeColumn : [CodeColumn];
 
     return (
-      <div ref={ref} className={styles.rue_table_container} {...rest}>
+      <div ref={ref} className={`${styles.rue_table_container} ${className}`} style={style} {...rest}>
         <table className={styles.table}>
           <thead className={styles.tableHeader}>
             <tr>
@@ -51,6 +62,9 @@ Table.propTypes = {
   codeColor: PropTypes.string,
   codeUnderline: PropTypes.bool,
   codeStyle: PropTypes.object,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 Table.displayName = "Table";
 export default Table;

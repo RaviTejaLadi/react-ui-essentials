@@ -24,6 +24,7 @@ const Heading = forwardRef(
       children,
       fontWeight,
       style,
+      className,
       ...rest
     },
     ref
@@ -83,7 +84,12 @@ const Heading = forwardRef(
     };
 
     return (
-      <Component ref={ref} className={`${styles.rue_heading} ${getVariantClass()}`} style={headingStyle} {...rest}>
+      <Component
+        ref={ref}
+        className={`${styles.rue_heading} ${getVariantClass()} ${className}`}
+        style={headingStyle}
+        {...rest}
+      >
         <span>{children}</span>
         {copy && (
           <span className={styles.rue_copyIcon} onClick={handleCopy}>
@@ -114,6 +120,9 @@ Heading.propTypes = {
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
   color: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 Heading.displayName = "Heading";
 export default Heading;

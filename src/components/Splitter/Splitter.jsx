@@ -4,7 +4,10 @@ import styles from "./Splitter.module.css";
 import Box from "../Box/Box";
 
 const Splitter = forwardRef(
-  ({ orientation = "vertical", width = "100%", height = "100%", margin = "0", children, ...rest }, ref) => {
+  (
+    { orientation = "vertical", width = "100%", height = "100%", margin = "0", children, className, style, ...rest },
+    ref
+  ) => {
     const containerRef = useRef();
     const resizerRef = useRef();
     const firstHalfRef = useRef();
@@ -117,7 +120,7 @@ const Splitter = forwardRef(
     };
 
     return (
-      <Box ref={ref}>
+      <Box ref={ref} className={className} style={style}>
         <div
           className={`${styles.rue_splitter} ${
             isHorizontal ? styles.rue_splitter_horizontal : styles.rue_splitter_vertical
@@ -152,11 +155,16 @@ Splitter.propTypes = {
   height: PropTypes.string,
   margin: PropTypes.string,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
-
+Splitter.displayName = "Splitter";
 export default Splitter;
-const LeftContainer = ({ children, padding, width, height, minWidth, minHeight }) => (
-  <div style={{ padding, flexBasis: width || height, minWidth, minHeight }}>{children}</div>
+
+const LeftContainer = ({ children, padding, width, height, minWidth, minHeight, className, style, ...rest }) => (
+  <div className={className} style={{ padding, flexBasis: width || height, minWidth, minHeight, ...style }} {...rest}>
+    {children}
+  </div>
 );
 
 LeftContainer.propTypes = {
@@ -166,10 +174,14 @@ LeftContainer.propTypes = {
   minWidth: PropTypes.string,
   minHeight: PropTypes.string,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const RightContainer = ({ children, padding, width, height, minWidth, minHeight }) => (
-  <div style={{ padding, flexBasis: width || height, minWidth, minHeight }}>{children}</div>
+const RightContainer = ({ children, padding, width, height, minWidth, minHeight, className, style, ...rest }) => (
+  <div className={className} style={{ padding, flexBasis: width || height, minWidth, minHeight, ...style }} {...rest}>
+    {children}
+  </div>
 );
 
 RightContainer.propTypes = {
@@ -179,6 +191,8 @@ RightContainer.propTypes = {
   minWidth: PropTypes.string,
   minHeight: PropTypes.string,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Splitter.LeftContainer = LeftContainer;

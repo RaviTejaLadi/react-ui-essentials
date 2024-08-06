@@ -16,7 +16,7 @@ const useDebouncedRippleCleanUp = (rippleCount, duration, cleanUpFunction) => {
   }, [rippleCount, duration, cleanUpFunction]);
 };
 
-const Ripple = forwardRef(({ duration = 850, color = "#fff", ...rest }, ref) => {
+const Ripple = forwardRef(({ duration = 850, color = "#fff", className, style, ...rest }, ref) => {
   const [rippleArray, setRippleArray] = useState([]);
 
   useDebouncedRippleCleanUp(rippleArray.length, duration, () => {
@@ -33,7 +33,13 @@ const Ripple = forwardRef(({ duration = 850, color = "#fff", ...rest }, ref) => 
   };
 
   return (
-    <div ref={ref} className={styles.rue_ripple_container} onMouseDown={addRipple} {...rest}>
+    <div
+      ref={ref}
+      className={`${styles.rue_ripple_container} ${className}`}
+      style={style}
+      onMouseDown={addRipple}
+      {...rest}
+    >
       {rippleArray.length > 0 &&
         rippleArray.map((ripple, index) => (
           <span
@@ -56,6 +62,9 @@ const Ripple = forwardRef(({ duration = 850, color = "#fff", ...rest }, ref) => 
 Ripple.propTypes = {
   duration: PropTypes.number,
   color: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 Ripple.displayName = "Ripple";
 export default Ripple;

@@ -3,12 +3,18 @@ import PropTypes from "prop-types";
 import styles from "./Stack.module.css";
 import Box from "../Box/Box";
 
-const Item = ({ children, ...rest }) => {
-  return <Box {...rest}>{children}</Box>;
+const Item = ({ children, className, style, ...rest }) => {
+  return (
+    <Box className={className} style={style} {...rest}>
+      {children}
+    </Box>
+  );
 };
 
 Item.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 const Stack = forwardRef(
@@ -23,6 +29,7 @@ const Stack = forwardRef(
       padding,
       className,
       children,
+      style,
       ...rest
     },
     ref
@@ -42,6 +49,7 @@ const Stack = forwardRef(
     const inlineStyles = {
       gap: `${spacing}px`,
       padding,
+      ...style,
     };
 
     return (
@@ -62,6 +70,7 @@ Stack.propTypes = {
   justifyContent: PropTypes.oneOf(["start", "center", "end", "between", "around"]),
   padding: PropTypes.string,
   spacing: PropTypes.number,
+  style: PropTypes.object,
 };
 
 Stack.Item = Item;

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { useState, useEffect, forwardRef } from "react";
 import Button from "../Button/Button";
 
-const TreeNode = forwardRef(({ node, parentChecked, showCheckBox, onCheckChange, ...rest }, ref) => {
+const TreeNode = forwardRef(({ node, parentChecked, showCheckBox, onCheckChange, className, style, ...rest }, ref) => {
   const [collapsed, setCollapsed] = useState(false);
   const [checked, setChecked] = useState(parentChecked !== undefined ? parentChecked : false);
 
@@ -23,9 +23,12 @@ const TreeNode = forwardRef(({ node, parentChecked, showCheckBox, onCheckChange,
   const handleCheck = () => {
     setChecked(!checked);
   };
-
+  const nodeStyle = {
+    fontSize: "12px",
+    ...style,
+  };
   return (
-    <div ref={ref} style={{ fontSize: "12px" }} {...rest}>
+    <div ref={ref} className={className} style={nodeStyle} {...rest}>
       {showCheckBox && (
         <input
           type="checkbox"
@@ -67,9 +70,13 @@ TreeNode.propTypes = {
   onCheckChange: PropTypes.func,
   parentChecked: PropTypes.bool,
   showCheckBox: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 TreeNode.displayName = "TreeNode";
-const TreeView = forwardRef(({ data, showCheckBox, ...rest }, ref) => {
+
+const TreeView = forwardRef(({ data, showCheckBox, className, style, ...rest }, ref) => {
   const [checkedNodes, setCheckedNodes] = useState(JSON.parse(JSON.stringify(data)));
 
   const handleCheckChange = (node, isChecked) => {
@@ -98,7 +105,7 @@ const TreeView = forwardRef(({ data, showCheckBox, ...rest }, ref) => {
   const checkedHierarchy = filterCheckedNodes(checkedNodes);
 
   return (
-    <div ref={ref} {...rest}>
+    <div ref={ref} className={className} style={style} {...rest}>
       <TreeNode node={data} showCheckBox={showCheckBox} onCheckChange={handleCheckChange} parentChecked={undefined} />
       {showCheckBox && (
         <pre>
@@ -112,6 +119,9 @@ const TreeView = forwardRef(({ data, showCheckBox, ...rest }, ref) => {
 TreeView.propTypes = {
   data: PropTypes.array.isRequired,
   showCheckBox: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 TreeView.displayName = "TreeView";
 export default TreeView;

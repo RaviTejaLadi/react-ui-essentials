@@ -2,7 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./Popover.module.css";
 import PropTypes from "prop-types";
 
-const Popover = ({ position = "top", size = "sm", width = "", height = "", content, children, ...rest }) => {
+const Popover = ({
+  position = "top",
+  size = "sm",
+  width = "",
+  height = "",
+  content,
+  children,
+  className,
+  style,
+  ...rest
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef(null);
   const targetRef = useRef(null);
@@ -33,7 +43,7 @@ const Popover = ({ position = "top", size = "sm", width = "", height = "", conte
   }, []);
 
   return (
-    <div className={styles.rue_popover_container} {...rest} ref={popoverRef}>
+    <div className={`${styles.rue_popover_container} ${className}`} style={style} {...rest} ref={popoverRef}>
       <div className="target" ref={targetRef} onClick={togglePopover}>
         {children}
       </div>
@@ -49,9 +59,13 @@ const Popover = ({ position = "top", size = "sm", width = "", height = "", conte
   );
 };
 
-const PopoverContent = ({ children, width, height, ...rest }) => {
+const PopoverContent = ({ children, width, height, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_popover_content} style={{ width: width, height: height }} {...rest}>
+    <div
+      className={`${styles.rue_popover_content} ${className}`}
+      style={{ width: width, height: height, ...style }}
+      {...rest}
+    >
       {children}
     </div>
   );
@@ -61,11 +75,13 @@ PopoverContent.propTypes = {
   children: PropTypes.node,
   width: PropTypes.string,
   height: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const PopoverHeader = ({ children, height, ...rest }) => {
+const PopoverHeader = ({ children, height, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_popover_header} style={{ height: height }} {...rest}>
+    <div className={`${styles.rue_popover_header} ${className}`} style={{ height: height, ...style }} {...rest}>
       {children}
     </div>
   );
@@ -74,11 +90,13 @@ const PopoverHeader = ({ children, height, ...rest }) => {
 PopoverHeader.propTypes = {
   children: PropTypes.node,
   height: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const PopoverBody = ({ children, height, ...rest }) => {
+const PopoverBody = ({ children, height, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_popover_body} style={{ height: height }} {...rest}>
+    <div className={`${styles.rue_popover_body} ${className}`} style={{ height: height, ...style }} {...rest}>
       {children}
     </div>
   );
@@ -87,11 +105,13 @@ const PopoverBody = ({ children, height, ...rest }) => {
 PopoverBody.propTypes = {
   children: PropTypes.node,
   height: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
-const PopoverFooter = ({ children, height, ...rest }) => {
+const PopoverFooter = ({ children, height, className, style, ...rest }) => {
   return (
-    <div className={styles.rue_popover_footer} style={{ height: height }} {...rest}>
+    <div className={`${styles.rue_popover_footer} ${className}`} style={{ height: height, ...style }} {...rest}>
       {children}
     </div>
   );
@@ -100,6 +120,8 @@ const PopoverFooter = ({ children, height, ...rest }) => {
 PopoverFooter.propTypes = {
   children: PropTypes.node,
   height: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Popover.propTypes = {
@@ -109,6 +131,8 @@ Popover.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   size: PropTypes.oneOf(["sm", "md", "lg"]),
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Popover.Content = PopoverContent;

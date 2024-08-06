@@ -3,7 +3,7 @@ import styles from "./TextCarousel.module.css";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 
-const TextCarousel = forwardRef(({ children, interval = 0 }, ref) => {
+const TextCarousel = forwardRef(({ children, interval = 0, className, style }, ref) => {
   const [index, setIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const itemCount = Children.count(children);
@@ -32,17 +32,16 @@ const TextCarousel = forwardRef(({ children, interval = 0 }, ref) => {
     }
   }, [isTransitioning]);
 
+  const contStyle = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    ...style,
+  };
+  
   return (
-    <Box
-      ref={ref}
-      padding="10px"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Box ref={ref} padding="10px" className={className} style={contStyle}>
       <Box padding="12px" className={styles.rue_carouselContent}>
         <div className={styles.rue_carouselItem}>{cloneElement(children[index])}</div>
       </Box>
@@ -53,5 +52,6 @@ const TextCarousel = forwardRef(({ children, interval = 0 }, ref) => {
     </Box>
   );
 });
+
 TextCarousel.displayName = "TextCarousel";
 export default TextCarousel;
