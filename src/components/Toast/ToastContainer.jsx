@@ -37,9 +37,7 @@ const ToastContainer = forwardRef(
     ref
   ) => {
     const handleClose = (id) => removeToast(id, setToasts);
-
     const containerClasses = [styles.rue_toast_container, styles[position], className].filter(Boolean).join(" ");
-
     return (
       <div ref={ref} className={containerClasses} style={style} {...rest}>
         {toasts?.map((toast) => (

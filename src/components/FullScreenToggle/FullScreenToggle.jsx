@@ -2,9 +2,8 @@ import PropTypes from "prop-types";
 import React, { useState, useEffect, forwardRef } from "react";
 import Button from "../Button/Button";
 import { ZoomInMap, ZoomOutMap } from "../../Icons/Round";
-// import styles from "./FullScreenToggle.module.css";
 
-const FullScreenToggle = forwardRef(({ variant, size, text }, ref) => {
+const FullScreenToggle = forwardRef(({ variant, size, text, ...rest }, ref) => {
   const [isFullScreen, setFullScreen] = useState(false);
 
   const toggleFullScreen = () => {
@@ -45,7 +44,7 @@ const FullScreenToggle = forwardRef(({ variant, size, text }, ref) => {
     };
   }, []);
   return (
-    <Button ref={ref} variant={variant} size={size} onClick={toggleFullScreen}>
+    <Button ref={ref} variant={variant} size={size} onClick={toggleFullScreen} {...rest}>
       <Button.Icon>
         {isFullScreen ? <ZoomInMap width="20px" height="20px" /> : <ZoomOutMap width="20px" height="20px" />}
       </Button.Icon>

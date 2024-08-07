@@ -45,7 +45,7 @@ SidebarHeader.propTypes = {
 const SideBarBody = forwardRef(
   ({ routes, variant = "primary", fallbackMessage = "😒 No Components found...", className, style, ...rest }, ref) => {
     const [activeLink, setActiveLink] = useState(null);
-    const [activeDropdown, setActiveDropdown] = useState(null);
+    const [openDropdowns, setOpenDropdowns] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const dropdownRef = useRef(null);
 
@@ -56,17 +56,21 @@ const SideBarBody = forwardRef(
         if (!matchedRoute) {
           routes.forEach((route) => {
             if (route.subMenu) {
-              const subRoute = route.subMenu.find((sub) => sub.path === path);
-              if (subRoute) {
-                matchedRoute = route;
-                setActiveLink(subRoute.id);
-              }
+              route.subMenu.forEach((category) => {
+                const subRoute = category.items.find((sub) => sub.path === path);
+                if (subRoute) {
+                  matchedRoute = route;
+                  setActiveLink(subRoute.id);
+                  if (!openDropdowns.includes(route.id)) {
+                    setOpenDropdowns((prev) => [...prev, route.id]);
+                  }
+                }
+              });
             }
           });
         } else {
           setActiveLink(matchedRoute.id);
         }
-        setActiveDropdown(matchedRoute ? matchedRoute.id : null);
       };
 
       window.addEventListener("popstate", handleRouteChange);
@@ -75,10 +79,10 @@ const SideBarBody = forwardRef(
       return () => {
         window.removeEventListener("popstate", handleRouteChange);
       };
-    }, [routes]);
+    }, [routes, openDropdowns]);
 
-    const toggleDropdown = (index) => {
-      setActiveDropdown(activeDropdown === index ? null : index);
+    const toggleDropdown = (id) => {
+      setOpenDropdowns((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]));
     };
 
     const getLinkVariant = () => {
@@ -87,7 +91,7 @@ const SideBarBody = forwardRef(
 
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        // setActiveDropdown(null);
+        // Removed setOpenDropdowns([]); to prevent closing on outside click
       }
     };
 
@@ -115,10 +119,11 @@ const SideBarBody = forwardRef(
         {filteredRoutes.length === 0 ? (
           <div className={styles.rue_fallback_message}>{fallbackMessage}</div>
         ) : (
-          filteredRoutes.map(({ id, label, path, icons, subMenu }, index) => {
-            const isDropdownActive = activeDropdown === id;
+          filteredRoutes.map(({ id, label, path, icons, subMenu }) => {
+            const isDropdownOpen = openDropdowns.includes(id);
             const isActiveLink = activeLink === id;
-            const isParentActive = subMenu && subMenu.some((sub) => sub.id === activeLink);
+            const isParentActive =
+              subMenu && subMenu?.some((category) => category?.items?.some((item) => item.id === activeLink));
             return (
               <Fragment key={id}>
                 <div className={styles.rue_link_container}>
@@ -129,45 +134,50 @@ const SideBarBody = forwardRef(
                     title={label}
                     onClick={() => {
                       setActiveLink(id);
-                      if (!subMenu) {
-                        setActiveDropdown(null);
-                      }
+                      toggleDropdown(id);
                     }}
                   >
-                    <span className={styles.rue_highlight} />
-                    {icons && (
-                      <span className={styles.rue_sidebar_icon}>
-                        <img src={icons} alt="sidebar_icons" />
+                    <div>
+                      <span className={styles.rue_highlight} />
+                      {icons && (
+                        <span className={styles.rue_sidebar_icon}>
+                          <img src={icons} alt="sidebar_icons" />
+                        </span>
+                      )}
+                      <span className={styles.rue_sidebar_p}>
+                        {label.length > 15 ? `${label.slice(0, 15)}...` : label}
                       </span>
-                    )}
-                    <span className={styles.rue_sidebar_p}>
-                      {label.length > 15 ? `${label.slice(0, 15)}...` : label}
-                    </span>
-                    {subMenu && (
-                      <span
-                        className={styles.rue_submenu_arrow}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          toggleDropdown(id);
-                        }}
-                      >
-                        {isDropdownActive ? (
-                          <ArrowDropDown width="30px" height="30px" fill="#151515" />
-                        ) : (
-                          <ArrowRight width="30px" height="30px" fill="#151515" />
-                        )}
-                      </span>
-                    )}
+                    </div>
+                    <div>
+                      {subMenu && (
+                        <span className={styles.rue_submenu_arrow}>
+                          <ArrowDropDown width="30px" height="30px" fill="#000" />
+                        </span>
+                      )}
+                    </div>
                   </Link>
                 </div>
-                {subMenu && isDropdownActive && (
+                {subMenu && isDropdownOpen && (
                   <div className={styles.rue_submenu} ref={dropdownRef}>
-                    {subMenu.map(({ id, label, path }) => (
-                      <Link key={id} to={path} onClick={() => setActiveLink(id)}>
-                        <span role="img">🎯</span>
-                        <span className={styles.rue_sidebar_p}>{label}</span>
-                      </Link>
+                    {subMenu.map((category, categoryIndex) => (
+                      <div key={categoryIndex} className={styles.rue_submenu_category}>
+                        {category.category && (
+                          <div className={styles.rue_submenu_category_label}>{category.category}</div>
+                        )}
+                        {category.items.map(({ id: itemId, label: itemLabel, path: itemPath, icons }) => (
+                          <Link
+                            key={itemId}
+                            to={itemPath}
+                            onClick={() => setActiveLink(itemId)}
+                            className={activeLink === itemId ? `${styles.rue_active}` : ""}
+                          >
+                            <span role="img" className={styles.rue_sidebar_icon}>
+                              {icons ? <img src={icons} alt="sidebar_icons" /> : "🎯"}
+                            </span>
+                            <span className={styles.rue_sidebar_p}>{itemLabel}</span>
+                          </Link>
+                        ))}
+                      </div>
                     ))}
                   </div>
                 )}

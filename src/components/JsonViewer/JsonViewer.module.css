@@ -2,13 +2,23 @@
   white-space: pre-wrap;
   overflow: auto;
   min-width: 300px;
-  min-height: 300px;
 }
 
 .rue_json_preview_header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px
+  align-items: center;
+  padding: 4px 10px;
+}
+
+.rue_json_preview_title {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.rue_json_preview_button {
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .rue_json_preview {

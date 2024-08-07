@@ -1,342 +1,336 @@
 .rue_sidebar a,
-.rue_sidebar a:hover,
-.rue_sidebar a:focus {
-  margin-left: 8px;
-  margin-top: 8px;
-  padding: 3px;
-  width: 90%;
-}
-
 .rue_sidebar a.rue_active,
 .rue_submenu a.rue_active,
-.rue_submenu a:hover,
-.rue_submenu a:focus {
-  display: flex;
-  text-align: center;
-  height: 32px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, .1);
-  backdrop-filter: blur(5px);
+.rue_submenu a:focus,
+.rue_submenu a:hover {
+    text-align: center;
+    height: 32px;
+    display: flex
+}
+
+.rue_sidebar a,
+.rue_sidebar a:focus,
+.rue_sidebar a:hover {
+    margin-left: 8px;
+    margin-top: 8px;
+    padding: 3px;
+    width: 90%
 }
 
 .rue_sidebar {
-  transition: width .2s ease-in;
-  height: 100vh;
-  width: 16%;
-  min-width: 16%;
-  position: fixed;
-  padding-bottom: 60px;
-  overflow-y: auto;
+    transition: width .2s ease-in;
+    height: 100vh;
+    width: 16%;
+    min-width: 16%;
+    position: fixed;
+    padding-bottom: 60px;
+    overflow-y: auto
 }
 
 .rue_sidebar a,
 .rue_sidebar_toggel {
-  border: 1px solid transparent;
+    border: 1px solid transparent
 }
 
 .rue_sidebar_toggel {
-  margin: 0 0 .3rem .4rem;
-  cursor: pointer;
+    margin: 0 0 .3rem .4rem;
+    cursor: pointer
 }
 
 .rue_sidebar a {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: center;
-  text-align: center;
-  text-decoration: none;
-  color: #171616;
-  border-radius: 4px;
-  height: 32px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    text-decoration: none;
+    color: #171616;
+    border-radius: 4px
 }
 
 .rue_sidebar a:hover {
-  color: #121212;
-  background-color: #eee;
-  border: 1px solid transparent;
+    color: #121212;
+    background-color: #eee;
+    border: 1px solid transparent
 }
 
+.rue_sidebar a.rue_active_primary:focus,
 .rue_sidebar a:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, .5)
 }
 
 .rue_sidebar a.rue_active {
-  color: #fff;
-  border-radius: 4px;
-  justify-content: flex-start;
-  width: 90%;
-  background-color: #007bff;
-  border: 0 solid rgba(246, 250, 247, .3);
-}
-
-.rue_sidebar a.rue_active:hover {
-  background-color: #0056b3;
-}
-
-.rue_sidebar a.rue_active:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    color: #fff;
+    border-radius: 4px;
+    width: 90%;
+    background-color: inherit;
+    border: 1px solid transparent
 }
 
 .rue_sidebar a.rue_active_primary {
-  color: #ffffff;
-  background-color: #007bff;
+    color: #fff;
+    background-color: #007bff
 }
 
 .rue_sidebar a.rue_active_primary:hover {
-  background-color: #0056b3;
-}
-
-.rue_sidebar a.rue_active_primary:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    background-color: #0056b3
 }
 
 .rue_sidebar a.rue_active_secondary {
-  color: #ffffff;
-  background-color: #6c757d;
+    color: #fff;
+    background-color: #6c757d
 }
 
 .rue_sidebar a.rue_active_secondary:hover {
-  background-color: #545b62;
+    background-color: #545b62
 }
 
 .rue_sidebar a.rue_active_secondary:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(108, 117, 125, .5)
 }
 
 .rue_sidebar a.rue_active_success {
-  color: #ffffff;
-  background-color: #28a745;
+    color: #fff;
+    background-color: #28a745
 }
 
 .rue_sidebar a.rue_active_success:hover {
-  background-color: #218838;
+    background-color: #218838
 }
 
 .rue_sidebar a.rue_active_success:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(40, 167, 69, .5)
 }
 
 .rue_sidebar a.rue_active_info {
-  color: #ffffff;
-  background-color: #17a2b8;
+    color: #fff;
+    background-color: #17a2b8
 }
 
 .rue_sidebar a.rue_active_info:hover {
-  background-color: #138496;
+    background-color: #138496
 }
 
 .rue_sidebar a.rue_active_info:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(23, 162, 184, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(23, 162, 184, .5)
 }
 
 .rue_sidebar a.rue_active_warning {
-  color: #ffffff;
-  background-color: #ffc107;
+    color: #fff;
+    background-color: #ffc107
 }
 
 .rue_sidebar a.rue_active_warning:hover {
-  background-color: #e0a800;
+    background-color: #e0a800
 }
 
 .rue_sidebar a.rue_active_warning:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(255, 193, 7, .5)
 }
 
 .rue_sidebar a.rue_active_danger {
-  color: #ffffff;
-  background-color: #dc3545;
+    color: #fff;
+    background-color: #dc3545
 }
 
 .rue_sidebar a.rue_active_danger:hover {
-  background-color: #c82333;
+    background-color: #c82333
 }
 
 .rue_sidebar a.rue_active_danger:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, .5)
 }
 
 .rue_sidebar a.rue_active_help {
-  color: #ffffff;
-  background-color: #6f42c1;
+    color: #fff;
+    background-color: #6f42c1
 }
 
 .rue_sidebar a.rue_active_help:hover {
-  background-color: #5d3bb4;
+    background-color: #5d3bb4
 }
 
 .rue_sidebar a.rue_active_help:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(111, 66, 193, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(111, 66, 193, .5)
 }
 
 .rue_sidebar a.rue_active_light {
-  color: #979da3;
-  background-color: #f8f9fa;
+    color: #979da3;
+    background-color: #f8f9fa
 }
 
 .rue_sidebar a.rue_active_light:hover {
-  background-color: #e2e6ea;
+    background-color: #e2e6ea
 }
 
 .rue_sidebar a.rue_active_light:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(248, 249, 250, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(248, 249, 250, .5)
 }
 
 .rue_sidebar a.rue_active_dark {
-  color: #ffffff;
-  background-color: #343a40;
+    color: #fff;
+    background-color: #343a40
 }
 
 .rue_sidebar a.rue_active_dark:hover {
-  background-color: #23272b;
+    background-color: #23272b
 }
 
 .rue_sidebar a.rue_active_dark:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 58, 64, 0.5);
-}
-
-.rue_submenu,
-.rue_submenu_arrow svg {
-  color: #171616;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(52, 58, 64, .5)
 }
 
 .rue_sidebar a.rue_active .rue_highlight {
-  position: absolute;
-  border: 1px solid #e5e7ebb3;
-  border-radius: 3px;
-  width: 4px;
-  height: 25px;
-  background-color: #fbfcfc;
+    position: absolute;
+    border: 1px solid #e5e7ebb3;
+    border-radius: 3px;
+    width: 4px;
+    height: 25px;
+    background-color: #fbfcfc
 }
 
 .rue_sidebar_content {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start
 }
 
 .rue_sidebar_icon img {
-  width: 18px;
-  height: 18px;
-  margin-left: 10px;
-  margin-bottom: -5px;
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    margin-bottom: -5px
 }
 
 .rue_sidebar_p {
-  font-size: 12px;
-  font-weight: 500;
-  margin-left: 10px;
-  margin-top: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: 5px
 }
 
-.rue_submenu_arrow {
-  margin-left: 30px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  width: auto;
-  height: 99%;
+.rue_submenu_arrow svg {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    width: auto;
+    height: 25px;
+    margin-bottom: -5px
+}
+
+.rue_submenu_arrow svg:hover {
+    background-color: #ccc
+}
+
+.rue_submenu a.rue_active .rue_submenu_arrow svg:hover {
+    background-color: transparent
 }
 
 .rue_submenu,
 .rue_submenu a,
 .rue_submenu a.rue_active,
-.rue_submenu a:hover,
-.rue_submenu a:focus {
-  height: auto;
-  padding: 4px 4px 4px 0;
-  margin: 5px 5px 6px 8px;
+.rue_submenu a:focus,
+.rue_submenu a:hover {
+    height: auto;
+    padding: 4px 4px 4px 0;
+    margin: 5px 5px 6px 8px
 }
 
 .rue_submenu {
-  border: 1px solid #e5e7ebb3;
-  width: 90%;
-  border-radius: 4px;
+    border: 1px solid #e5e7ebb3;
+    width: 90%;
+    border-radius: 4px
 }
 
 .rue_submenu a {
-  border: 1px solid transparent;
-  width: 95%;
-  color: #171616;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+    border: 1px solid transparent;
+    width: 95%;
+    color: #171616;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start
 }
 
 .rue_submenu a.rue_active {
-  color: red;
+    color: #000;
+    background-color: #cccccc75;
+    font-weight: 700
 }
 
 .rue_submenu a:hover {
-  color: #121212;
-  background-color: #eee;
-  border: 1px solid #e5e7ebb3;
-}
-
-.rue_submenu a:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+    color: #121212;
+    background-color: #cccccc75;
+    border: 1px solid #e5e7ebb3
 }
 
 .rue_submenu a.rue_active .rue_highlight {
-  border: 1px solid #e5e7ebb3;
-  border-radius: 3px;
-  width: 4px;
-  height: 22px;
-  margin: 5px 5px 6px 8px;
-  color: #121212;
+    border: 1px solid #e5e7ebb3;
+    border-radius: 3px;
+    width: 4px;
+    height: 22px;
+    margin: 5px 5px 6px 8px;
+    color: #121212
 }
 
 .rue_sidebar_footer,
 .rue_sidebar_header {
-  padding: 5px;
+    padding: 5px
 }
 
 .rue_search_container {
-  position: relative;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  padding: 0 10px;
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 0 10px
 }
 
 .rue_search_input {
-  width: 100%;
-  height: 30px;
-  padding: 8px 30px 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 12px;
+    width: 100%;
+    height: 30px;
+    padding: 8px 30px 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px
 }
 
 .rue_search_input:focus {
-  outline: 0;
-  border-color: #007bff;
-  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+    outline: 0;
+    border-color: #007bff;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
 }
 
 .rue_search_icon {
-  position: absolute;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #888;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888
 }
 
 .rue_fallback_message {
-  border: 1px solid #ccc;
-  margin: 5px;
-  border-radius: 5px;
-  padding: 8px;
-  font-size: 12px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 12px
+}
+
+.rue_submenu_category {
+    margin-bottom: 10px
+}
+
+.rue_submenu_category_label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #6c757d;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e7eb
 }

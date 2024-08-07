@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef, forwardRef } from "react";
+import React, { useState, useEffect, useRef, forwardRef, Fragment } from "react";
 import PropTypes from "prop-types";
 import styles from "./JsonViewer.module.css";
 import Divider from "../Divider/Divider";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
+import ContentCopy from "../../Icons/Round/ContentCopy";
+import CopyAll from "../../Icons/Round/CopyAll";
 
 const JsonViewer = forwardRef(
   (
@@ -12,16 +14,19 @@ const JsonViewer = forwardRef(
       height = "auto",
       indetation = 4,
       replacer = null,
-      title = "Title",
+      title,
       margin = "10px",
-      padding = "10px",
+      padding = "5px",
       data,
+      copy = true,
+      className,
+      style,
       ...rest
     },
     ref
   ) => {
     const [jsonData, setJsonData] = useState("");
-    const [copyButtonText, setCopyButtonText] = useState("Copy");
+    const [copyButtonText, setCopyButtonText] = useState(<ContentCopy width="15px" height="15px" />);
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -67,9 +72,9 @@ const JsonViewer = forwardRef(
       navigator.clipboard
         .writeText(textContent)
         .then(() => {
-          setCopyButtonText("Copied!");
+          setCopyButtonText(<CopyAll width="15px" height="15px" />);
           setTimeout(() => {
-            setCopyButtonText("Copy");
+            setCopyButtonText(<ContentCopy width="15px" height="15px" />);
           }, 2000);
         })
         .catch((err) => {
@@ -80,22 +85,31 @@ const JsonViewer = forwardRef(
     return (
       <Box
         ref={ref}
-        className={styles.rue_json_preview_container}
+        className={`${styles.rue_json_preview_container} ${className}`}
         margin={margin}
         padding={padding}
         width={width}
         height={height}
+        style={style}
         rounded
         outlined
         {...rest}
       >
-        <div className={styles.rue_json_preview_header}>
-          <div>{title}</div>
-          <Button size="sm" variant="primary" onClick={handleCopyToClipboard}>
-            <Button.Text>{copyButtonText}</Button.Text>
-          </Button>
-        </div>
-        <Divider />
+        {(title || copy) && (
+          <Fragment>
+            <div className={styles.rue_json_preview_header}>
+              <div className={styles.rue_json_preview_title}>{title && <span>{title}</span>}</div>
+              <div className={styles.rue_json_preview_button}>
+                {copy && (
+                  <Button variant="light" onClick={handleCopyToClipboard}>
+                    <Button.Icon>{copyButtonText}</Button.Icon>
+                  </Button>
+                )}
+              </div>
+            </div>
+            <Divider />
+          </Fragment>
+        )}
         <pre className={styles.rue_json_preview} ref={containerRef} dangerouslySetInnerHTML={{ __html: jsonData }} />
       </Box>
     );
@@ -111,6 +125,10 @@ JsonViewer.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   margin: PropTypes.string,
   padding: PropTypes.string,
+  copy: PropTypes.bool,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
+
 JsonViewer.displayName = "JsonViewer";
 export default JsonViewer;

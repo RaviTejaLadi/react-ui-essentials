@@ -46,35 +46,42 @@ const Button = forwardRef(
   }
 );
 
-const ButtonIcon = ({ children, ...rest }) => (
-  <div className={styles.rue_icon} {...rest}>
+const ButtonIcon = ({ children, className, style, ...rest }) => (
+  <div className={`${styles.rue_icon} ${className}`} style={style} {...rest}>
     {children}
   </div>
 );
-const ButtonText = ({ children, ...rest }) => (
-  <div className={styles.rue_text} {...rest}>
+const ButtonText = ({ children, className, style, ...rest }) => (
+  <div className={`${styles.rue_text} ${className}`} style={style} {...rest}>
     {children}
   </div>
 );
 
 ButtonIcon.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
+ButtonText.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
 };
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  endIcon: PropTypes.node,
   onClick: PropTypes.func,
   raised: PropTypes.bool,
   rounded: PropTypes.bool,
   size: PropTypes.string,
-  startIcon: PropTypes.node,
   style: PropTypes.object,
   type: PropTypes.string,
   variant: PropTypes.string,
 };
+
 Button.Icon = ButtonIcon;
 Button.Text = ButtonText;
 Button.displayName = "Button";
