@@ -1,0 +1,51 @@
+.rue_carouselContainer {
+    margin: 0 auto;
+    display: flex !important;
+    flex-direction: column;
+}
+
+.rue_title>* {
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.rue_carousel {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow: hidden;
+}
+
+.rue_carousel>* {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rue_dotsContainer {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.rue_dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.rue_activeDot {
+    background: #3498db;
+}
+
+.rue_navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}

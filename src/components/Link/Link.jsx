@@ -2,34 +2,42 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Link.module.css";
 
-const Link = forwardRef(({ to, children, target, rel, className, onClick, ...rest }, ref) => {
-  const handleClick = (event) => {
-    if (onClick) {
-      onClick(event);
-    }
-    if (!event.defaultPrevented) {
-      event.preventDefault();
-      window.history.pushState({}, "", to);
-      window.dispatchEvent(new Event("popstate"));
-    }
-  };
+const Link = forwardRef(
+  ({ to, children, target, rel, className, onClick, ...rest }, ref) => {
+    const isExternal = /^https?:\/\//.test(to);
 
-  const combinedClassName = `${styles.link} ${className || ""}`;
+    const handleClick = (event) => {
+      if (onClick) {
+        onClick(event);
+      }
+      if (!event.defaultPrevented && !isExternal) {
+        event.preventDefault();
+        window.history.pushState({}, "", to);
+        window.dispatchEvent(new Event("popstate"));
+      }
+    };
 
-  return (
-    <a
-      ref={ref}
-      href={to}
-      onClick={handleClick}
-      target={target}
-      rel={target === "_blank" && !rel ? "noopener noreferrer" : rel}
-      className={combinedClassName}
-      {...rest}
-    >
-      {children}
-    </a>
-  );
-});
+    const combinedClassName = `${styles.link} ${className || ""}`;
+
+    return (
+      <a
+        ref={ref}
+        href={to}
+        onClick={handleClick}
+        target={isExternal ? target : undefined}
+        rel={
+          isExternal && (target === "_blank" || !rel)
+            ? "noopener noreferrer"
+            : rel
+        }
+        className={combinedClassName}
+        {...rest}
+      >
+        {children}
+      </a>
+    );
+  }
+);
 
 Link.propTypes = {
   to: PropTypes.string.isRequired,
