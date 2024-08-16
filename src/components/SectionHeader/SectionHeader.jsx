@@ -28,7 +28,7 @@ const SectionHeader = forwardRef(
 
 const SectionHeaderTitle = ({ children, className, style, ...rest }) => {
   return (
-    <Heading className={`${styles.rue_sectionHeader_title} ${classNmae}`} style={style} {...rest}>
+    <Heading className={`${styles.rue_sectionHeader_title} ${className}`} style={style} {...rest}>
       {children}
     </Heading>
   );
@@ -42,7 +42,7 @@ SectionHeaderTitle.propTypes = {
 
 const SectionHeaderSubTitle = ({ children, className, style, ...rest }) => {
   return (
-    <Paragraph className={`${styles.rue_sectionHeader_subtitle} ${classNmae}`} style={style} {...rest}>
+    <Paragraph className={`${styles.rue_sectionHeader_subtitle} ${className}`} style={style} {...rest}>
       {children}
     </Paragraph>
   );
