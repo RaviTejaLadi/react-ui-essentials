@@ -59,15 +59,29 @@ const Dropdown = forwardRef(
           type="button"
           style={{ width, height }}
         >
-          {selectedChild ? selectedChild.props.children : placeholder}
-          <span className={styles.arrow}>
-            <ArrowRight width="30px" height="30px" style={{ transform: isOpen ? "rotate(90deg)" : "", fill: "#fff" }} />
-          </span>
+          <div style={{ width: "80%" }}>{selectedChild ? selectedChild.props.children : placeholder}</div>
+          <div
+            style={{
+              width: "20%",
+            }}
+          >
+            <ArrowRight
+              width="30px"
+              height="30px"
+              style={{
+                transform: isOpen ? "rotate(90deg)" : "",
+                fill: "#fff",
+              }}
+            />
+          </div>
         </button>
         {isOpen && (
           <ul className={styles.rue_dropdownMenu}>
             {React.Children.map(children, (child) => (
-              <li onClick={() => handleSelect(child.props.value)} className={styles.rue_dropdownItem}>
+              <li
+                onClick={() => handleSelect(child.props.value)}
+                className={`${styles.rue_dropdownItem} ${styles[`rue_dropdownItem_${variant}`]}`}
+              >
                 {child}
               </li>
             ))}

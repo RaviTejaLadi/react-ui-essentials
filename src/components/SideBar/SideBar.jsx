@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React, { Fragment, forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./SideBar.module.css";
 import Link from "../Link/Link";
-import ArrowDropDown from "../../Icons/Round/ArrowDropDown";
 import ArrowRight from "../../Icons/Round/ArrowRight";
 import Search from "../../Icons/Round/Search";
 
@@ -151,7 +150,11 @@ const SideBarBody = forwardRef(
                     <div>
                       {subMenu && (
                         <span className={styles.rue_submenu_arrow}>
-                          <ArrowDropDown width="30px" height="30px" fill="#000" />
+                          <ArrowRight
+                            width="30px"
+                            height="30px"
+                            style={{ transform: isDropdownOpen ? "rotate(90deg)" : "", fill: "#fff" }}
+                          />
                         </span>
                       )}
                     </div>

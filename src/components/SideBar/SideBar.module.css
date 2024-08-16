@@ -226,11 +226,11 @@
 }
 
 .rue_submenu_arrow svg:hover {
-    background-color: #ccc
+    background-color: #cccccc7c
 }
 
 .rue_submenu a.rue_active .rue_submenu_arrow svg:hover {
-    background-color: transparent
+    background-color: transparent;
 }
 
 .rue_submenu,

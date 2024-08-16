@@ -1,15 +1,66 @@
 .rue_code {
-    padding: 2px 4px;
-    border-radius: 6px;
-    font-size: 0.8125rem;
-    direction: ltr;
-    border: 1px solid;
-    background-color: #F3F6F9;
-    border-color: #DAE2ED;
-    line-height: 1.5;
-    letter-spacing: 0;
-    font-family: Menlo, Consolas, "Droid Sans Mono", monospace;
-    font-weight: 400;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+    white-space: nowrap;
+    display: inline-block;
+    font-weight: 600;
+    margin: 0.2em;
+}
+
+.rue_code_sm {
+    font-size: 0.85em;
+}
+
+.rue_code_md {
+    font-size: 1em;
+}
+
+.rue_code_lg {
+    font-size: 1.2em;
+}
+
+.rue_code_primary {
+    color: #007bff;
+    background-color: #b3d7ff
+}
+
+.rue_code_secondary {
+    color: #6c757d;
+    background-color: #d3d6d8;
+}
+
+.rue_code_success {
+    color: #28a745;
+    background-color: #bfe5c7;
+}
+
+.rue_code_danger {
+    color: #dc3545;
+    background-color: #f5c2c7;
+}
+
+.rue_code_warning {
+    color: #ffc107;
+    background-color: #ffecb5;
+}
+
+.rue_code_info {
+    color: #17a2b8;
+    background-color: #b9e3ea;
+}
+
+.rue_code_help {
+    color: #6f42c1;
+    background-color: #d4c6ec;
+}
+
+.rue_code_light {
+    color: #1f2937;
+    background-color: #f8f9fa;
+}
+
+.rue_code_dark {
+    color: #343a40;
+    background-color: #c2c4c6;
 }

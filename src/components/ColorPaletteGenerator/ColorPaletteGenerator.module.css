@@ -1,0 +1,16 @@
+.rue_colorPaletteContainer {
+    padding: 10px;
+}
+
+.rue_generated_variants {
+    cursor: pointer;
+    margin: 5px 0;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rue_generated_variants_container {
+    border-radius: 4px;
+}

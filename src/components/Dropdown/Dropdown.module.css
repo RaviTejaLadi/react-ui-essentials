@@ -1,6 +1,6 @@
 .rue_dropdownContainer {
     position: relative;
-    display: inline-block;
+    display: inline-block
 }
 
 .rue_dropdown {
@@ -8,18 +8,19 @@
     align-items: center;
     justify-content: space-between;
     border: 1px solid #d1d5db;
-    border-radius: 0.175rem;
+    border-radius: .175rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s;
-    margin-bottom: 5px;
+    transition: .2s;
+    margin-bottom: 5px
 }
 
 .rue_dropdownToggle {
-    background: none;
+    display: flex;
+    background: 0 0;
     border: none;
     width: 100%;
-    text-align: left;
+    text-align: left
 }
 
 .rue_dropdownMenu {
@@ -28,177 +29,192 @@
     left: 0;
     z-index: 1000;
     min-width: 100%;
-    padding: 0.5rem 0;
-    margin: 0.125rem 0 0;
+    padding: .2rem 0;
+    margin: .125rem 0 0;
     background-color: #fff;
     border: 1px solid #d1d5db;
-    border-radius: 0.175rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    list-style: none;
+    border-radius: .175rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    list-style: none
 }
 
 .rue_dropdownItem {
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-}
-
-.rue_dropdownItem:hover {
-    background-color: #f3f4f6;
+    margin: 0 3px;
+    padding: .2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer
 }
 
 .rue_dropdown_sm {
     width: 10rem;
     height: 30px;
-    font-size: 0.875rem;
-    padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    padding: .25rem .5rem
 }
 
 .rue_dropdown_md {
     width: 12rem;
     height: 35px;
     font-size: 1rem;
-    padding: 0.375rem 0.75rem;
+    padding: .375rem .75rem
 }
 
 .rue_dropdown_lg {
     width: 14rem;
     height: 40px;
     font-size: 1.125rem;
-    padding: 0.5rem 1rem;
+    padding: .5rem 1rem
 }
 
 .rue_dropdown_primary {
-    color: #ffffff;
-    background-color: #007bff;
+    color: #fff;
+    background-color: #007bff
+}
+
+.rue_dropdownItem_primary:hover {
+    color: #000;
+    background-color: #b3d7ff
 }
 
 .rue_dropdown_primary:hover {
-    color: #ffffff;
-    background-color: #0056b3;
+    color: #fff;
+    background-color: #0056b3
 }
 
 .rue_dropdown_primary:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
 }
 
 .rue_dropdown_secondary {
-    color: #ffffff;
-    background-color: #6c757d;
+    color: #fff;
+    background-color: #6c757d
+}
+
+.rue_dropdownItem_secondary:hover {
+    color: #000;
+    background-color: #d3d6d8;
 }
 
 .rue_dropdown_secondary:hover {
-    color: #ffffff;
-    background-color: #545b62;
+    color: #fff;
+    background-color: #545b62
 }
 
 .rue_dropdown_secondary:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5)
 }
 
-.rue_dropdown_success {
-    color: #ffffff;
-    background-color: #28a745;
+.rue_dropdownItem_success:hover {
+    color: #000;
+    background-color: #bfe5c7;
 }
 
+.rue_dropdown_success,
 .rue_dropdown_success:hover {
-    color: #ffffff;
-    background-color: #218838;
+    color: #fff;
+    background-color: #218838
 }
 
 .rue_dropdown_success:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5)
 }
 
-.rue_dropdown_danger {
-    color: #ffffff;
-    background-color: #dc3545;
+.rue_dropdownItem_danger:hover {
+    color: #000;
+    background-color: #f5c2c7;
 }
 
+.rue_dropdown_danger,
 .rue_dropdown_danger:hover {
-    color: #ffffff;
-    background-color: #c82333;
+    color: #fff;
+    background-color: #c82333
 }
 
 .rue_dropdown_danger:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .5)
 }
 
-.rue_dropdown_warning {
-
-    color: #ffffff;
-    background-color: #ffc107;
+.rue_dropdownItem_warning:hover {
+    color: #000;
+    background-color: #ffecb5;
 }
 
+.rue_dropdown_warning,
 .rue_dropdown_warning:hover {
-    color: #ffffff;
-    background-color: #e0a800;
+    color: #fff;
+    background-color: #e0a800
 }
 
 .rue_dropdown_warning:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(255, 193, 7, .5)
 }
 
-.rue_dropdown_info {
-    color: #ffffff;
-    background-color: #17a2b8;
+.rue_dropdownItem_info:hover {
+    color: #000;
+    background-color: #b9e3ea;
 }
 
+.rue_dropdown_info,
 .rue_dropdown_info:hover {
-    color: #ffffff;
-    background-color: #138496;
+    color: #fff;
+    background-color: #138496
 }
 
 .rue_dropdown_info:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5)
 }
 
-.rue_dropdown_help {
-    color: #ffffff;
-    background-color: #6f42c1;
+.rue_dropdownItem_help:hover {
+    color: #000;
+    background-color: #d4c6ec;
 }
 
+.rue_dropdown_help,
 .rue_dropdown_help:hover {
-    color: #ffffff;
-    background-color: #5d3bb4;
+    color: #fff;
+    background-color: #5d3bb4
 }
 
 .rue_dropdown_help:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(111, 66, 193, .5)
 }
 
-.rue_dropdown_light {
-    color: #979da3;
+.rue_dropdownItem_light:hover {
+    color: #000;
     background-color: #f8f9fa;
 }
 
+.rue_dropdown_light,
 .rue_dropdown_light:hover {
     color: #979da3;
-    background-color: #e2e6ea;
+    background-color: #e2e6ea
 }
 
 .rue_dropdown_light:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(248, 249, 250, .5)
 }
 
-.rue_dropdown_dark {
-    color: #ffffff;
-    background-color: #343a40;
+.rue_dropdownItem_dark:hover {
+    color: #000;
+    background-color: #c2c4c6
 }
 
-.rue_dropdown_dark :hover {
-    color: #ffffff;
-    background-color: #23272b;
+.rue_dropdown_dark,
+.rue_dropdown_dark:hover {
+    color: #fff;
+    background-color: #23272b
 }
 
-.rue_dropdown_dark :focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
+.rue_dropdown_dark:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
 }
