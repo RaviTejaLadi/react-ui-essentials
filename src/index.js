@@ -94,6 +94,7 @@ export { default as RadioCard } from "./components/RadioCard/RadioCard";
 export { default as ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 export { default as TextCarousel } from "./components/TextCarousel/TextCarousel";
 export { default as Splitter } from "./components/Splitter/Splitter";
+export { default as Carousel } from "./components/Carousel/Carousel";
 
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
 export { Provider, useStateValue } from "./stateManagment/stateManagment";
