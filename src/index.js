@@ -1,4 +1,3 @@
-import * as svgsrounded from "./Icons/Round";
 import {
   Col,
   Container,
@@ -26,7 +25,14 @@ export {
   setConfiguration,
   useScreenClass,
 };
-export { useDynamicVariantsChange, useOnlineStatus, usePortal, useLocalStorage, UseFilteredContent } from "./hooks";
+export {
+  useDynamicVariantsChange,
+  useOnlineStatus,
+  usePortal,
+  useLocalStorage,
+  UseFilteredContent,
+  useBreakpoints,
+} from "./hooks";
 export { Seo, SeoProvider, SeoData, useSeo } from "./Seo";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Alert } from "./components/Alert/Alert";
@@ -91,10 +97,3 @@ export { default as Splitter } from "./components/Splitter/Splitter";
 
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
 export { Provider, useStateValue } from "./stateManagment/stateManagment";
-
-const roundExports = Object.entries(svgsrounded).reduce((acc, [key, Svg]) => {
-  acc[Svg.displayName] = Svg;
-  return acc;
-}, {});
-
-export const RoundedIcons = roundExports;

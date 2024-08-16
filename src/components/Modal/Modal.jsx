@@ -3,29 +3,33 @@ import React, { forwardRef } from "react";
 import styles from "./Modal.module.css";
 import CloseButton from "../CloseButton/CloseButton";
 
-const Modal = forwardRef(({ children, openModal, position = "center", size = "md", variant = "",className, style, ...rest }, ref) => {
-  const getModalClassNames = () => {
-    return [
-      styles[`rue_modal_${variant}`] || "",
-      styles[`rue_modal_${size}`] || styles.rue_modal_md,
-      styles[`rue_modal_${position}`] || styles.rue_modal_center,
-    ].join(" ");
-  };
-  const modalClassName = getModalClassNames();
+const Modal = forwardRef(
+  ({ children, openModal, position = "center", size = "md", variant = "", className, style, ...rest }, ref) => {
+    const getModalClassNames = () => {
+      return [
+        styles[`rue_modal_${variant}`] || "",
+        styles[`rue_modal_${size}`] || styles.rue_modal_md,
+        styles[`rue_modal_${position}`] || styles.rue_modal_center,
+      ].join(" ");
+    };
+    const modalClassName = getModalClassNames();
 
-  return (
-    <div
-      ref={ref}
-      className={`${styles.rue_modal_overlay} ${openModal ? styles.rue_modal_open : styles.rue_modal_closed} ${className}`}
-      role="dialog"
-      aria-modal="true"
-    >
-      <div className={`${styles.rue_modal} ${modalClassName}`} {...rest}>
-        <div className={styles.rue_modal_content}>{children}</div>
+    return (
+      <div
+        ref={ref}
+        className={`${styles.rue_modal_overlay} ${
+          openModal ? styles.rue_modal_open : styles.rue_modal_closed
+        } ${className}`}
+        role="dialog"
+        aria-modal="true"
+      >
+        <div className={`${styles.rue_modal} ${modalClassName}`} {...rest}>
+          <div className={styles.rue_modal_content}>{children}</div>
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 Modal.propTypes = {
   children: PropTypes.node,

@@ -2,32 +2,12 @@ import PropTypes from "prop-types";
 import React, { forwardRef } from "react";
 import styles from "./Code.module.css";
 
-const VARIANTS = [
-  "primary",
-  "secondary",
-  "success",
-  "danger",
-  "warning",
-  "info",
-  "help",
-  "light",
-  "dark",
-];
+const VARIANTS = ["primary", "secondary", "success", "danger", "warning", "info", "help", "light", "dark"];
 const SIZES = ["sm", "md", "lg"];
 
 const Code = forwardRef(
   (
-    {
-      children,
-      variant = "primary",
-      size = "sm",
-      underline = false,
-      className,
-      style,
-      padding,
-      margin,
-      ...rest
-    },
+    { children, variant = "primary", size = "sm", underline = false, className, style, padding, margin, ...rest },
     ref
   ) => {
     const codeStyles = {

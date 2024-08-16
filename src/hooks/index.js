@@ -3,4 +3,5 @@ import useOnlineStatus from "./useOnlineStatus";
 import usePortal from "./usePortal";
 import UseFilteredContent from "./UseFilteredContent";
 import useLocalStorage from "./useLocalStorage";
-export { useDynamicVariantsChange, useOnlineStatus, usePortal, useLocalStorage, UseFilteredContent };
+import useBreakpoints from "./useBreakpoints";
+export { useDynamicVariantsChange, useOnlineStatus, usePortal, useLocalStorage, UseFilteredContent, useBreakpoints };

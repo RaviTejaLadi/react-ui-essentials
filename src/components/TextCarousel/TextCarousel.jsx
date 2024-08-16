@@ -39,7 +39,7 @@ const TextCarousel = forwardRef(({ children, interval = 0, className, style }, r
     alignItems: "center",
     ...style,
   };
-  
+
   return (
     <Box ref={ref} padding="10px" className={className} style={contStyle}>
       <Box padding="12px" className={styles.rue_carouselContent}>
