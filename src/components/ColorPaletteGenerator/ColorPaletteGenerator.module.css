@@ -14,3 +14,10 @@
 .rue_generated_variants_container {
     border-radius: 4px;
 }
+
+.rue_buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px
+}

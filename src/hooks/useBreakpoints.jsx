@@ -21,10 +21,11 @@ const getBreakpoint = (width, breakpoints) => {
 
 const useBreakpoints = (customBreakpoints = defaultBreakpoints) => {
   const breakpoints = { ...defaultBreakpoints, ...customBreakpoints };
-  const [screenSize, setScreenSize] = useState({
+
+  const [screenSize, setScreenSize] = useState(() => ({
     width: typeof window !== "undefined" ? window.innerWidth : 0,
     breakpoint: typeof window !== "undefined" ? getBreakpoint(window.innerWidth, breakpoints) : "xs",
-  });
+  }));
 
   const handleResize = useCallback(() => {
     const newWidth = window.innerWidth;
@@ -38,7 +39,6 @@ const useBreakpoints = (customBreakpoints = defaultBreakpoints) => {
     if (typeof window === "undefined") return;
 
     window.addEventListener("resize", handleResize);
-    handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);

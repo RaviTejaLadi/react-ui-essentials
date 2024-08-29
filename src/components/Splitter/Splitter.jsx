@@ -1,199 +1,151 @@
-import React, { useRef, useCallback, forwardRef } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import styles from "./Splitter.module.css";
-import Box from "../Box/Box";
 
-const Splitter = forwardRef(
-  (
-    { orientation = "vertical", width = "100%", height = "100%", margin = "0", children, className, style, ...rest },
-    ref
-  ) => {
-    const containerRef = useRef();
-    const resizerRef = useRef();
-    const firstHalfRef = useRef();
-    const secondHalfRef = useRef();
-
-    const isHorizontal = orientation === "horizontal";
-
-    const handleMouseDown = useCallback(
-      (e) => {
-        const startPos = isHorizontal ? e.clientX : e.clientY;
-        const currentSize = isHorizontal
-          ? firstHalfRef.current.getBoundingClientRect().width
-          : firstHalfRef.current.getBoundingClientRect().height;
-
-        const handleMouseMove = (e) => {
-          const delta = isHorizontal ? e.clientX - startPos : e.clientY - startPos;
-          updateSize(currentSize, delta);
-          updateCursor();
-        };
-
-        const handleMouseUp = () => {
-          document.removeEventListener("mousemove", handleMouseMove);
-          document.removeEventListener("mouseup", handleMouseUp);
-          resetCursor();
-        };
-
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
-      },
-      [isHorizontal, firstHalfRef]
-    );
-
-    const handleTouchStart = useCallback(
-      (e) => {
-        const touch = e.touches[0];
-        const startPos = isHorizontal ? touch.clientX : touch.clientY;
-        const currentSize = isHorizontal
-          ? firstHalfRef.current.getBoundingClientRect().width
-          : firstHalfRef.current.getBoundingClientRect().height;
-
-        const handleTouchMove = (e) => {
-          const touch = e.touches[0];
-          const delta = isHorizontal ? touch.clientX - startPos : touch.clientY - startPos;
-          updateSize(currentSize, delta);
-          updateCursor();
-        };
-
-        const handleTouchEnd = () => {
-          document.removeEventListener("touchmove", handleTouchMove);
-          document.removeEventListener("touchend", handleTouchEnd);
-          resetCursor();
-        };
-
-        document.addEventListener("touchmove", handleTouchMove);
-        document.addEventListener("touchend", handleTouchEnd);
-      },
-      [isHorizontal, firstHalfRef]
-    );
-
-    const updateSize = (currentSize, delta) => {
-      const container = containerRef.current;
-      const firstHalfEle = firstHalfRef.current;
-
-      if (!container || !firstHalfEle) {
-        return;
-      }
-
-      const containerSize = isHorizontal
-        ? container.getBoundingClientRect().width
-        : container.getBoundingClientRect().height;
-      const newSize = currentSize + delta;
-      const newPercentageSize = (newSize * 100) / containerSize;
-      firstHalfEle.style.flexBasis = `${newPercentageSize}%`;
-    };
-
-    const updateCursor = () => {
-      const resizerEle = resizerRef.current;
-
-      if (!resizerEle) {
-        return;
-      }
-
-      resizerEle.style.cursor = isHorizontal ? "ew-resize" : "ns-resize";
-      document.body.style.cursor = isHorizontal ? "ew-resize" : "ns-resize";
-    };
-
-    const resetCursor = () => {
-      const resizerEle = resizerRef.current;
-
-      if (!resizerEle) {
-        return;
-      }
-
-      resizerEle.style.removeProperty("cursor");
-      document.body.style.removeProperty("cursor");
-    };
-
-    const firstHalfStyles = {
-      padding: children[0].props.padding,
-      flexBasis: children[0].props[isHorizontal ? "width" : "height"] || "50%",
-      minWidth: children[0].props.minWidth,
-      minHeight: children[0].props.minHeight,
-    };
-
-    const secondHalfStyles = {
-      padding: children[1].props.padding,
-      flexBasis: `calc(100 % - ${children[0].props[isHorizontal ? "width" : "height"] || "50%"})`,
-      minWidth: children[1].props.minWidth,
-      minHeight: children[1].props.minHeight,
-    };
-
-    return (
-      <Box ref={ref} className={className} style={style}>
-        <div
-          className={`${styles.rue_splitter} ${
-            isHorizontal ? styles.rue_splitter_horizontal : styles.rue_splitter_vertical
-          }`}
-          ref={containerRef}
-          style={{ width, height, margin }}
-          {...rest}
-        >
-          <div className={styles.rue_splitter_first} style={firstHalfStyles} ref={firstHalfRef}>
-            {children[0]}
-          </div>
-          <div className={styles.rue_splitter_resizer_container}>
-            <div
-              className={styles.rue_splitter_resizer}
-              ref={resizerRef}
-              onMouseDown={handleMouseDown}
-              onTouchStart={handleTouchStart}
-            />
-          </div>
-          <div className={styles.rue_splitter_second} style={secondHalfStyles} ref={secondHalfRef}>
-            {children[1]}
-          </div>
-        </div>
-      </Box>
-    );
+const parseSizeToPixels = (size, containerSize) => {
+  if (typeof size === "number") return size;
+  if (typeof size === "string") {
+    if (size.endsWith("%")) {
+      return (parseFloat(size) / 100) * containerSize;
+    }
+    if (size.endsWith("px")) {
+      return parseFloat(size);
+    }
   }
-);
+  return null;
+};
+
+const useResizeHandle = (initialSizes, minSizes, maxSizes, orientation = "horizontal") => {
+  const [sizes, setSizes] = useState(initialSizes);
+  const containerRef = useRef(null);
+
+  const handleResize = useCallback(
+    (index, e) => {
+      e.preventDefault();
+      const startPos = orientation === "horizontal" ? e.clientY : e.clientX;
+      const containerSize =
+        orientation === "horizontal" ? containerRef.current.offsetHeight : containerRef.current.offsetWidth;
+      const startSizes = [...sizes];
+
+      const handleMouseMove = (moveEvent) => {
+        const currentPos = orientation === "horizontal" ? moveEvent.clientY : moveEvent.clientX;
+        const diff = currentPos - startPos;
+
+        const newSizes = startSizes.map((size, i) => {
+          if (i === index || i === index + 1) {
+            const currentSize = parseSizeToPixels(size, containerSize);
+            const minSize = parseSizeToPixels(minSizes[i], containerSize) || 0;
+            const maxSize = parseSizeToPixels(maxSizes[i], containerSize) || containerSize;
+
+            let newSize;
+            if (i === index) {
+              newSize = currentSize + diff;
+            } else {
+              newSize = currentSize - diff;
+            }
+
+            newSize = Math.max(minSize, Math.min(maxSize, newSize));
+            return `${(newSize / containerSize) * 100}%`;
+          }
+          return size;
+        });
+
+        setSizes(newSizes);
+      };
+
+      const handleMouseUp = () => {
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+      };
+
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+    },
+    [sizes, minSizes, maxSizes, orientation]
+  );
+
+  return [sizes, handleResize, containerRef, setSizes];
+};
+
+const ResizeHandle = React.memo(({ onMouseDown, orientation = "horizontal" }) => (
+  <div
+    style={{
+      [orientation === "horizontal" ? "height" : "width"]: "4px",
+      [orientation === "horizontal" ? "width" : "height"]: "100%",
+      background: "#ccc",
+      cursor: orientation === "horizontal" ? "ns-resize" : "ew-resize",
+    }}
+    onMouseDown={onMouseDown}
+  />
+));
+
+const Splitter = ({ orientation = "horizontal", height, children }) => {
+  const panes = React.Children.toArray(children);
+  const initialSizes = panes.map((pane) => pane.props.initialSize || `${100 / panes.length}%`);
+  const minSizes = panes.map((pane) => pane.props.minSize || "0%");
+  const maxSizes = panes.map((pane) => pane.props.maxSize || "100%");
+
+  const [sizes, handleResize, containerRef, setSizes] = useResizeHandle(initialSizes, minSizes, maxSizes, orientation);
+
+  useEffect(() => {
+    const containerSize =
+      orientation === "horizontal" ? containerRef.current.offsetHeight : containerRef.current.offsetWidth;
+    const newSizes = initialSizes.map((size) => {
+      const pxSize = parseSizeToPixels(size, containerSize);
+      return `${(pxSize / containerSize) * 100}%`;
+    });
+    setSizes(newSizes);
+  }, []);
+
+  const containerStyle = {
+    display: "flex",
+    flexDirection: orientation === "horizontal" ? "column" : "row",
+    height: height || "100%",
+    width: "100%",
+  };
+
+  return (
+    <div style={containerStyle} ref={containerRef}>
+      {panes.map((pane, index) => (
+        <React.Fragment key={index}>
+          <div
+            style={{
+              [orientation === "horizontal" ? "height" : "width"]: sizes[index],
+              overflow: "auto",
+            }}
+          >
+            {React.cloneElement(pane, {
+              style: { height: "100%", width: "100%" },
+              initialSize: pane.props.initialSize,
+              minSize: pane.props.minSize,
+              maxSize: pane.props.maxSize,
+            })}
+          </div>
+          {index < panes.length - 1 && (
+            <ResizeHandle onMouseDown={(e) => handleResize(index, e)} orientation={orientation} />
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+};
+
+Splitter.Pane = React.forwardRef(({ children, initialSize, minSize, maxSize, ...rest }, ref) => (
+  <div ref={ref} style={{ height: "100%", overflow: "auto" }} {...rest}>
+    {children}
+  </div>
+));
 
 Splitter.propTypes = {
-  orientation: PropTypes.oneOf(["vertical", "horizontal"]),
-  width: PropTypes.string,
+  orientation: PropTypes.oneOf(["horizontal", "vertical"]),
   height: PropTypes.string,
-  margin: PropTypes.string,
   children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  style: PropTypes.object,
 };
-Splitter.displayName = "Splitter";
+
+Splitter.Pane.propTypes = {
+  initialSize: PropTypes.string,
+  minSize: PropTypes.string,
+  maxSize: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
+
 export default Splitter;
-
-const LeftContainer = ({ children, padding, width, height, minWidth, minHeight, className, style, ...rest }) => (
-  <div className={className} style={{ padding, flexBasis: width || height, minWidth, minHeight, ...style }} {...rest}>
-    {children}
-  </div>
-);
-
-LeftContainer.propTypes = {
-  padding: PropTypes.string,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  minWidth: PropTypes.string,
-  minHeight: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  style: PropTypes.object,
-};
-
-const RightContainer = ({ children, padding, width, height, minWidth, minHeight, className, style, ...rest }) => (
-  <div className={className} style={{ padding, flexBasis: width || height, minWidth, minHeight, ...style }} {...rest}>
-    {children}
-  </div>
-);
-
-RightContainer.propTypes = {
-  padding: PropTypes.string,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  minWidth: PropTypes.string,
-  minHeight: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  style: PropTypes.object,
-};
-
-Splitter.LeftContainer = LeftContainer;
-Splitter.RightContainer = RightContainer;

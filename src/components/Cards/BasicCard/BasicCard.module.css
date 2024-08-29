@@ -1,31 +1,32 @@
 .rue_card {
   max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+  background-color: #fff;
+  border: 1px solid transparent
 }
 
 .rue_card:hover {
   border-color: #1290eb;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 2px rgba(0, 0, 0, .24)
 }
 
 .rue_title {
   font-size: 1.2rem;
   margin-bottom: 5px;
   color: #333;
+  padding: 5px
 }
 
 .rue_content {
+  padding: 5px;
   font-size: .9rem;
   color: #666;
-
-  text-overflow: ellipsis;
+  text-overflow: ellipsis
 }
 
-@media (max-width: 768px) {
+@media (max-width:768px) {
   .rue_card {
-    width: 100% !important;
+    width: 100% !important
   }
 }

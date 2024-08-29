@@ -7,8 +7,21 @@
 .rue_tabList {
     display: flex;
     margin-bottom: 5px;
-    border-radius: 8px;
-    padding: 5px
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    overflow-x: scroll !important;
+}
+
+.rue_tabList::-webkit-scrollbar {
+    -webkit-appearance: scrollbar;
+    height: 2px;
+    width: 2px;
+}
+
+.rue_tabList::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
 }
 
 .rue_tabButton {
@@ -22,11 +35,7 @@
     transition: background-color .2s, color .2s;
     margin-right: 5px;
     min-width: 140px;
-    white-space: nowrap;
-    overflow: hidden;
     max-width: 160px;
-    text-overflow: ellipsis;
-    text-wrap: nowrap
 }
 
 .rue_tabButton:hover {
@@ -43,19 +52,21 @@
     font-weight: 700
 }
 
-.lg,
-.md,
-.sm {
+.rue_lg,
+.rue_md,
+.rue_sm {
     font-weight: 600
 }
 
 .rue_tabContent {
-    border-radius: 8px;
+    border-radius: 5px;
     border: 1px solid transparent;
     padding: 10px;
     color: #000;
     font-size: 14px;
-    min-height: 80px
+    min-height: 80px;
+    max-height: 90vh;
+    overflow: auto;
 }
 
 .rue_leftIcon,
@@ -77,15 +88,15 @@
     text-align: center
 }
 
-.danger,
-.dark,
-.help,
-.info,
-.light,
-.primary,
-.secondary,
-.success,
-.warning {
+.rue_danger,
+.rue_dark,
+.rue_help,
+.rue_info,
+.rue_light,
+.rue_primary,
+.rue_secondary,
+.rue_success,
+.rue_warning {
     background-color: #f8f9fa
 }
 
@@ -101,152 +112,152 @@
     color: #000
 }
 
-.primary .rue_activeTab {
+.rue_primary .rue_activeTab {
     color: #fff;
     background-color: #007bff
 }
 
-.primary .rue_activeTab:hover {
+.rue_primary .rue_activeTab:hover {
     color: #fff;
     background-color: #0056b3
 }
 
-.primary .rue_activeTab:focus {
+.rue_primary .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
 }
 
-.secondary .rue_activeTab {
+.rue_secondary .rue_activeTab {
     color: #fff;
     background-color: #6c757d
 }
 
-.secondary .rue_activeTab:hover {
+.rue_secondary .rue_activeTab:hover {
     color: #fff;
     background-color: #545b62
 }
 
-.secondary .rue_activeTab:focus {
+.rue_secondary .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5)
 }
 
-.success .rue_activeTab {
+.rue_success .rue_activeTab {
     color: #fff;
     background-color: #28a745
 }
 
-.success .rue_activeTab:hover {
+.rue_success .rue_activeTab:hover {
     color: #fff;
     background-color: #218838
 }
 
-.success .rue_activeTab:focus {
+.rue_success .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .5)
 }
 
-.danger .rue_activeTab {
+.rue_danger .rue_activeTab {
     color: #fff;
     background-color: #dc3545
 }
 
-.danger .rue_activeTab:hover {
+.rue_danger .rue_activeTab:hover {
     color: #fff;
     background-color: #c82333
 }
 
-.danger .rue_activeTab:focus {
+.rue_danger .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .5)
 }
 
-.warning .rue_activeTab {
+.rue_warning .rue_activeTab {
     color: #fff;
     background-color: #ffc107
 }
 
-.warning .rue_activeTab:hover {
+.rue_warning .rue_activeTab:hover {
     color: #fff;
     background-color: #e0a800
 }
 
-.warning .rue_activeTab:focus {
+.rue_warning .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(255, 193, 7, .5)
 }
 
-.info .rue_activeTab {
+.rue_info .rue_activeTab {
     color: #fff;
     background-color: #17a2b8
 }
 
-.info .rue_activeTab:hover {
+.rue_info .rue_activeTab:hover {
     color: #fff;
     background-color: #138496
 }
 
-.info .rue_activeTab:focus {
+.rue_info .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(23, 162, 184, .5)
 }
 
-.dark .rue_activeTab {
+.rue_dark .rue_activeTab {
     color: #fff;
     background-color: #343a40
 }
 
-.dark .rue_activeTab:hover {
+.rue_dark .rue_activeTab:hover {
     color: #fff;
     background-color: #23272b
 }
 
-.dark .rue_activeTab:focus {
+.rue_dark .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(52, 58, 64, .5)
 }
 
-.light .rue_activeTab {
+.rue_light .rue_activeTab {
     color: #979da3;
     background-color: #f8f9fa
 }
 
-.light .rue_activeTab:hover {
+.rue_light .rue_activeTab:hover {
     color: #979da3;
     background-color: #e2e6ea
 }
 
-.light .rue_activeTab:focus {
+.rue_light .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(248, 249, 250, .5)
 }
 
-.help .rue_activeTab {
+.rue_help .rue_activeTab {
     color: #fff;
     background-color: #6f42c1
 }
 
-.help .rue_activeTab:hover {
+.rue_help .rue_activeTab:hover {
     color: #fff;
     background-color: #5d3bb4
 }
 
-.help .rue_activeTab:focus {
+.rue_help .rue_activeTab:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(111, 66, 193, .5)
 }
 
-.sm {
+.rue_sm {
     font-size: 12px;
     padding: 5px 10px
 }
 
-.md {
+.rue_md {
     font-size: 14px;
     padding: 10px 15px
 }
 
-.lg {
+.rue_lg {
     font-size: 16px;
     padding: 15px 20px
 }

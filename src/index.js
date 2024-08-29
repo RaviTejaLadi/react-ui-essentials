@@ -32,7 +32,10 @@ export {
   useLocalStorage,
   UseFilteredContent,
   useBreakpoints,
+  useMergedRef,
 } from "./hooks";
+
+export { hexToRgb, rgbToHex, rgbToHsl } from "./utils";
 export { Seo, SeoProvider, SeoData, useSeo } from "./Seo";
 export { default as Accordion } from "./components/Accordion/Accordion";
 export { default as Alert } from "./components/Alert/Alert";
@@ -70,6 +73,7 @@ export { default as SplitButton } from "./components/SplitButton/SplitButton";
 export { default as Stack } from "./components/Stack/Stack";
 export { default as Spinner } from "./components/Spinner/Spinner";
 export { default as Table } from "./components/Table/Table";
+export { default as TableList } from "./components/Table/TableList";
 export { default as Tag } from "./components/Tag/Tag";
 export { default as TextArea } from "./components/TextArea/TextArea";
 export { default as TextHighlighter } from "./components/TextHighlighter/TextHighlighter";
@@ -94,6 +98,7 @@ export { default as RadioCard } from "./components/RadioCard/RadioCard";
 export { default as ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
 export { default as TextCarousel } from "./components/TextCarousel/TextCarousel";
 export { default as Splitter } from "./components/Splitter/Splitter";
+export { default as ColorPaletteGenerator } from "./components/ColorPaletteGenerator/ColorPaletteGenerator";
 export { default as Carousel } from "./components/Carousel/Carousel";
 
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";

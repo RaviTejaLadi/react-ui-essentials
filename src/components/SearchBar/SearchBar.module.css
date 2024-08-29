@@ -1,37 +1,69 @@
-.rue_searchbar {
+.rue_searchBar {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    width: 220px;
-    height: 35px;
-    padding: 5px 2px;
-    margin: 10px;
+    padding: 8px;
+    width: 100%;
 }
 
-.rue_searchbar:hover {
-    width: 320px;
+.rue_searchBar:hover {
+    outline: 0;
     border-color: #007bff;
-    box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
 }
 
-.rue_searchbar_search_icon {
+.rue_icon {
+    color: #888;
+    margin-right: 8px
+}
+
+.rue_input {
+    border: none;
+    outline: 0;
+    flex: 1;
+    font-size: 16px
+}
+
+.rue_input::placeholder {
+    color: #aaa
+}
+
+.rue_searchBar.rue_sm {
+    padding: 8px
+}
+
+.rue_searchBar.rue_sm .rue_input {
+    font-size: 14px
+}
+
+.rue_searchBar.rue_sm .rue_icon {
+    width: 16px;
+    height: 16px
+}
+
+.rue_searchBar.rue_md {
+    padding: 6px
+}
+
+.rue_searchBar.rue_md .rue_input {
+    font-size: 16px
+}
+
+.rue_searchBar.rue_md .rue_icon {
     width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    font-size: 15px;
-    font-weight: 600;
-    z-index: 10;
+    height: 20px
 }
 
-.rue_searchbar_input {
-    border: 1px solid transparent;
-    height: 35px;
-    width: 285px;
-    padding-left: 8px;
-    background-color: inherit;
-    outline: none;
-    color: #080808;
+.rue_searchBar.rue_lg {
+    padding: 8px
+}
+
+.rue_searchBar.rue_lg .rue_input {
+    font-size: 20px
+}
+
+.rue_searchBar.rue_lg .rue_icon {
+    width: 24px;
+    height: 24px
 }

@@ -36,18 +36,19 @@ const Tabs = ({
 
   return (
     <Box padding="5px" rounded className={`${styles.rue_tabsContainer} ${className}`} style={style} {...rest}>
-      <div className={`${styles.rue_tabList} ${styles[variant]}`} style={headerStyles}>
+      <div className={`${styles.rue_tabList} ${styles[`rue_${variant}`]}`} style={headerStyles}>
         {React.Children.map(children, (child) => (
           <button
             key={child.props.value}
-            className={`${styles.rue_tabButton} ${styles[size]} ${
+            className={`${styles.rue_tabButton} ${styles[`rue_${size}`]} ${
               child.props.value === activeTab ? styles.rue_activeTab : ""
             } ${styles[`rue_${variant}Button`]}`}
             onClick={() => !child.props.disabled && handleTabClick(child.props.value)}
             disabled={child.props.disabled}
+            title={child.props.label}
           >
             {child.props.leftIcon && <span className={styles.rue_leftIcon}>{child.props.leftIcon}</span>}
-            <span className={styles.rue_buttonText}>{child.props.label}</span>
+            <span className={styles.rue_buttonText}>{child.props.label.slice(0, 18)}</span>
             {child.props.rightIcon && <span className={styles.rue_rightIcon}>{child.props.rightIcon}</span>}
           </button>
         ))}

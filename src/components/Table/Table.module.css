@@ -1,21 +1,44 @@
+.tableBody td,
+.tableHead th {
+    border: 1px solid #bdc3c7;
+    padding: 12px
+}
+
 .table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px
 }
 
-.tableHeader {
-  background-color: #ecf0f1;
+.tableHead {
+    background-color: #ecf0f1
 }
 
-.tableHeader th {
-  border: 1px solid #bdc3c7;
-  padding: 12px;
-  text-align: left;
-  color: #34495e;
+.tableCell th,
+.tableFooter {
+    background-color: #f4f4f4
 }
 
-.tableBody td {
-  border: 1px solid #bdc3c7;
-  padding: 12px;
+.tableHead th {
+    text-align: left;
+    color: #34495e
+}
+
+.tableRow {
+    background-color: #f9f9f9
+}
+
+.tableRow:hover,
+.tableRow:nth-child(2n) {
+    background-color: #ececec
+}
+
+.tableCell {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left
+}
+
+.tableCell th {
+    font-weight: 700
 }

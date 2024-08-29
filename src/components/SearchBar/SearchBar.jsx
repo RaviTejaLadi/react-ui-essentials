@@ -1,49 +1,31 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useState, forwardRef } from "react";
-import CloseButton from "../CloseButton/CloseButton";
+import React from "react";
 import styles from "./SearchBar.module.css";
 import { Search } from "../../Icons/Round";
 
-const SearchBar = forwardRef(({ setDebouncedSearchTerm, width, height, ...rest }, ref) => {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 500);
-
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [searchTerm]);
-
-  const handleClearBtn = () => {
-    setSearchTerm("");
-  };
-
+const SearchBar = ({ placeholder, value, onChange, size = "md", className, style, ...rest }) => {
   return (
-    <div ref={ref} className={styles.rue_searchbar} style={{ width: width, height: height }} {...rest}>
-      <Search width="20px" height="20px" className={styles.rue_searchbar_search_icon} />
+    <div className={`${styles.rue_searchBar} ${styles[`rue_${size}`]} ${className}`} style={style}>
+      <Search className={styles.rue_icon} />
       <input
-        className={styles.rue_searchbar_input}
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        name="search"
-        id="search"
-        aria-label="Search"
+        type="search"
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        className={styles.rue_input}
+        {...rest}
       />
-      {searchTerm && <CloseButton size="sm" variant="light" onClick={handleClearBtn} />}
     </div>
   );
-});
-
-SearchBar.propTypes = {
-  height: PropTypes.string,
-  setDebouncedSearchTerm: PropTypes.func,
-  width: PropTypes.string,
 };
 
-SearchBar.displayName = "SearchBar";
+SearchBar.propTypes = {
+  onChange: PropTypes.func,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  size: PropTypes.string,
+  style: PropTypes.object,
+  value: PropTypes.string,
+};
+
 export default SearchBar;

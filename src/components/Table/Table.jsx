@@ -1,70 +1,98 @@
-import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
+import React, { forwardRef } from "react";
 import styles from "./Table.module.css";
-import Code from "../Code/Code";
 
-const Table = forwardRef(
-  (
-    {
-      columns,
-      rows,
-      code = false,
-      CodeColumn = [],
-      codeColor = "",
-      codeUnderline = false,
-      codeStyle = {},
-      className,
-      style,
-      ...rest
-    },
-    ref
-  ) => {
-    const codeColumns = Array.isArray(CodeColumn) ? CodeColumn : [CodeColumn];
-
-    return (
-      <div ref={ref} className={`${styles.rue_table_container} ${className}`} style={style} {...rest}>
-        <table className={styles.table}>
-          <thead className={styles.tableHeader}>
-            <tr>
-              {columns.map((column, index) => (
-                <th key={index}>{column}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className={styles.tableBody}>
-            {rows.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} data-th={columns[cellIndex]}>
-                    {code && codeColumns.includes(cellIndex) ? (
-                      <Code color={codeColor} underline={codeUnderline} style={codeStyle}>
-                        {cell}
-                      </Code>
-                    ) : (
-                      cell
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-);
+const Table = forwardRef(({ children, className, style, ...rest }, ref) => {
+  return (
+    <table ref={ref} className={`${styles.table} ${className}`} style={style} {...rest}>
+      {children}
+    </table>
+  );
+});
 
 Table.propTypes = {
-  columns: PropTypes.arrayOf(PropTypes.string).isRequired,
-  rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.node)).isRequired,
-  code: PropTypes.bool,
-  CodeColumn: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]),
-  codeColor: PropTypes.string,
-  codeUnderline: PropTypes.bool,
-  codeStyle: PropTypes.object,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   style: PropTypes.object,
 };
 
+const TableHead = ({ children, className, style, ...rest }) => {
+  return (
+    <thead className={`${styles.tableHead} ${className}`} style={style} {...rest}>
+      {children}
+    </thead>
+  );
+};
+
+TableHead.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
+const TableBody = ({ children, className, style, ...rest }) => {
+  return (
+    <tbody className={`${styles.tableBody} ${className}`} style={style} {...rest}>
+      {children}
+    </tbody>
+  );
+};
+
+TableBody.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
+const TableFooter = ({ children, className, style, ...rest }) => {
+  return (
+    <tfoot className={`${styles.tableFooter} ${className}`} style={style} {...rest}>
+      {children}
+    </tfoot>
+  );
+};
+
+TableFooter.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
+const TableRow = ({ children, className, style, ...rest }) => {
+  return (
+    <tr className={`${styles.tableRow} ${className}`} style={style} {...rest}>
+      {children}
+    </tr>
+  );
+};
+
+TableRow.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+};
+
+const TableCell = ({ children, className, style, isHeader = false, ...rest }) => {
+  const CellTag = isHeader ? "th" : "td";
+  return (
+    <CellTag className={`${styles.tableCell} ${className}`} style={style} {...rest}>
+      {children}
+    </CellTag>
+  );
+};
+
+TableCell.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  isHeader: PropTypes.bool,
+};
+
+Table.Head = TableHead;
+Table.Body = TableBody;
+Table.Cell = TableCell;
+Table.Footer = TableFooter;
+Table.Row = TableRow;
 Table.displayName = "Table";
+
 export default Table;

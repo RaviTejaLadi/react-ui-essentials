@@ -1,142 +1,89 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./Popover.module.css";
 import PropTypes from "prop-types";
+import React, { useState, useRef, useEffect, forwardRef } from "react";
+import styles from "./Popover.module.css";
+import Box from "../Box/Box";
+import useMergedRef from "../../hooks/useMergedRef";
 
-const Popover = ({
-  position = "top",
-  size = "sm",
-  width = "",
-  height = "",
-  content,
-  children,
-  className,
-  style,
-  ...rest
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const popoverRef = useRef(null);
-  const targetRef = useRef(null);
+const Popover = forwardRef(({ content, position = "top", action = "onClick", children }, ref) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const popoverRef = useRef();
+  const mergedRef = useMergedRef(ref, popoverRef);
 
-  const togglePopover = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const getPosition = () => {
-    return styles[`rue_popover_${position}`] || styles.rue_popover_top;
-  };
-
-  const getSizeClass = () => {
-    return styles[`rue_popover_${size}`] || styles.rue_popover_sm;
+  const togglePopover = (value) => {
+    setIsVisible(value);
   };
 
   const handleClickOutside = (event) => {
-    if (popoverRef.current && !popoverRef.current.contains(event.target) && !targetRef.current.contains(event.target)) {
-      setIsOpen(false);
+    if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+      setIsVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    if (isVisible) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
+
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [isVisible]);
 
-  return (
-    <div className={`${styles.rue_popover_container} ${className}`} style={style} {...rest} ref={popoverRef}>
-      <div className="target" ref={targetRef} onClick={togglePopover}>
-        {children}
-      </div>
-      {isOpen && (
-        <div
-          className={`${styles.rue_popover} ${getPosition()} ${getSizeClass()}`}
-          style={{ width: width, height: height }}
-        >
-          {content}
-        </div>
-      )}
-    </div>
-  );
-};
+  const handleTriggerAction = () => {
+    if (action === "onClick") {
+      togglePopover(!isVisible);
+    }
+  };
 
-const PopoverContent = ({ children, width, height, className, style, ...rest }) => {
+  const handleMouseOver = () => {
+    if (action === "onMouseOver") {
+      togglePopover(true);
+    }
+  };
+
+  const handleMouseOut = () => {
+    if (action === "onMouseOver") {
+      togglePopover(false);
+    }
+  };
+
   return (
     <div
-      className={`${styles.rue_popover_content} ${className}`}
-      style={{ width: width, height: height, ...style }}
-      {...rest}
+      className={styles.rue_popoverContainer}
+      ref={mergedRef}
+      onClick={handleTriggerAction}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
     >
       {children}
+      {isVisible && <div className={`${styles.rue_popover} ${styles[position]}`}>{content}</div>}
     </div>
+  );
+});
+
+const PopoverContent = ({ children, className, style, ...rest }) => {
+  return (
+    <Box className={`${className}`} style={{ style }} {...rest}>
+      {children}
+    </Box>
   );
 };
 
 PopoverContent.propTypes = {
   children: PropTypes.node,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  className: PropTypes.string,
-  style: PropTypes.object,
-};
-
-const PopoverHeader = ({ children, height, className, style, ...rest }) => {
-  return (
-    <div className={`${styles.rue_popover_header} ${className}`} style={{ height: height, ...style }} {...rest}>
-      {children}
-    </div>
-  );
-};
-
-PopoverHeader.propTypes = {
-  children: PropTypes.node,
-  height: PropTypes.string,
-  className: PropTypes.string,
-  style: PropTypes.object,
-};
-
-const PopoverBody = ({ children, height, className, style, ...rest }) => {
-  return (
-    <div className={`${styles.rue_popover_body} ${className}`} style={{ height: height, ...style }} {...rest}>
-      {children}
-    </div>
-  );
-};
-
-PopoverBody.propTypes = {
-  children: PropTypes.node,
-  height: PropTypes.string,
-  className: PropTypes.string,
-  style: PropTypes.object,
-};
-
-const PopoverFooter = ({ children, height, className, style, ...rest }) => {
-  return (
-    <div className={`${styles.rue_popover_footer} ${className}`} style={{ height: height, ...style }} {...rest}>
-      {children}
-    </div>
-  );
-};
-
-PopoverFooter.propTypes = {
-  children: PropTypes.node,
-  height: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object,
 };
 
 Popover.propTypes = {
-  children: PropTypes.node,
-  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  position: PropTypes.oneOf(["top", "right", "bottom", "left"]),
-  width: PropTypes.string,
-  height: PropTypes.string,
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
-  className: PropTypes.string,
-  style: PropTypes.object,
+  children: PropTypes.any,
+  content: PropTypes.any,
+  position: PropTypes.string,
+  action: PropTypes.oneOf(["onClick", "onMouseOver"]),
 };
 
 Popover.Content = PopoverContent;
-Popover.Header = PopoverHeader;
-Popover.Body = PopoverBody;
-Popover.Footer = PopoverFooter;
+
 export default Popover;
