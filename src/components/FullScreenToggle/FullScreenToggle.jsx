@@ -30,19 +30,24 @@ const FullScreenToggle = forwardRef(({ variant, size, text, ...rest }, ref) => {
       setFullScreen(false);
     }
   };
+
   useEffect(() => {
     return () => {
-      if (document.exitFullscreen) {
-        document.exitFullscreen().catch((err) => {
-          console.error("Exit fullscreen error during cleanup:", err);
-        });
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.webkitCancelFullScreen) {
-        document.webkitCancelFullScreen();
+      // Check if the document is currently in fullscreen mode before exiting
+      if (document.fullscreenElement) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch((err) => {
+            console.error("Exit fullscreen error during cleanup:", err);
+          });
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        }
       }
     };
   }, []);
+
   return (
     <Button ref={ref} variant={variant} size={size} onClick={toggleFullScreen} {...rest}>
       <Button.Icon>
