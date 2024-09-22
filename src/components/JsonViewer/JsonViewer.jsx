@@ -85,7 +85,7 @@ const JsonViewer = forwardRef(
     return (
       <Box
         ref={ref}
-        className={`${styles.rue_json_preview_container} ${className}`}
+        className={`${styles.rue_json_preview_container} ${className || ""}`}
         margin={margin}
         padding={padding}
         width={width}

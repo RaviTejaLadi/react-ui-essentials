@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./BasicCard.module.css";
 
 const Title = ({ children, className, style, ...rest }) => (
-  <h5 className={`${styles.rue_title}  ${className}`} style={style} {...rest}>
+  <h5 className={`${styles.rue_title}  ${className || ""}`} style={style} {...rest}>
     {children}
   </h5>
 );
@@ -15,7 +15,7 @@ Title.propTypes = {
 };
 
 const Content = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_content} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_content} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -36,7 +36,7 @@ const BasicCard = ({ children, width, height, padding, margin, className, style,
   };
 
   return (
-    <div className={`${styles.rue_card}  ${className}`} style={cardStyle} {...rest}>
+    <div className={`${styles.rue_card}  ${className || ""}`} style={cardStyle} {...rest}>
       {children}
     </div>
   );

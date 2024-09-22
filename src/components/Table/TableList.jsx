@@ -22,7 +22,7 @@ const TableList = forwardRef(
     const codeColumns = Array.isArray(CodeColumn) ? CodeColumn : [CodeColumn];
 
     return (
-      <Table ref={ref} className={className} style={style} {...rest}>
+      <Table ref={ref} className={className || ""} style={style} {...rest}>
         <Table.Head>
           <Table.Row>
             {columns.map((column, index) => (

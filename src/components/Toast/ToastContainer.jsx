@@ -30,7 +30,7 @@ const ToastContainer = forwardRef(
       showClose = true,
       rounded = false,
       startIcon,
-      className,
+      className = "",
       style,
       ...rest
     },

@@ -27,7 +27,7 @@ const Dropdown = forwardRef(
 
     const dropdownClass = `${styles.rue_dropdown} ${variant ? `${styles[`rue_dropdown_${variant}`]}` : ""} ${
       size ? `${styles[`rue_dropdown_${size}`]}` : ""
-    } ${className}`;
+    } ${className || ""}`;
 
     useEffect(() => {
       const handleClickOutside = (event) => {
@@ -59,7 +59,9 @@ const Dropdown = forwardRef(
           type="button"
           style={{ width, height }}
         >
-          <div style={{ width: "80%" }}>{selectedChild ? selectedChild.props.children : placeholder}</div>
+          <div style={{ width: "80%", fontSize: "15px", fontWeight: "500" }}>
+            {selectedChild ? selectedChild.props.children : placeholder}
+          </div>
           <div
             style={{
               width: "20%",
@@ -69,6 +71,7 @@ const Dropdown = forwardRef(
               width="30px"
               height="30px"
               style={{
+                marginBottom: "-3px",
                 transform: isOpen ? "rotate(90deg)" : "",
                 fill: "#fff",
               }}
@@ -96,9 +99,9 @@ Dropdown.propTypes = {
   children: PropTypes.node.isRequired,
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
   value: PropTypes.string,
-  variant: PropTypes.string,
+  variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "help", "light", "dark"]),
   className: PropTypes.string,
   style: PropTypes.object,
   width: PropTypes.string,
@@ -106,7 +109,7 @@ Dropdown.propTypes = {
 };
 
 const DropdownItem = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_dropdownItemContent} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_dropdownItemContent} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -118,4 +121,5 @@ DropdownItem.propTypes = {
 };
 
 Dropdown.Item = DropdownItem;
+Dropdown.displayName = "Dropdown";
 export default Dropdown;

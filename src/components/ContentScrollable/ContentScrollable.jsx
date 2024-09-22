@@ -11,7 +11,7 @@ const ContentScrollable = forwardRef(({ height, width, children, variant, classN
 
   const contentScrollableClasses = `${styles.rue_content_scroller} ${
     variant ? `${styles[`rue_content_scroller_${variant}`]}` : ""
-  }  ${className}`;
+  }  ${className || ""}`;
 
   return (
     <div ref={ref} className={contentScrollableClasses} style={containerDimensions} {...rest}>

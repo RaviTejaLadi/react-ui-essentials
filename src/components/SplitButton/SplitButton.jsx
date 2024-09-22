@@ -42,7 +42,7 @@ const SplitButton = forwardRef(
     };
     const buttonClasses = `${styles.rue_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
       size ? `${styles[`rue_btn_${size}`]}` : ""
-    } ${className}`;
+    } ${className || ""}`;
 
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);

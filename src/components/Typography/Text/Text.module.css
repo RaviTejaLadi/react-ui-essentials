@@ -1,0 +1,65 @@
+.rue_text_default {
+    color: rgb(0, 0, 0);
+}
+
+.rue_text_primary {
+    color: #007bff;
+}
+
+.rue_text_secondary {
+    color: #6c757d;
+}
+
+.rue_text_success {
+    color: #28a745;
+}
+
+.rue_text_info {
+    color: #17a2b8;
+}
+
+.rue_text_warning {
+    color: #ffc107;
+}
+
+.rue_text_danger {
+    color: #dc3545;
+}
+
+.rue_text_help {
+    color: #8a2be2;
+}
+
+.rue_text {
+    display: block;
+}
+
+.rue_text_xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.rue_text_sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.rue_text_md {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.rue_text_lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.rue_text_xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.rue_text_xxl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}

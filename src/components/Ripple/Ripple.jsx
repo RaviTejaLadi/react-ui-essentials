@@ -35,7 +35,7 @@ const Ripple = forwardRef(({ duration = 850, color = "#fff", className, style, .
   return (
     <div
       ref={ref}
-      className={`${styles.rue_ripple_container} ${className}`}
+      className={`${styles.rue_ripple_container} ${className || ""}`}
       style={style}
       onMouseDown={addRipple}
       {...rest}

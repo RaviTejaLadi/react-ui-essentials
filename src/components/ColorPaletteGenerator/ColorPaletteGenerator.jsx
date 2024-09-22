@@ -117,7 +117,7 @@ const ColorPaletteGenerator = forwardRef(
     return (
       <Box
         ref={ref}
-        className={`${styles.rue_colorPaletteContainer} ${className}`}
+        className={`${styles.rue_colorPaletteContainer} ${className || ""}`}
         width={width}
         height={height}
         padding={padding}

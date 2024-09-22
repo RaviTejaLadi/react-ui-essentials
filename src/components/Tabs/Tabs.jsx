@@ -35,7 +35,7 @@ const Tabs = ({
   };
 
   return (
-    <Box padding="5px" rounded className={`${styles.rue_tabsContainer} ${className}`} style={style} {...rest}>
+    <Box padding="5px" rounded className={`${styles.rue_tabsContainer} ${className || ""}`} style={style} {...rest}>
       <div className={`${styles.rue_tabList} ${styles[`rue_${variant}`]}`} style={headerStyles}>
         {React.Children.map(children, (child) => (
           <button

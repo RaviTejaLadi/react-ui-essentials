@@ -1,4 +1,4 @@
-import React, { createElement } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import getStyle from "./style";
 import { getConfiguration } from "../../utils/config";

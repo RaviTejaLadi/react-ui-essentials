@@ -76,7 +76,7 @@ const ImageViewer = forwardRef(({ src, alt, caption, ...rest }, ref) => {
 
   return (
     <div ref={ref} className={styles.rue_image_viewer_container} onClick={toggleFullScreen} {...rest}>
-      <Box elevation={0} margin="4px" padding="4px" rounded width="fit-content" height="fit-content" outlined>
+      <Box margin="4px" padding="4px" rounded width="fit-content" height="fit-content" outlined>
         <img ref={imgRef} title="Click to View" src={src} alt={alt} className={styles.rue_image_viewer_image} />
         <Paragraph variant="secondary" italic>
           {caption}

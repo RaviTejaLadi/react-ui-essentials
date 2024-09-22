@@ -1,0 +1,22 @@
+.rue_checkbox {
+    margin-right: 8px;
+    border: 1px solid hsl(240, 5.9%, 90%);
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05)
+}
+
+.sm.rue_checkbox {
+    width: 14px;
+    height: 14px
+}
+
+.md.rue_checkbox {
+    width: 16px;
+    height: 16px
+}
+
+.lg.rue_checkbox {
+    width: 18px;
+    height: 18px
+}

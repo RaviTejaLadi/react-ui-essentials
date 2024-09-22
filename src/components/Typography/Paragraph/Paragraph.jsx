@@ -29,30 +29,13 @@ const Paragraph = forwardRef(
     },
     ref
   ) => {
-    const validTypes = ["p", "span", "div"];
+    const getTextStyles = () => {
+      const variantClass = styles[`rue_para_${variant}`] || "";
+      return `${styles.rue_para} ${variantClass} ${className || ""}`;
+    };
+    const validTypes = ["p", "span"];
     const Component = validTypes.includes(type) ? type : "p";
     const [copied, setCopied] = useState(false);
-
-    const getVariantClass = () => {
-      switch (variant) {
-        case "default":
-          return styles.default;
-        case "primary":
-          return styles.primary;
-        case "secondary":
-          return styles.secondary;
-        case "success":
-          return styles.success;
-        case "info":
-          return styles.info;
-        case "warning":
-          return styles.warning;
-        case "danger":
-          return styles.danger;
-        default:
-          return styles.default;
-      }
-    };
 
     const paraStyle = {
       textDecoration: underline
@@ -84,13 +67,8 @@ const Paragraph = forwardRef(
     };
 
     return (
-      <Component
-        ref={ref}
-        className={`${styles.rue_para} ${getVariantClass()} ${className}`}
-        style={paraStyle}
-        {...rest}
-      >
-        <span>{children}</span>
+      <Component ref={ref} className={getTextStyles()} style={paraStyle} {...rest}>
+        {children}
         {copy && (
           <span className={styles.rue_copyIcon} onClick={handleCopy}>
             <ContentCopy width="20px" height="20px" />
@@ -102,26 +80,26 @@ const Paragraph = forwardRef(
   }
 );
 
-Text.propTypes = {
+Paragraph.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(["default", "primary", "secondary", "success", "info", "warning", "danger"]),
-  type: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6", "p", "span"]),
-  underline: PropTypes.bool,
-  overline: PropTypes.bool,
-  dashed: PropTypes.bool,
-  italic: PropTypes.bool,
-  strong: PropTypes.bool,
-  strikethrough: PropTypes.bool,
-  marked: PropTypes.bool,
-  smaller: PropTypes.bool,
-  deleted: PropTypes.bool,
-  inserted: PropTypes.bool,
+  className: PropTypes.string,
+  color: PropTypes.string,
   copy: PropTypes.bool,
+  dashed: PropTypes.bool,
+  deleted: PropTypes.bool,
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
-  color: PropTypes.string,
-  className: PropTypes.string,
+  inserted: PropTypes.bool,
+  italic: PropTypes.bool,
+  marked: PropTypes.bool,
+  overline: PropTypes.bool,
+  smaller: PropTypes.bool,
+  strikethrough: PropTypes.bool,
+  strong: PropTypes.bool,
   style: PropTypes.object,
+  type: PropTypes.oneOf(["p", "span"]),
+  underline: PropTypes.bool,
+  variant: PropTypes.oneOf(["default", "primary", "secondary", "success", "info", "warning", "danger", "help"]),
 };
 
 Paragraph.displayName = "Paragraph";

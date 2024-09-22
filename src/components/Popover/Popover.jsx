@@ -65,7 +65,7 @@ const Popover = forwardRef(({ content, position = "top", action = "onClick", chi
 
 const PopoverContent = ({ children, className, style, ...rest }) => {
   return (
-    <Box className={`${className}`} style={{ style }} {...rest}>
+    <Box className={`${className || ""}`} style={{ style }} {...rest}>
       {children}
     </Box>
   );
@@ -85,5 +85,5 @@ Popover.propTypes = {
 };
 
 Popover.Content = PopoverContent;
-
+Popover.displayName = "Popover";
 export default Popover;

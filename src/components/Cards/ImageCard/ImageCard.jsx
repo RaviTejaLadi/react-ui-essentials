@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import styles from "./ImageCard.module.css";
 
 const Image = ({ src, alt, className, style, ...rest }) => (
-  <img src={src} alt={alt} className={`${styles.rue_image}  ${className}`} style={style} {...rest} />
+  <img src={src} alt={alt} className={`${styles.rue_image}  ${className || ""}`} style={style} {...rest} />
 );
 
 Image.propTypes = {
@@ -14,7 +14,7 @@ Image.propTypes = {
 };
 
 const Title = ({ children, className, style, ...rest }) => (
-  <h2 className={`${styles.rue_title}  ${className}`} style={style} {...rest}>
+  <h2 className={`${styles.rue_title}  ${className || ""}`} style={style} {...rest}>
     {children}
   </h2>
 );
@@ -26,7 +26,7 @@ Title.propTypes = {
 };
 
 const Content = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_content}  ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_content}  ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -51,7 +51,7 @@ const ImageCard = forwardRef(({ children, width, height, padding, margin, classN
   };
 
   return (
-    <div ref={ref} className={`${styles.rue_card} ${className}`} style={cardStyle} {...rest}>
+    <div ref={ref} className={`${styles.rue_card} ${className || ""}`} style={cardStyle} {...rest}>
       {React.Children.map(children, (child) => {
         if (child.type === Image) {
           return child;

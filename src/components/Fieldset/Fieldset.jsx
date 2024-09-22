@@ -11,7 +11,7 @@ const Fieldset = forwardRef(
     return (
       <div
         ref={ref}
-        className={`${styles.rue_fieldset} ${getTitleStyle()} ${className}`}
+        className={`${styles.rue_fieldset} ${getTitleStyle()} ${className || ""}`}
         style={{ width: width, height: height, ...style }}
         {...rest}
       >
@@ -23,7 +23,7 @@ const Fieldset = forwardRef(
 
 const FieldsetHeader = ({ children, className, style, ...rest }) => {
   return (
-    <div className={`${styles.rue_fieldset_header} ${className}`} style={style} {...rest}>
+    <div className={`${styles.rue_fieldset_header} ${className || ""}`} style={style} {...rest}>
       {children}
     </div>
   );
@@ -37,7 +37,7 @@ FieldsetHeader.propTypes = {
 
 const FieldsetBody = ({ children, className, style, ...rest }) => {
   return (
-    <div className={`${styles.rue_fieldset_content_ontent} ${className}`} style={style} {...rest}>
+    <div className={`${styles.rue_fieldset_content_ontent} ${className || ""}`} style={style} {...rest}>
       {children}
     </div>
   );

@@ -20,7 +20,7 @@ const Avatar = forwardRef(
         src={src}
         ref={ref}
         alt={alt}
-        className={`${styles.rue_custom_image} ${className}`}
+        className={`${styles.rue_custom_image} ${className || ""}`}
         style={imageStyle}
         {...rest}
       />

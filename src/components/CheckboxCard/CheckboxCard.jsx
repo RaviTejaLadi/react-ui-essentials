@@ -30,7 +30,7 @@ const CheckboxCard = forwardRef(
     return (
       <div
         ref={ref}
-        className={`${styles.rue_card} ${checked ? styles.rue_cardChecked : ""}  ${className}`}
+        className={`${styles.rue_card} ${checked ? styles.rue_cardChecked : ""}  ${className || ""}`}
         style={checkStyles}
         {...rest}
       >
@@ -63,7 +63,7 @@ CheckboxCard.propTypes = {
 
 const CheckboxCardContent = ({ children, className, style, ...rest }) => {
   return (
-    <div className={className} style={style} {...rest}>
+    <div className={className || ""} style={style} {...rest}>
       {children}
     </div>
   );

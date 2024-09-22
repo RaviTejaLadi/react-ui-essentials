@@ -1,0 +1,16 @@
+.rue_label {
+    display: block;
+    font-weight: 500
+}
+
+.sm.rue_label {
+    font-size: 14px !important;
+}
+
+.md.rue_label {
+    font-size: 16px !important;
+}
+
+.lg.rue_label {
+    font-size: 18px !important;
+}

@@ -5,7 +5,7 @@ import { Search } from "../../Icons/Round";
 
 const SearchBar = ({ placeholder, value, onChange, size = "md", className, style, ...rest }) => {
   return (
-    <div className={`${styles.rue_searchBar} ${styles[`rue_${size}`]} ${className}`} style={style}>
+    <div className={`${styles.rue_searchBar} ${styles[`rue_${size}`]} ${className || ""}`} style={style}>
       <Search className={styles.rue_icon} />
       <input
         type="search"

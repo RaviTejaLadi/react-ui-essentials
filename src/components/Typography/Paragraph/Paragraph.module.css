@@ -1,29 +1,32 @@
-.rue_para.default {
+.rue_para_default {
     color: rgb(0, 0, 0);
 }
 
-.rue_para.primary {
+.rue_para_primary {
     color: #007bff;
 }
 
-.rue_para.secondary {
+.rue_para_secondary {
     color: #6c757d;
 }
 
-.rue_para.success {
+.rue_para_success {
     color: #28a745;
 }
 
-.rue_para.info {
+.rue_para_info {
     color: #17a2b8;
 }
 
-.rue_para.warning {
+.rue_para_warning {
     color: #ffc107;
 }
 
-.rue_para.danger {
+.rue_para_danger {
     color: #dc3545;
+}
+.rue_text_help {
+    color: #8a2be2;
 }
 
 .rue_copyFeedback {
@@ -41,8 +44,8 @@
 
 .rue_para {
     display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    margin-block-start: 0;
+    margin-block-end: 0;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;

@@ -16,7 +16,7 @@ const SectionHeader = forwardRef(
         style={{ padding, margin, ...style }}
         className={`${styles.rue_sectionHeader} ${styles[`rue_sectionHeader_placement-${placement}`]} ${
           styles[`rue_sectionHeader_size-${size}`]
-        } ${className}`}
+        } ${className || ""}`}
         {...rest}
       >
         <div className={styles.rue_sectionHeader_content}>{children}</div>
@@ -28,7 +28,7 @@ const SectionHeader = forwardRef(
 
 const SectionHeaderTitle = ({ children, className, style, ...rest }) => {
   return (
-    <Heading className={`${styles.rue_sectionHeader_title} ${className}`} style={style} {...rest}>
+    <Heading className={`${styles.rue_sectionHeader_title} ${className || ""}`} style={style} {...rest}>
       {children}
     </Heading>
   );
@@ -42,7 +42,7 @@ SectionHeaderTitle.propTypes = {
 
 const SectionHeaderSubTitle = ({ children, className, style, ...rest }) => {
   return (
-    <Paragraph className={`${styles.rue_sectionHeader_subtitle} ${className}`} style={style} {...rest}>
+    <Paragraph className={`${styles.rue_sectionHeader_subtitle} ${className || ""}`} style={style} {...rest}>
       {children}
     </Paragraph>
   );
@@ -56,7 +56,7 @@ SectionHeaderSubTitle.propTypes = {
 
 SectionHeader.propTypes = {
   children: PropTypes.node.isRequired,
-  controls: PropTypes.node.isRequired,
+  controls: PropTypes.node,
   margin: PropTypes.string,
   padding: PropTypes.string,
   placement: PropTypes.oneOf(["left", "right", "center"]),

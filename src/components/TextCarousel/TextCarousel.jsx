@@ -41,7 +41,7 @@ const TextCarousel = forwardRef(({ children, interval = 0, className, style }, r
   };
 
   return (
-    <Box ref={ref} padding="10px" className={className} style={contStyle}>
+    <Box ref={ref} padding="10px" className={className || ""} style={contStyle}>
       <Box padding="12px" className={styles.rue_carouselContent}>
         <div className={styles.rue_carouselItem}>{cloneElement(children[index])}</div>
       </Box>

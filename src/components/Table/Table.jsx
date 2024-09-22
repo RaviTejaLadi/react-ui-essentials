@@ -4,7 +4,7 @@ import styles from "./Table.module.css";
 
 const Table = forwardRef(({ children, className, style, ...rest }, ref) => {
   return (
-    <table ref={ref} className={`${styles.table} ${className}`} style={style} {...rest}>
+    <table ref={ref} className={`${styles.table} ${className || ""}`} style={style} {...rest}>
       {children}
     </table>
   );
@@ -18,7 +18,7 @@ Table.propTypes = {
 
 const TableHead = ({ children, className, style, ...rest }) => {
   return (
-    <thead className={`${styles.tableHead} ${className}`} style={style} {...rest}>
+    <thead className={`${styles.tableHead} ${className || ""}`} style={style} {...rest}>
       {children}
     </thead>
   );
@@ -32,7 +32,7 @@ TableHead.propTypes = {
 
 const TableBody = ({ children, className, style, ...rest }) => {
   return (
-    <tbody className={`${styles.tableBody} ${className}`} style={style} {...rest}>
+    <tbody className={`${styles.tableBody} ${className || ""}`} style={style} {...rest}>
       {children}
     </tbody>
   );
@@ -46,7 +46,7 @@ TableBody.propTypes = {
 
 const TableFooter = ({ children, className, style, ...rest }) => {
   return (
-    <tfoot className={`${styles.tableFooter} ${className}`} style={style} {...rest}>
+    <tfoot className={`${styles.tableFooter} ${className || ""}`} style={style} {...rest}>
       {children}
     </tfoot>
   );
@@ -60,7 +60,7 @@ TableFooter.propTypes = {
 
 const TableRow = ({ children, className, style, ...rest }) => {
   return (
-    <tr className={`${styles.tableRow} ${className}`} style={style} {...rest}>
+    <tr className={`${styles.tableRow} ${className || ""}`} style={style} {...rest}>
       {children}
     </tr>
   );
@@ -75,7 +75,7 @@ TableRow.propTypes = {
 const TableCell = ({ children, className, style, isHeader = false, ...rest }) => {
   const CellTag = isHeader ? "th" : "td";
   return (
-    <CellTag className={`${styles.tableCell} ${className}`} style={style} {...rest}>
+    <CellTag className={`${styles.tableCell} ${className || ""}`} style={style} {...rest}>
       {children}
     </CellTag>
   );

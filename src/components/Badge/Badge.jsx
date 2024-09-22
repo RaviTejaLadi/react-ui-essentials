@@ -6,7 +6,7 @@ const Badge = forwardRef(({ size = "sm", variant = "primary", children, pill, cl
   const getBadgeStyles = () => {
     const sizeClass = styles[`rue_badge_${size}`] || "";
     const variantClass = styles[`rue_badge_${variant}`] || "";
-    return `badge ${sizeClass} ${variantClass} ${className}`;
+    return `badge ${sizeClass} ${variantClass} ${className || ""}`;
   };
 
   const pillStyles = {
@@ -23,7 +23,7 @@ const Badge = forwardRef(({ size = "sm", variant = "primary", children, pill, cl
 
 Badge.propTypes = {
   size: PropTypes.oneOf(["sm", "md", "lg"]),
-  variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]),
+  variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "help", "light", "dark"]),
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   style: PropTypes.object,

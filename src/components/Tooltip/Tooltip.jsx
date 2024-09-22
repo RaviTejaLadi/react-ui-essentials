@@ -109,7 +109,7 @@ const Tooltip = forwardRef(
       >
         {children}
         {isVisible && (
-          <div className={`${styles.rue_tooltip} ${position} ${className}`} style={getTooltipStyle()}>
+          <div className={`${styles.rue_tooltip} ${position} ${className || ""}`} style={getTooltipStyle()}>
             {text}
           </div>
         )}

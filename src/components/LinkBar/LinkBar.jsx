@@ -16,6 +16,8 @@ const LinkBar = forwardRef(
       height = "40px",
       links,
       activeLinkUrl,
+      className,
+      style,
       ...rest
     },
     ref
@@ -32,7 +34,14 @@ const LinkBar = forwardRef(
     };
 
     return (
-      <Box ref={ref} width={width} height={height} className={styles.rue_linkbar_container} {...rest}>
+      <Box
+        ref={ref}
+        width={width}
+        height={height}
+        className={`${styles.rue_linkbar_container} ${className}`}
+        style={style}
+        {...rest}
+      >
         {showControls && (
           <Button size={controlsSize} variant={controlsVariant} onClick={() => scroll("left")}>
             <Button.Icon>

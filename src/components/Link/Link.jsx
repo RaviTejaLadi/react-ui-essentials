@@ -2,36 +2,43 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Link.module.css";
 
-const Link = forwardRef(({ to, children, target, rel, className, onClick, ...rest }, ref) => {
-  const isExternal = /^https?:\/\//.test(to);
+const Link = forwardRef(
+  ({ to, children, target, rel, className, onClick, download, hrefLang, ping, referrerPolicy, type, ...rest }, ref) => {
+    const isExternal = /^(https?:\/\/|mailto:|tel:)/.test(to);
 
-  const handleClick = (event) => {
-    if (onClick) {
-      onClick(event);
-    }
-    if (!event.defaultPrevented && !isExternal) {
-      event.preventDefault();
-      window.history.pushState({}, "", to);
-      window.dispatchEvent(new Event("popstate"));
-    }
-  };
+    const handleClick = (event) => {
+      if (onClick) {
+        onClick(event);
+      }
+      if (!event.defaultPrevented && !isExternal) {
+        event.preventDefault();
+        window.history.pushState({}, "", to);
+        window.dispatchEvent(new Event("popstate"));
+      }
+    };
 
-  const combinedClassName = `${styles.link} ${className || ""}`;
+    const combinedClassName = `${styles.link} ${className || ""}`;
 
-  return (
-    <a
-      ref={ref}
-      href={to}
-      onClick={handleClick}
-      target={isExternal ? target : undefined}
-      rel={isExternal && (target === "_blank" || !rel) ? "noopener noreferrer" : rel}
-      className={combinedClassName}
-      {...rest}
-    >
-      {children}
-    </a>
-  );
-});
+    return (
+      <a
+        href={to}
+        ref={ref}
+        target={target}
+        rel={rel || (isExternal ? "noopener noreferrer" : undefined)}
+        className={combinedClassName}
+        onClick={handleClick}
+        download={download}
+        hrefLang={hrefLang}
+        ping={ping}
+        referrerPolicy={referrerPolicy}
+        type={type}
+        {...rest}
+      >
+        {children}
+      </a>
+    );
+  }
+);
 
 Link.propTypes = {
   to: PropTypes.string.isRequired,
@@ -40,6 +47,11 @@ Link.propTypes = {
   rel: PropTypes.string,
   target: PropTypes.string,
   onClick: PropTypes.func,
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  hrefLang: PropTypes.string,
+  ping: PropTypes.string,
+  referrerPolicy: PropTypes.string,
+  type: PropTypes.string,
 };
 
 Link.displayName = "Link";

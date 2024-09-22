@@ -1,5 +1,7 @@
-import React, { useState, useCallback, useRef, useEffect } from "react";
+import React, { useState, useCallback, useRef, useEffect, forwardRef } from "react";
 import PropTypes from "prop-types";
+import Box from "../Box/Box";
+import useMergedRef from "../../hooks/useMergedRef";
 
 const parseSizeToPixels = (size, containerSize) => {
   if (typeof size === "number") return size;
@@ -66,26 +68,69 @@ const useResizeHandle = (initialSizes, minSizes, maxSizes, orientation = "horizo
   return [sizes, handleResize, containerRef, setSizes];
 };
 
-const ResizeHandle = React.memo(({ onMouseDown, orientation = "horizontal" }) => (
-  <div
-    style={{
-      [orientation === "horizontal" ? "height" : "width"]: "4px",
-      [orientation === "horizontal" ? "width" : "height"]: "100%",
-      background: "#ccc",
-      cursor: orientation === "horizontal" ? "ns-resize" : "ew-resize",
-    }}
-    onMouseDown={onMouseDown}
-  />
-));
+const ResizeHandle = React.memo(({ onMouseDown, orientation = "horizontal", withHandle }) => {
+  return (
+    <div
+      style={{
+        [orientation === "horizontal" ? "height" : "width"]: "1px",
+        [orientation === "horizontal" ? "width" : "height"]: "98%",
+        background: "#e4e4e7",
+        cursor: orientation === "horizontal" ? "ns-resize" : "ew-resize",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      onMouseDown={onMouseDown}
+    >
+      {withHandle &&
+        (orientation === "horizontal" ? (
+          <Box
+            width="18px"
+            height="14px"
+            style={{ display: "flex", justifyContent: "center", alignItens: "center", paddingTop: "2px" }}
+            backgroundColor="#e4e4e7"
+            outlined
+          >
+            <svg viewBox="0 0 256 256" width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g strokeWidth="0" />
+              <g strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                fill="#212121"
+                d="M76 92a16 16 0 1 1-16-16 16 16 0 0 1 16 16m52-16a16 16 0 1 0 16 16 16 16 0 0 0-16-16m68 32a16 16 0 1 0-16-16 16 16 0 0 0 16 16M60 148a16 16 0 1 0 16 16 16 16 0 0 0-16-16m68 0a16 16 0 1 0 16 16 16 16 0 0 0-16-16m68 0a16 16 0 1 0 16 16 16 16 0 0 0-16-16"
+              />
+            </svg>
+          </Box>
+        ) : (
+          <Box
+            style={{ display: "flex", justifyContent: "center", alignItens: "center", paddingTop: "2px" }}
+            width="12px"
+            height="17px"
+            backgroundColor="#e4e4e7"
+            outlined
+          >
+            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g strokeWidth="0" />
+              <g strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M16 17a2 2 0 1 1 0 4 2 2 0 0 1 0-4m-8 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4m8-7a2 2 0 1 1 0 4 2 2 0 0 1 0-4m-8 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4m8-7a2 2 0 1 1 0 4 2 2 0 0 1 0-4M8 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4"
+                fill="#212121"
+              />
+            </svg>
+          </Box>
+        ))}
+    </div>
+  );
+});
 
-const Splitter = ({ orientation = "horizontal", height, children }) => {
+const Splitter = forwardRef(({ orientation = "horizontal", height, children, withHandle = true }, ref) => {
   const panes = React.Children.toArray(children);
   const initialSizes = panes.map((pane) => pane.props.initialSize || `${100 / panes.length}%`);
   const minSizes = panes.map((pane) => pane.props.minSize || "0%");
   const maxSizes = panes.map((pane) => pane.props.maxSize || "100%");
 
   const [sizes, handleResize, containerRef, setSizes] = useResizeHandle(initialSizes, minSizes, maxSizes, orientation);
-
+  const mergedRef = useMergedRef(ref, containerRef);
+  
   useEffect(() => {
     const containerSize =
       orientation === "horizontal" ? containerRef.current.offsetHeight : containerRef.current.offsetWidth;
@@ -104,7 +149,7 @@ const Splitter = ({ orientation = "horizontal", height, children }) => {
   };
 
   return (
-    <div style={containerStyle} ref={containerRef}>
+    <div style={containerStyle} ref={mergedRef}>
       {panes.map((pane, index) => (
         <React.Fragment key={index}>
           <div
@@ -121,15 +166,19 @@ const Splitter = ({ orientation = "horizontal", height, children }) => {
             })}
           </div>
           {index < panes.length - 1 && (
-            <ResizeHandle onMouseDown={(e) => handleResize(index, e)} orientation={orientation} />
+            <ResizeHandle
+              withHandle={withHandle}
+              onMouseDown={(e) => handleResize(index, e)}
+              orientation={orientation}
+            />
           )}
         </React.Fragment>
       ))}
     </div>
   );
-};
+});
 
-Splitter.Pane = React.forwardRef(({ children, initialSize, minSize, maxSize, ...rest }, ref) => (
+const SplitterPane = forwardRef(({ children, initialSize, minSize, maxSize, ...rest }, ref) => (
   <div ref={ref} style={{ height: "100%", overflow: "auto" }} {...rest}>
     {children}
   </div>
@@ -139,13 +188,16 @@ Splitter.propTypes = {
   orientation: PropTypes.oneOf(["horizontal", "vertical"]),
   height: PropTypes.string,
   children: PropTypes.node.isRequired,
+  withHandle: PropTypes.bool,
 };
-
-Splitter.Pane.propTypes = {
+SplitterPane.propTypes = {
   initialSize: PropTypes.string,
   minSize: PropTypes.string,
   maxSize: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
-
+Splitter.pane = SplitterPane;
+SplitterPane.displayName = "SplitterPane";
+Splitter.displayName = "Splitter";
+ResizeHandle.displayName = "ResizeHandle";
 export default Splitter;

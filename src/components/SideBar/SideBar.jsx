@@ -10,7 +10,7 @@ const SideBar = forwardRef(
     return (
       <aside
         ref={ref}
-        className={`${styles.rue_sidebar} ${className}`}
+        className={`${styles.rue_sidebar} ${className || ""}`}
         style={{ backgroundColor, color, width, ...style }}
         {...rest}
       >
@@ -30,7 +30,7 @@ SideBar.propTypes = {
 };
 
 const SidebarHeader = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_sidebar_header} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_sidebar_header} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -104,7 +104,7 @@ const SideBarBody = forwardRef(
     const filteredRoutes = routes.filter((route) => route.label.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
-      <div ref={ref} className={className} style={style} {...rest}>
+      <div ref={ref} className={className || ""} style={style} {...rest}>
         <div className={styles.rue_search_container}>
           <input
             type="text"
@@ -202,7 +202,7 @@ SideBarBody.propTypes = {
 };
 
 const SideBarFooter = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_sidebar_footer} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_sidebar_footer} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );

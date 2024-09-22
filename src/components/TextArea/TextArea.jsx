@@ -110,7 +110,7 @@ const TextArea = forwardRef(({ height = "100%", width = "300px", value, classNam
   }, []);
 
   return (
-    <div ref={ref} style={containerStyles} className={`${styles.rue_container} ${className}`} {...rest}>
+    <div ref={ref} style={containerStyles} className={`${styles.rue_container} ${className || ""}`} {...rest}>
       <div ref={lineNumbersRef} className={styles.rue_line_numbers} />
       <textarea
         style={{ width: width }}

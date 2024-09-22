@@ -40,7 +40,7 @@ const Breadcrumb = forwardRef(
     return (
       <Box
         aria-label="breadcrumb"
-        className={`${styles.rue_breadcrumb_container} ${className}`}
+        className={`${styles.rue_breadcrumb_container} ${className || ""}`}
         style={contStyles}
         ref={ref}
         {...rest}
@@ -81,7 +81,7 @@ const BreadcrumbItem = ({ to, active, children, className, style, ...rest }) => 
     return <span {...rest}>{children}</span>;
   }
   return (
-    <Link to={to} className={className} style={style} {...rest}>
+    <Link to={to} className={className || ""} style={style} {...rest}>
       {children}
     </Link>
   );

@@ -32,9 +32,9 @@ const Accordion = forwardRef(({ children, variant = "primary", size = "sm", clas
     <AccordionContext.Provider value={{ activeKeys, toggleItem, openItem, variant, size }}>
       <div
         ref={ref}
-        className={`${styles.rue_accordion} ${styles[`rue_accordion_${variant}`]} ${
-          styles[`rue_size_${size}`]
-        } ${className}`}
+        className={`${styles.rue_accordion} ${styles[`rue_accordion_${variant}`]} ${styles[`rue_size_${size}`]} ${
+          className || ""
+        }`}
         style={style}
         {...rest}
       >
@@ -53,7 +53,7 @@ Accordion.propTypes = {
 };
 const AccordionItem = ({ children, className, style, ...rest }) => {
   return (
-    <div className={className} style={style} {...rest}>
+    <div className={className || ""} style={style} {...rest}>
       {children}
     </div>
   );
@@ -79,7 +79,7 @@ const AccordionHeader = ({ children, icon, eventKey, open, className, style, ...
     <div
       className={`${styles.rue_accordionHeader} ${isActive ? styles.rue_active : ""} ${
         styles[`rue_header_${variant}`]
-      }  ${className}`}
+      }  ${className || ""}`}
       onClick={() => toggleItem(eventKey)}
       style={style}
       {...rest}
@@ -105,7 +105,7 @@ const AccordionBody = ({ children, eventKey, className, style, ...rest }) => {
 
   return (
     <div
-      className={`${styles.rue_accordionBody} ${isActive ? styles.rue_bodyActive : ""} ${className}`}
+      className={`${styles.rue_accordionBody} ${isActive ? styles.rue_bodyActive : ""} ${className || ""}`}
       style={style}
       {...rest}
     >

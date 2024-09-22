@@ -49,7 +49,7 @@ const Carousel = forwardRef(
         <Box
           ref={ref}
           padding={padding}
-          className={`${styles.rue_carouselContainer} ${className}`}
+          className={`${styles.rue_carouselContainer} ${className || ""}`}
           style={containerStyle}
           {...rest}
         >
@@ -68,7 +68,7 @@ const CarouselSlides = ({ children, className, style }) => {
   }, [children, setSlides]);
 
   return (
-    <div className={`${styles.rue_carousel} ${className}`} style={style}>
+    <div className={`${styles.rue_carousel} ${className || ""}`} style={style}>
       {React.Children.toArray(children)[currentIndex]}
     </div>
   );
@@ -77,7 +77,7 @@ const CarouselSlides = ({ children, className, style }) => {
 const CarouselContent = ({ children, className, style }) => {
   const { currentIndex } = useContext(CarouselContext);
   return (
-    <div className={`${styles.rue_title} ${className}`} style={style}>
+    <div className={`${styles.rue_title} ${className || ""}`} style={style}>
       {React.Children.toArray(children)[currentIndex]}
     </div>
   );
@@ -87,7 +87,7 @@ const CarouselControls = ({ children, className, style }) => {
   const { goToPrevious, goToNext } = useContext(CarouselContext);
 
   return (
-    <div className={`${styles.rue_navigation} ${className}`} style={style}>
+    <div className={`${styles.rue_navigation} ${className || ""}`} style={style}>
       {React.Children.map(children, (child) =>
         React.cloneElement(child, {
           onClick: child.props.onClick === goToPrevious ? goToPrevious : goToNext,
@@ -101,7 +101,7 @@ const CarouselDots = ({ className, style }) => {
   const { currentIndex, setCurrentIndex, slides } = useContext(CarouselContext);
 
   return (
-    <div className={`${styles.rue_dotsContainer} ${className}`} style={style}>
+    <div className={`${styles.rue_dotsContainer} ${className || ""}`} style={style}>
       {slides.map((_, index) => (
         <span
           key={index}

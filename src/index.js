@@ -58,7 +58,7 @@ export { default as Figure } from "./components/Figure/Figure";
 export { default as FullScreenToggle } from "./components/FullScreenToggle/FullScreenToggle";
 export { default as GridBackground } from "./components/GridBackground/GridBackground";
 export { default as GridLines } from "./components/GridBackground/GridLines";
-export { Heading, Paragraph } from "./components/Typography";
+export { Heading, Paragraph, Text } from "./components/Typography";
 export { default as JsonViewer } from "./components/JsonViewer/JsonViewer";
 export { default as Link } from "./components/Link/Link";
 export { default as LinkBar } from "./components/LinkBar/LinkBar";
@@ -100,6 +100,13 @@ export { default as TextCarousel } from "./components/TextCarousel/TextCarousel"
 export { default as Splitter } from "./components/Splitter/Splitter";
 export { default as ColorPaletteGenerator } from "./components/ColorPaletteGenerator/ColorPaletteGenerator";
 export { default as Carousel } from "./components/Carousel/Carousel";
-
+export { default as Progress } from "./components/Progress/Progress";
 export { useDarkMode, DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
-export { Provider, useStateValue } from "./stateManagment/stateManagment";
+export {
+  Provider,
+  configureStore,
+  createSlice,
+  createAction,
+  useDispatch,
+  useSelector,
+} from "./stateManagment/stateManagment";

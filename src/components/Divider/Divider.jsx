@@ -8,7 +8,7 @@ const Divider = forwardRef(
       orientation = "horizontal",
       position = "center",
       thickness = "1px",
-      color = "#ccc",
+      color = "#e4e4e7",
       className,
       children,
       margin,

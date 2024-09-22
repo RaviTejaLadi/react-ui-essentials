@@ -25,7 +25,7 @@ const ContentOverview = forwardRef(
     const itemWidth = `${100 / itemsPerRow}%`;
 
     return (
-      <Box ref={ref} className={className} style={style} {...rest}>
+      <Box ref={ref} className={className || ""} style={style} {...rest}>
         {courseData.map((course, index) => (
           <Fragment key={`${course.title.slice(0, 3)}-${index}`}>
             <Heading type="h3" className={styles.rue_Content_Overview_title} {...mainHeadingProps}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from "react";
+import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./TextHighlighter.module.css";
 
@@ -26,65 +26,51 @@ const defaultColors = [
   "#845EC2",
 ];
 
-const TextHighlighter = forwardRef(({ children, highlightText, colorsList = [], className, style, ...rest }, ref) => {
-  const [highlightedText, setHighlightedText] = useState(null);
+const TextHighlighter = forwardRef(
+  ({ children, highlightText = [], colorsList = [], className, style, ...rest }, ref) => {
+    const highlightedText = useMemo(() => {
+      if (!highlightText.length) {
+        return children;
+      }
 
-  useEffect(() => {
-    if (!highlightText?.length) {
-      setHighlightedText(children);
-      return;
-    }
-
-    const colors = [...colorsList, ...defaultColors];
-
-    const uniqueHighlightText = highlightText.filter((value, index, self) => {
-      return self.indexOf(value) === index;
-    });
-
-    const colorMap = {};
-
-    uniqueHighlightText.forEach((text, index) => {
-      return (colorMap[text] = colors[index % colors.length]);
-    });
-
-    const escapeRegExp = (str) => str?.toString()?.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") || "";
-
-    const highlightRegex = new RegExp(`\\b(${uniqueHighlightText.map(escapeRegExp).join("|")})\\b`, "gi");
-
-    const newHighlightedText = children.split(highlightRegex).map((part, index) => {
-      const matchedText = uniqueHighlightText?.find((text) => {
-        const trimmedText = typeof text === "string" ? text.trim().toLowerCase() : text;
-        const trimmedPart = part?.trim().toLowerCase();
-
-        const isMatch = trimmedPart === trimmedText;
-        return isMatch;
-      });
-
-      return matchedText ? (
-        <span key={index} className={styles.rue_higilitedText} style={{ backgroundColor: colorMap[matchedText] }}>
-          {part}
-        </span>
-      ) : (
-        <span key={index}>{part}</span>
+      const colors = [...colorsList, ...defaultColors];
+      const uniqueHighlightText = [...new Set(highlightText)];
+      const colorMap = Object.fromEntries(
+        uniqueHighlightText.map((text, index) => [text, colors[index % colors.length]])
       );
-    });
-    setHighlightedText(newHighlightedText);
-  }, [children, highlightText, colorsList]);
 
-  return (
-    <span ref={ref} className={className} style={style} {...rest}>
-      {highlightedText}
-    </span>
-  );
-});
+      const escapeRegExp = (str) => str?.toString()?.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") || "";
+      const highlightRegex = new RegExp(`\\b(${uniqueHighlightText.map(escapeRegExp).join("|")})\\b`, "gi");
+
+      return children.split(highlightRegex).map((part, index) => {
+        const matchedText = uniqueHighlightText.find((text) => text.trim().toLowerCase() === part.trim().toLowerCase());
+
+        return matchedText ? (
+          <span key={index} className={styles.rue_higilitedText} style={{ backgroundColor: colorMap[matchedText] }}>
+            {part}
+          </span>
+        ) : (
+          <span key={index}>{part}</span>
+        );
+      });
+    }, [children, highlightText, colorsList]);
+
+    return (
+      <span ref={ref} className={className || ""} style={style} {...rest}>
+        {highlightedText}
+      </span>
+    );
+  }
+);
 
 TextHighlighter.propTypes = {
   children: PropTypes.node.isRequired,
-  colorsList: PropTypes.arrayOf(PropTypes.string).isRequired,
-  highlightText: PropTypes.arrayOf(PropTypes.string).isRequired,
+  colorsList: PropTypes.arrayOf(PropTypes.string),
+  highlightText: PropTypes.arrayOf(PropTypes.string),
   className: PropTypes.string,
   style: PropTypes.object,
 };
 
 TextHighlighter.displayName = "TextHighlighter";
+
 export default TextHighlighter;

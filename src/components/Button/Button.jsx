@@ -28,7 +28,7 @@ const Button = forwardRef(
     };
     const buttonClasses = `${styles.rue_btn} ${variant ? `${styles[`rue_btn_${variant}`]}` : ""}  ${
       size ? `${styles[`rue_btn_${size}`]}` : ""
-    } ${className}`;
+    } ${className || ""}`;
 
     return (
       <button
@@ -47,12 +47,12 @@ const Button = forwardRef(
 );
 
 const ButtonIcon = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_icon} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_icon} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
 const ButtonText = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_text} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_text} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -76,10 +76,10 @@ Button.propTypes = {
   onClick: PropTypes.func,
   raised: PropTypes.bool,
   rounded: PropTypes.bool,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(["sm", "md", "lg", "xl", "xxl"]),
   style: PropTypes.object,
   type: PropTypes.string,
-  variant: PropTypes.string,
+  variant: PropTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "help", "light", "dark"]),
 };
 
 Button.Icon = ButtonIcon;

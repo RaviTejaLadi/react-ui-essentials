@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import styles from "./Tag.module.css";
 
 const Tag = forwardRef(({ children, variant = "primary", size = "sm", className, style, ...rest }, ref) => {
-  const classNames = `${styles.rue_tag} ${styles[`rue_tag_${variant}`]} ${styles[`rue_tag_${size}`]} ${className}`;
+  const classNames = `${styles.rue_tag} ${styles[`rue_tag_${variant}`]} ${styles[`rue_tag_${size}`]} ${
+    className || ""
+  }`;
 
   return (
     <span ref={ref} className={classNames} style={style} {...rest}>
@@ -13,7 +15,7 @@ const Tag = forwardRef(({ children, variant = "primary", size = "sm", className,
 });
 
 const TagIcon = ({ children, className, style, ...props }) => (
-  <span className={`${styles.rue_tag_icon} ${className}`} style={style} {...props}>
+  <span className={`${styles.rue_tag_icon} ${className || ""}`} style={style} {...props}>
     {children}
   </span>
 );
@@ -25,7 +27,7 @@ TagIcon.propTypes = {
 };
 
 const TagText = ({ children, className, style, ...props }) => (
-  <span className={`${styles.rue_tag_text} ${className}`} style={style} {...props}>
+  <span className={`${styles.rue_tag_text} ${className || ""}`} style={style} {...props}>
     {children}
   </span>
 );
@@ -37,7 +39,7 @@ TagText.propTypes = {
 };
 
 const TagCloseButton = ({ onClick, className, style, ...props }) => (
-  <button className={`${styles.rue_tag_close_button} ${className}`} style={style} onClick={onClick} {...props}>
+  <button className={`${styles.rue_tag_close_button} ${className || ""}`} style={style} onClick={onClick} {...props}>
     &times;
   </button>
 );

@@ -43,7 +43,7 @@ const Drawer = forwardRef(
           onClick={handleClose}
         />
         <div
-          className={`${styles.rue_drawer} ${getPositionClass()} ${isOpen ? styles.rue_open : ""} ${className}`}
+          className={`${styles.rue_drawer} ${getPositionClass()} ${isOpen ? styles.rue_open : ""} ${className || ""}`}
           style={positionStyles[position]}
         >
           {children}
@@ -67,7 +67,7 @@ Drawer.propTypes = {
 
 const DrawerHeader = ({ children, closeButton, onClose, className, style, ...rest }) => {
   return (
-    <div className={`${styles.rue_drawer_header} ${className}`} style={style} {...rest}>
+    <div className={`${styles.rue_drawer_header} ${className || ""}`} style={style} {...rest}>
       <div>{children}</div>
       {closeButton && <CloseButton onClick={onClose} />}
     </div>
@@ -84,7 +84,7 @@ DrawerHeader.propTypes = {
 
 const DrawerTitle = ({ children, className, style, ...rest }) => {
   return (
-    <div className={`${styles.rue_drawer_title} ${className}`} style={style} {...rest}>
+    <div className={`${styles.rue_drawer_title} ${className || ""}`} style={style} {...rest}>
       {children}
     </div>
   );
@@ -98,7 +98,7 @@ DrawerTitle.propTypes = {
 
 const DrawerBody = ({ children, style, className, ...rest }) => {
   return (
-    <div className={`${styles.rue_drawer_body} ${className}`} style={style} {...rest}>
+    <div className={`${styles.rue_drawer_body} ${className || ""}`} style={style} {...rest}>
       {children}
     </div>
   );

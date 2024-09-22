@@ -99,15 +99,9 @@ const EditableTable = forwardRef(({ headers, rows }, ref) => {
   };
 
   return (
-    <Box ref={ref} elevation={1} rounded margin="10px">
+    <Box ref={ref} shadow="sm" rounded margin="10px">
       {!isEditing && (
-        <Box
-          elevation={0}
-          margin="2px"
-          padding="3px"
-          rounded
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
+        <Box margin="2px" padding="3px" rounded style={{ display: "flex", justifyContent: "space-between" }}>
           <Button size="sm" variant="light" onClick={toggleEditMode}>
             <Button.Text>Edit</Button.Text>
           </Button>
@@ -118,13 +112,7 @@ const EditableTable = forwardRef(({ headers, rows }, ref) => {
       )}
       <div>
         {isEditing && (
-          <Box
-            elevation={0}
-            margin="2px"
-            padding="3px"
-            rounded
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
+          <Box margin="2px" padding="3px" rounded style={{ display: "flex", justifyContent: "space-between" }}>
             <Button size="sm" variant="light" onClick={saveChanges}>
               <Button.Text>Save</Button.Text>
             </Button>
@@ -141,15 +129,7 @@ const EditableTable = forwardRef(({ headers, rows }, ref) => {
           <p>Rows: {JSON.stringify(submittedData.rows)}</p>
         </div>
       )}
-      <Box
-        elevation={0}
-        width="calc(100% - 5px)"
-        height="100%"
-        margin=" 5px 2px"
-        padding="2px"
-        rounded
-        style={{ overflow: "auto" }}
-      >
+      <Box width="calc(100% - 5px)" height="100%" margin=" 5px 2px" padding="2px" rounded style={{ overflow: "auto" }}>
         <table className={styles.rue_editable_table}>
           <thead className={styles.rue_editable_table_thead}>
             <tr className={styles.rue_editable_table_tr}>

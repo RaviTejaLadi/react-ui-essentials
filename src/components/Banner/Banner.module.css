@@ -1,164 +1,174 @@
-.rue_banner_subtitle>a,
-.rue_banner_subtitle>a:hover {
-    text-decoration: none;
-    border: 1px solid transparent
-}
-
 .rue_banner_container {
-    box-sizing: border-box;
     display: flex;
-    flex-flow: wrap;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    background-color: #ecf2ff;
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 10px 20px;
     margin: 10px auto;
-    position: relative;
-    overflow: hidden
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.rue_banner_title_container {
+.rue_banner_content {
+    flex-grow: 1;
+}
+
+.rue_banner_controls {
     display: flex;
-    flex-direction: column;
-    width: 90%
-}
-
-.rue_banner_subtitle,
-.rue_banner_title {
-    height: 50%
+    align-items: center;
+    gap: 10px;
 }
 
 .rue_banner_title {
-    margin-top: 10px;
-    margin-left: 10px;
+    margin: 0;
     font-weight: 600;
     font-size: 1.3125rem;
-    line-height: 1.6rem
+    line-height: 1.6rem;
 }
 
 .rue_banner_subtitle {
-    margin-top: 10px;
-    margin-left: 15px;
-    display: flex;
-    border: 1px solid transparent;
-    gap: .5rem
-}
-
-.rue_banner_logo {
-    width: 10%
-}
-
-.rue_banner_logo>img {
-    width: 90px;
-    height: 90px
-}
-
-.rue_banner_primary {
-    color: #fff !important;
-    background-color: #007bff
-}
-
-.rue_banner_primary:hover {
-    color: #fff !important;
-    background-color: #007bffdf;
-    border-color: #0062cc
-}
-
-.rue_banner_secondary {
-    color: #fff !important;
-    background-color: #6c757d;
-    border-color: #6c757d
-}
-
-.rue_banner_secondary:hover {
-    color: #fff !important;
-    background-color: #5a6268;
-    border-color: #545b62
-}
-
-.rue_banner_success {
-    color: #fff;
-    background-color: #28a745;
-    border-color: #28a745
-}
-
-.rue_banner_success:hover {
-    color: #fff;
-    background-color: #218838;
-    border-color: #1e7e34
-}
-
-.rue_banner_info {
-    color: #fff;
-    background-color: #17a2b8;
-    border-color: #17a2b8
-}
-
-.rue_banner_info:hover {
-    color: #fff;
-    background-color: #138496;
-    border-color: #117a8b
-}
-
-.rue_banner_warning {
-    color: #212529;
-    background-color: #ffc107;
-    border-color: #ffc107
-}
-
-.rue_banner_warning:hover {
-    color: #212529;
-    background-color: #e0a800;
-    border-color: #d39e00
-}
-
-.rue_banner_danger {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545
-}
-
-.rue_banner_danger:hover {
-    color: #fff;
-    background-color: #c82333;
-    border-color: #bd2130
-}
-
-.rue_banner_light {
-    color: #979da3;
-    background-color: #f8f9fa;
-    border-color: #f8f9fa
-}
-
-.rue_banner_lg,
-.rue_banner_sm {
-    border: transparent;
-    line-height: 1.5 !important;
-    width: 100%;
-    border-radius: .5rem !important
-}
-
-.rue_banner_light:hover {
-    color: #979da3;
-    background-color: #e2e6ea;
-    border-color: #dae0e5
+    margin: 5px 0 0;
+    font-size: 1rem;
+    line-height: 1.4rem;
 }
 
 .rue_banner_sm {
-    padding: .25rem .5rem !important;
-    height: 5rem !important
-}
-
-.rue_banner_lg {
-    padding: .5rem 1rem !important;
-    height: 7rem !important
+    padding: 0.5rem 0.5rem;
+    font-size: 0.875rem !important;
 }
 
 .rue_banner_md {
-    line-height: 1.5 !important;
-    padding: .375rem .75rem !important;
-    border: transparent;
-    border-radius: .5rem !important;
-    width: 100%;
-    height: 6rem !important
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.rue_banner_lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+}
+
+.rue_banner_primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.rue_banner_secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.rue_banner_success {
+    background-color: #28a745;
+    color: white;
+}
+
+.rue_banner_danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.rue_banner_warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.rue_banner_info {
+    background-color: #17a2b8;
+    color: #ffffff;
+}
+
+.rue_banner_help {
+    color: #ffffff;
+    background-color: #6f42c1;
+}
+
+.rue_banner_light {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.rue_banner_dark {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+.rue_banner_primary:hover {
+    background-color: #0056b3;
+}
+
+.rue_banner_secondary:hover {
+    background-color: #545b62;
+}
+
+.rue_banner_success:hover {
+    background-color: #1e7e34;
+}
+
+.rue_banner_danger:hover {
+    background-color: #bd2130;
+}
+
+.rue_banner_warning:hover {
+    background-color: #d39e00;
+}
+
+.rue_banner_info:hover {
+    background-color: #117a8b;
+}
+
+.rue_banner_help:hover {
+    background-color: #5d3bb4;
+}
+
+.rue_banner_light:hover {
+    background-color: #dae0e5;
+}
+
+.rue_banner_dark:hover {
+    background-color: #23272b;
+}
+
+.rue_banner_rounded {
+    border-radius: 25px;
+}
+
+.rue_banner_shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rue_banner_border {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+@media (max-width: 768px) {
+    .rue_banner_container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rue_banner_controls {
+        margin-top: 10px;
+    }
+}
+
+.rue_banner_container:focus {
+    outline: 2px solid #4285f4;
+    outline-offset: 2px;
+}
+
+@keyframes bannerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rue_banner_animate {
+    animation: bannerFadeIn 0.3s ease-out;
 }

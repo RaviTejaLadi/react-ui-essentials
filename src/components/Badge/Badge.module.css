@@ -66,6 +66,12 @@
 
 }
 
+.rue_badge_help {
+    background-color: #8a2be2;
+    color: #fff;
+    width: fit-content;
+}
+
 .rue_badge_light {
     background-color: #f8f9fa;
     color: #212529;

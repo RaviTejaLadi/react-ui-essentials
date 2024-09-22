@@ -1,4 +1,3 @@
-// Range.js
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import styles from "./Range.module.css";
@@ -40,4 +39,3 @@ Range.propTypes = {
 Range.displayName = "Range";
 
 export default Range;
-

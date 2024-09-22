@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import styles from "./HeaderCard.module.css";
 
 const Header = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_header} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_header} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -15,7 +15,7 @@ Header.propTypes = {
 };
 
 const Title = ({ children, className, style, ...rest }) => (
-  <h2 className={`${styles.rue_title} ${className}`} style={style} {...rest}>
+  <h2 className={`${styles.rue_title} ${className || ""}`} style={style} {...rest}>
     {children}
   </h2>
 );
@@ -27,7 +27,7 @@ Title.propTypes = {
 };
 
 const Content = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_content} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_content} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -52,7 +52,7 @@ const HeaderCard = forwardRef(({ children, width, height, padding, margin, class
   };
 
   return (
-    <div ref={ref} className={`${styles.rue_card}`} style={cardStyle} {...rest}>
+    <div ref={ref} className={`${styles.rue_card} ${className || ""}`} style={cardStyle} {...rest}>
       {React.Children.map(children, (child) => {
         if (child.type === Header) {
           return child;

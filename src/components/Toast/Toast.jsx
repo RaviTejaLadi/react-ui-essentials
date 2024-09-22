@@ -40,7 +40,7 @@ const Toast = forwardRef(
       isVisible && styles.show,
       isHiding && styles.hide,
       rounded && styles.rounded,
-      className,
+      className || "",
     ]
       .filter(Boolean)
       .join(" ");

@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import styles from "./FlexibleCard.module.css";
 
 const Image = ({ src, alt, className, style, ...rest }) => (
-  <div className={`${styles.rue_imageWrapper} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_imageWrapper} ${className || ""}`} style={style} {...rest}>
     <img src={src} alt={alt} className={styles.rue_image} />
   </div>
 );
@@ -16,7 +16,7 @@ Image.propTypes = {
 };
 
 const Title = ({ children, className, style, ...rest }) => (
-  <h2 className={`${styles.rue_title}  ${className}`} style={style} {...rest}>
+  <h2 className={`${styles.rue_title}  ${className || ""}`} style={style} {...rest}>
     {children}
   </h2>
 );
@@ -28,7 +28,7 @@ Title.propTypes = {
 };
 
 const Subtitle = ({ children, className, style, ...rest }) => (
-  <h3 className={`${styles.rue_subtitle} ${className}`} style={style} {...rest}>
+  <h3 className={`${styles.rue_subtitle} ${className || ""}`} style={style} {...rest}>
     {children}
   </h3>
 );
@@ -40,7 +40,7 @@ Subtitle.propTypes = {
 };
 
 const Content = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_content}  ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_content}  ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -52,7 +52,7 @@ Content.propTypes = {
 };
 
 const ButtonGroup = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_buttonGroup}  ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_buttonGroup}  ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
@@ -77,7 +77,7 @@ const FlexibleCard = forwardRef(
     const otherChildren = React.Children.toArray(children).filter((child) => child.type !== Image);
 
     return (
-      <div ref={ref} className={`${styles.rue_card} ${className}`} style={cardStyle} {...rest}>
+      <div ref={ref} className={`${styles.rue_card} ${className || ""}`} style={cardStyle} {...rest}>
         {imageChild}
         <div className={styles.rue_contentContainer} style={{ padding: padding || "40px" }}>
           {otherChildren}

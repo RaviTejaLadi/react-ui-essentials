@@ -86,7 +86,7 @@ const Heading = forwardRef(
     return (
       <Component
         ref={ref}
-        className={`${styles.rue_heading} ${getVariantClass()} ${className}`}
+        className={`${styles.rue_heading} ${getVariantClass()} ${className || ""}`}
         style={headingStyle}
         {...rest}
       >

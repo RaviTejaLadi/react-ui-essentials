@@ -1,0 +1,95 @@
+.progressBarContainer {
+    width: 100%;
+    background-color: #d1d1d1;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease;
+}
+
+.progressText {
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.sm {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.md {
+    height: 15px;
+    border-radius: 8px;
+}
+
+.lg {
+    height: 20px;
+    border-radius: 10px;
+}
+
+.primary {
+    background-color: #007bff;
+}
+
+.secondary {
+    background-color: #6c757d;
+}
+
+.success {
+    background-color: #28a745;
+}
+
+.danger {
+    background-color: #dc3545;
+}
+
+.warning {
+    background-color: #ffc107;
+}
+
+.info {
+    background-color: #17a2b8;
+}
+
+.help {
+    background-color: #8a2be2;
+}
+
+.light {
+    background-color: #f8f9fa;
+}
+
+.dark {
+    background-color: #343a40;
+}
+
+.zigzag {
+    background-image:
+        linear-gradient(45deg,
+            rgba(255, 255, 255, 0.15) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.15) 50%,
+            rgba(255, 255, 255, 0.15) 75%,
+            transparent 75%,
+            transparent);
+    background-size: 15px 15px;
+    animation: moveZigzag 2s linear infinite;
+}
+
+@keyframes moveZigzag {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 40px 0;
+    }
+}

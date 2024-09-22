@@ -63,7 +63,7 @@ const GridLines = forwardRef(
       scale,
     ]);
     return (
-      <ComponentProp className={className} ref={ref} style={{ backgroundImage: bg }} {...rest}>
+      <ComponentProp className={className || ""} ref={ref} style={{ backgroundImage: bg }} {...rest}>
         {children}
       </ComponentProp>
     );

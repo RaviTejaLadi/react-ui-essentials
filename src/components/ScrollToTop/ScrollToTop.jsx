@@ -45,7 +45,7 @@ const ScrollToTop = forwardRef(
         {visible && (
           <button
             ref={ref}
-            className={`${styles.rue_scroll_to_top} ${className}`}
+            className={`${styles.rue_scroll_to_top} ${className || ""}`}
             onClick={() => ToTop(smooth)}
             aria-label="Scroll to top"
             {...props}

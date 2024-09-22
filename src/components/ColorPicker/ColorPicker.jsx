@@ -9,7 +9,7 @@ const ColorPicker = forwardRef(
       ...style,
     };
     return (
-      <div ref={ref} className={`${styles.rue_color_container}  ${className}`} style={contStyles} {...rest}>
+      <div ref={ref} className={`${styles.rue_color_container}  ${className || ""}`} style={contStyles} {...rest}>
         <div className={styles.rue_colorpicker_Title}>
           <span style={{ fontSize: "0.8125rem", fontWeight: "500" }}>{title}</span>
           <span style={{ fontSize: "0.8125rem", fontWeight: "500" }}>{value}</span>

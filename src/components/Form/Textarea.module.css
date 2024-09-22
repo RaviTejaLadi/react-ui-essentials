@@ -1,0 +1,32 @@
+.rue_textarea {
+    width: 100%;
+    border: 1px solid hsl(240, 5.9%, 90%);
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);
+    min-height: 100px;
+    resize: vertical;
+}
+
+.rue_textarea:focus-visible {
+    outline: transparent solid 2px;
+    outline-offset: 2px;
+    border-color: #007bff;
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, .25)
+}
+
+
+.sm.rue_textarea {
+    padding: 6px;
+    font-size: 12px;
+}
+
+.md.rue_textarea {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.lg.rue_textarea {
+    padding: 10px;
+    font-size: 16px;
+}

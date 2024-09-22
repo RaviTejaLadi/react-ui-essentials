@@ -14,7 +14,7 @@ const LinkButton = forwardRef(
     };
     const LinkbuttonClasses = `${styles.rue_link} ${variant ? `${styles[`rue_link_${variant}`]}` : ""}  ${
       size ? `${styles[`rue_link_${size}`]}` : ""
-    } ${className}`;
+    } ${className || ""}`;
 
     return (
       <Link ref={ref} className={LinkbuttonClasses} style={buttonStyle} to={to} {...rest}>
@@ -25,13 +25,13 @@ const LinkButton = forwardRef(
 );
 
 const LinkIcon = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_icon} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_icon} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );
 
 const LinkText = ({ children, className, style, ...rest }) => (
-  <div className={`${styles.rue_text} ${className}`} style={style} {...rest}>
+  <div className={`${styles.rue_text} ${className || ""}`} style={style} {...rest}>
     {children}
   </div>
 );

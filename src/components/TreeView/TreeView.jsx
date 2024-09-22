@@ -28,7 +28,7 @@ const TreeNode = forwardRef(({ node, parentChecked, showCheckBox, onCheckChange,
     ...style,
   };
   return (
-    <div ref={ref} className={className} style={nodeStyle} {...rest}>
+    <div ref={ref} className={className || ""} style={nodeStyle} {...rest}>
       {showCheckBox && (
         <input
           type="checkbox"
@@ -105,7 +105,7 @@ const TreeView = forwardRef(({ data, showCheckBox, className, style, ...rest }, 
   const checkedHierarchy = filterCheckedNodes(checkedNodes);
 
   return (
-    <div ref={ref} className={className} style={style} {...rest}>
+    <div ref={ref} className={className || ""} style={style} {...rest}>
       <TreeNode node={data} showCheckBox={showCheckBox} onCheckChange={handleCheckChange} parentChecked={undefined} />
       {showCheckBox && (
         <pre>

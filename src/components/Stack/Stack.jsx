@@ -5,7 +5,7 @@ import Box from "../Box/Box";
 
 const Item = ({ children, className, style, ...rest }) => {
   return (
-    <Box className={className} style={style} {...rest}>
+    <Box className={className || ""} style={style} {...rest}>
       {children}
     </Box>
   );
@@ -41,7 +41,7 @@ const Stack = forwardRef(
       styles[`alignItems${alignItems.charAt(0).toUpperCase() + alignItems.slice(1)}`],
       styles[` alignContent${alignContent.charAt(0).toUpperCase() + alignContent.slice(1)}`],
       styles[flexWrap],
-      className,
+      className || "",
     ]
       .filter(Boolean)
       .join(" ");

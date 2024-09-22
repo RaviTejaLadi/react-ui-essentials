@@ -25,7 +25,7 @@ const Spinner = forwardRef(({ variant = "primary", size = "md", className, style
   const dimensions = sizeMap[size];
 
   return (
-    <div ref={ref} {...rest} className={`${styles.spinner} ${className}`} style={style}>
+    <div ref={ref} className={`${styles.spinner} ${className || ""}`} style={style} {...rest}>
       <svg width={dimensions} height={dimensions} viewBox="-1 -1 42 42" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id={`spinner-gradient-${variant}`}>

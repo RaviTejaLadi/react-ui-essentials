@@ -1,74 +1,70 @@
-.rue_non_ideal_state{
+.rue_non_ideal_state {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 5rem;
-    padding-bottom: 7.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    padding: 5rem 2rem 7.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     max-width: 100%;
-    margin-left: unset;
-    margin-right: unset
-}
-
-.rue_non_ideal_state_header {
+  }
+  
+  .rue_non_ideal_state_header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px
-}
-
-.rue_non_ideal_state_icon {
-    font-size: 40px;
-    margin-right: 10px
-}
-
-.rue_non_ideal_state_title {
+    margin-bottom: 2rem;
+  }
+  
+  .rue_non_ideal_state_icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .rue_non_ideal_state_title {
     text-align: center;
     font-weight: 500;
     font-size: 2.375rem;
-    color: #fff
-}
-
-.rue_non_ideal_state_status_code {
+  }
+  
+  .rue_non_ideal_state_status_code {
     text-align: center;
     font-weight: 900;
     font-size: 8.75rem;
     line-height: 1;
     margin-bottom: calc(2rem * 1.5);
-    color: #74c0fc
-}
-
-.rue_non_ideal_state_description {
+  }
+  
+  .rue_non_ideal_state_description {
     max-width: 33.75rem;
     margin: 2rem auto auto;
     margin-bottom: calc(2rem * 1.5);
-    color: #d0ebff
-}
-
-.rue_non_ideal_state_buttons {
-    display: flex
-}
-
-.rue_non_ideal_state_buttons button {
-    margin: 0 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer
-}
-
-.button1 {
-    background-color: #007bff;
-    color: #fff
-}
-
-.button2 {
-    background-color: #dc3545;
-    color: #fff
-}
+  }
+  
+  .rue_non_ideal_state_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .rue_non_ideal_state {
+      padding: 3rem 1rem 5rem;
+    }
+  
+    .rue_non_ideal_state_status_code {
+      font-size: 6rem;
+    }
+  
+    .rue_non_ideal_state_title {
+      font-size: 2rem;
+    }
+  
+    .rue_non_ideal_state_description {
+      font-size: 1rem;
+    }
+  }

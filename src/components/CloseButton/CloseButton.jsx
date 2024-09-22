@@ -7,7 +7,7 @@ const CloseButton = forwardRef(
   ({ variant = "light", size = "sm", onClick, disabled, className, style, ...rest }, ref) => {
     const buttonClasses = `${styles.rue_close_btn} ${variant ? styles[`rue_close_btn_${variant}`] : ""} ${
       size ? styles[`rue_close_btn_${size}`] : ""
-    } ${className} `;
+    } ${className || ""} `;
 
     const closeIconSize = {
       height: size === "sm" ? "15px" : size === "md" ? "20px" : size === "lg" ? "25px" : "20px",
