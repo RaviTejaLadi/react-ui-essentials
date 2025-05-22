@@ -43,7 +43,7 @@ const TextHighlighter = forwardRef(
       const highlightRegex = new RegExp(`\\b(${uniqueHighlightText.map(escapeRegExp).join("|")})\\b`, "gi");
 
       return children.split(highlightRegex).map((part, index) => {
-        const matchedText = uniqueHighlightText.find((text) => text.trim().toLowerCase() === part.trim().toLowerCase());
+        const matchedText = uniqueHighlightText.find((text) => text?.trim()?.toLowerCase() === part?.trim().toLowerCase());
 
         return matchedText ? (
           <span key={index} className={styles.rue_higilitedText} style={{ backgroundColor: colorMap[matchedText] }}>

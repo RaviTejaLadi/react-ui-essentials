@@ -35,17 +35,17 @@
 .tableBody td,
 .tableFooter {
     height: 3rem;
-    padding: 0 1rem;
+    padding: .5rem;
     border-bottom: 1px solid hsl(var(--border));
 }
 
 .tableBody:not(:has(+ .tableFooter)) .tableRow:last-child td {
     border-bottom: none;
-  }
-  
-  .tableFooter {
+}
+
+.tableFooter {
     border-top: 1px solid hsl(var(--border));
-  }
+}
 
 .tableCell:first-child {
     padding-left: 1.5rem;

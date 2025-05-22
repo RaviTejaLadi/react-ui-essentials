@@ -4,7 +4,10 @@
   "description": "React-ui-essentials is an open-source React component library built with React. It's comprehensive and can be used in production out of the box. Made with create-react-library",
   "author": "Ravi Teja Ladi",
   "license": "MIT",
-  "repository": "Ravi Teja Ladi/react-ui-essentials",
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/RaviTejaLadi/react-ui-essentials"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
