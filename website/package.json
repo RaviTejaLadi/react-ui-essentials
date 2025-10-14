@@ -20,7 +20,7 @@
     "svgson": "^5.3.1",
     "commander": "^10.0.1",
     "globby": "^13.1.4",
-    "highlight.js": "^11.9.0",
+    "highlight.js": "^11.11.1",
     "html2pdf.js": "^0.10.1",
     "htmltojsx": "^0.3.0",
     "polished": "^4.3.1",
